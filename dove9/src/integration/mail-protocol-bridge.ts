@@ -193,14 +193,26 @@ export class MailProtocolBridge {
   private calculatePriority(mail: MailMessage): number {
     let priority = this.defaultPriority;
 
+    // Higher priority for direct messages (single recipient)
+    if (mail.to.length === 1) {
+      priority += 2;
+    }
+
     // Increase priority for flagged messages
     if (mail.flags?.includes(MailFlag.FLAGGED)) {
       priority += 2;
     }
 
     // Increase priority for replies (threading)
-    if (mail.inReplyTo) {
+    if (mail.inReplyTo || mail.subject.toLowerCase().startsWith('re:')) {
       priority += 1;
+    }
+
+    // Check for urgent markers in subject
+    const urgentMarkers = ['urgent', 'important', 'asap', 'priority', 'critical'];
+    const subjectLower = mail.subject.toLowerCase();
+    if (urgentMarkers.some((marker) => subjectLower.includes(marker))) {
+      priority += 3;
     }
 
     // Decrease priority for large messages

@@ -120,7 +120,7 @@ describe('MailProtocolBridge', () => {
       const baseMail: MailMessage = {
         messageId: '<test@example.com>',
         from: 'user@example.com',
-        to: ['echo@dove9.local'],
+        to: ['echo@dove9.local'], // Single recipient gets +2
         subject: 'Test',
         body: 'Test',
         headers: new Map(),
@@ -130,13 +130,19 @@ describe('MailProtocolBridge', () => {
       };
 
       const normal = bridge.mailToProcess(baseMail);
-      expect(normal.priority).toBe(5); // Default
+      expect(normal.priority).toBe(7); // Default 5 + 2 for single recipient
+
+      const groupMail = bridge.mailToProcess({ 
+        ...baseMail, 
+        to: ['a@example.com', 'b@example.com', 'c@example.com']  // Multiple recipients
+      });
+      expect(groupMail.priority).toBe(5); // Default 5, no single recipient bonus
 
       const flagged = bridge.mailToProcess({ ...baseMail, flags: [MailFlag.FLAGGED] });
-      expect(flagged.priority).toBe(7); // +2 for flagged
+      expect(flagged.priority).toBe(9); // 5 + 2 (single) + 2 (flagged)
 
       const reply = bridge.mailToProcess({ ...baseMail, inReplyTo: '<parent@example.com>' });
-      expect(reply.priority).toBe(6); // +1 for reply
+      expect(reply.priority).toBe(8); // 5 + 2 (single) + 1 (reply)
     });
 
     it('should create cognitive context with salience', () => {

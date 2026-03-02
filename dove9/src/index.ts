@@ -37,19 +37,13 @@ import {
   KernelEvent,
   KernelMetrics,
 } from './types/index.js';
+import { MailProtocolBridge } from './integration/mail-protocol-bridge.js';
+import type { MailMessage as MailMessageType } from './types/mail.js';
 
 /**
- * Mail message input format
+ * Mail message input format (re-export from types)
  */
-export interface MailMessage {
-  messageId: string;
-  from: string;
-  to: string[];
-  subject: string;
-  body: string;
-  headers?: Map<string, string>;
-  receivedAt?: Date;
-}
+export type MailMessage = MailMessageType;
 
 /**
  * Dove9 System configuration
@@ -84,6 +78,7 @@ export class Dove9System extends EventEmitter {
   private running: boolean = false;
 
   // Mail integration
+  private mailBridge: MailProtocolBridge;
   private pendingMail: Map<string, MailMessage> = new Map();
   private processToMail: Map<string, string> = new Map();
 
@@ -94,6 +89,12 @@ export class Dove9System extends EventEmitter {
       ...DEFAULT_DOVE9_CONFIG,
       ...config,
     };
+
+    // Create the mail protocol bridge
+    this.mailBridge = new MailProtocolBridge({
+      defaultPriority: 5,
+      enableThreading: true,
+    });
 
     // Create the Deep Tree Echo processor
     this.processor = new DeepTreeEchoProcessor(
@@ -142,28 +143,33 @@ export class Dove9System extends EventEmitter {
   }
 
   /**
-   * Process an incoming mail message
+   * Process an incoming mail message using MailProtocolBridge
    */
   public async processMailMessage(mail: MailMessage): Promise<MessageProcess> {
     // Store the original mail
     this.pendingMail.set(mail.messageId, mail);
 
-    // Create a process for this message
-    const process = this.kernel.createProcess(
+    // Convert mail to process using the bridge
+    const process = this.mailBridge.mailToProcess(mail);
+    
+    // Register the process with the kernel
+    // Note: We need to use the kernel's internal process registration
+    // For now, we'll still use createProcess but with bridge-calculated priority
+    const kernelProcess = this.kernel.createProcess(
       mail.messageId,
       mail.from,
       mail.to,
       mail.subject,
       mail.body,
-      this.calculatePriority(mail)
+      process.priority
     );
 
     // Map process to mail
-    this.processToMail.set(process.id, mail.messageId);
+    this.processToMail.set(kernelProcess.id, mail.messageId);
 
-    this.emit('mail_received', { mail, process });
+    this.emit('mail_received', { mail, process: kernelProcess });
 
-    return process;
+    return kernelProcess;
   }
 
   /**
@@ -240,7 +246,7 @@ export class Dove9System extends EventEmitter {
   }
 
   /**
-   * Generate a mail response from cognitive result
+   * Generate a mail response from cognitive result using MailProtocolBridge
    */
   private generateMailResponse(mail: MailMessage, result: any): MailMessage {
     const responseBody =
@@ -248,14 +254,14 @@ export class Dove9System extends EventEmitter {
       result.thoughtData?.response ||
       'Thank you for your message. I have processed it.';
 
-    return {
-      messageId: `response_${mail.messageId}_${Date.now()}`,
-      from: this.config.botEmailAddress || 'echo@localhost',
-      to: [mail.from],
-      subject: `Re: ${mail.subject}`,
-      body: responseBody,
-      receivedAt: new Date(),
-    };
+    // Convert the original mail to a process
+    const process = this.mailBridge.mailToProcess(mail);
+    
+    // Mark process as completed
+    process.state = 'completed' as any;
+    
+    // Convert process back to mail with the response
+    return this.mailBridge.processToMail(process, responseBody);
   }
 
   /**
