@@ -20,6 +20,7 @@ export * from './types/index.js';
 export * from './cognitive/triadic-engine.js';
 export * from './cognitive/deep-tree-echo-processor.js';
 export * from './core/kernel.js';
+export * from './integration/mail-protocol-bridge.js';
 
 import { EventEmitter } from 'events';
 import { Dove9Kernel } from './core/kernel.js';
