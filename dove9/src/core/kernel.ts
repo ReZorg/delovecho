@@ -718,14 +718,17 @@ export class Dove9Kernel extends EventEmitter {
 
     // Format cognitive context as response
     const ctx = process.cognitiveContext;
-    return `[Cognitive Process Complete]
-Subject: ${process.subject}
-Priority: ${process.priority}
-Salience: ${ctx.salienceScore.toFixed(2)}
-Emotional Valence: ${ctx.emotionalValence.toFixed(2)}
-Emotional Arousal: ${ctx.emotionalArousal.toFixed(2)}
-Active Couplings: ${ctx.activeCouplings.join(', ') || 'none'}
-
-Processing completed at step ${process.currentStep} of cycle.`;
+    const lines = [
+      '[Cognitive Process Complete]',
+      `Subject: ${process.subject}`,
+      `Priority: ${process.priority}`,
+      `Salience: ${ctx.salienceScore.toFixed(2)}`,
+      `Emotional Valence: ${ctx.emotionalValence.toFixed(2)}`,
+      `Emotional Arousal: ${ctx.emotionalArousal.toFixed(2)}`,
+      `Active Couplings: ${ctx.activeCouplings.join(', ') || 'none'}`,
+      '',
+      `Processing completed at step ${process.currentStep} of cycle.`,
+    ];
+    return lines.join('\n');
   }
 }

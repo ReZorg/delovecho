@@ -64,6 +64,7 @@ export interface BridgeStats {
   averageResponseTimeMs: number;
   innerMembraneUsage: number;
   outerMembraneUsage: number;
+  hybridMembraneUsage: number;
   activeRequests: number;
   lastRequestTime?: Date;
 }
@@ -126,6 +127,7 @@ export class MembraneMailBridge extends EventEmitter {
       averageResponseTimeMs: 0,
       innerMembraneUsage: 0,
       outerMembraneUsage: 0,
+      hybridMembraneUsage: 0,
       activeRequests: 0,
     };
   }
@@ -449,15 +451,14 @@ export class MembraneMailBridge extends EventEmitter {
       (this.stats.averageResponseTimeMs * (this.stats.requestsProcessed - 1) + result.processingTimeMs) /
       this.stats.requestsProcessed;
 
-    // Update membrane usage
+    // Update membrane usage with clear integer counts
     if (result.source === 'inner') {
       this.stats.innerMembraneUsage++;
     } else if (result.source === 'outer') {
       this.stats.outerMembraneUsage++;
     } else {
-      // Hybrid: count for both
-      this.stats.innerMembraneUsage += 0.5;
-      this.stats.outerMembraneUsage += 0.5;
+      // Hybrid: track separately for clear statistics
+      this.stats.hybridMembraneUsage++;
     }
   }
 

@@ -136,6 +136,8 @@ export class Sys6Dove9Synchronizer extends EventEmitter {
   private running: boolean = false;
   private cycleInterval: ReturnType<typeof setInterval> | null = null;
   private processSchedule: Map<string, OperadicScheduleResult>;
+  private startTimestamp: number = 0;
+  private driftHistory: number[] = [];
 
   constructor(
     sys6Engine: Sys6CycleEngine,
@@ -188,6 +190,8 @@ export class Sys6Dove9Synchronizer extends EventEmitter {
 
     this.running = true;
     this.state = this.initializeState();
+    this.startTimestamp = Date.now();
+    this.driftHistory = [];
 
     // Start the grand cycle timer
     this.cycleInterval = setInterval(() => {
@@ -213,8 +217,6 @@ export class Sys6Dove9Synchronizer extends EventEmitter {
    * Advance the grand cycle by one step
    */
   private advanceGrandCycle(): void {
-    const startTime = Date.now();
-
     this.state.currentStep++;
 
     // Calculate current positions in each cycle
@@ -269,8 +271,14 @@ export class Sys6Dove9Synchronizer extends EventEmitter {
 
     // Calculate drift from ideal timing
     const expectedTime = this.state.currentStep * this.config.stepDuration;
-    const actualTime = Date.now() - startTime;
-    this.state.driftMs = actualTime - expectedTime;
+    const actualElapsedTime = Date.now() - this.startTimestamp;
+    this.state.driftMs = actualElapsedTime - expectedTime;
+
+    // Track drift history for statistics
+    this.driftHistory.push(this.state.driftMs);
+    if (this.driftHistory.length > 100) {
+      this.driftHistory.shift();
+    }
 
     if (Math.abs(this.state.driftMs) > this.config.stepDuration * this.config.syncTolerance) {
       this.emitEvent({ type: 'drift_warning', driftMs: this.state.driftMs });
@@ -497,8 +505,9 @@ export class Sys6Dove9Synchronizer extends EventEmitter {
     averageDriftMs: number;
     syncPointCount: number;
   } {
-    const drifts = this.state.syncPoints.map(p => 0); // Placeholder for drift calculation
-    const avgDrift = drifts.length > 0 ? drifts.reduce((a, b) => a + b, 0) / drifts.length : 0;
+    const avgDrift = this.driftHistory.length > 0 
+      ? this.driftHistory.reduce((a, b) => a + Math.abs(b), 0) / this.driftHistory.length 
+      : 0;
 
     return {
       grandCycles: this.state.currentGrandCycle,

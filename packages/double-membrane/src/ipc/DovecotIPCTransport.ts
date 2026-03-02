@@ -457,7 +457,7 @@ export class DovecotIPCTransport extends EventEmitter {
    */
   private generateMessageId(): string {
     this.messageCounter++;
-    return `<${Date.now()}.${this.messageCounter}.${Math.random().toString(36).substr(2, 9)}@${this.getMailDomain()}>`;
+    return `<${Date.now()}.${this.messageCounter}.${Math.random().toString(36).substring(2, 11)}@${this.getMailDomain()}>`;
   }
 
   /**
