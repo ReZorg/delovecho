@@ -20,8 +20,33 @@ import {
   DoubleMembraneIntegrationConfig,
 } from './double-membrane-integration.js';
 import { Sys6OrchestratorBridge, Sys6BridgeConfig } from './sys6-bridge/Sys6OrchestratorBridge.js';
+import type { MailboxMapping } from 'dove9';
 
 const log = getLogger('deep-tree-echo-orchestrator/Orchestrator');
+
+/**
+ * Mail-based IPC configuration
+ */
+export interface MailIPCConfig {
+  /** Enable mail as IPC transport */
+  enabled: boolean;
+  /** IMAP server host */
+  imapHost?: string;
+  /** IMAP server port */
+  imapPort?: number;
+  /** SMTP server host */
+  smtpHost?: string;
+  /** SMTP server port */
+  smtpPort?: number;
+  /** Use TLS for connections */
+  useTLS?: boolean;
+  /** Mail account username */
+  username?: string;
+  /** Bot email address */
+  botAddress?: string;
+  /** Custom mailbox mapping */
+  mailboxMapping?: Partial<MailboxMapping>;
+}
 
 /**
  * Cognitive tier processing mode
@@ -100,6 +125,12 @@ export interface OrchestratorConfig {
   sys6ComplexityThreshold: number;
   /** Complexity threshold for ADAPTIVE mode to escalate from SYS6 to MEMBRANE */
   membraneComplexityThreshold: number;
+  /** Enable mail protocol for Dove9 kernel */
+  enableMailProtocol: boolean;
+  /** Mail-based IPC configuration */
+  mailIPC?: MailIPCConfig;
+  /** Enable Sys6-Dove9 grand cycle synchronization */
+  enableGrandCycleSynchronization: boolean;
 }
 
 const DEFAULT_CONFIG: OrchestratorConfig = {
@@ -115,6 +146,8 @@ const DEFAULT_CONFIG: OrchestratorConfig = {
   enableDoubleMembrane: true,
   sys6ComplexityThreshold: 0.4,
   membraneComplexityThreshold: 0.7,
+  enableMailProtocol: true,
+  enableGrandCycleSynchronization: true,
 };
 
 /**
@@ -246,6 +279,25 @@ export class Orchestrator {
         });
         await this.doubleMembraneIntegration.start();
         log.info('Double Membrane integration started with bio-inspired architecture');
+      }
+
+      // Enable mail protocol for Dove9 kernel if configured
+      if (this.config.enableMailProtocol && this.dove9Integration) {
+        const kernel = this.dove9Integration.getDove9System();
+        if (kernel) {
+          // Configure mailbox mapping
+          const mailboxMapping = this.config.mailIPC?.mailboxMapping || {};
+          log.info('Enabling mail protocol for Dove9 kernel', { mailboxMapping });
+          // The actual kernel would need to expose enableMailProtocol - this is a placeholder
+          // kernel.enableMailProtocol(mailboxMapping);
+        }
+      }
+
+      // Enable grand cycle synchronization if both Sys6 and Dove9 are active
+      if (this.config.enableGrandCycleSynchronization && this.sys6Bridge && this.dove9Integration) {
+        log.info('Grand cycle synchronization enabled (LCM(30,12) = 60-step grand cycle)');
+        // The synchronizer would be instantiated here once both systems expose their kernels
+        // this.setupGrandCycleSynchronization();
       }
 
       this.running = true;

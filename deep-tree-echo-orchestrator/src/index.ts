@@ -10,6 +10,7 @@ export {
   Orchestrator,
   type OrchestratorConfig,
   type CognitiveTierMode,
+  type MailIPCConfig,
 } from './orchestrator.js';
 
 // DeltaChat Interface
