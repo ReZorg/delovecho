@@ -1,0 +1,26 @@
+packages:
+  - deep-tree-echo-core
+  - deep-tree-echo-orchestrator
+  - dove9
+  - packages/cognitive
+  - packages/reasoning
+  - packages/shared
+  - packages/ui-components
+  - packages/double-membrane
+  - packages/sys6-triality
+  - packages/membrane-transport
+  - packages/gesture-glyph
+  - delta-echo-desk
+  - delta-echo-desk/packages/*
+  - deltecho2
+  - deltecho2/packages/*
+
+catalog:
+  '@deltachat/jsonrpc-client': 1.159.4
+  '@deltachat/stdio-rpc-server': 1.159.4
+  '@types/mime-types': ^2.1.4
+  '@webxdc/types': ^2.1.2
+  mime-types: ^2.1.35
+  sass: ^1.97.1
+  typescript: ^5.9.3
+  typescript-plugin-css-modules: ^5.2.0

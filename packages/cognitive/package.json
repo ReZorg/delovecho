@@ -1,0 +1,74 @@
+{
+  "name": "@deltecho/cognitive",
+  "version": "1.0.0",
+  "description": "Unified cognitive framework - integrates deep-tree-echo-core, dove9, and reasoning systems",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./llm": {
+      "import": "./dist/llm/index.js",
+      "types": "./dist/llm/index.d.ts"
+    },
+    "./memory": {
+      "import": "./dist/memory/index.js",
+      "types": "./dist/memory/index.d.ts"
+    },
+    "./personality": {
+      "import": "./dist/personality/index.js",
+      "types": "./dist/personality/index.d.ts"
+    },
+    "./triadic": {
+      "import": "./dist/triadic/index.js",
+      "types": "./dist/triadic/index.d.ts"
+    },
+    "./types": {
+      "import": "./dist/types/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "check:types": "tsc --noEmit",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs",
+    "test:watch": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs --watch",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs --coverage"
+  },
+  "keywords": [
+    "cognitive",
+    "ai",
+    "deep-tree-echo",
+    "dove9",
+    "llm",
+    "memory",
+    "personality"
+  ],
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "deep-tree-echo-core": "workspace:*",
+    "dove9": "workspace:*"
+  },
+  "peerDependencies": {
+    "@deltecho/sys6-triality": "workspace:*"
+  },
+  "peerDependenciesMeta": {
+    "@deltecho/sys6-triality": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.19.27",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

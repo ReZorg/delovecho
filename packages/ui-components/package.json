@@ -1,0 +1,65 @@
+{
+  "name": "@deltecho/ui-components",
+  "version": "1.0.0",
+  "description": "Unified UI components for Deep Tree Echo bot interface",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./DeepTreeEchoBot": {
+      "import": "./dist/DeepTreeEchoBot/index.js",
+      "types": "./dist/DeepTreeEchoBot/index.d.ts"
+    },
+    "./AICompanionHub": {
+      "import": "./dist/AICompanionHub/index.js",
+      "types": "./dist/AICompanionHub/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "check:types": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs",
+    "test:watch": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs --watch",
+    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --config jest.config.cjs --coverage"
+  },
+  "keywords": [
+    "deltecho",
+    "ui",
+    "components",
+    "react",
+    "deep-tree-echo"
+  ],
+  "license": "GPL-3.0-or-later",
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "dependencies": {
+    "3d-force-graph": "^1.79.0",
+    "@deltecho/cognitive": "workspace:*",
+    "@deltecho/shared": "workspace:*",
+    "@types/three": "^0.182.0",
+    "lucide-react": "^0.562.0",
+    "three": "^0.182.0",
+    "three-spritetext": "^1.10.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.19.27",
+    "@types/react": "^18.3.27",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
