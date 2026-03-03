@@ -51,7 +51,7 @@ function createMockEmail(overrides: Partial<DovecotEmail> = {}): DovecotEmail {
     subject: 'Test Email',
     body: 'Test email body content',
     headers: new Map(),
-    messageId: `email_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    messageId: `email_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
     receivedAt: new Date(),
     ...overrides,
   };

@@ -16,7 +16,7 @@ import type { MessageProcess } from '../../types/index.js';
 // Mock MailMessage factory
 function createMockMail(overrides: Partial<MailMessage> = {}): MailMessage {
   return {
-    messageId: `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    messageId: `msg_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
     from: 'sender@example.com',
     to: ['recipient@example.com'],
     subject: 'Test Message',
@@ -35,7 +35,7 @@ function createMockProcess(
   overrides: Partial<MessageProcess> = {}
 ): MessageProcess {
   return {
-    id: `proc_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+    id: `proc_${Date.now()}_${Math.random().toString(36).slice(2, 11)}`,
     messageId: mail.messageId,
     from: mail.from,
     to: mail.to,

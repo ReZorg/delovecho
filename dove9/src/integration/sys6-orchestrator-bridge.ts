@@ -224,6 +224,7 @@ export class Sys6OrchestratorBridge extends EventEmitter {
    * Update average processing time
    */
   private updateAverageProcessingTime(duration: number): void {
+    if (this.stats.totalCompleted === 0) return;
     const total =
       this.stats.averageProcessingSteps * (this.stats.totalCompleted - 1) + duration;
     this.stats.averageProcessingSteps = total / this.stats.totalCompleted;

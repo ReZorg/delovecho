@@ -14,7 +14,7 @@
 
 import { EventEmitter } from 'events';
 import type { MessageProcess, ProcessState, CognitiveContext } from '../types/index.js';
-import type { MailMessage } from '../types/mail.js';
+import { MailFlag, type MailMessage } from '../types/mail.js';
 
 /**
  * Cycle constants
@@ -22,6 +22,12 @@ import type { MailMessage } from '../types/mail.js';
 export const SYS6_CYCLE_LENGTH = 30;
 export const DOVE9_CYCLE_LENGTH = 12;
 export const GRAND_CYCLE_LENGTH = 60; // LCM(30, 12) = 60
+
+/**
+ * Alignment tolerance constants for scheduling
+ */
+const SYS6_ALIGNMENT_TOLERANCE = 2;
+const DOVE9_STEPS_PER_STREAM = 4;
 
 /**
  * Phase mapping for Sys6 stages
@@ -249,7 +255,7 @@ export class Sys6MailScheduler extends EventEmitter {
     }
 
     // Check for flagged
-    if (mail.flags?.includes('\\Flagged' as any)) {
+    if (mail.flags?.includes(MailFlag.FLAGGED)) {
       priority += this.config.flaggedPriorityBoost;
     }
 
@@ -386,11 +392,11 @@ export class Sys6MailScheduler extends EventEmitter {
       const testSys6 = testGrandStep % SYS6_CYCLE_LENGTH;
       const testDove9 = testGrandStep % DOVE9_CYCLE_LENGTH;
 
-      // Check Sys6 alignment (within 2 steps of target)
-      const sys6Aligned = Math.abs(testSys6 - targetSys6Step) <= 2 || testSys6 >= targetSys6Step - 2;
+      // Check Sys6 alignment (within tolerance steps of target)
+      const sys6Aligned = Math.abs(testSys6 - targetSys6Step) <= SYS6_ALIGNMENT_TOLERANCE || testSys6 >= targetSys6Step - SYS6_ALIGNMENT_TOLERANCE;
 
       // Check Dove9 stream alignment (within same triadic period)
-      const dove9Aligned = Math.floor(testDove9 / 4) === stream - 1 || testDove9 >= targetDove9Step;
+      const dove9Aligned = Math.floor(testDove9 / DOVE9_STEPS_PER_STREAM) === stream - 1 || testDove9 >= targetDove9Step;
 
       if (sys6Aligned && dove9Aligned) {
         stepsToTarget = offset;
