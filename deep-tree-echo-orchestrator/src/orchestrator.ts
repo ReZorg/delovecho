@@ -295,6 +295,12 @@ export class Orchestrator {
           
           // Listen for mail_message_ready events to handle outgoing responses
           kernel.on('mail_message_ready', async (mailResponse: any) => {
+            // Guard: ensure there's at least one recipient
+            if (!mailResponse.to || mailResponse.to.length === 0) {
+              log.warn('Mail message has no recipients, skipping');
+              return;
+            }
+            
             log.debug('Mail message ready for sending', { 
               to: mailResponse.to,
               subject: mailResponse.subject 
@@ -1106,8 +1112,8 @@ ${response.body}`;
     let sys6Cycles = 0;
 
     // Listen for Dove9 cycle completions
-    kernel.on('cycle_complete', (event: { cycle: number }) => {
-      dove9Cycles = event.cycle;
+    kernel.on('cycle_complete', (cycleEvent: { cycle: number }) => {
+      dove9Cycles = cycleEvent.cycle;
       log.debug(`Dove9 cycle ${dove9Cycles} complete`);
       
       // Check for grand cycle alignment (every 5 Dove9 cycles = 2 Sys6 cycles)
@@ -1117,8 +1123,9 @@ ${response.body}`;
     });
 
     // Listen for Sys6 cycle completions via the bridge
-    this.sys6Bridge.on('cycle_complete', (cycleResult: any) => {
-      sys6Cycles = cycleResult.cycleNumber;
+    // The CycleResult type is defined in Sys6OrchestratorBridge
+    this.sys6Bridge.on('cycle_complete', (sys6CycleResult: { cycleNumber: number }) => {
+      sys6Cycles = sys6CycleResult.cycleNumber;
       log.debug(`Sys6 cycle ${sys6Cycles} complete`);
     });
 

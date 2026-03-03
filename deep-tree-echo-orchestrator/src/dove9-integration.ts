@@ -235,6 +235,14 @@ export class Dove9Integration {
    * Handle mail message ready event from kernel
    */
   private handleMailMessageReady(mailResponse: MailMessage): void {
+    // Guard: ensure there's at least one recipient
+    if (!mailResponse.to || mailResponse.to.length === 0) {
+      log.warn('Mail message has no recipients, skipping', { 
+        messageId: mailResponse.messageId 
+      });
+      return;
+    }
+
     log.debug('Mail message ready for sending', { 
       messageId: mailResponse.messageId,
       to: mailResponse.to,
@@ -248,7 +256,7 @@ export class Dove9Integration {
       subject: mailResponse.subject,
       body: mailResponse.body,
       inReplyTo: mailResponse.inReplyTo,
-      processId: mailResponse.headers?.get('X-Dove9-Process-Id') || 'unknown',
+      processId: mailResponse.headers?.get('X-Dove9-Process-Id') ?? 'unknown',
       cognitiveMetrics: {
         emotionalValence: 0,
         emotionalArousal: 0.5,
@@ -375,8 +383,12 @@ export class Dove9Integration {
     log.info(`Processing email from ${email.from} through Dove9`);
 
     // Convert EmailMessage to dove9 MailMessage format
+    // Generate a unique message ID if not provided (include random component to avoid collisions)
+    const messageId = email.messageId || 
+      `<${Date.now()}.${Math.random().toString(36).substring(2, 11)}@dove9.local>`;
+    
     const mailMessage: MailMessage = {
-      messageId: email.messageId || `<${Date.now()}@dove9.local>`,
+      messageId,
       from: email.from,
       to: email.to,
       subject: email.subject,
