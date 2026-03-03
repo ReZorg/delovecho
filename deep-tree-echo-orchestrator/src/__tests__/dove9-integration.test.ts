@@ -186,8 +186,8 @@ describe('Dove9Integration', () => {
       await integration.start();
       const metrics = integration.getMetrics();
       expect(metrics).not.toBeNull();
-      expect(metrics?.processedMessages).toBeDefined();
-      expect(metrics?.averageResponseTime).toBeDefined();
+      expect(metrics?.processesCompleted).toBeDefined();
+      expect(metrics?.averageLatency).toBeDefined();
     });
   });
 
@@ -218,17 +218,16 @@ describe('Dove9Integration', () => {
       expect(state.running).toBe(true);
       expect(state.metrics).not.toBeNull();
       expect(state.triadic).not.toBeNull();
-      expect(state.triadic?.streams).toBeDefined();
+      expect(state.triadic?.streamCount).toBeDefined();
     });
 
     it('should include triadic stream information', async () => {
       await integration.start();
       const state = integration.getCognitiveState();
 
-      expect(state.triadic?.streams.length).toBeGreaterThan(0);
-      expect(state.triadic?.streams.some((s) => s.mode === 'cognitive')).toBe(true);
-      expect(state.triadic?.streams.some((s) => s.mode === 'affective')).toBe(true);
-      expect(state.triadic?.streams.some((s) => s.mode === 'relevance')).toBe(true);
+      // The actual Dove9 kernel has 3 triadic streams (primary, secondary, tertiary)
+      expect(state.triadic?.streamCount).toBe(3);
+      expect(state.mailProtocolEnabled).toBeDefined();
     });
   });
 });

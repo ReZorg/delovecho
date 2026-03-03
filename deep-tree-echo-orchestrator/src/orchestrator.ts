@@ -283,21 +283,41 @@ export class Orchestrator {
 
       // Enable mail protocol for Dove9 kernel if configured
       if (this.config.enableMailProtocol && this.dove9Integration) {
-        const kernel = this.dove9Integration.getDove9System();
-        if (kernel) {
+        const dove9System = this.dove9Integration.getDove9System();
+        if (dove9System) {
+          const kernel = dove9System.getKernel();
           // Configure mailbox mapping
           const mailboxMapping = this.config.mailIPC?.mailboxMapping || {};
           log.info('Enabling mail protocol for Dove9 kernel', { mailboxMapping });
-          // The actual kernel would need to expose enableMailProtocol - this is a placeholder
-          // kernel.enableMailProtocol(mailboxMapping);
+          
+          // Enable mail protocol on the kernel
+          kernel.enableMailProtocol(mailboxMapping);
+          
+          // Listen for mail_message_ready events to handle outgoing responses
+          kernel.on('mail_message_ready', async (mailResponse: any) => {
+            log.debug('Mail message ready for sending', { 
+              to: mailResponse.to,
+              subject: mailResponse.subject 
+            });
+            // Route mail response through DeltaChat or SMTP
+            if (this.deltachatInterface) {
+              await this.handleEmailResponse({
+                to: mailResponse.to[0],
+                from: mailResponse.from,
+                subject: mailResponse.subject,
+                body: mailResponse.body,
+                inReplyTo: mailResponse.inReplyTo,
+              });
+            }
+          });
+          
+          log.info('Mail protocol enabled on Dove9 kernel');
         }
       }
 
       // Enable grand cycle synchronization if both Sys6 and Dove9 are active
       if (this.config.enableGrandCycleSynchronization && this.sys6Bridge && this.dove9Integration) {
-        log.info('Grand cycle synchronization enabled (LCM(30,12) = 60-step grand cycle)');
-        // The synchronizer would be instantiated here once both systems expose their kernels
-        // this.setupGrandCycleSynchronization();
+        await this.setupGrandCycleSynchronization();
       }
 
       this.running = true;
@@ -1050,6 +1070,59 @@ ${response.body}`;
   public setCognitiveTierMode(mode: CognitiveTierMode): void {
     log.info(`Changing cognitive tier mode from ${this.config.cognitiveTierMode} to ${mode}`);
     this.config.cognitiveTierMode = mode;
+  }
+
+  /**
+   * Set up grand cycle synchronization between Sys6 and Dove9
+   * 
+   * Grand Cycle = LCM(30, 12) = 60 steps
+   * - 5 complete Dove9 cycles per grand cycle
+   * - 2 complete Sys6 cycles per grand cycle
+   */
+  private async setupGrandCycleSynchronization(): Promise<void> {
+    if (!this.sys6Bridge || !this.dove9Integration) {
+      log.warn('Cannot setup grand cycle synchronization: Sys6 or Dove9 not available');
+      return;
+    }
+
+    const dove9System = this.dove9Integration.getDove9System();
+    if (!dove9System) {
+      log.warn('Cannot setup grand cycle synchronization: Dove9 system not available');
+      return;
+    }
+
+    const kernel = dove9System.getKernel();
+    if (!kernel) {
+      log.warn('Cannot setup grand cycle synchronization: Dove9 kernel not available');
+      return;
+    }
+
+    // Note: The actual Sys6Dove9Synchronizer would be imported and instantiated here
+    // For now, we set up basic event coordination between Sys6 and Dove9
+    log.info('Grand cycle synchronization enabled (LCM(30,12) = 60-step grand cycle)');
+
+    // Set up basic event coordination between Sys6 and Dove9
+    let dove9Cycles = 0;
+    let sys6Cycles = 0;
+
+    // Listen for Dove9 cycle completions
+    kernel.on('cycle_complete', (event: { cycle: number }) => {
+      dove9Cycles = event.cycle;
+      log.debug(`Dove9 cycle ${dove9Cycles} complete`);
+      
+      // Check for grand cycle alignment (every 5 Dove9 cycles = 2 Sys6 cycles)
+      if (dove9Cycles % 5 === 0) {
+        log.info(`Grand cycle alignment at Dove9 cycle ${dove9Cycles}, Sys6 cycle ${sys6Cycles}`);
+      }
+    });
+
+    // Listen for Sys6 cycle completions via the bridge
+    this.sys6Bridge.on('cycle_complete', (cycleResult: any) => {
+      sys6Cycles = cycleResult.cycleNumber;
+      log.debug(`Sys6 cycle ${sys6Cycles} complete`);
+    });
+
+    log.info('Grand cycle event coordination established');
   }
 
   /**
