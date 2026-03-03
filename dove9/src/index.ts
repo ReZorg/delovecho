@@ -21,6 +21,9 @@ export * from './cognitive/triadic-engine.js';
 export * from './cognitive/deep-tree-echo-processor.js';
 export * from './core/kernel.js';
 export * from './integration/mail-protocol-bridge.js';
+export * from './integration/orchestrator-bridge.js';
+export * from './integration/sys6-mail-scheduler.js';
+export * from './integration/sys6-orchestrator-bridge.js';
 
 import { EventEmitter } from 'events';
 import { Dove9Kernel } from './core/kernel.js';
