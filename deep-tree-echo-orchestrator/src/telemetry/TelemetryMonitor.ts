@@ -124,6 +124,12 @@ export class TelemetryMonitor extends EventEmitter {
   private errorCount = 0;
   private messageCount = 0;
 
+  // Mail-specific counters (Phase 6)
+  private mailProcessedCount = 0;
+  private mailRateLimitedCount = 0;
+  private mailSanitizedCount = 0;
+  private mailRejectedCount = 0;
+
   constructor(config: Partial<TelemetryConfig> = {}) {
     super();
     this.config = { ...DEFAULT_CONFIG, ...config };
@@ -233,6 +239,47 @@ export class TelemetryMonitor extends EventEmitter {
       type: 'gauge',
       description: 'Current error rate',
       unit: 'ratio',
+      dataPoints: [],
+    });
+
+    // Mail integration metrics (Phase 6)
+    this.registerMetric({
+      name: 'mail_processed_total',
+      type: 'counter',
+      description: 'Total number of email messages processed through Dove9',
+      unit: 'emails',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'mail_processing_duration_ms',
+      type: 'histogram',
+      description: 'Duration of email processing through the cognitive pipeline in milliseconds',
+      unit: 'milliseconds',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'mail_rate_limited_total',
+      type: 'counter',
+      description: 'Total number of emails blocked by rate limiter',
+      unit: 'emails',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'mail_sanitized_total',
+      type: 'counter',
+      description: 'Total number of emails that were modified during sanitization',
+      unit: 'emails',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'mail_rejected_total',
+      type: 'counter',
+      description: 'Total number of emails rejected during sanitization',
+      unit: 'emails',
       dataPoints: [],
     });
   }
@@ -410,6 +457,41 @@ export class TelemetryMonitor extends EventEmitter {
    */
   public recordActiveAgents(count: number): void {
     this.recordMetric('agent_active_count', count);
+  }
+
+  /**
+   * Record a mail message processed through the Dove9-Dovecot pipeline (Phase 6)
+   */
+  public recordMailProcessed(durationMs: number, labels?: Record<string, string>): void {
+    this.mailProcessedCount++;
+    this.recordMetric('mail_processed_total', this.mailProcessedCount, labels);
+    this.recordMetric('mail_processing_duration_ms', durationMs, labels);
+  }
+
+  /**
+   * Record a mail message blocked by the rate limiter (Phase 6)
+   */
+  public recordMailRateLimited(sender: string): void {
+    this.mailRateLimitedCount++;
+    this.recordMetric('mail_rate_limited_total', this.mailRateLimitedCount, { sender });
+  }
+
+  /**
+   * Record a mail message that was modified by the sanitizer (Phase 6)
+   */
+  public recordMailSanitized(actions: string[]): void {
+    this.mailSanitizedCount++;
+    this.recordMetric('mail_sanitized_total', this.mailSanitizedCount, {
+      actions: actions.join(','),
+    });
+  }
+
+  /**
+   * Record a mail message rejected by the sanitizer (Phase 6)
+   */
+  public recordMailRejected(reason: string): void {
+    this.mailRejectedCount++;
+    this.recordMetric('mail_rejected_total', this.mailRejectedCount, { reason });
   }
 
   /**
