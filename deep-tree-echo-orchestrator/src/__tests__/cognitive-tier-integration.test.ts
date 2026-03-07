@@ -19,9 +19,9 @@ jest.mock('deep-tree-echo-core', () => ({
     debug: jest.fn(),
   }),
   LLMService: jest.fn().mockImplementation(() => ({
-    generateFullParallelResponse: jest.fn().mockResolvedValue({
-      integratedResponse: 'Mock response from LLM',
-    }),
+    generateFullParallelResponse: jest
+      .fn()
+      .mockImplementation(() => Promise.resolve({ integratedResponse: 'Mock response from LLM' })),
     setConfig: jest.fn(),
   })),
   RAGMemoryStore: jest.fn().mockImplementation(() => ({
@@ -43,9 +43,9 @@ jest.mock('deep-tree-echo-core', () => ({
 // Mock Sys6 Bridge
 jest.mock('../sys6-bridge/Sys6OrchestratorBridge.js', () => ({
   Sys6OrchestratorBridge: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
-    processMessage: jest.fn().mockResolvedValue('Mock Sys6 response'),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
+    processMessage: jest.fn().mockImplementation(() => Promise.resolve('Mock Sys6 response')),
     getState: jest.fn().mockReturnValue({
       running: true,
       cycleNumber: 5,
@@ -62,10 +62,10 @@ jest.mock('../sys6-bridge/Sys6OrchestratorBridge.js', () => ({
 // Mock Double Membrane Integration
 jest.mock('../double-membrane-integration.js', () => ({
   DoubleMembraneIntegration: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
     isRunning: jest.fn().mockReturnValue(true),
-    chat: jest.fn().mockResolvedValue('Mock Membrane response'),
+    chat: jest.fn().mockImplementation(() => Promise.resolve('Mock Membrane response')),
     getStatus: jest.fn().mockReturnValue({
       running: true,
       identityEnergy: 0.85,
@@ -82,8 +82,8 @@ jest.mock('../double-membrane-integration.js', () => ({
 // Mock other dependencies
 jest.mock('../deltachat-interface/index.js', () => ({
   DeltaChatInterface: jest.fn().mockImplementation(() => ({
-    connect: jest.fn().mockResolvedValue(undefined),
-    disconnect: jest.fn().mockResolvedValue(undefined),
+    connect: jest.fn().mockImplementation(() => Promise.resolve()),
+    disconnect: jest.fn().mockImplementation(() => Promise.resolve()),
     isConnected: jest.fn().mockReturnValue(false),
     on: jest.fn(),
   })),
@@ -91,8 +91,8 @@ jest.mock('../deltachat-interface/index.js', () => ({
 
 jest.mock('../dovecot-interface/index.js', () => ({
   DovecotInterface: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
     isRunning: jest.fn().mockReturnValue(false),
     on: jest.fn(),
   })),
@@ -100,30 +100,30 @@ jest.mock('../dovecot-interface/index.js', () => ({
 
 jest.mock('../ipc/server.js', () => ({
   IPCServer: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
   })),
 }));
 
 jest.mock('../scheduler/task-scheduler.js', () => ({
   TaskScheduler: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
   })),
 }));
 
 jest.mock('../webhooks/webhook-server.js', () => ({
   WebhookServer: jest.fn().mockImplementation(() => ({
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
   })),
 }));
 
 jest.mock('../dove9-integration.js', () => ({
   Dove9Integration: jest.fn().mockImplementation(() => ({
-    initialize: jest.fn().mockResolvedValue(undefined),
-    start: jest.fn().mockResolvedValue(undefined),
-    stop: jest.fn().mockResolvedValue(undefined),
+    initialize: jest.fn().mockImplementation(() => Promise.resolve()),
+    start: jest.fn().mockImplementation(() => Promise.resolve()),
+    stop: jest.fn().mockImplementation(() => Promise.resolve()),
     onResponse: jest.fn(),
     getCognitiveState: jest.fn().mockReturnValue({ running: true }),
   })),
