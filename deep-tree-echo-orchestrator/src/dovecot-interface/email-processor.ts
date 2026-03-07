@@ -7,6 +7,7 @@ import {
   InMemoryStorage,
 } from 'deep-tree-echo-core';
 import { EmailMessage } from './milter-server.js';
+import { EmailSanitizer, type SanitizerConfig } from './email-sanitizer.js';
 
 const log = getLogger('deep-tree-echo-orchestrator/EmailProcessor');
 
@@ -32,13 +33,15 @@ export class EmailProcessor {
   private personaCore: PersonaCore;
   private storage = new InMemoryStorage();
   private emailCounter = 0;
+  private sanitizer: EmailSanitizer;
 
-  constructor(botEmailAddress: string) {
+  constructor(botEmailAddress: string, sanitizerConfig: Partial<SanitizerConfig> = {}) {
     this.botEmailAddress = botEmailAddress;
     this.memoryStore = new RAGMemoryStore(this.storage);
     this.memoryStore.setEnabled(true);
     this.personaCore = new PersonaCore(this.storage);
     this.llmService = new LLMService();
+    this.sanitizer = new EmailSanitizer(sanitizerConfig);
   }
 
   /**
@@ -69,11 +72,31 @@ export class EmailProcessor {
     log.info(`Processing email from ${email.from}: ${email.subject}`);
 
     try {
+      // Sanitize the email content before processing
+      const sanitizationResult = this.sanitizer.sanitize(email);
+
+      if (sanitizationResult.rejected) {
+        log.warn(`Email rejected during sanitization: ${sanitizationResult.rejectionReason}`, {
+          messageId: email.messageId,
+          from: email.from,
+        });
+        return null;
+      }
+
+      const sanitizedEmail = sanitizationResult.message;
+
+      if (sanitizationResult.wasModified) {
+        log.debug('Email was sanitized before processing', {
+          messageId: email.messageId,
+          actions: sanitizationResult.actions,
+        });
+      }
+
       // Extract text content from email body
-      const content = this.extractTextContent(email);
+      const content = this.extractTextContent(sanitizedEmail);
 
       // Check if email should be processed
-      const shouldProcess = this.shouldProcessEmail(email);
+      const shouldProcess = this.shouldProcessEmail(sanitizedEmail);
       if (!shouldProcess) {
         log.debug('Email filtered out, not processing');
         return null;
@@ -85,11 +108,11 @@ export class EmailProcessor {
         chatId: 0, // Email chat
         messageId: this.emailCounter,
         sender: 'user',
-        text: `[Email from ${email.from}]\nSubject: ${email.subject}\n\n${content}`,
+        text: `[Email from ${sanitizedEmail.from}]\nSubject: ${sanitizedEmail.subject}\n\n${content}`,
       });
 
       // Generate response using cognitive system
-      const response = await this.generateResponse(email, content);
+      const response = await this.generateResponse(sanitizedEmail, content);
 
       if (response) {
         // Store our response in memory

@@ -2,6 +2,8 @@ import { getLogger } from 'deep-tree-echo-core';
 import { MilterServer, MilterConfig, EmailMessage } from './milter-server.js';
 import { LMTPServer, LMTPConfig } from './lmtp-server.js';
 import { EmailProcessor } from './email-processor.js';
+import { MailRateLimiter, type RateLimiterConfig } from './mail-rate-limiter.js';
+import type { SanitizerConfig } from './email-sanitizer.js';
 
 const log = getLogger('deep-tree-echo-orchestrator/DovecotInterface');
 
@@ -21,6 +23,10 @@ export interface DovecotConfig {
   allowedDomains: string[];
   /** Deep Tree Echo email address for bot identity */
   botEmailAddress: string;
+  /** Rate limiter configuration (Phase 6) */
+  rateLimiter?: Partial<RateLimiterConfig>;
+  /** Email sanitizer configuration (Phase 6) */
+  sanitizer?: Partial<SanitizerConfig>;
 }
 
 const DEFAULT_CONFIG: DovecotConfig = {
@@ -40,17 +46,24 @@ const DEFAULT_CONFIG: DovecotConfig = {
  * - LMTP interface for local mail delivery processing
  * - Email-to-DeepTreeEcho message conversion
  * - Response generation and sending via SMTP
+ * - Rate limiting to prevent mail flood attacks (Phase 6)
+ * - Email content sanitization for security (Phase 6)
  */
 export class DovecotInterface {
   private config: DovecotConfig;
   private milterServer?: MilterServer;
   private lmtpServer?: LMTPServer;
   private emailProcessor: EmailProcessor;
+  private rateLimiter: MailRateLimiter;
   private running: boolean = false;
 
   constructor(config: Partial<DovecotConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
-    this.emailProcessor = new EmailProcessor(this.config.botEmailAddress);
+    this.emailProcessor = new EmailProcessor(
+      this.config.botEmailAddress,
+      this.config.sanitizer
+    );
+    this.rateLimiter = new MailRateLimiter(this.config.rateLimiter);
   }
 
   /**
@@ -114,6 +127,8 @@ export class DovecotInterface {
       await this.lmtpServer.stop();
     }
 
+    this.rateLimiter.stop();
+
     this.running = false;
     log.info('Dovecot integration stopped');
   }
@@ -123,6 +138,13 @@ export class DovecotInterface {
    */
   public isRunning(): boolean {
     return this.running;
+  }
+
+  /**
+   * Get rate limiter statistics for monitoring
+   */
+  public getRateLimiterStats() {
+    return this.rateLimiter.getStats();
   }
 
   /**
@@ -142,7 +164,19 @@ export class DovecotInterface {
         return;
       }
 
+      // Apply rate limiting before processing
+      const rateLimitResult = this.rateLimiter.checkLimit(email.from);
+      if (!rateLimitResult.allowed) {
+        log.warn(`Rate limit exceeded for sender ${email.from}`, {
+          reason: rateLimitResult.reason,
+          resetInMs: rateLimitResult.resetInMs,
+          messageId: email.messageId,
+        });
+        return;
+      }
+
       // Process the email and generate a response
+      // (sanitization happens inside emailProcessor.processEmail)
       const response = await this.emailProcessor.processEmail(email);
 
       if (response) {
