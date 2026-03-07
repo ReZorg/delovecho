@@ -482,7 +482,7 @@ export class TelemetryMonitor extends EventEmitter {
   public recordMailSanitized(actions: string[]): void {
     this.mailSanitizedCount++;
     this.recordMetric('mail_sanitized_total', this.mailSanitizedCount, {
-      actions: actions.join(','),
+      actions: actions.join('|'),
     });
   }
 

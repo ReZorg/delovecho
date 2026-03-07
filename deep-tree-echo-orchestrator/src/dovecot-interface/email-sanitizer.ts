@@ -59,7 +59,12 @@ const DEFAULT_SANITIZER_CONFIG: SanitizerConfig = {
   normalizeUnicode: true,
 };
 
-/** Dangerous HTML event attributes that can execute JavaScript */
+/**
+ * Dangerous HTML event attributes that can execute JavaScript.
+ * Based on OWASP XSS Prevention Cheat Sheet and MDN HTML attribute reference:
+ * https://owasp.org/www-community/attacks/xss/
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes#event_handler_attributes
+ */
 const DANGEROUS_HTML_ATTRIBUTES = [
   'onabort', 'onblur', 'onchange', 'onclick', 'ondblclick', 'onerror',
   'onfocus', 'onkeydown', 'onkeypress', 'onkeyup', 'onload', 'onmousedown',
@@ -241,8 +246,9 @@ export class EmailSanitizer {
     if (this.config.normalizeUnicode) {
       try {
         sanitized = sanitized.normalize('NFC');
-      } catch {
-        // If normalization fails, continue with original
+      } catch (err) {
+        // If normalization fails (malformed Unicode), continue with original value
+        log.debug('Unicode normalization failed for header value', { error: err });
       }
     }
 
@@ -287,12 +293,19 @@ export class EmailSanitizer {
     if (this.config.stripScripts) {
       // Remove script tags and their content
       sanitized = sanitized.replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, '');
-      // Remove inline javascript: URLs
-      sanitized = sanitized.replace(/\s*href\s*=\s*["']?\s*javascript:[^"'>\s]*/gi, ' href="#"');
-      // Remove data: URLs which could execute code
+      // Remove inline javascript: URLs (handles mixed quotes, whitespace, and encoding)
       sanitized = sanitized.replace(
-        /\s*(?:href|src|action)\s*=\s*["']?\s*data:[^"'>\s]*/gi,
-        ' data-removed=""'
+        /(\s*(?:href|src|action|formaction|xlink:href)\s*=\s*)(?:"[^"]*"|'[^']*'|[^\s>]*)/gi,
+        (match, prefix) => {
+          const valueMatch = match.slice(prefix.length);
+          const unquoted = valueMatch.replace(/^["']|["']$/g, '');
+          // Strip leading whitespace/null bytes that could bypass detection
+          const normalizedVal = unquoted.replace(/[\x00-\x20]+/g, '');
+          if (/^javascript:/i.test(normalizedVal) || /^data:/i.test(normalizedVal)) {
+            return `${prefix}"#"`;
+          }
+          return match;
+        }
       );
     }
 
