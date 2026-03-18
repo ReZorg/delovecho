@@ -13,6 +13,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY deep-tree-echo-core/package.json ./deep-tree-echo-core/
 COPY deep-tree-echo-orchestrator/package.json ./deep-tree-echo-orchestrator/
+COPY dove9/package.json ./dove9/
 COPY packages/shared/package.json ./packages/shared/
 
 # Install dependencies
@@ -21,6 +22,7 @@ RUN pnpm install --frozen-lockfile
 # Copy source code
 COPY deep-tree-echo-core/ ./deep-tree-echo-core/
 COPY deep-tree-echo-orchestrator/ ./deep-tree-echo-orchestrator/
+COPY dove9/ ./dove9/
 COPY packages/shared/ ./packages/shared/
 
 # Build packages
@@ -47,6 +49,8 @@ COPY --from=builder /app/deep-tree-echo-core/dist ./deep-tree-echo-core/dist
 COPY --from=builder /app/deep-tree-echo-core/package.json ./deep-tree-echo-core/
 COPY --from=builder /app/deep-tree-echo-orchestrator/dist ./deep-tree-echo-orchestrator/dist
 COPY --from=builder /app/deep-tree-echo-orchestrator/package.json ./deep-tree-echo-orchestrator/
+COPY --from=builder /app/dove9/dist ./dove9/dist
+COPY --from=builder /app/dove9/package.json ./dove9/
 COPY --from=builder /app/packages/shared/dist ./packages/shared/dist
 COPY --from=builder /app/packages/shared/package.json ./packages/shared/
 
