@@ -68,6 +68,8 @@ export {
   type StreamState,
   type CycleResult,
   type CognitiveAgent,
+  type SynchronizationEvent,
+  type SynchronizedChannel,
 } from './sys6-bridge/index.js';
 
 // Agent Coordinator - Nested agency pattern
@@ -90,6 +92,11 @@ export {
   type MetricDataPoint,
   type HealthStatus,
   type Alert,
+  GlobalWorkspaceBroadcaster,
+  type GlobalWorkspaceSnapshot,
+  type Dove9CognitiveState,
+  type GrandCycleInfo,
+  type SnapshotSubscriber,
 } from './telemetry/index.js';
 
 // Double Membrane Integration - Bio-inspired cognitive architecture

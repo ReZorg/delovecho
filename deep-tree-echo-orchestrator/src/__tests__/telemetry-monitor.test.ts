@@ -526,4 +526,33 @@ describe('TelemetryMonitor', () => {
       expect(latencyAlert).toBeDefined();
     });
   });
+
+  describe('recordSyncEvent (Global Workspace Theory)', () => {
+    it('should record a sync event and update the metric', () => {
+      monitor.recordSyncEvent(3, ['dyadic', 'triadic', 'pentadic']);
+
+      const metric = monitor.getMetric('sync_events_total');
+      expect(metric).toBeDefined();
+      expect(metric?.dataPoints.length).toBeGreaterThan(0);
+      expect(metric?.dataPoints[metric.dataPoints.length - 1].value).toBe(1);
+    });
+
+    it('should accumulate sync event count across multiple calls', () => {
+      monitor.recordSyncEvent(1, ['dyadic', 'quad']);
+      monitor.recordSyncEvent(3, ['dyadic', 'triadic', 'pentadic']);
+
+      const metric = monitor.getMetric('sync_events_total');
+      const lastValue = metric?.dataPoints[metric.dataPoints.length - 1].value ?? 0;
+      expect(lastValue).toBe(2);
+    });
+
+    it('should record channel pair count in the histogram metric', () => {
+      monitor.recordSyncEvent(3, ['dyadic', 'triadic', 'pentadic']);
+
+      const histogram = monitor.getMetric('sync_event_channel_pairs');
+      expect(histogram).toBeDefined();
+      expect(histogram?.dataPoints.length).toBeGreaterThan(0);
+      expect(histogram?.dataPoints[histogram.dataPoints.length - 1].value).toBe(3);
+    });
+  });
 });

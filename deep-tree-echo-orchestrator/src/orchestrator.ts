@@ -19,7 +19,18 @@ import {
   DoubleMembraneIntegration,
   DoubleMembraneIntegrationConfig,
 } from './double-membrane-integration.js';
-import { Sys6OrchestratorBridge, Sys6BridgeConfig } from './sys6-bridge/Sys6OrchestratorBridge.js';
+import {
+  Sys6OrchestratorBridge,
+  Sys6BridgeConfig,
+  type SynchronizationEvent,
+} from './sys6-bridge/Sys6OrchestratorBridge.js';
+import {
+  GlobalWorkspaceBroadcaster,
+  type GlobalWorkspaceSnapshot,
+  type Dove9CognitiveState,
+  type GrandCycleInfo,
+} from './telemetry/GlobalWorkspaceBroadcaster.js';
+import { TelemetryMonitor, type TelemetrySnapshot } from './telemetry/TelemetryMonitor.js';
 import type { MailboxMapping } from 'dove9';
 
 const log = getLogger('deep-tree-echo-orchestrator/Orchestrator');
@@ -165,6 +176,12 @@ export class Orchestrator {
   private doubleMembraneIntegration?: DoubleMembraneIntegration;
   private running: boolean = false;
 
+  /** Global Workspace Broadcaster — fires at Sys6 synchronization events */
+  private globalWorkspaceBroadcaster: GlobalWorkspaceBroadcaster;
+
+  /** Optional telemetry monitor — if set, snapshots are included in global workspace broadcasts */
+  private telemetryMonitor?: TelemetryMonitor;
+
   // Cognitive services for processing messages
   private llmService: LLMService;
   private memoryStore: RAGMemoryStore;
@@ -173,6 +190,11 @@ export class Orchestrator {
 
   // Track email to chat mappings for routing responses
   private emailToChatMap: Map<string, { accountId: number; chatId: number }> = new Map();
+
+  // Grand-cycle counters for LCM(30,12)=60 boundary tracking
+  private grandCycleNumber = 0;
+  private dove9CyclesTotal = 0;
+  private sys6CyclesTotal = 0;
 
   // Processing statistics
   private processingStats = {
@@ -185,6 +207,9 @@ export class Orchestrator {
 
   constructor(config: Partial<OrchestratorConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
+
+    // Instantiate the global workspace broadcaster (wired later in start())
+    this.globalWorkspaceBroadcaster = new GlobalWorkspaceBroadcaster();
 
     // Initialize cognitive services
     this.memoryStore = new RAGMemoryStore(this.storage);
@@ -324,6 +349,15 @@ export class Orchestrator {
       // Enable grand cycle synchronization if both Sys6 and Dove9 are active
       if (this.config.enableGrandCycleSynchronization && this.sys6Bridge && this.dove9Integration) {
         await this.setupGrandCycleSynchronization();
+      }
+
+      // Register a built-in IPC subscriber for global workspace snapshots so
+      // desktop apps always receive heartbeat broadcasts when connected.
+      if (this.ipcServer) {
+        this.globalWorkspaceBroadcaster.addSubscriber((snapshot: GlobalWorkspaceSnapshot) => {
+          this.ipcServer?.broadcast('gw_snapshot', snapshot);
+        });
+        log.debug('IPC global workspace subscriber registered');
       }
 
       this.running = true;
@@ -982,6 +1016,30 @@ ${response.body}`;
   }
 
   /**
+   * Get the Global Workspace Broadcaster.
+   * Use this to register IPC/webhook subscribers that should receive a snapshot
+   * at every Sys6 synchronization event (Global Workspace Theory implementation).
+   */
+  public getGlobalWorkspaceBroadcaster(): GlobalWorkspaceBroadcaster {
+    return this.globalWorkspaceBroadcaster;
+  }
+
+  /**
+   * Attach a TelemetryMonitor so that its snapshot is included in every
+   * global workspace broadcast.  Must be called before start() to take effect.
+   */
+  public setTelemetryMonitor(monitor: TelemetryMonitor): void {
+    this.telemetryMonitor = monitor;
+    // Also register the sync-event recording subscriber so the monitor tracks GWT heartbeats
+    this.globalWorkspaceBroadcaster.addSubscriber((snapshot) => {
+      monitor.recordSyncEvent(
+        snapshot.syncEvent.channelPairCount,
+        snapshot.syncEvent.alignedChannels
+      );
+    });
+  }
+
+  /**
    * Configure LLM service API keys
    */
   public configureApiKeys(keys: Record<string, string>): void {
@@ -1079,11 +1137,16 @@ ${response.body}`;
   }
 
   /**
-   * Set up grand cycle synchronization between Sys6 and Dove9
-   * 
-   * Grand Cycle = LCM(30, 12) = 60 steps
-   * - 5 complete Dove9 cycles per grand cycle
-   * - 2 complete Sys6 cycles per grand cycle
+   * Set up grand cycle synchronization between Sys6 and Dove9, and wire the
+   * Global Workspace Broadcaster to fire at every Sys6 synchronization event.
+   *
+   * Grand Cycle = LCM(30, 12) = 60 steps:
+   *   - 5 complete Dove9 triadic cycles (5 × 12 = 60)
+   *   - 2 complete Sys6 cycles (2 × 30 = 60)
+   *
+   * Global Workspace broadcast: fires at every Sys6 sync_event so the full
+   * joint cognitive state becomes simultaneously available to IPC clients,
+   * webhooks, and the telemetry subsystem (Global Workspace Theory).
    */
   private async setupGrandCycleSynchronization(): Promise<void> {
     if (!this.sys6Bridge || !this.dove9Integration) {
@@ -1103,33 +1166,81 @@ ${response.body}`;
       return;
     }
 
-    // Note: The actual Sys6Dove9Synchronizer would be imported and instantiated here
-    // For now, we set up basic event coordination between Sys6 and Dove9
     log.info('Grand cycle synchronization enabled (LCM(30,12) = 60-step grand cycle)');
 
-    // Set up basic event coordination between Sys6 and Dove9
-    let dove9Cycles = 0;
-    let sys6Cycles = 0;
+    // -----------------------------------------------------------------------
+    // Cycle counters
+    // -----------------------------------------------------------------------
 
     // Listen for Dove9 cycle completions
     kernel.on('cycle_complete', (cycleEvent: { cycle: number }) => {
-      dove9Cycles = cycleEvent.cycle;
-      log.debug(`Dove9 cycle ${dove9Cycles} complete`);
-      
-      // Check for grand cycle alignment (every 5 Dove9 cycles = 2 Sys6 cycles)
-      if (dove9Cycles % 5 === 0) {
-        log.info(`Grand cycle alignment at Dove9 cycle ${dove9Cycles}, Sys6 cycle ${sys6Cycles}`);
+      this.dove9CyclesTotal = cycleEvent.cycle;
+      log.debug(`Dove9 cycle ${this.dove9CyclesTotal} complete`);
+
+      // Grand cycle boundary: every 5 Dove9 cycles (= 2 Sys6 cycles = 60 steps)
+      if (this.dove9CyclesTotal % 5 === 0) {
+        this.grandCycleNumber++;
+        log.info(
+          `Grand cycle #${this.grandCycleNumber} complete ` +
+            `(Dove9 cycle ${this.dove9CyclesTotal}, Sys6 cycle ${this.sys6CyclesTotal})`
+        );
       }
     });
 
-    // Listen for Sys6 cycle completions via the bridge
-    // The CycleResult type is defined in Sys6OrchestratorBridge
+    // Listen for Sys6 cycle completions
     this.sys6Bridge.on('cycle_complete', (sys6CycleResult: { cycleNumber: number }) => {
-      sys6Cycles = sys6CycleResult.cycleNumber;
-      log.debug(`Sys6 cycle ${sys6Cycles} complete`);
+      this.sys6CyclesTotal = sys6CycleResult.cycleNumber;
+      log.debug(`Sys6 cycle ${this.sys6CyclesTotal} complete`);
     });
 
-    log.info('Grand cycle event coordination established');
+    // -----------------------------------------------------------------------
+    // Global Workspace broadcast at every Sys6 synchronization event
+    // -----------------------------------------------------------------------
+
+    this.sys6Bridge.on('sync_event', async (syncEvent: SynchronizationEvent) => {
+      await this.globalWorkspaceBroadcaster.onSynchronizationEvent(
+        syncEvent,
+        () => this.buildGlobalWorkspaceState(syncEvent)
+      );
+    });
+
+    log.info('Grand cycle event coordination and Global Workspace broadcaster established');
+  }
+
+  /**
+   * Build the joint cognitive state snapshot passed to the Global Workspace Broadcaster.
+   * Called synchronously inside the sync_event handler to capture state at that instant.
+   */
+  private buildGlobalWorkspaceState(_syncEvent: SynchronizationEvent): {
+    telemetry: TelemetrySnapshot | null;
+    dove9: Dove9CognitiveState | null;
+    grandCycle: GrandCycleInfo | null;
+  } {
+    // Telemetry snapshot — use the monitor if one has been wired in
+    const telemetry: TelemetrySnapshot | null = this.telemetryMonitor?.getSnapshot() ?? null;
+
+    // Dove9 cognitive state
+    const dove9State = this.dove9Integration?.getCognitiveState() ?? null;
+    const dove9: Dove9CognitiveState | null = dove9State
+      ? {
+          running: dove9State.running,
+          activeProcessCount: dove9State.activeProcessCount,
+          mailProtocolEnabled: dove9State.mailProtocolEnabled,
+          triadic: dove9State.triadic,
+        }
+      : null;
+
+    // Grand cycle info — present only at 60-step boundary (dove9 cycles multiple of 5)
+    const grandCycle: GrandCycleInfo | null =
+      this.dove9CyclesTotal > 0 && this.dove9CyclesTotal % 5 === 0
+        ? {
+            grandCycleNumber: this.grandCycleNumber,
+            dove9CyclesCompleted: this.dove9CyclesTotal,
+            sys6CyclesCompleted: this.sys6CyclesTotal,
+          }
+        : null;
+
+    return { telemetry, dove9, grandCycle };
   }
 
   /**
