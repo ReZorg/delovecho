@@ -130,6 +130,9 @@ export class TelemetryMonitor extends EventEmitter {
   private mailSanitizedCount = 0;
   private mailRejectedCount = 0;
 
+  // Synchronization event counter (Global Workspace Theory)
+  private syncEventCount = 0;
+
   constructor(config: Partial<TelemetryConfig> = {}) {
     super();
     this.config = { ...DEFAULT_CONFIG, ...config };
@@ -280,6 +283,22 @@ export class TelemetryMonitor extends EventEmitter {
       type: 'counter',
       description: 'Total number of emails rejected during sanitization',
       unit: 'emails',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'sync_events_total',
+      type: 'counter',
+      description: 'Total number of Sys6 channel synchronization events (Global Workspace heartbeats)',
+      unit: 'events',
+      dataPoints: [],
+    });
+
+    this.registerMetric({
+      name: 'sync_event_channel_pairs',
+      type: 'histogram',
+      description: 'Number of aligned channel pairs per synchronization event',
+      unit: 'pairs',
       dataPoints: [],
     });
   }
@@ -492,6 +511,20 @@ export class TelemetryMonitor extends EventEmitter {
   public recordMailRejected(reason: string): void {
     this.mailRejectedCount++;
     this.recordMetric('mail_rejected_total', this.mailRejectedCount, { reason });
+  }
+
+  /**
+   * Record a Sys6 channel synchronization event (Global Workspace Theory heartbeat).
+   *
+   * @param channelPairCount  Number of aligned channel pairs in this event
+   * @param alignedChannels   Names of the channels that aligned
+   */
+  public recordSyncEvent(channelPairCount: number, alignedChannels: string[]): void {
+    this.syncEventCount++;
+    this.recordMetric('sync_events_total', this.syncEventCount);
+    this.recordMetric('sync_event_channel_pairs', channelPairCount, {
+      channels: alignedChannels.join(','),
+    });
   }
 
   /**

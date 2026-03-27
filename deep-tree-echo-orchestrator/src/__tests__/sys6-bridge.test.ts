@@ -496,4 +496,71 @@ describe('Sys6OrchestratorBridge', () => {
       await bridge.stop();
     });
   });
+
+  describe('Synchronization Events (Global Workspace Theory)', () => {
+    it('should include syncEventCount in getMetrics()', () => {
+      const metrics = bridge.getMetrics();
+      expect(typeof metrics.syncEventCount).toBe('number');
+      expect(metrics.syncEventCount).toBe(0);
+    });
+
+    it('should emit sync_event when channels align during execution', async () => {
+      const syncEvents: unknown[] = [];
+      bridge.on('sync_event', (evt) => syncEvents.push(evt));
+
+      await bridge.start();
+      // Allow enough steps for at least one sync event (first occurs at step 4: quad)
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await bridge.stop();
+
+      expect(syncEvents.length).toBeGreaterThan(0);
+    });
+
+    it('sync_event payload has the expected shape', async () => {
+      let captured: unknown = null;
+      bridge.on('sync_event', (evt) => {
+        if (!captured) captured = evt;
+      });
+
+      await bridge.start();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await bridge.stop();
+
+      expect(captured).not.toBeNull();
+      const evt = captured as Record<string, unknown>;
+      expect(typeof evt.step).toBe('number');
+      expect(typeof evt.cycleStep).toBe('number');
+      expect(Array.isArray(evt.alignedChannels)).toBe(true);
+      expect(typeof evt.channelPairCount).toBe('number');
+      expect(evt.channelPairCount).toBeGreaterThanOrEqual(1);
+      expect(Array.isArray(evt.streamSaliences)).toBe(true);
+      expect((evt.streamSaliences as number[]).length).toBe(3);
+    });
+
+    it('syncEventCount increases as steps execute', async () => {
+      await bridge.start();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await bridge.stop();
+
+      const metrics = bridge.getMetrics();
+      expect(metrics.syncEventCount).toBeGreaterThan(0);
+    });
+
+    it('should not emit sync_event when enableSynchronizationEvents is false', async () => {
+      const quietBridge = new Sys6OrchestratorBridge({
+        dim: 64,
+        stepDurationMs: 10,
+        enableSynchronizationEvents: false,
+      });
+
+      const syncEvents: unknown[] = [];
+      quietBridge.on('sync_event', (evt) => syncEvents.push(evt));
+
+      await quietBridge.start();
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await quietBridge.stop();
+
+      expect(syncEvents.length).toBe(0);
+    });
+  });
 });
