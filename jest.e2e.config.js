@@ -1,17 +1,44 @@
-module.exports = {
-  preset: 'ts-jest',
+export default {
+  preset: 'ts-jest/presets/default-esm',
   testEnvironment: 'node',
+  extensionsToTreatAsEsm: ['.ts'],
   roots: ['<rootDir>/tests/e2e'],
   testMatch: ['**/*.e2e.test.ts'],
+  forceExit: true,
   moduleNameMapper: {
-    '^@deltecho/membrane-transport$': '<rootDir>/packages/membrane-transport/src',
-    '^@deltecho/gesture-glyph$': '<rootDir>/packages/gesture-glyph/src',
+    '^(\\.{1,2}/.*)\\.js$': '$1',
+    '^@deltecho/membrane-transport$': '<rootDir>/packages/membrane-transport/src/index.ts',
+    '^@deltecho/gesture-glyph$': '<rootDir>/packages/gesture-glyph/src/index.ts',
     '^@deltecho/cognitive$': '<rootDir>/packages/cognitive/index.ts',
     '^@deltecho/reasoning$': '<rootDir>/packages/reasoning/index.ts',
     '^@deltecho/shared$': '<rootDir>/packages/shared/index.ts',
     '^@deltecho/sys6-triality$': '<rootDir>/packages/sys6-triality/src/index.ts',
     '^deep-tree-echo-core$': '<rootDir>/deep-tree-echo-core/src/index.ts',
     '^dove9$': '<rootDir>/dove9/src/index.ts',
+  },
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        useESM: true,
+        diagnostics: false,
+        tsconfig: {
+          module: 'ESNext',
+          moduleResolution: 'bundler',
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
+          types: ['node', 'jest'],
+          paths: {
+            'dove9': ['./dove9/src/index.ts'],
+            'deep-tree-echo-core': ['./deep-tree-echo-core/src/index.ts'],
+            '@deltecho/shared': ['./packages/shared/index.ts'],
+            '@deltecho/cognitive': ['./packages/cognitive/index.ts'],
+            '@deltecho/reasoning': ['./packages/reasoning/index.ts'],
+            '@deltecho/sys6-triality': ['./packages/sys6-triality/src/index.ts'],
+          },
+        },
+      },
+    ],
   },
   collectCoverageFrom: [
     'packages/*/src/**/*.ts',
@@ -24,7 +51,7 @@ module.exports = {
     '!**/*.spec.ts',
     '!**/node_modules/**',
     '!**/dist/**',
-  },
+  ],
   coverageDirectory: 'coverage-e2e',
   coverageReporters: ['text', 'lcov', 'html'],
   verbose: true,
