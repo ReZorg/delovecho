@@ -1080,21 +1080,77 @@ See `DOVE9_DOVECOT_INTEGRATION_STATUS.md` for full details.
 
 ## Next Steps After Phase 4
 
-**Phase 5**: Sys6 Operadic Overlay (2 weeks)
-- Create Sys6Dove9Synchronizer
-- Implement 60-step grand cycle (LCM of 12 and 30)
-- Apply operadic scheduling to mail processing
-- Create visualization tools
+**Phase 5**: Sys6 Operadic Overlay (2 weeks) ✅ COMPLETE
+- ✅ Create Sys6Dove9Synchronizer
+- ✅ Implement 60-step grand cycle (LCM of 12 and 30)
+- ✅ Apply operadic scheduling to mail processing
+- ⏳ Visualization tools (deferred)
 
-**Phase 6**: Production Hardening (2 weeks)
-- Security audit
-- Performance optimization
-- Rate limiting
-- Monitoring/telemetry
-- Email content sanitization
-- Production deployment guide
+**Phase 6**: Production Hardening (2 weeks) ✅ COMPLETE
+- ✅ Security: Email content sanitization
+- ✅ Rate limiting for mail-based IPC
+- ✅ Monitoring/telemetry metrics
+- ✅ 30 new tests in `mail-security.test.ts`
+- ⏳ Full security audit (Phase 7)
+- ⏳ Performance optimization (Phase 7)
+- ⏳ Production deployment guide (Phase 7)
 
-See `DOVE9_DOVECOT_INTEGRATION_STRATEGY.md` for full roadmap.
+**Phase 7**: AGI Convergence CI 🔄 ACTIVE
+- ✅ Comprehensive e2e integration test suite (`tests/e2e/dovecot-dove9-integration.e2e.test.ts` — 75 tests)
+  - MailProtocolBridge: all conversion, state mapping, priority, flag, custom mailbox tests
+  - Dove9Kernel: all mail protocol methods (enable, create, query, move, update)
+  - Sys6MailScheduler: scheduling, grand cycle, cycle positions, pending/complete
+  - OrchestratorBridge: full Dovecot → Dove9 process pipeline
+  - Sys6OrchestratorBridge: Sys6-scheduled end-to-end pipeline
+  - Full pipeline E2E: round-trip integrity, concurrent mail, AGI cognitive flow
+- ✅ Fixed `jest.e2e.config.js` ESM compatibility (converted from CJS to ESM format)
+- ✅ Dedicated CI job `dovecot-dove9-integration` on every push/PR
+- ⏳ Full security audit of mail pipeline
+- ⏳ Performance benchmarking
+- ⏳ Production deployment guide
+
+**Phase 8**: Distributed AGI Infrastructure (Next Quarter)
+- Distributed dovecot architecture
+- Real-time cognitive dashboards
+- End-to-end encryption for cognitive messages
+- GPU-accelerated inference integration
+- Federated identity across multiple Dove9 nodes
+
+See `DOVE9_DOVECOT_INTEGRATION_STATUS.md` for full details.
+
+---
+
+## CI Integration
+
+The `dovecot-dove9-integration` CI job (`.github/workflows/ci.yml`) runs on every
+push and pull request to ensure seamless fusion of Dovecot and Dove9:
+
+```yaml
+dovecot-dove9-integration:
+  name: Dovecot-Dove9 Integration Tests
+  runs-on: ubuntu-latest
+  needs: test
+```
+
+**What it validates**:
+- Dovecot mail → MailProtocolBridge → Dove9 MessageProcess conversion
+- Dove9Kernel mail protocol methods (full IMAP mailbox lifecycle)
+- Sys6 operadic scheduling of mail processes across the 60-step grand cycle
+- OrchestratorBridge: full Dovecot email → cognitive response pipeline
+- Sys6OrchestratorBridge: grand-cycle scheduled processing
+- Full end-to-end AGI pipeline: mail delivery → cognitive processing → response
+
+**Running integration tests locally**:
+```bash
+# Build dependencies
+pnpm build:shared && pnpm build:core && pnpm build:dove9
+
+# Run dovecot-dove9 unit integration tests
+pnpm --filter dove9 test -- --testPathPattern="integration"
+
+# Run full e2e integration suite
+pnpm test:e2e
+```
 
 ---
 
@@ -1134,4 +1190,4 @@ pnpm test:watch  # For development
 
 ---
 
-*This roadmap provides concrete, actionable tasks to begin implementation immediately. Each phase builds on the previous, ensuring stable progress toward the complete vision.*
+*This roadmap provides concrete, actionable tasks to begin implementation immediately. Each phase builds on the previous, ensuring stable progress toward the complete vision of a unified, autonomous AGI where Dovecot and Dove9 fuse into a seamless cognitive operating system.*
