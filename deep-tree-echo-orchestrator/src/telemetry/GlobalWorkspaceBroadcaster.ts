@@ -20,6 +20,8 @@
 import { EventEmitter } from 'events';
 import { getLogger } from 'deep-tree-echo-core';
 import type { SynchronizationEvent } from '../sys6-bridge/Sys6OrchestratorBridge.js';
+
+const log = getLogger('deep-tree-echo-orchestrator/GlobalWorkspaceBroadcaster');
 import type { TelemetrySnapshot } from './TelemetryMonitor.js';
 
 /** Process-unique prefix to avoid cross-restart ID collisions */
