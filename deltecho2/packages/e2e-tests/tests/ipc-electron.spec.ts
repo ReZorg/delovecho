@@ -14,27 +14,15 @@ import { test, expect, Page } from '@playwright/test'
 test.describe.configure({ mode: 'serial' })
 
 const TEST_TIMEOUT = 90_000
-const IPC_TIMEOUT = 15_000
 
-// Helper to wait for IPC system initialization
-async function waitForIPC(page: Page, timeout = IPC_TIMEOUT) {
-  await page
-    .waitForFunction(
-      () => {
-        const win = window as unknown as { __ipcReady?: boolean }
-        return win.__ipcReady === true
-      },
-      { timeout }
-    )
-    .catch(() => {
-      console.log('IPC system not detected - continuing with basic tests')
-    })
+async function gotoApp(page: Page) {
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await page.waitForSelector('body', { timeout: 10_000 })
 }
 
 test.describe('IPC Communication - Channel Operations', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should establish IPC connection', async ({ page }) => {
@@ -124,8 +112,7 @@ test.describe('IPC Communication - Channel Operations', () => {
 
 test.describe('IPC Communication - Storage Operations', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should store data via IPC', async ({ page }) => {
@@ -203,8 +190,7 @@ test.describe('IPC Communication - Storage Operations', () => {
 
 test.describe('IPC Communication - Cognitive System Bridge', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should bridge cognitive system via IPC', async ({ page }) => {
@@ -270,8 +256,7 @@ test.describe('IPC Communication - Cognitive System Bridge', () => {
 
 test.describe('IPC Communication - Native Module Integration', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should detect native module availability', async ({ page }) => {
@@ -335,8 +320,7 @@ test.describe('IPC Communication - Native Module Integration', () => {
 
 test.describe('IPC Communication - System Integration', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should get system information', async ({ page }) => {
@@ -398,8 +382,7 @@ test.describe('IPC Communication - System Integration', () => {
 
 test.describe('IPC Communication - Error Handling', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should handle IPC timeout gracefully', async ({ page }) => {
@@ -468,8 +451,7 @@ test.describe('IPC Communication - Error Handling', () => {
 
 test.describe('IPC Communication - Performance', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should measure IPC latency', async ({ page }) => {
@@ -539,8 +521,7 @@ test.describe('IPC Communication - Performance', () => {
 
 test.describe('IPC Communication - Security', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForIPC(page)
+    await gotoApp(page)
   })
 
   test('should validate IPC channel permissions', async ({ page }) => {

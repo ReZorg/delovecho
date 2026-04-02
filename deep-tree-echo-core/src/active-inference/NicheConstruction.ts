@@ -15,13 +15,7 @@
 
 import { getLogger } from '../utils/logger';
 import { EventEmitter } from 'events';
-import {
-  ActiveInference,
-  BeliefState,
-  Observation,
-  Action,
-  FreeEnergyResult,
-} from './ActiveInference.js';
+import { ActiveInference, BeliefState, Action, FreeEnergyResult } from './ActiveInference.js';
 
 const log = getLogger('deep-tree-echo-core/active-inference/NicheConstruction');
 
@@ -108,6 +102,8 @@ export interface NicheModification {
   rationale: string;
   /** Expected effect on free energy */
   expectedEffect: number;
+  /** When this modification was recorded */
+  timestamp: number;
 }
 
 /**
@@ -278,13 +274,13 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Evaluate whether niche construction is needed
    */
-  private async evaluateNicheConstruction(
+  private evaluateNicheConstruction(
     beliefs: Map<string, BeliefState>,
     freeEnergy: FreeEnergyResult
-  ): Promise<void> {
+  ): void {
     // High free energy suggests the environment could be improved
     if (freeEnergy.totalFreeEnergy > this.config.creationThreshold * 10) {
-      await this.considerArtifactCreation(beliefs, freeEnergy);
+      this.considerArtifactCreation(beliefs, freeEnergy);
     }
 
     // Update niche fitness
@@ -294,10 +290,10 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Consider creating new cognitive artifacts
    */
-  private async considerArtifactCreation(
+  private considerArtifactCreation(
     beliefs: Map<string, BeliefState>,
-    freeEnergy: FreeEnergyResult
-  ): Promise<void> {
+    _freeEnergy: FreeEnergyResult
+  ): void {
     // Identify sources of high free energy
     const highUncertaintyBeliefs: BeliefState[] = [];
 
@@ -318,23 +314,23 @@ export class NicheConstruction extends EventEmitter {
     // Create inference templates for high-uncertainty areas
     for (const belief of highUncertaintyBeliefs) {
       if (this.nicheState.artifacts.size >= this.config.maxArtifacts) {
-        await this.pruneIneffectiveArtifacts();
+        this.pruneIneffectiveArtifacts();
       }
 
       const existingTemplate = this.findRelevantArtifact(belief.variable, 'inference_template');
       if (!existingTemplate) {
-        await this.createInferenceTemplate(belief);
+        this.createInferenceTemplate(belief);
       }
     }
 
     // Create context frames for recurring patterns
-    await this.detectAndCreateContextFrames(beliefs);
+    this.detectAndCreateContextFrames(beliefs);
   }
 
   /**
    * Create an inference template artifact
    */
-  private async createInferenceTemplate(belief: BeliefState): Promise<CognitiveArtifact> {
+  private createInferenceTemplate(belief: BeliefState): CognitiveArtifact {
     const artifact: CognitiveArtifact = {
       id: `artifact_${this.artifactIdCounter++}`,
       type: 'inference_template',
@@ -361,6 +357,7 @@ export class NicheConstruction extends EventEmitter {
       changes: { artifact },
       rationale: `High uncertainty in ${belief.variable}`,
       expectedEffect: -0.1, // Expected reduction in free energy
+      timestamp: Date.now(),
     };
 
     this.modificationHistory.push(modification);
@@ -423,7 +420,7 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Detect recurring patterns and create context frames
    */
-  private async detectAndCreateContextFrames(beliefs: Map<string, BeliefState>): Promise<void> {
+  private detectAndCreateContextFrames(beliefs: Map<string, BeliefState>): void {
     // Analyze belief correlations
     const beliefCorrelations = this.analyzeBeliefCorrelations(beliefs);
 
@@ -431,7 +428,7 @@ export class NicheConstruction extends EventEmitter {
       if (correlation.strength > 0.7) {
         const existingFrame = this.findContextFrame(correlation.variables);
         if (!existingFrame) {
-          await this.createContextFrame(correlation);
+          this.createContextFrame(correlation);
         }
       }
     }
@@ -510,10 +507,10 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Create a context frame artifact
    */
-  private async createContextFrame(correlation: {
+  private createContextFrame(correlation: {
     variables: string[];
     strength: number;
-  }): Promise<CognitiveArtifact> {
+  }): CognitiveArtifact {
     const artifact: CognitiveArtifact = {
       id: `artifact_${this.artifactIdCounter++}`,
       type: 'context_frame',
@@ -616,7 +613,7 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Prune ineffective artifacts
    */
-  private async pruneIneffectiveArtifacts(): Promise<number> {
+  private pruneIneffectiveArtifacts(): number {
     let pruned = 0;
 
     for (const [id, artifact] of this.nicheState.artifacts) {
@@ -630,6 +627,7 @@ export class NicheConstruction extends EventEmitter {
           changes: {},
           rationale: `Low effectiveness: ${artifact.effectiveness}`,
           expectedEffect: 0,
+          timestamp: Date.now(),
         };
         this.modificationHistory.push(modification);
 
@@ -647,7 +645,7 @@ export class NicheConstruction extends EventEmitter {
   /**
    * Perform periodic maintenance on the niche
    */
-  private async performMaintenance(): Promise<void> {
+  private performMaintenance(): void {
     // Decay artifact effectiveness over time
     for (const artifact of this.nicheState.artifacts.values()) {
       const timeSinceUse = Date.now() - artifact.lastUsed;
@@ -656,7 +654,7 @@ export class NicheConstruction extends EventEmitter {
     }
 
     // Prune ineffective artifacts
-    await this.pruneIneffectiveArtifacts();
+    this.pruneIneffectiveArtifacts();
 
     // Update affordance availability
     this.updateAffordanceAvailability();
@@ -790,7 +788,7 @@ export class NicheConstruction extends EventEmitter {
       nicheFitness: this.nicheState.fitness,
       stability: this.nicheState.stability,
       recentModifications: this.modificationHistory.filter(
-        (m) => Date.now() - (m as any).timestamp < 3600000
+        (m) => Date.now() - m.timestamp < 3600000
       ).length,
     };
   }

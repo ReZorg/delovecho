@@ -132,9 +132,8 @@ describe('NicheConstruction', () => {
     });
 
     it('should emit artifact_created event when creating artifacts', async () => {
-      let called = false;
       const callback = () => {
-        called = true;
+        // Event emission is threshold-dependent in this test setup.
       };
       nicheConstruction.on('artifact_created', callback);
 
@@ -249,7 +248,6 @@ describe('NicheConstruction', () => {
   describe('integration with ActiveInference', () => {
     it('should update niche fitness when beliefs change', async () => {
       nicheConstruction.start();
-      const initialState = nicheConstruction.getNicheState();
 
       // Process observations to update beliefs
       for (let i = 0; i < 5; i++) {
@@ -270,7 +268,7 @@ describe('NicheConstruction', () => {
       expect(typeof newState.fitness).toBe('number');
     });
 
-    it('should respond to learning events', async () => {
+    it('should respond to learning events', () => {
       nicheConstruction.start();
 
       const action: Action = {
@@ -293,7 +291,7 @@ describe('NicheConstruction', () => {
       };
 
       // This should trigger artifact effectiveness updates
-      await activeInference.learnFromOutcome(action, outcome);
+      activeInference.learnFromOutcome(action, outcome);
 
       // No error should occur
       expect(true).toBe(true);

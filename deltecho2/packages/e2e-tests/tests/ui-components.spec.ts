@@ -15,6 +15,7 @@ test.describe.configure({ mode: 'serial' })
 
 const TEST_TIMEOUT = 60_000
 const UI_LOAD_TIMEOUT = 10_000
+const UI_ACTION_TIMEOUT = 1_000
 
 // Helper to wait for UI initialization
 async function waitForUI(page: Page, timeout = UI_LOAD_TIMEOUT) {
@@ -22,10 +23,37 @@ async function waitForUI(page: Page, timeout = UI_LOAD_TIMEOUT) {
   await page.waitForSelector('body', { timeout })
 }
 
+async function gotoApp(page: Page) {
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await waitForUI(page)
+}
+
+async function clickTestIdIfVisible(
+  page: Page,
+  testId: string,
+  timeout = UI_ACTION_TIMEOUT
+) {
+  const locator = page.getByTestId(testId).first()
+  const isVisible = await locator.isVisible({ timeout }).catch(() => false)
+
+  if (isVisible) {
+    await locator.click({ timeout })
+    return true
+  }
+
+  return false
+}
+
+async function openSettingsPanel(page: Page) {
+  return (
+    (await clickTestIdIfVisible(page, 'open-settings-button')) ||
+    (await clickTestIdIfVisible(page, 'settings-button'))
+  )
+}
+
 test.describe('UI Components - DeepTreeEchoBot', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should render DeepTreeEchoBot component', async ({ page }) => {
@@ -78,8 +106,8 @@ test.describe('UI Components - DeepTreeEchoBot', () => {
     test.setTimeout(TEST_TIMEOUT)
 
     // Navigate to settings if needed
-    await page.click('[data-testid="settings-button"]').catch(() => {})
-    await page.click('[data-testid="ai-companion-settings"]').catch(() => {})
+    await openSettingsPanel(page)
+    await clickTestIdIfVisible(page, 'ai-companion-settings')
 
     const configOptions = await page.evaluate(() => {
       const options = document.querySelectorAll('[data-testid^="bot-config-"]')
@@ -92,8 +120,7 @@ test.describe('UI Components - DeepTreeEchoBot', () => {
 
 test.describe('UI Components - AICompanionHub', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should render AICompanionHub when enabled', async ({ page }) => {
@@ -140,17 +167,13 @@ test.describe('UI Components - AICompanionHub', () => {
 
 test.describe('UI Components - Settings Panel', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should open settings panel', async ({ page }) => {
     test.setTimeout(TEST_TIMEOUT)
 
-    await page.click('[data-testid="open-settings-button"]').catch(() => {
-      // Try alternative selector
-      return page.click('[data-testid="settings-button"]').catch(() => {})
-    })
+    await openSettingsPanel(page)
 
     const settingsVisible = await page
       .locator('[data-testid="settings-panel"]')
@@ -165,9 +188,7 @@ test.describe('UI Components - Settings Panel', () => {
     test.setTimeout(TEST_TIMEOUT)
 
     // Open settings
-    await page.click('[data-testid="open-settings-button"]').catch(() => {
-      return page.click('[data-testid="settings-button"]').catch(() => {})
-    })
+    await openSettingsPanel(page)
 
     const aiSettingsSection = await page.evaluate(() => {
       const section = document.querySelector(
@@ -229,8 +250,7 @@ test.describe('UI Components - Settings Panel', () => {
 
 test.describe('UI Components - Chat Interface', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should render chat input area', async ({ page }) => {
@@ -295,8 +315,7 @@ test.describe('UI Components - Chat Interface', () => {
 
 test.describe('UI Components - Accessibility', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should have proper ARIA labels', async ({ page }) => {
@@ -376,8 +395,7 @@ test.describe('UI Components - Responsive Design', () => {
     test.setTimeout(TEST_TIMEOUT)
 
     await page.setViewportSize({ width: 1920, height: 1080 })
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
 
     const desktopLayout = await page.evaluate(() => {
       return window.innerWidth >= 1024
@@ -390,8 +408,7 @@ test.describe('UI Components - Responsive Design', () => {
     test.setTimeout(TEST_TIMEOUT)
 
     await page.setViewportSize({ width: 768, height: 1024 })
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
 
     const tabletLayout = await page.evaluate(() => {
       return window.innerWidth >= 768 && window.innerWidth < 1024
@@ -404,8 +421,7 @@ test.describe('UI Components - Responsive Design', () => {
     test.setTimeout(TEST_TIMEOUT)
 
     await page.setViewportSize({ width: 375, height: 667 })
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
 
     const mobileLayout = await page.evaluate(() => {
       return window.innerWidth < 768
@@ -417,8 +433,7 @@ test.describe('UI Components - Responsive Design', () => {
   test('should handle viewport resize', async ({ page }) => {
     test.setTimeout(TEST_TIMEOUT)
 
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
 
     // Start with desktop
     await page.setViewportSize({ width: 1920, height: 1080 })
@@ -438,8 +453,7 @@ test.describe('UI Components - Responsive Design', () => {
 
 test.describe('UI Components - Error States', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should display error messages gracefully', async ({ page }) => {
@@ -485,8 +499,7 @@ test.describe('UI Components - Error States', () => {
 
 test.describe('UI Components - Theme Support', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
-    await waitForUI(page)
+    await gotoApp(page)
   })
 
   test('should support light theme', async ({ page }) => {

@@ -259,7 +259,7 @@ export class ActiveInference extends EventEmitter {
 
     // Update beliefs using variational inference
     for (const [variable, belief] of this.currentBeliefs) {
-      const updatedBelief = await this.updateBelief(belief, features, observation);
+      const updatedBelief = this.updateBelief(belief, features, observation);
       this.currentBeliefs.set(variable, updatedBelief);
     }
 
@@ -273,6 +273,7 @@ export class ActiveInference extends EventEmitter {
       observation,
     });
 
+    await Promise.resolve();
     return new Map(this.currentBeliefs);
   }
 
@@ -327,11 +328,11 @@ export class ActiveInference extends EventEmitter {
    * Implements approximate Bayesian inference using gradient descent
    * on variational free energy
    */
-  private async updateBelief(
+  private updateBelief(
     belief: BeliefState,
     features: Map<string, number>,
     observation: Observation
-  ): Promise<BeliefState> {
+  ): BeliefState {
     const newDistribution = new Map<string, number>();
     let normalizer = 0;
 
@@ -379,7 +380,7 @@ export class ActiveInference extends EventEmitter {
   private computeLikelihood(
     beliefValue: string,
     observedFeature: number,
-    observation: Observation
+    _observation: Observation
   ): number {
     // Map belief values to expected feature values
     const expectedValues: Record<string, number> = {
@@ -459,7 +460,11 @@ export class ActiveInference extends EventEmitter {
   /**
    * Get likelihood for a specific state value given observation
    */
-  private getLikelihoodForState(variable: string, value: string, observation: Observation): number {
+  private getLikelihoodForState(
+    variable: string,
+    value: string,
+    _observation: Observation
+  ): number {
     const likelihoodMap = this.generativeModel.likelihood.get(variable);
     if (likelihoodMap) {
       return likelihoodMap.get(value) || 0.5;
@@ -530,7 +535,7 @@ export class ActiveInference extends EventEmitter {
    * choosing actions that are expected to lead to preferred
    * outcomes while also gaining information
    */
-  public async selectAction(availableActions: Action[]): Promise<Action | null> {
+  public selectAction(availableActions: Action[]): Action | null {
     if (availableActions.length === 0) {
       return null;
     }
@@ -600,7 +605,7 @@ export class ActiveInference extends EventEmitter {
   /**
    * Learn from action outcomes (update model)
    */
-  public async learnFromOutcome(action: Action, actualOutcome: Observation): Promise<void> {
+  public learnFromOutcome(action: Action, actualOutcome: Observation): void {
     // Update transition model based on observed outcome
     const predictedFeatures = this.extractFeatures({
       ...actualOutcome,

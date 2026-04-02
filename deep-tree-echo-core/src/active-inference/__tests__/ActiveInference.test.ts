@@ -1,10 +1,4 @@
-import {
-  ActiveInference,
-  ActiveInferenceConfig,
-  Observation,
-  Action,
-  BeliefState,
-} from '../ActiveInference.js';
+import { ActiveInference, ActiveInferenceConfig, Observation, Action } from '../ActiveInference.js';
 
 describe('ActiveInference', () => {
   let activeInference: ActiveInference;
@@ -140,7 +134,7 @@ describe('ActiveInference', () => {
   });
 
   describe('calculateFreeEnergy', () => {
-    it('should calculate free energy components', async () => {
+    it('should calculate free energy components', () => {
       const observation: Observation = {
         type: 'sensory',
         content: 'Test',
@@ -159,7 +153,7 @@ describe('ActiveInference', () => {
       expect(result.pragmaticValue).toBeDefined();
     });
 
-    it('should return non-negative free energy', async () => {
+    it('should return non-negative free energy', () => {
       const observation: Observation = {
         type: 'sensory',
         content: 'Hello',
@@ -175,7 +169,7 @@ describe('ActiveInference', () => {
   });
 
   describe('selectAction', () => {
-    it('should select action from available actions', async () => {
+    it('should select action from available actions', () => {
       const actions: Action[] = [
         {
           id: 'action_1',
@@ -197,17 +191,17 @@ describe('ActiveInference', () => {
         },
       ];
 
-      const selected = await activeInference.selectAction(actions);
+      const selected = activeInference.selectAction(actions);
       expect(selected).not.toBeNull();
       expect(['action_1', 'action_2']).toContain(selected?.id);
     });
 
-    it('should return null for empty action list', async () => {
-      const selected = await activeInference.selectAction([]);
+    it('should return null for empty action list', () => {
+      const selected = activeInference.selectAction([]);
       expect(selected).toBeNull();
     });
 
-    it('should emit action_selected event', async () => {
+    it('should emit action_selected event', () => {
       let called = false;
       const callback = () => {
         called = true;
@@ -226,7 +220,7 @@ describe('ActiveInference', () => {
         },
       ];
 
-      await activeInference.selectAction(actions);
+      activeInference.selectAction(actions);
       expect(called).toBe(true);
     });
 
@@ -266,7 +260,7 @@ describe('ActiveInference', () => {
       // Run multiple times to check distribution bias
       let exploreCount = 0;
       for (let i = 0; i < 20; i++) {
-        const selected = await activeInference.selectAction(actions);
+        const selected = activeInference.selectAction(actions);
         if (selected?.id === 'explore') exploreCount++;
       }
 
@@ -276,7 +270,7 @@ describe('ActiveInference', () => {
   });
 
   describe('learnFromOutcome', () => {
-    it('should update model after action outcome', async () => {
+    it('should update model after action outcome', () => {
       const action: Action = {
         id: 'test_action',
         type: 'communicate',
@@ -302,7 +296,7 @@ describe('ActiveInference', () => {
       };
       activeInference.on('learning_complete', callback);
 
-      await activeInference.learnFromOutcome(action, outcome);
+      activeInference.learnFromOutcome(action, outcome);
       expect(called).toBe(true);
     });
   });
