@@ -28,7 +28,7 @@
     "clean": "pnpm -r clean",
     "test": "pnpm -r test",
     "test:core": "pnpm --filter deep-tree-echo-core test",
-    "test:e2e": "jest --config=jest.e2e.config.js",
+    "test:e2e": "node ./scripts/run-jest-e2e.mjs",
     "test:membrane": "pnpm --filter @deltecho/membrane-transport test",
     "test:glyph": "pnpm --filter @deltecho/gesture-glyph test",
     "dev:desktop": "pnpm --filter deltecho2 dev",
