@@ -74,3 +74,6 @@ node_modules/
 
 # Native libraries (large binaries)
 native-libs/**/*.so
+
+# Electron build output (generated, not committed)
+**/target-electron/bundle_out/
