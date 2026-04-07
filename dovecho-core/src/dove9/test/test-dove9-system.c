@@ -209,6 +209,73 @@ static void test_system_not_started(void)
 	dove9_test_end();
 }
 
+static void test_system_double_start(void)
+{
+	struct dove9_system *sys;
+	struct dove9_system_config cfg;
+	int ret1, ret2;
+
+	dove9_test_begin("double start is idempotent");
+
+	dove9_mock_reset();
+	sys = dove9_system_create();
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.enable_sys6 = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_system_init(sys, &cfg);
+
+	ret1 = dove9_system_start(sys);
+	ret2 = dove9_system_start(sys);
+	DOVE9_TEST_ASSERT_INT_EQ(ret1, 0);
+	/* Second start should succeed or be no-op */
+	DOVE9_TEST_ASSERT(ret2 == 0);
+
+	dove9_system_stop(sys);
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
+static void test_system_multiple_messages(void)
+{
+	struct dove9_system *sys;
+	struct dove9_system_config cfg;
+	struct dove9_mail_message mail, reply;
+	int i;
+
+	dove9_test_begin("system handles multiple sequential messages");
+
+	dove9_mock_reset();
+	sys = dove9_system_create();
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.enable_sys6 = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_system_init(sys, &cfg);
+	dove9_system_start(sys);
+
+	for (i = 0; i < 5; i++) {
+		memset(&mail, 0, sizeof(mail));
+		snprintf(mail.from, sizeof(mail.from), "user@example.com");
+		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		snprintf(mail.subject, sizeof(mail.subject), "Msg %d", i);
+		snprintf(mail.body, sizeof(mail.body), "Body %d", i);
+
+		dove9_system_process_mail(sys, &mail, &reply);
+		DOVE9_TEST_ASSERT(reply.body[0] != '\0');
+	}
+
+	dove9_system_stop(sys);
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -217,6 +284,8 @@ int main(void)
 		test_process_mail,
 		test_system_events,
 		test_system_not_started,
+		test_system_double_start,
+		test_system_multiple_messages,
 	};
-	return dove9_test_run("dove9-system", tests, 5);
+	return dove9_test_run("dove9-system", tests, 7);
 }

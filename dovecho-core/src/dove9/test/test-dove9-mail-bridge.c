@@ -159,6 +159,42 @@ static void test_empty_body_handling(void)
 	dove9_test_end();
 }
 
+static void test_reply_no_double_re(void)
+{
+	struct dove9_mail_bridge *bridge;
+	struct dove9_process_result result;
+	struct dove9_mail_message reply;
+
+	dove9_test_begin("Re: not doubled on already-Re: subject");
+
+	bridge = dove9_mail_bridge_create();
+
+	memset(&result, 0, sizeof(result));
+	snprintf(result.original_from, sizeof(result.original_from), "user@example.com");
+	snprintf(result.original_to, sizeof(result.original_to), "bot@example.com");
+	snprintf(result.original_subject, sizeof(result.original_subject), "Re: Already replied");
+	snprintf(result.response, sizeof(result.response), "response");
+
+	dove9_process_to_mail(bridge, &result, &reply);
+
+	/* Should not become "Re: Re: ..." */
+	DOVE9_TEST_ASSERT(strncmp(reply.subject, "Re: Re:", 7) != 0);
+
+	dove9_mail_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+static void test_answered_flag(void)
+{
+	dove9_test_begin("ANSWERED flag → COMPLETED state");
+
+	DOVE9_TEST_ASSERT_INT_EQ(
+		dove9_mail_flag_to_state(DOVE9_MAIL_FLAG_ANSWERED),
+		DOVE9_PROC_COMPLETED);
+
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -169,6 +205,8 @@ int main(void)
 		test_priority_calculation,
 		test_cognitive_context_creation,
 		test_empty_body_handling,
+		test_reply_no_double_re,
+		test_answered_flag,
 	};
-	return dove9_test_run("dove9-mail-bridge", tests, 7);
+	return dove9_test_run("dove9-mail-bridge", tests, 9);
 }
