@@ -206,6 +206,48 @@ static void test_sys6_scheduler_zero_priority(void)
 	dove9_test_end();
 }
 
+/* ---- Test: max recipients boundary ---- */
+
+static void test_max_recipients_boundary(void)
+{
+	dove9_test_begin("DOVE9_MAX_RECIPIENTS is defined and bounded");
+	DOVE9_TEST_ASSERT(DOVE9_MAX_RECIPIENTS > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_RECIPIENTS <= 256);
+	dove9_test_end();
+}
+
+/* ---- Test: string length limits ---- */
+
+static void test_string_length_limits(void)
+{
+	dove9_test_begin("string length limits are non-zero");
+	DOVE9_TEST_ASSERT(DOVE9_MAX_ID_LEN > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_ADDR_LEN > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_SUBJECT_LEN > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_BODY_LEN > 0);
+	dove9_test_end();
+}
+
+/* ---- Test: body length is large enough for typical messages ---- */
+
+static void test_body_length_reasonable(void)
+{
+	dove9_test_begin("DOVE9_MAX_BODY_LEN >= 4096 (reasonable minimum)");
+	DOVE9_TEST_ASSERT(DOVE9_MAX_BODY_LEN >= 4096);
+	dove9_test_end();
+}
+
+/* ---- Test: header limits are reasonable ---- */
+
+static void test_header_limits(void)
+{
+	dove9_test_begin("header limits are reasonable");
+	DOVE9_TEST_ASSERT(DOVE9_MAX_HEADERS > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_HEADER_KEY > 0);
+	DOVE9_TEST_ASSERT(DOVE9_MAX_HEADER_VAL > 0);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -218,6 +260,10 @@ int main(void)
 		test_mail_bridge_null_fields,
 		test_kernel_spawn_null_message,
 		test_sys6_scheduler_zero_priority,
+		test_max_recipients_boundary,
+		test_string_length_limits,
+		test_body_length_reasonable,
+		test_header_limits,
 	};
-	return dove9_test_run("dove9-security", tests, 9);
+	return dove9_test_run("dove9-security", tests, 13);
 }

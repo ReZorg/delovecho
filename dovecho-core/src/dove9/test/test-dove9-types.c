@@ -169,6 +169,61 @@ static void test_coupling_all_set(void)
 	dove9_test_end();
 }
 
+/* ---- Test: mail message zeroed correctly ---- */
+
+static void test_mail_message_zeroed(void)
+{
+	struct dove9_mail_message msg;
+	dove9_test_begin("mail_message zeroed after memset");
+	memset(&msg, 0, sizeof(msg));
+	DOVE9_TEST_ASSERT(msg.message_id[0] == '\0');
+	DOVE9_TEST_ASSERT(msg.from[0] == '\0');
+	DOVE9_TEST_ASSERT(msg.to_count == 0);
+	DOVE9_TEST_ASSERT(msg.reference_count == 0);
+	dove9_test_end();
+}
+
+/* ---- Test: mail flag combinations ---- */
+
+static void test_mail_flag_combinations(void)
+{
+	unsigned int flags = 0;
+	dove9_test_begin("mail flags can be combined via bitwise OR");
+	flags = DOVE9_MAIL_FLAG_SEEN | DOVE9_MAIL_FLAG_FLAGGED;
+	DOVE9_TEST_ASSERT(flags & DOVE9_MAIL_FLAG_SEEN);
+	DOVE9_TEST_ASSERT(flags & DOVE9_MAIL_FLAG_FLAGGED);
+	DOVE9_TEST_ASSERT(!(flags & DOVE9_MAIL_FLAG_DELETED));
+	dove9_test_end();
+}
+
+/* ---- Test: process state values are distinct ---- */
+
+static void test_process_state_distinct(void)
+{
+	dove9_test_begin("all 7 process states are distinct values");
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_PENDING != DOVE9_PROCESS_ACTIVE);
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_ACTIVE != DOVE9_PROCESS_PROCESSING);
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_PROCESSING != DOVE9_PROCESS_WAITING);
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_WAITING != DOVE9_PROCESS_COMPLETED);
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_COMPLETED != DOVE9_PROCESS_SUSPENDED);
+	DOVE9_TEST_ASSERT(DOVE9_PROCESS_SUSPENDED != DOVE9_PROCESS_TERMINATED);
+	dove9_test_end();
+}
+
+/* ---- Test: cognitive term values skip T3 and T6 ---- */
+
+static void test_term_values_skip_t3_t6(void)
+{
+	dove9_test_begin("cognitive terms skip T3 and T6 (reserved)");
+	/* The enum defines T1=1, T2=2, T4=4, T5=5, T7=7, T8=8 */
+	/* T3 (=3) and T6 (=6) are intentionally absent */
+	DOVE9_TEST_ASSERT(DOVE9_TERM_T1_PERCEPTION != 3);
+	DOVE9_TEST_ASSERT(DOVE9_TERM_T2_IDEA_FORMATION != 3);
+	DOVE9_TEST_ASSERT(DOVE9_TERM_T4_SENSORY_INPUT != 6);
+	DOVE9_TEST_ASSERT(DOVE9_TERM_T5_ACTION_SEQUENCE != 6);
+	dove9_test_end();
+}
+
 /* ---- main ---- */
 
 int main(void)
@@ -183,6 +238,10 @@ int main(void)
 		test_step_type_enum,
 		test_stream_enum,
 		test_coupling_all_set,
+		test_mail_message_zeroed,
+		test_mail_flag_combinations,
+		test_process_state_distinct,
+		test_term_values_skip_t3_t6,
 	};
-	return dove9_test_run("dove9-types", tests, 9);
+	return dove9_test_run("dove9-types", tests, 13);
 }

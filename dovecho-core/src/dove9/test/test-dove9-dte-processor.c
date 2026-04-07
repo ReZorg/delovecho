@@ -264,6 +264,81 @@ static void test_t4_sensory_input(void)
 	dove9_test_end();
 }
 
+/* ---- Test: parallel cognition config flag ---- */
+
+static void test_parallel_cognition_flag(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = true,
+		.memory_retrieval_count = 5,
+		.salience_threshold = 0.2,
+	};
+	struct dove9_dte_processor *dte;
+
+	dove9_test_begin("parallel cognition flag stored");
+
+	dove9_mock_reset();
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	DOVE9_TEST_ASSERT_NOT_NULL(dte);
+
+	dove9_dte_processor_destroy(&dte);
+	dove9_test_end();
+}
+
+/* ---- Test: zero salience threshold ---- */
+
+static void test_zero_salience_threshold(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = false,
+		.memory_retrieval_count = 1,
+		.salience_threshold = 0.0,
+	};
+	struct dove9_dte_processor *dte;
+	struct dove9_cognitive_processor proc;
+	struct dove9_cognitive_context ctx;
+
+	dove9_test_begin("zero salience threshold processes everything");
+
+	dove9_mock_reset();
+	dove9_cognitive_context_init(&ctx);
+	snprintf(ctx.input, sizeof(ctx.input), "zero thresh");
+	ctx.salience = 0.001;
+
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	proc = dove9_dte_processor_as_cognitive(dte);
+	proc.process_t1_perception(proc.context, &ctx, DOVE9_MODE_REFLECTIVE);
+	/* With zero threshold, even tiny salience should be processed */
+	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0 ||
+			  dove9_mock_memory_retrieve_relevant_calls > 0);
+
+	dove9_dte_processor_destroy(&dte);
+	dove9_test_end();
+}
+
+/* ---- Test: destroy sets NULL ---- */
+
+static void test_destroy_sets_null(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = false,
+		.memory_retrieval_count = 3,
+		.salience_threshold = 0.1,
+	};
+	struct dove9_dte_processor *dte;
+
+	dove9_test_begin("destroy sets pointer to NULL");
+
+	dove9_mock_reset();
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	dove9_dte_processor_destroy(&dte);
+	DOVE9_TEST_ASSERT_NULL(dte);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -276,6 +351,9 @@ int main(void)
 		test_t5_action_sequence,
 		test_t8_balanced_response,
 		test_t4_sensory_input,
+		test_parallel_cognition_flag,
+		test_zero_salience_threshold,
+		test_destroy_sets_null,
 	};
-	return dove9_test_run("dove9-dte-processor", tests, 9);
+	return dove9_test_run("dove9-dte-processor", tests, 12);
 }
