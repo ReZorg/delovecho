@@ -351,8 +351,8 @@ jobs:
 
       - name: Run mail pipeline benchmarks
         run: |
-          if pnpm ls ts-node &>/dev/null 2>&1; then
-            node --loader ts-node/esm benchmarks/mail-pipeline.bench.ts
+          if pnpm exec ts-node --version &>/dev/null 2>&1; then
+            pnpm exec ts-node --esm --transpile-only benchmarks/mail-pipeline.bench.ts
           else
             echo "::warning::ts-node not available; install ts-node to enable mail pipeline benchmarks"
           fi
