@@ -1,6 +1,6 @@
 /* Copyright (c) 2024-2026 Dovecho authors, see the included COPYING file */
 
-/* Tests for dove9_kernel process management: create, fork, suspend,
+/* Tests for dove9_kernel process management: create, fork, suspend, 
  * resume, terminate, state transitions, capacity limits. */
 
 #include "dove9-test-common.h"
