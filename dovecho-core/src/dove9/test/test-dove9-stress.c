@@ -253,6 +253,96 @@ static void test_mock_reset_clears_all(void)
 	dove9_test_end();
 }
 
+/* ---- Rapid create/destroy system objects ---- */
+
+static void test_rapid_system_alloc_dealloc(void)
+{
+	int i;
+	dove9_test_begin("rapid system alloc/dealloc 50 times");
+
+	for (i = 0; i < 50; i++) {
+		struct dove9_system *s = dove9_system_create();
+		dove9_system_destroy(&s);
+		DOVE9_TEST_ASSERT_NULL(s);
+	}
+	dove9_test_end();
+}
+
+/* ---- Zero-length subject and body ---- */
+
+static void test_zero_length_fields(void)
+{
+	struct dove9_system *sys;
+	struct dove9_system_config cfg;
+	struct dove9_mail_message mail, reply;
+
+	dove9_test_begin("mail with empty subject and body");
+
+	dove9_mock_reset();
+
+	sys = dove9_system_create();
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_system_init(sys, &cfg);
+	dove9_system_start(sys);
+
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "user@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	mail.subject[0] = '\0';
+	mail.body[0] = '\0';
+
+	dove9_system_process_mail(sys, &mail, &reply);
+	DOVE9_TEST_ASSERT(true);
+
+	dove9_system_stop(sys);
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
+/* ---- Concurrent process creation stress ---- */
+
+static void test_concurrent_processes_stress(void)
+{
+	struct dove9_system *sys;
+	struct dove9_system_config cfg;
+	struct dove9_mail_message mail, reply;
+	int i;
+
+	dove9_test_begin("create 50 concurrent processes");
+
+	dove9_mock_reset();
+
+	sys = dove9_system_create();
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_system_init(sys, &cfg);
+	dove9_system_start(sys);
+
+	for (i = 0; i < 50; i++) {
+		memset(&mail, 0, sizeof(mail));
+		snprintf(mail.from, sizeof(mail.from), "user%d@test.com", i);
+		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		snprintf(mail.subject, sizeof(mail.subject), "Concurrent %d", i);
+		snprintf(mail.body, sizeof(mail.body), "Proc %d body", i);
+		dove9_system_process_mail(sys, &mail, &reply);
+	}
+
+	DOVE9_TEST_ASSERT(dove9_system_is_running(sys));
+
+	dove9_system_stop(sys);
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -263,6 +353,9 @@ int main(void)
 		test_long_input_strings,
 		test_mock_counter_accumulation,
 		test_mock_reset_clears_all,
+		test_rapid_system_alloc_dealloc,
+		test_zero_length_fields,
+		test_concurrent_processes_stress,
 	};
-	return dove9_test_run("dove9-stress", tests, 7);
+	return dove9_test_run("dove9-stress", tests, 10);
 }
