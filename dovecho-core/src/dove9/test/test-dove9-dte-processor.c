@@ -174,6 +174,96 @@ static void test_low_salience_skips(void)
 	dove9_test_end();
 }
 
+static void test_t5_action_sequence(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = false,
+		.memory_retrieval_count = 3,
+		.salience_threshold = 0.1,
+	};
+	struct dove9_dte_processor *dte;
+	struct dove9_cognitive_processor proc;
+	struct dove9_cognitive_context ctx;
+
+	dove9_test_begin("T5 action sequence dispatches");
+
+	dove9_mock_reset();
+	dove9_cognitive_context_init(&ctx);
+	snprintf(ctx.input, sizeof(ctx.input), "action test");
+	ctx.salience = 0.5;
+
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	proc = dove9_dte_processor_as_cognitive(dte);
+	proc.process_t5_action_sequence(proc.context, &ctx, DOVE9_MODE_EXPRESSIVE);
+
+	/* T5 should invoke LLM for action generation */
+	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0);
+
+	dove9_dte_processor_destroy(&dte);
+	dove9_test_end();
+}
+
+static void test_t8_balanced_response(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = false,
+		.memory_retrieval_count = 3,
+		.salience_threshold = 0.1,
+	};
+	struct dove9_dte_processor *dte;
+	struct dove9_cognitive_processor proc;
+	struct dove9_cognitive_context ctx;
+
+	dove9_test_begin("T8 balanced response produces output");
+
+	dove9_mock_reset();
+	dove9_cognitive_context_init(&ctx);
+	snprintf(ctx.input, sizeof(ctx.input), "balanced test");
+	ctx.salience = 0.5;
+
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	proc = dove9_dte_processor_as_cognitive(dte);
+	proc.process_t8_balanced_response(proc.context, &ctx, DOVE9_MODE_EXPRESSIVE);
+
+	DOVE9_TEST_ASSERT(ctx.response[0] != '\0');
+
+	dove9_dte_processor_destroy(&dte);
+	dove9_test_end();
+}
+
+static void test_t4_sensory_input(void)
+{
+	struct dove9_dte_processor_config cfg = {
+		.enable_parallel_cognition = false,
+		.memory_retrieval_count = 3,
+		.salience_threshold = 0.1,
+	};
+	struct dove9_dte_processor *dte;
+	struct dove9_cognitive_processor proc;
+	struct dove9_cognitive_context ctx;
+
+	dove9_test_begin("T4 sensory input reads persona");
+
+	dove9_mock_reset();
+	dove9_cognitive_context_init(&ctx);
+	snprintf(ctx.input, sizeof(ctx.input), "sense test");
+	ctx.salience = 0.5;
+
+	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+					 &dove9_mock_memory, &dove9_mock_persona);
+	proc = dove9_dte_processor_as_cognitive(dte);
+	proc.process_t4_sensory_input(proc.context, &ctx, DOVE9_MODE_EXPRESSIVE);
+
+	/* T4 sensory should read personality or emotion */
+	DOVE9_TEST_ASSERT(dove9_mock_persona_personality_calls > 0 ||
+			  dove9_mock_persona_emotion_calls > 0);
+
+	dove9_dte_processor_destroy(&dte);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -183,6 +273,9 @@ int main(void)
 		test_t2_idea_formation_dispatch,
 		test_t7_memory_encoding_stores,
 		test_low_salience_skips,
+		test_t5_action_sequence,
+		test_t8_balanced_response,
+		test_t4_sensory_input,
 	};
-	return dove9_test_run("dove9-dte-processor", tests, 6);
+	return dove9_test_run("dove9-dte-processor", tests, 9);
 }

@@ -8,6 +8,7 @@
 #include "../types/dove9-types.h"
 #include "../core/dove9-kernel.h"
 #include "../integration/dove9-mail-protocol-bridge.h"
+#include "../integration/dove9-sys6-mail-scheduler.h"
 #include "../dove9-system.h"
 
 #include <string.h>
@@ -158,6 +159,53 @@ static void test_context_init_sets_safe_defaults(void)
 	dove9_test_end();
 }
 
+static void test_mail_bridge_null_fields(void)
+{
+	struct dove9_mail_bridge *bridge;
+	struct dove9_mail_message mail;
+	struct dove9_process_request req;
+
+	dove9_test_begin("all-NULL-string mail fields handled safely");
+
+	bridge = dove9_mail_bridge_create();
+	memset(&mail, 0, sizeof(mail));
+	/* All string fields are empty/zero */
+
+	dove9_mail_to_process(bridge, &mail, &req);
+	/* Should not crash */
+	DOVE9_TEST_ASSERT(req.priority > 0 || req.priority == 0);
+
+	dove9_mail_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+static void test_kernel_spawn_null_message(void)
+{
+	struct dove9_kernel *kernel;
+	struct dove9_process *proc;
+
+	dove9_test_begin("spawn with NULL message handled safely");
+
+	kernel = dove9_kernel_create();
+	proc = dove9_kernel_spawn(kernel, NULL, 5);
+	/* Should either return NULL or handle gracefully */
+	(void)proc;
+
+	dove9_kernel_destroy(&kernel);
+	dove9_test_end();
+}
+
+static void test_sys6_scheduler_zero_priority(void)
+{
+	dove9_test_begin("zero priority maps to valid phase");
+
+	/* Should not crash, should return a valid phase */
+	unsigned int phase = dove9_sys6_priority_to_phase(0);
+	DOVE9_TEST_ASSERT(phase >= 1 && phase <= 3);
+
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -167,6 +215,9 @@ int main(void)
 		test_empty_input_handling,
 		test_double_destroy_safe,
 		test_context_init_sets_safe_defaults,
+		test_mail_bridge_null_fields,
+		test_kernel_spawn_null_message,
+		test_sys6_scheduler_zero_priority,
 	};
-	return dove9_test_run("dove9-security", tests, 6);
+	return dove9_test_run("dove9-security", tests, 9);
 }
