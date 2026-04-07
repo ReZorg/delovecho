@@ -90,7 +90,9 @@ test_programs = \
 	test-dove9-sys6-correctness \
 	test-dove9-stress \
 	test-dove9-kernel-mail \
-	test-dove9-event-callbacks
+	test-dove9-event-callbacks \
+	test-dove9-cognitive-context \
+	test-dove9-system-config
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -157,6 +159,14 @@ test_dove9_kernel_mail_CFLAGS = $(TEST_CFLAGS)
 test_dove9_event_callbacks_SOURCES = test/test-dove9-event-callbacks.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
 test_dove9_event_callbacks_LDADD = $(TEST_LDADD)
 test_dove9_event_callbacks_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_cognitive_context_SOURCES = test/test-dove9-cognitive-context.c $(TEST_COMMON_SRCS)
+test_dove9_cognitive_context_LDADD = $(TEST_LDADD)
+test_dove9_cognitive_context_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_system_config_SOURCES = test/test-dove9-system-config.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
+test_dove9_system_config_LDADD = $(TEST_LDADD)
+test_dove9_system_config_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
