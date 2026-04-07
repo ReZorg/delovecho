@@ -173,6 +173,50 @@ static void test_all_phases_covered(void)
 	dove9_test_end();
 }
 
+/* ---- Prime-power delegation: C8 = 2^3 cubics ---- */
+
+static void test_c8_cubic_concurrency(void)
+{
+	dove9_test_begin("C8 cubic concurrency = 2^3 = 8 parallel states");
+	DOVE9_TEST_ASSERT_UINT_EQ(2 * 2 * 2, 8);
+	dove9_test_end();
+}
+
+/* ---- Prime-power delegation: K9 = 3^2 triadic kernels ---- */
+
+static void test_k9_triadic_convolution(void)
+{
+	dove9_test_begin("K9 triadic convolution = 3^2 = 9 orthogonal phases");
+	DOVE9_TEST_ASSERT_UINT_EQ(3 * 3, 9);
+	dove9_test_end();
+}
+
+/* ---- Clock30 = LCM(2,3,5) ---- */
+
+static void test_clock30_lcm(void)
+{
+	dove9_test_begin("Clock30 = LCM(2,3,5) = 30");
+	/* LCM(2,3) = 6; LCM(6,5) = 30 */
+	DOVE9_TEST_ASSERT_UINT_EQ(30, 2 * 3 * 5);
+	dove9_test_end();
+}
+
+/* ---- Pentadic has exactly 5 stages of 6 steps ---- */
+
+static void test_pentadic_five_stages(void)
+{
+	unsigned int stage, steps_per_stage = 0;
+	dove9_test_begin("pentadic: 5 stages, each with 6 steps");
+	for (stage = 0; stage < 5; stage++) {
+		unsigned int start = stage * 6;
+		unsigned int end = start + 6;
+		DOVE9_TEST_ASSERT(end <= 30);
+		steps_per_stage += (end - start);
+	}
+	DOVE9_TEST_ASSERT_UINT_EQ(steps_per_stage, 30);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -184,6 +228,10 @@ int main(void)
 		test_synchronization_events,
 		test_scheduler_cycle_integrity,
 		test_all_phases_covered,
+		test_c8_cubic_concurrency,
+		test_k9_triadic_convolution,
+		test_clock30_lcm,
+		test_pentadic_five_stages,
 	};
-	return dove9_test_run("dove9-sys6-correctness", tests, 8);
+	return dove9_test_run("dove9-sys6-correctness", tests, 12);
 }

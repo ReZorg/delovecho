@@ -98,7 +98,8 @@ test_programs = \
 	test-dove9-api-boundary \
 	test-dove9-coupling-detection \
 	test-dove9-mail-protocol \
-	test-dove9-process-management
+	test-dove9-process-management \
+	test-dove9-salience-landscape
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -197,6 +198,10 @@ test_dove9_mail_protocol_CFLAGS = $(TEST_CFLAGS)
 test_dove9_process_management_SOURCES = test/test-dove9-process-management.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
 test_dove9_process_management_LDADD = $(TEST_LDADD)
 test_dove9_process_management_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_salience_landscape_SOURCES = test/test-dove9-salience-landscape.c $(TEST_COMMON_SRCS)
+test_dove9_salience_landscape_LDADD = $(TEST_LDADD)
+test_dove9_salience_landscape_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
