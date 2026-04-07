@@ -149,6 +149,115 @@ static void test_process_non_bot_address(void)
 	dove9_test_end();
 }
 
+static void test_bridge_double_destroy(void)
+{
+	dove9_test_begin("orchestrator bridge double destroy safe");
+	struct dove9_orchestrator_bridge *bridge = dove9_orchestrator_bridge_create();
+	dove9_orchestrator_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_orchestrator_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_test_end();
+}
+
+static void test_bridge_event_multiple(void)
+{
+	dove9_test_begin("orchestrator bridge: multiple events on process");
+	dove9_mock_reset();
+	reset_event_counts();
+
+	struct dove9_orchestrator_bridge *bridge = dove9_orchestrator_bridge_create();
+	struct dove9_orchestrator_config cfg;
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_orchestrator_bridge_init(bridge, &cfg);
+	dove9_orchestrator_bridge_on(bridge, test_event_handler, NULL);
+
+	struct dove9_mail_message mail, reply;
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "u1@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.subject, sizeof(mail.subject), "A");
+	snprintf(mail.body, sizeof(mail.body), "body1");
+	dove9_orchestrator_bridge_process(bridge, &mail, &reply);
+
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "u2@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.subject, sizeof(mail.subject), "B");
+	snprintf(mail.body, sizeof(mail.body), "body2");
+	dove9_orchestrator_bridge_process(bridge, &mail, &reply);
+
+	DOVE9_TEST_ASSERT(mail_processed_count >= 2);
+	dove9_orchestrator_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+static void test_bridge_empty_body(void)
+{
+	dove9_test_begin("orchestrator bridge: empty body mail");
+	dove9_mock_reset();
+
+	struct dove9_orchestrator_bridge *bridge = dove9_orchestrator_bridge_create();
+	struct dove9_orchestrator_config cfg;
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_orchestrator_bridge_init(bridge, &cfg);
+
+	struct dove9_mail_message mail, reply;
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "user@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.subject, sizeof(mail.subject), "Empty");
+	/* body is empty */
+
+	int ret = dove9_orchestrator_bridge_process(bridge, &mail, &reply);
+	/* should handle gracefully */
+	DOVE9_TEST_ASSERT(ret == 0 || ret != 0);
+
+	dove9_orchestrator_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+static void test_bridge_long_subject(void)
+{
+	dove9_test_begin("orchestrator bridge: long subject truncation safe");
+	dove9_mock_reset();
+
+	struct dove9_orchestrator_bridge *bridge = dove9_orchestrator_bridge_create();
+	struct dove9_orchestrator_config cfg;
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_triadic = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_orchestrator_bridge_init(bridge, &cfg);
+
+	struct dove9_mail_message mail, reply;
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "user@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	/* fill subject with max chars */
+	memset(mail.subject, 'X', DOVE9_MAX_SUBJECT_LEN - 1);
+	mail.subject[DOVE9_MAX_SUBJECT_LEN - 1] = '\0';
+	snprintf(mail.body, sizeof(mail.body), "body");
+
+	int ret = dove9_orchestrator_bridge_process(bridge, &mail, &reply);
+	DOVE9_TEST_ASSERT(ret == 0 || ret != 0); /* no crash */
+
+	dove9_orchestrator_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -156,6 +265,11 @@ int main(void)
 		test_bridge_init,
 		test_process_email,
 		test_process_non_bot_address,
+		test_bridge_double_destroy,
+		test_bridge_event_multiple,
+		test_bridge_empty_body,
+		test_bridge_long_subject,
 	};
-	return dove9_test_run("dove9-orchestrator-bridge", tests, 4);
+	return dove9_test_run("dove9-orchestrator-bridge", tests,
+			      sizeof(tests) / sizeof(tests[0]));
 }

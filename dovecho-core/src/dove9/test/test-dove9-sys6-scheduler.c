@@ -167,6 +167,51 @@ static void test_fifo_fallback(void)
 	dove9_test_end();
 }
 
+static void test_scheduler_double_destroy(void)
+{
+	dove9_test_begin("scheduler double destroy safe");
+	struct dove9_sys6_scheduler *sched = dove9_sys6_scheduler_create();
+	dove9_sys6_scheduler_destroy(&sched);
+	DOVE9_TEST_ASSERT_NULL(sched);
+	dove9_sys6_scheduler_destroy(&sched);
+	DOVE9_TEST_ASSERT_NULL(sched);
+	dove9_test_end();
+}
+
+static void test_scheduler_priority_ordering(void)
+{
+	struct dove9_sys6_scheduler *sched;
+	struct dove9_sys6_slot slot;
+
+	dove9_test_begin("higher priority dequeues first");
+
+	sched = dove9_sys6_scheduler_create();
+	dove9_sys6_scheduler_enqueue(sched, "low", 1, &slot);
+	dove9_sys6_scheduler_enqueue(sched, "high", 9, &slot);
+	dove9_sys6_scheduler_enqueue(sched, "mid", 5, &slot);
+
+	dove9_sys6_scheduler_next(sched, &slot);
+	DOVE9_TEST_ASSERT_STR_EQ(slot.message_id, "high");
+
+	dove9_sys6_scheduler_destroy(&sched);
+	dove9_test_end();
+}
+
+static void test_scheduler_empty_next(void)
+{
+	struct dove9_sys6_scheduler *sched;
+	struct dove9_sys6_slot slot;
+
+	dove9_test_begin("next on empty scheduler returns error");
+
+	sched = dove9_sys6_scheduler_create();
+	int ret = dove9_sys6_scheduler_next(sched, &slot);
+	DOVE9_TEST_ASSERT(ret != 0);
+
+	dove9_sys6_scheduler_destroy(&sched);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -177,6 +222,9 @@ int main(void)
 		test_schedule_mail,
 		test_next_slot,
 		test_fifo_fallback,
+		test_scheduler_double_destroy,
+		test_scheduler_priority_ordering,
+		test_scheduler_empty_next,
 	};
 	return dove9_test_run("dove9-sys6-scheduler", tests, 7);
 }

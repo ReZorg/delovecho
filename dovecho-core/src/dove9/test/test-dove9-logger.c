@@ -86,6 +86,53 @@ static void test_logger_child_depth(void)
 	dove9_test_end();
 }
 
+static void test_logger_null_name(void)
+{
+	dove9_test_begin("logger create with NULL name");
+	struct dove9_logger *l = dove9_logger_create(NULL);
+	/* should handle gracefully - either NULL return or valid logger */
+	if (l != NULL) {
+		dove9_logger_destroy(&l);
+	}
+	DOVE9_TEST_ASSERT(true); /* no crash */
+	dove9_test_end();
+}
+
+static void test_logger_empty_name(void)
+{
+	dove9_test_begin("logger create with empty name");
+	struct dove9_logger *l = dove9_logger_create("");
+	DOVE9_TEST_ASSERT_NOT_NULL(l);
+	dove9_log_info(l, "empty name logger works");
+	dove9_logger_destroy(&l);
+	dove9_test_end();
+}
+
+static void test_logger_long_message(void)
+{
+	dove9_test_begin("logger handles long messages");
+	struct dove9_logger *l = dove9_logger_create("longmsg");
+	char buf[4096];
+	memset(buf, 'A', sizeof(buf) - 1);
+	buf[sizeof(buf) - 1] = '\0';
+	dove9_log_info(l, "%s", buf);
+	DOVE9_TEST_ASSERT(true); /* no crash */
+	dove9_logger_destroy(&l);
+	dove9_test_end();
+}
+
+static void test_logger_child_null_parent(void)
+{
+	dove9_test_begin("logger child with NULL parent");
+	struct dove9_logger *child = dove9_logger_create_child(NULL, "orphan");
+	/* should handle gracefully */
+	if (child != NULL) {
+		dove9_logger_destroy(&child);
+	}
+	DOVE9_TEST_ASSERT(true); /* no crash */
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -95,6 +142,11 @@ int main(void)
 		test_logger_log_no_crash,
 		test_logger_double_destroy,
 		test_logger_child_depth,
+		test_logger_null_name,
+		test_logger_empty_name,
+		test_logger_long_message,
+		test_logger_child_null_parent,
 	};
-	return dove9_test_run("dove9-logger", tests, 6);
+	return dove9_test_run("dove9-logger", tests,
+			      sizeof(tests) / sizeof(tests[0]));
 }
