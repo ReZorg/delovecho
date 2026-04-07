@@ -99,7 +99,8 @@ test_programs = \
 	test-dove9-coupling-detection \
 	test-dove9-mail-protocol \
 	test-dove9-process-management \
-	test-dove9-salience-landscape
+	test-dove9-salience-landscape \
+	test-dove9-step-assignment
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -202,6 +203,10 @@ test_dove9_process_management_CFLAGS = $(TEST_CFLAGS)
 test_dove9_salience_landscape_SOURCES = test/test-dove9-salience-landscape.c $(TEST_COMMON_SRCS)
 test_dove9_salience_landscape_LDADD = $(TEST_LDADD)
 test_dove9_salience_landscape_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_step_assignment_SOURCES = test/test-dove9-step-assignment.c $(TEST_COMMON_SRCS)
+test_dove9_step_assignment_LDADD = $(TEST_LDADD)
+test_dove9_step_assignment_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
