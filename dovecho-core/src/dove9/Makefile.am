@@ -96,7 +96,8 @@ test_programs = \
 	test-dove9-triadic-math \
 	test-dove9-memory-lifecycle \
 	test-dove9-api-boundary \
-	test-dove9-coupling-detection
+	test-dove9-coupling-detection \
+	test-dove9-mail-protocol
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -187,6 +188,10 @@ test_dove9_api_boundary_CFLAGS = $(TEST_CFLAGS)
 test_dove9_coupling_detection_SOURCES = test/test-dove9-coupling-detection.c $(TEST_COMMON_SRCS)
 test_dove9_coupling_detection_LDADD = $(TEST_LDADD)
 test_dove9_coupling_detection_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_mail_protocol_SOURCES = test/test-dove9-mail-protocol.c $(TEST_COMMON_SRCS)
+test_dove9_mail_protocol_LDADD = $(TEST_LDADD)
+test_dove9_mail_protocol_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
