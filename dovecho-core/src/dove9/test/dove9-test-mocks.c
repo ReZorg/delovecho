@@ -7,14 +7,14 @@
 
 /* ---- Call counters ---- */
 
-unsigned int dove9_mock_llm_call_count = 0;
-unsigned int dove9_mock_llm_parallel_call_count = 0;
-unsigned int dove9_mock_memory_store_count = 0;
-unsigned int dove9_mock_memory_recent_count = 0;
-unsigned int dove9_mock_memory_relevant_count = 0;
-unsigned int dove9_mock_persona_personality_count = 0;
-unsigned int dove9_mock_persona_emotion_count = 0;
-unsigned int dove9_mock_persona_update_count = 0;
+unsigned int dove9_mock_llm_generate_calls = 0;
+unsigned int dove9_mock_llm_parallel_calls = 0;
+unsigned int dove9_mock_memory_store_calls = 0;
+unsigned int dove9_mock_memory_retrieve_recent_calls = 0;
+unsigned int dove9_mock_memory_retrieve_relevant_calls = 0;
+unsigned int dove9_mock_persona_personality_calls = 0;
+unsigned int dove9_mock_persona_emotion_calls = 0;
+unsigned int dove9_mock_persona_update_calls = 0;
 
 /* ---- LLM Service Mock ---- */
 
@@ -24,7 +24,7 @@ static int mock_generate_response(void *ctx, const char *prompt,
 {
 	(void)ctx;
 	(void)system_prompt;
-	dove9_mock_llm_call_count++;
+	dove9_mock_llm_generate_calls++;
 	snprintf(out, out_len, "Echo: %s", prompt ? prompt : "");
 	return 0;
 }
@@ -37,7 +37,7 @@ static int mock_generate_parallel_response(void *ctx,
 {
 	unsigned int i;
 	(void)ctx;
-	dove9_mock_llm_parallel_call_count++;
+	dove9_mock_llm_parallel_calls++;
 	for (i = 0; i < count; i++)
 		snprintf(outs[i], out_len, "Echo[%u]: %s", i,
 			 prompts[i] ? prompts[i] : "");
@@ -53,7 +53,7 @@ static int mock_store(void *ctx, const char *key,
 	(void)key;
 	(void)content;
 	(void)importance;
-	dove9_mock_memory_store_count++;
+	dove9_mock_memory_store_calls++;
 	return 0;
 }
 
@@ -62,7 +62,7 @@ static int mock_retrieve_recent(void *ctx, unsigned int count,
 {
 	(void)ctx;
 	(void)count;
-	dove9_mock_memory_recent_count++;
+	dove9_mock_memory_retrieve_recent_calls++;
 	snprintf(out, out_len, "no recent memories");
 	return 0;
 }
@@ -73,7 +73,7 @@ static int mock_retrieve_relevant(void *ctx, const char *query,
 {
 	(void)ctx;
 	(void)count;
-	dove9_mock_memory_relevant_count++;
+	dove9_mock_memory_retrieve_relevant_calls++;
 	snprintf(out, out_len, "relevant: %s", query ? query : "");
 	return 0;
 }
@@ -83,7 +83,7 @@ static int mock_retrieve_relevant(void *ctx, const char *query,
 static int mock_get_personality(void *ctx, char *out, unsigned int out_len)
 {
 	(void)ctx;
-	dove9_mock_persona_personality_count++;
+	dove9_mock_persona_personality_calls++;
 	snprintf(out, out_len, "curious");
 	return 0;
 }
@@ -92,7 +92,7 @@ static int mock_get_dominant_emotion(void *ctx, char *out,
 				     unsigned int out_len)
 {
 	(void)ctx;
-	dove9_mock_persona_emotion_count++;
+	dove9_mock_persona_emotion_calls++;
 	snprintf(out, out_len, "neutral");
 	return 0;
 }
@@ -103,7 +103,7 @@ static int mock_update_emotional_state(void *ctx, const char *input,
 	(void)ctx;
 	(void)input;
 	(void)salience;
-	dove9_mock_persona_update_count++;
+	dove9_mock_persona_update_calls++;
 	return 0;
 }
 
@@ -133,12 +133,12 @@ struct dove9_persona_core dove9_mock_persona = {
 
 void dove9_mock_reset(void)
 {
-	dove9_mock_llm_call_count = 0;
-	dove9_mock_llm_parallel_call_count = 0;
-	dove9_mock_memory_store_count = 0;
-	dove9_mock_memory_recent_count = 0;
-	dove9_mock_memory_relevant_count = 0;
-	dove9_mock_persona_personality_count = 0;
-	dove9_mock_persona_emotion_count = 0;
-	dove9_mock_persona_update_count = 0;
+	dove9_mock_llm_generate_calls = 0;
+	dove9_mock_llm_parallel_calls = 0;
+	dove9_mock_memory_store_calls = 0;
+	dove9_mock_memory_retrieve_recent_calls = 0;
+	dove9_mock_memory_retrieve_relevant_calls = 0;
+	dove9_mock_persona_personality_calls = 0;
+	dove9_mock_persona_emotion_calls = 0;
+	dove9_mock_persona_update_calls = 0;
 }

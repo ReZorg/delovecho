@@ -11,15 +11,15 @@
  * a call counter so tests can verify invocation patterns.
  * ---------------------------------------------------------------- */
 
-/* Call counters */
-extern unsigned int dove9_mock_llm_call_count;
-extern unsigned int dove9_mock_llm_parallel_call_count;
-extern unsigned int dove9_mock_memory_store_count;
-extern unsigned int dove9_mock_memory_recent_count;
-extern unsigned int dove9_mock_memory_relevant_count;
-extern unsigned int dove9_mock_persona_personality_count;
-extern unsigned int dove9_mock_persona_emotion_count;
-extern unsigned int dove9_mock_persona_update_count;
+/* Call counters — named to match test assertions */
+extern unsigned int dove9_mock_llm_generate_calls;
+extern unsigned int dove9_mock_llm_parallel_calls;
+extern unsigned int dove9_mock_memory_store_calls;
+extern unsigned int dove9_mock_memory_retrieve_recent_calls;
+extern unsigned int dove9_mock_memory_retrieve_relevant_calls;
+extern unsigned int dove9_mock_persona_personality_calls;
+extern unsigned int dove9_mock_persona_emotion_calls;
+extern unsigned int dove9_mock_persona_update_calls;
 
 /* Mock vtable instances */
 extern struct dove9_llm_service dove9_mock_llm;
