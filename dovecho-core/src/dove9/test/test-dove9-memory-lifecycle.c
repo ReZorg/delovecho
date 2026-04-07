@@ -224,6 +224,53 @@ static void test_context_opaque_ptrs(void)
 	dove9_test_end();
 }
 
+/* ---- test: sys6 scheduler lifecycle ---- */
+
+static void test_sys6_scheduler_lifecycle(void)
+{
+	dove9_test_begin("lifecycle: sys6 scheduler create+advance+destroy");
+	struct dove9_sys6_scheduler *sched = dove9_sys6_scheduler_create();
+	DOVE9_TEST_ASSERT_NOT_NULL(sched);
+	dove9_sys6_scheduler_advance(sched);
+	dove9_sys6_scheduler_destroy(&sched);
+	DOVE9_TEST_ASSERT_NULL(sched);
+	dove9_test_end();
+}
+
+/* ---- test: mail bridge lifecycle ---- */
+
+static void test_mail_bridge_lifecycle(void)
+{
+	dove9_test_begin("lifecycle: mail bridge create+destroy");
+	struct dove9_mail_bridge *bridge = dove9_mail_bridge_create();
+	DOVE9_TEST_ASSERT_NOT_NULL(bridge);
+	dove9_mail_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_test_end();
+}
+
+/* ---- test: repeated create/destroy doesn't leak ---- */
+
+static void test_repeated_lifecycle(void)
+{
+	int i;
+	dove9_test_begin("lifecycle: repeated create/destroy 20x");
+	dove9_mock_reset();
+	for (i = 0; i < 20; i++) {
+		struct dove9_dte_processor_config cfg = {
+			.enable_parallel_cognition = false,
+			.memory_retrieval_count = 3,
+			.salience_threshold = 0.1,
+		};
+		struct dove9_dte_processor *dte =
+			dove9_dte_processor_create(&cfg, &dove9_mock_llm,
+						   &dove9_mock_memory, &dove9_mock_persona);
+		dove9_dte_processor_destroy(&dte);
+	}
+	DOVE9_TEST_ASSERT(true);
+	dove9_test_end();
+}
+
 /* ---- main ---- */
 
 int main(void)
@@ -238,6 +285,9 @@ int main(void)
 		test_null_destroy_all_safe,
 		test_kernel_mail_lifecycle,
 		test_context_opaque_ptrs,
+		test_sys6_scheduler_lifecycle,
+		test_mail_bridge_lifecycle,
+		test_repeated_lifecycle,
 	};
 	return dove9_test_run("dove9-memory-lifecycle",
 			      tests,

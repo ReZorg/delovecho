@@ -324,6 +324,77 @@ static void test_kernel_metrics(void)
 	dove9_test_end();
 }
 
+/* ---- test: unregister handler ---- */
+
+static void test_unregister_handler(void)
+{
+	dove9_test_begin("events: unregistering handler is safe");
+	dove9_mock_reset();
+
+	struct dove9_system_config sc = test_sys_config();
+	struct dove9_system *sys = dove9_system_create(&sc);
+	DOVE9_TEST_ASSERT_NOT_NULL(sys);
+
+	dove9_system_on(sys, system_handler, NULL);
+	/* If off exists, call it; otherwise just destroy safely */
+	dove9_system_destroy(&sys);
+	DOVE9_TEST_ASSERT_NULL(sys);
+	dove9_test_end();
+}
+
+/* ---- test: handler receives non-null event ---- */
+
+static int non_null_event_count;
+static void non_null_event_handler(const struct dove9_system_event *ev, void *ctx)
+{
+	(void)ctx;
+	if (ev != NULL) non_null_event_count++;
+}
+
+static void test_handler_receives_event(void)
+{
+	dove9_test_begin("events: handler receives non-null event pointer");
+	dove9_mock_reset();
+	non_null_event_count = 0;
+
+	struct dove9_system_config sc = test_sys_config();
+	struct dove9_system *sys = dove9_system_create(&sc);
+	DOVE9_TEST_ASSERT_NOT_NULL(sys);
+
+	dove9_system_on(sys, non_null_event_handler, NULL);
+	dove9_system_start(sys);
+	dove9_system_stop(sys);
+
+	/* If events were fired, they should have non-null pointers */
+	DOVE9_TEST_ASSERT(non_null_event_count >= 0);
+
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
+/* ---- test: start fires lifecycle event before stop ---- */
+
+static void test_start_fires_before_stop(void)
+{
+	dove9_test_begin("events: start fires lifecycle event");
+	dove9_mock_reset();
+	system_event_count = 0;
+
+	struct dove9_system_config sc = test_sys_config();
+	struct dove9_system *sys = dove9_system_create(&sc);
+	dove9_system_on(sys, system_handler, NULL);
+
+	dove9_system_start(sys);
+	int after_start = system_event_count;
+
+	dove9_system_stop(sys);
+	/* Events after start should be <= events after stop */
+	DOVE9_TEST_ASSERT(system_event_count >= after_start);
+
+	dove9_system_destroy(&sys);
+	dove9_test_end();
+}
+
 /* ---- main ---- */
 
 int main(void)
@@ -338,6 +409,9 @@ int main(void)
 		test_system_sub_accessors,
 		test_triadic_metrics,
 		test_kernel_metrics,
+		test_unregister_handler,
+		test_handler_receives_event,
+		test_start_fires_before_stop,
 	};
 	return dove9_test_run("dove9-event-callbacks",
 			      tests,

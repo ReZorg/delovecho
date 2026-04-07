@@ -195,6 +195,57 @@ static void test_answered_flag(void)
 	dove9_test_end();
 }
 
+/* ---- Test: FLAGGED flag sets high priority ---- */
+
+static void test_flagged_high_priority(void)
+{
+	struct dove9_mail_bridge *bridge;
+	struct dove9_mail_message mail;
+	struct dove9_process_request req;
+
+	dove9_test_begin("FLAGGED mail maps to elevated priority");
+
+	bridge = dove9_mail_bridge_create();
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "vip@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.subject, sizeof(mail.subject), "Urgent!!");
+	mail.flags = DOVE9_MAIL_FLAG_FLAGGED;
+
+	dove9_mail_to_process(bridge, &mail, &req);
+	/* Flagged should increase priority */
+	DOVE9_TEST_ASSERT(req.priority > 0);
+
+	dove9_mail_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+/* ---- Test: DELETED flag maps to terminated state ---- */
+
+static void test_deleted_flag_terminated(void)
+{
+	dove9_test_begin("DELETED flag → TERMINATED state");
+
+	DOVE9_TEST_ASSERT_INT_EQ(
+		dove9_mail_flag_to_state(DOVE9_MAIL_FLAG_DELETED),
+		DOVE9_PROC_TERMINATED);
+
+	dove9_test_end();
+}
+
+/* ---- Test: bridge destroy sets null ---- */
+
+static void test_bridge_destroy_null(void)
+{
+	struct dove9_mail_bridge *bridge;
+
+	dove9_test_begin("bridge destroy sets pointer to NULL");
+	bridge = dove9_mail_bridge_create();
+	dove9_mail_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -207,6 +258,9 @@ int main(void)
 		test_empty_body_handling,
 		test_reply_no_double_re,
 		test_answered_flag,
+		test_flagged_high_priority,
+		test_deleted_flag_terminated,
+		test_bridge_destroy_null,
 	};
-	return dove9_test_run("dove9-mail-bridge", tests, 9);
+	return dove9_test_run("dove9-mail-bridge", tests, 12);
 }
