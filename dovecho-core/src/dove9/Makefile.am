@@ -100,7 +100,8 @@ test_programs = \
 	test-dove9-mail-protocol \
 	test-dove9-process-management \
 	test-dove9-salience-landscape \
-	test-dove9-step-assignment
+	test-dove9-step-assignment \
+	test-dove9-cognitive-pipeline
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -207,6 +208,10 @@ test_dove9_salience_landscape_CFLAGS = $(TEST_CFLAGS)
 test_dove9_step_assignment_SOURCES = test/test-dove9-step-assignment.c $(TEST_COMMON_SRCS)
 test_dove9_step_assignment_LDADD = $(TEST_LDADD)
 test_dove9_step_assignment_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_cognitive_pipeline_SOURCES = test/test-dove9-cognitive-pipeline.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
+test_dove9_cognitive_pipeline_LDADD = $(TEST_LDADD)
+test_dove9_cognitive_pipeline_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
