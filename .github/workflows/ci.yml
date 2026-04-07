@@ -92,6 +92,45 @@ jobs:
           fail_ci_if_error: false
 
   # ============================================
+  # Dove9 C Layer — Build & Test
+  # ============================================
+  test-c-layer:
+    name: Dove9 C Layer Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y autoconf automake libtool pkg-config gcc make
+
+      - name: Generate build system
+        working-directory: dovecho-core
+        run: ./autogen.sh
+
+      - name: Configure (with dev checks + coverage)
+        working-directory: dovecho-core
+        run: ./configure --enable-devel-checks --enable-coverage
+
+      - name: Build dovecho-core
+        working-directory: dovecho-core
+        run: make -j$(nproc)
+
+      - name: Run dove9 unit tests
+        working-directory: dovecho-core
+        run: make -C src/dove9 check-local
+
+      - name: Generate coverage report
+        if: always()
+        working-directory: dovecho-core
+        run: |
+          if command -v gcov &> /dev/null; then
+            find src/dove9 -name '*.gcda' -exec gcov {} + || true
+          fi
+
+  # ============================================
   # Security Scanning
   # ============================================
   security:
