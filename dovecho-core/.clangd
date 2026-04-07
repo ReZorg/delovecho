@@ -1,0 +1,11 @@
+CompileFlags:
+  Add:
+    - -std=gnu11
+    - -D_GNU_SOURCE
+  CompilationDatabase: .
+
+Diagnostics:
+  UnusedIncludes: None
+
+Index:
+  Background: Build
