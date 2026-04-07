@@ -2595,7 +2595,7 @@
     "message": "Mik az újdonságok?\n\n❤️‍🔥 Új emodzsi-választó még több emodzsival\n\n🎮 Továbbfejlesztett, a csevegésben használható alkalmazások: Értesítéseket kaphat és megnyithatja az azokat támogató alkalmazásokban, azaz közvetlenül megnyithat egy hozzáadott naptárbejegyzést\n\n👍 Értesítést kaphat az üzeneteire adott reakciókról\n\n… 🛠️ Egyéb javítások, tudjon meg többet itt: %1$s"
   },
   "update_switch_profile_placement": {
-    "message": "ℹ️ A „Profilváltás” beállítás át lett helyezve:\nÉrintse meg a főképernyő felső sarkában lévő profilképet a profilok hozzáadásához vagy váltásához 💡"
+    "message": "ℹ️ A „Profilváltás” beállítás át lett helyezve:\r\nÉrintse meg a főképernyő felső sarkában lévő profilképet a profilok hozzáadásához vagy váltásához 💡"
   },
   "n_minutes": {
     "one": "%d perce",
