@@ -8,6 +8,20 @@
 - **Date**: 2026-04-07
 - **Scope**: Modified files only (branch delta)
 - **Primary Focus**: New conventions, generated type-stub patterns, and C/H developer tooling consistency
+- **Automation Level**: Balanced
+- **Validation Required**: true
+
+## Comparative State Analysis Snapshot
+
+- **Structural Changes Detected**:
+  - Large addition of generated Python stubs under `.github/agents/.stubs/pyspark34/**`.
+  - New C/C++ development workflow files for `dovecho-core` (`.clang-format`, `.clangd`, and compile-commands helper script).
+  - New/updated VS Code workspace tooling alignment (`.vscode/settings.json`, `.vscode/tasks.json`).
+- **Configuration Evolution**:
+  - Workspace indexer/formatter/task setup now explicitly supports `dovecho-core` development.
+- **Transformation Theme**:
+  - Normalize developer workflow and prevent divergence between C/H code changes and local tooling.
+  - Keep generated stubs declaration-oriented and avoid speculative typing.
 
 ## Automatic Transformation Rules
 
@@ -26,7 +40,7 @@
 - **Old Pattern**: Manual or inconsistent type placeholders in `.pyi` stubs.
 - **New Pattern**: Use `_typeshed.Incomplete` for unknown members and keep concise signatures in generated stubs under `.github/agents/.stubs/pyspark34/`.
 - **Trigger**: Adding/editing stub files in `.github/agents/.stubs/pyspark34/**`.
-- **Action**: Preserve generated-style declaration format and avoid runtime logic in `.pyi` files.
+- **Action**: Preserve generated-style declaration format and avoid runtime logic in `.pyi` files. Prefer `Incomplete` for unknowns; keep existing `Any` only when upstream/generated intent is explicit.
 
 - **Old Pattern**: Mixed formatting/spacing style in C files.
 - **New Pattern**: Dovecot-style formatting enforced by `dovecho-core/.clang-format` (tabs, width 8, Linux base style).
@@ -45,6 +59,11 @@
 - **Required Validation**: No implementation code in stubs; names and modules remain import-path consistent.
 - **Alternatives**: If symbol type is unknown, use `Incomplete` rather than guessing narrow types.
 
+- **Detected Pattern**: Placeholder style drift inside generated stubs (`Any` vs `_typeshed.Incomplete`).
+- **Suggested Transformation**: Normalize uncertain attributes/fields to `Incomplete` unless the generator/upstream clearly specifies `Any`.
+- **Required Validation**: Check file-level consistency: if `Incomplete` is used, import from `_typeshed` must exist.
+- **Alternatives**: Keep mixed placeholders only when preserving upstream fidelity for external package compatibility.
+
 ### 3. API Correspondences
 
 | Old API / Pattern | New API / Pattern | Notes | Example |
@@ -52,6 +71,7 @@
 | Ad-hoc C build command | Tasked workflow in VS Code | Standardizes developer loop | `dovecho-core: configure (dev)` + `dovecho-core: build` |
 | Missing compile DB for IDE | `compile_commands.json` generation task | Improves clangd/C_Cpp accuracy | `dovecho-core: compile_commands` |
 | Unstructured unknown types in stubs | `_typeshed.Incomplete` placeholders | Keeps stubs maintainable and truthful | `foo: Incomplete` |
+| Implicit placeholder drift (`Any`) | Controlled unknowns (`Incomplete`) | Reduces speculative typing noise | `bar: Incomplete` |
 | Unscoped C formatting | `.clang-format` in `dovecho-core` | Enforces consistent style | tabs, Linux style |
 
 ### 4. New Patterns to Adopt
@@ -97,6 +117,8 @@
 - Declaration-only; no runtime logic.
 - Use `Incomplete` where source precision is unknown.
 - Keep import and module path fidelity to upstream packages.
+- If `Incomplete` appears in annotations, ensure `from _typeshed import Incomplete` is present.
+- Avoid introducing implementation statements (no executable bodies beyond `...`).
 
 ## Validation and Security
 
@@ -108,6 +130,10 @@
   - build task command resolves
   - compile database generation script is executable and deterministic
 - For stub changes, validate parseability and import path consistency.
+- For placeholder normalization in stubs, validate:
+  - `Incomplete` imports are present when required
+  - no accidental conversion of explicitly meaningful `Any` in public API signatures
+  - no runtime code introduced in `.pyi`
 
 ### Manual Escalation
 
@@ -124,6 +150,7 @@ Situations requiring human intervention:
 - Percentage of C/H changes accompanied by tooling updates.
 - Number of stub files following declaration-only convention.
 - Number of edits requiring manual follow-up due to platform toolchain differences.
+- Ratio of unknown placeholders represented as `Incomplete` vs `Any` in generated stubs.
 
 ### Error Reporting
 
@@ -162,4 +189,18 @@ AFTER
 
 COPILOT RULE
 For `.pyi` files under `.github/agents/.stubs/pyspark34`, prefer correctness-by-declaration over speculative precision.
+```
+
+### Example C: Placeholder Normalization with Guardrails
+
+```text
+BEFORE
+- Unknown field typed as `Any` without clear upstream intent
+
+AFTER
+- Unknown field typed as `Incomplete`
+- `from _typeshed import Incomplete` present in file imports
+
+COPILOT RULE
+When type intent is unknown in generated stubs, prefer `Incomplete`; keep `Any` only when preserving explicit upstream contract behavior.
 ```
