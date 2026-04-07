@@ -44,6 +44,15 @@ AS_HELP_STRING([--enable-asserts], [Enable asserts (default)]),
 		AC_DEFINE(DISABLE_ASSERTS,, [Disable asserts])
 	fi)
 
+AC_ARG_ENABLE(coverage,
+AS_HELP_STRING([--enable-coverage], [Enable gcov code coverage for dove9 tests]),
+	if test x$enableval = xyes; then
+		DOVE9_COVERAGE_CFLAGS="--coverage -fprofile-arcs -ftest-coverage"
+		DOVE9_COVERAGE_LDFLAGS="--coverage"
+		AC_SUBST(DOVE9_COVERAGE_CFLAGS)
+		AC_SUBST(DOVE9_COVERAGE_LDFLAGS)
+	fi)
+
 AC_ARG_WITH(shared-libs,
 AS_HELP_STRING([--with-shared-libs], [Link binaries using shared Dovecot libraries (default)]),
 	want_shared_libs=$withval,
@@ -866,6 +875,7 @@ src/plugins/mail-crypt/Makefile
 src/plugins/var-expand-crypt/Makefile
 src/plugins/apparmor/Makefile
 src/plugins/charset-alias/Makefile
+src/dove9/Makefile
 stamp.h
 build-aux/run-test.sh
 dovecot-config.in])

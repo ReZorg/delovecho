@@ -70,4 +70,5 @@ SUBDIRS = \
 	util \
 	doveadm \
 	stats \
-	plugins
+	plugins \
+	dove9
