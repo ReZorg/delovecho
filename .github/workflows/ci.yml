@@ -351,7 +351,11 @@ jobs:
 
       - name: Run mail pipeline benchmarks
         run: |
-          node --loader ts-node/esm benchmarks/mail-pipeline.bench.ts || echo ::warning::Mail pipeline benchmark requires built packages skipping in CI
+          if pnpm ls ts-node &>/dev/null 2>&1; then
+            node --loader ts-node/esm benchmarks/mail-pipeline.bench.ts
+          else
+            echo "::warning::ts-node not available; install ts-node to enable mail pipeline benchmarks"
+          fi
 
       - name: Upload benchmark results
         if: always()

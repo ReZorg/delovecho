@@ -94,8 +94,8 @@ docker compose ps
 # Tail orchestrator logs
 docker compose logs -f deltecho
 
-# Verify IMAP is reachable
-openssl s_client -connect localhost:993 -quiet
+# Verify IMAP is reachable (plain; use port 993 only after enabling TLS)
+nc -z localhost 143 && echo "IMAP OK"
 
 # Check LMTP socket is shared
 docker compose exec deltecho ls -la /var/run/dovecot/
@@ -184,7 +184,7 @@ You can query and manipulate process states directly through IMAP:
 
 ```bash
 # Query active processes (emails in Processing mailbox)
-openssl s_client -connect localhost:993 -quiet <<EOF
+openssl s_client -connect localhost:143 -quiet <<EOF
 a LOGIN user password
 b SELECT Processing
 c FETCH 1:* (FLAGS ENVELOPE)
