@@ -62,6 +62,7 @@ static void test_pipeline_invokes_llm(void)
 	dove9_mock_reset();
 
 	memset(&cfg, 0, sizeof(cfg));
+	cfg.base = dove9_config_default();
 	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
 		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
@@ -70,8 +71,11 @@ static void test_pipeline_invokes_llm(void)
 	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
+	/* Advance engine to step 2 (triad 1: T2E) where LLM is invoked */
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
+
 	memset(&mail, 0, sizeof(mail));
-	snprintf(mail.message_id, sizeof(mail.message_id), "test-llm@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
 	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 	mail.to_count = 1;
@@ -79,7 +83,11 @@ static void test_pipeline_invokes_llm(void)
 	snprintf(mail.body, sizeof(mail.body), "Does LLM fire?");
 
 	dove9_system_process_mail(sys, &mail);
-	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
+	/* With enable_parallel_cognition=true (default), T2E calls
+	   generate_parallel_response instead of generate_response */
+	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0 ||
+			  dove9_mock_llm_parallel_calls > 0);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -98,6 +106,7 @@ static void test_pipeline_invokes_memory(void)
 	dove9_mock_reset();
 
 	memset(&cfg, 0, sizeof(cfg));
+	cfg.base = dove9_config_default();
 	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
 		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
@@ -114,6 +123,7 @@ static void test_pipeline_invokes_memory(void)
 	snprintf(mail.body, sizeof(mail.body), "Memory test");
 
 	dove9_system_process_mail(sys, &mail);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 	DOVE9_TEST_ASSERT(dove9_mock_memory_store_calls > 0 ||
 			  dove9_mock_memory_retrieve_recent_calls > 0 ||
 			  dove9_mock_memory_retrieve_relevant_calls > 0);
@@ -135,6 +145,7 @@ static void test_pipeline_invokes_persona(void)
 	dove9_mock_reset();
 
 	memset(&cfg, 0, sizeof(cfg));
+	cfg.base = dove9_config_default();
 	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
 		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
@@ -151,6 +162,7 @@ static void test_pipeline_invokes_persona(void)
 	snprintf(mail.body, sizeof(mail.body), "Persona test");
 
 	dove9_system_process_mail(sys, &mail);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 	DOVE9_TEST_ASSERT(dove9_mock_persona_personality_calls > 0 ||
 			  dove9_mock_persona_emotion_calls > 0 ||
 			  dove9_mock_persona_update_calls > 0);

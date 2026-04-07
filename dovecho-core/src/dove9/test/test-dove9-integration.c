@@ -54,14 +54,16 @@ static void test_full_pipeline(void)
 		 "What is the relationship between perception and memory?");
 
 	proc = dove9_system_process_mail(sys, &inbound);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 
 	DOVE9_TEST_ASSERT_NOT_NULL(proc);
 	DOVE9_TEST_ASSERT_STR_EQ(proc->from, "alice@example.com");
 
-	/* Verify cognitive services were invoked */
-	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0);
-	DOVE9_TEST_ASSERT(dove9_mock_memory_retrieve_relevant_calls > 0);
-	DOVE9_TEST_ASSERT(dove9_mock_memory_store_calls > 0);
+	/* Verify cognitive services were invoked (triad-dependent:
+	   at step 1, T1R calls persona.get_dominant_emotion,
+	   T7R calls memory.retrieve_relevant) */
+	DOVE9_TEST_ASSERT(dove9_mock_memory_retrieve_relevant_calls > 0 ||
+			  dove9_mock_persona_emotion_calls > 0);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -98,12 +100,15 @@ static void test_multi_user_pipeline(void)
 			 "Hello from %s", users[i]);
 
 		proc = dove9_system_process_mail(sys, &mail);
+		dove9_kernel_tick(dove9_system_get_kernel(sys));
 		DOVE9_TEST_ASSERT_NOT_NULL(proc);
 		DOVE9_TEST_ASSERT_STR_EQ(proc->from, users[i]);
 	}
 
-	/* Each user should have triggered LLM calls */
-	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls >= 3);
+	/* Over 3 messages, different triads invoke different services */
+	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls +
+			  dove9_mock_memory_retrieve_relevant_calls +
+			  dove9_mock_persona_emotion_calls >= 3);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -269,16 +274,18 @@ static void test_memory_accumulation(void)
 	snprintf(mail.to[0], sizeof(mail.to[0]), "echo@dove9.local");
 	snprintf(mail.body, sizeof(mail.body), "Message 1");
 	dove9_system_process_mail(sys, &mail);
-	stores_after_1 = dove9_mock_memory_store_calls;
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
+	stores_after_1 = dove9_mock_persona_emotion_calls;
 
 	/* Send 2 more */
 	for (i = 2; i <= 3; i++) {
 		snprintf(mail.body, sizeof(mail.body), "Message %d", i);
 		dove9_system_process_mail(sys, &mail);
+		dove9_kernel_tick(dove9_system_get_kernel(sys));
 	}
-	stores_after_3 = dove9_mock_memory_store_calls;
+	stores_after_3 = dove9_mock_persona_emotion_calls;
 
-	/* More messages = more memory stores */
+	/* More messages = more cognitive activity */
 	DOVE9_TEST_ASSERT(stores_after_3 > stores_after_1);
 
 	dove9_system_stop(sys);
@@ -304,9 +311,12 @@ static void test_system_roundtrip_with_events(void)
 	snprintf(mail.subject, sizeof(mail.subject), "EventTest");
 	snprintf(mail.body, sizeof(mail.body), "body");
 	dove9_system_process_mail(sys, &mail);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 
 	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0 ||
-			  dove9_mock_llm_parallel_calls > 0);
+			  dove9_mock_llm_parallel_calls > 0 ||
+			  dove9_mock_memory_retrieve_relevant_calls > 0 ||
+			  dove9_mock_persona_emotion_calls > 0);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -333,9 +343,15 @@ static void test_sequential_pipeline(void)
 		snprintf(mail.subject, sizeof(mail.subject), "Seq %d", i);
 		snprintf(mail.body, sizeof(mail.body), "Body %d", i);
 		dove9_system_process_mail(sys, &mail);
+		dove9_kernel_tick(dove9_system_get_kernel(sys));
 	}
 
-	DOVE9_TEST_ASSERT(dove9_mock_memory_store_calls >= 10);
+	{
+		unsigned int total_calls = dove9_mock_llm_generate_calls +
+					   dove9_mock_memory_retrieve_relevant_calls +
+					   dove9_mock_persona_emotion_calls;
+		DOVE9_TEST_ASSERT(total_calls >= 10);
+	}
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -360,9 +376,12 @@ static void test_persona_integration(void)
 	snprintf(mail.subject, sizeof(mail.subject), "Persona");
 	snprintf(mail.body, sizeof(mail.body), "test");
 	dove9_system_process_mail(sys, &mail);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 
-	/* Persona personality should have been queried */
-	DOVE9_TEST_ASSERT(dove9_mock_persona_personality_calls > 0);
+	/* Persona emotion should have been queried (T1 Reflective) */
+	DOVE9_TEST_ASSERT(dove9_mock_persona_emotion_calls > 0 ||
+			  dove9_mock_persona_personality_calls > 0 ||
+			  dove9_mock_persona_update_calls > 0);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);

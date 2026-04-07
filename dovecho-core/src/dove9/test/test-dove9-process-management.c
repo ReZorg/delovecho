@@ -107,6 +107,10 @@ static void test_suspend_resume(void)
 	struct dove9_message_process *p =
 		dove9_kernel_create_process(k, "sr-1", "a@test", tos, 1,
 					    "S", "B", 5);
+	/* Directly set ACTIVE state to test suspend API
+	   (in synchronous model, tick activates+executes atomically) */
+	p->state = DOVE9_PROCESS_ACTIVE;
+
 	bool susp = dove9_kernel_suspend_process(k, p->id);
 	DOVE9_TEST_ASSERT(susp);
 
@@ -194,6 +198,9 @@ static void test_process_state_after_suspend(void)
 	struct dove9_message_process *p =
 		dove9_kernel_create_process(k, "state-1", "a@test", tos, 1,
 					    "S", "B", 5);
+	/* Directly set ACTIVE state to test suspend API */
+	p->state = DOVE9_PROCESS_ACTIVE;
+
 	dove9_kernel_suspend_process(k, p->id);
 
 	struct dove9_message_process *found =

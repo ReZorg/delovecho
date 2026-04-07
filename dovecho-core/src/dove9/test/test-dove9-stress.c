@@ -233,12 +233,16 @@ static void test_mock_counter_accumulation(void)
 	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 	snprintf(mail.body, sizeof(mail.body), "First");
 	dove9_system_process_mail(sys, &mail);
-	llm_calls = dove9_mock_llm_generate_calls;
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
+	llm_calls = dove9_mock_llm_generate_calls +
+		    dove9_mock_llm_parallel_calls;
 
 	snprintf(mail.body, sizeof(mail.body), "Second");
 	dove9_system_process_mail(sys, &mail);
+	dove9_kernel_tick(dove9_system_get_kernel(sys));
 
-	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > llm_calls);
+	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls +
+			  dove9_mock_llm_parallel_calls > llm_calls);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);

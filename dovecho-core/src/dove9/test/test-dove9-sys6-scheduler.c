@@ -62,6 +62,9 @@ static void test_cycle_positions(void)
 	DOVE9_TEST_ASSERT_UINT_EQ(pos.grand_step, 0);
 	DOVE9_TEST_ASSERT_UINT_EQ(pos.sys6_step, 0);
 
+	/* Must start before advancing */
+	dove9_sys6_scheduler_start(sched);
+
 	/* Advance some steps */
 	for (i = 0; i < 7; i++)
 		dove9_sys6_scheduler_advance_step(sched);
@@ -85,6 +88,7 @@ static void test_cycle_boundaries(void)
 	dove9_test_begin("Sys6 at 30 steps, Grand at 60 steps");
 
 	sched = dove9_sys6_scheduler_create(100, &cfg);
+	dove9_sys6_scheduler_start(sched);
 
 	for (i = 0; i < 60; i++)
 		dove9_sys6_scheduler_advance_step(sched);

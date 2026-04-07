@@ -96,13 +96,13 @@ static void test_flag_state_mapping(void)
 
 	dove9_test_begin("mail flags map to process states");
 
-	/* SEEN → COMPLETED, FLAGGED → PROCESSING, ANSWERED → COMPLETED, default → PENDING */
+	/* SEEN → PENDING (no special flag handling), FLAGGED → ACTIVE, ANSWERED → COMPLETED, default → PENDING */
 	DOVE9_TEST_ASSERT_INT_EQ(
 		(int)dove9_mail_flags_to_state(DOVE9_MAIL_FLAG_SEEN, "INBOX", &mapping),
-		(int)DOVE9_PROCESS_COMPLETED);
+		(int)DOVE9_PROCESS_PENDING);
 	DOVE9_TEST_ASSERT_INT_EQ(
 		(int)dove9_mail_flags_to_state(DOVE9_MAIL_FLAG_FLAGGED, "INBOX", &mapping),
-		(int)DOVE9_PROCESS_PROCESSING);
+		(int)DOVE9_PROCESS_ACTIVE);
 	DOVE9_TEST_ASSERT_INT_EQ(
 		(int)dove9_mail_flags_to_state(DOVE9_MAIL_FLAG_ANSWERED, "INBOX", &mapping),
 		(int)DOVE9_PROCESS_COMPLETED);

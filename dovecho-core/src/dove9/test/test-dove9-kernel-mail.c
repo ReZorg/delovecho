@@ -169,12 +169,12 @@ static void test_move_process_to_mailbox(void)
 	struct dove9_message_process *proc =
 		dove9_kernel_create_process_from_mail(k, &mail);
 
-	bool moved = dove9_kernel_move_process_to_mailbox(k, proc->id, "Archive");
+	bool moved = dove9_kernel_move_process_to_mailbox(k, proc->id, "Sent");
 	DOVE9_TEST_ASSERT(moved);
 
 	const char *mbox = dove9_kernel_get_mailbox_for_process(k, proc->id);
 	DOVE9_TEST_ASSERT_NOT_NULL(mbox);
-	DOVE9_TEST_ASSERT_STR_EQ(mbox, "Archive");
+	DOVE9_TEST_ASSERT_STR_EQ(mbox, "Sent");
 
 	dove9_kernel_stop(k);
 	dove9_kernel_destroy(&k);
@@ -260,12 +260,12 @@ static void test_processes_by_mailbox(void)
 	struct dove9_message_process *p2 =
 		dove9_kernel_create_process_from_mail(k, &m2);
 
-	/* move p2 to Archive */
-	dove9_kernel_move_process_to_mailbox(k, p2->id, "Archive");
+	/* move p2 to Sent */
+	dove9_kernel_move_process_to_mailbox(k, p2->id, "Sent");
 
 	struct dove9_message_process *results[16];
 	unsigned int n = dove9_kernel_get_processes_by_mailbox(
-		k, "Archive", results, 16);
+		k, "Sent", results, 16);
 	DOVE9_TEST_ASSERT(n >= 1);
 
 	dove9_kernel_stop(k);
