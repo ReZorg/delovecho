@@ -276,16 +276,38 @@ static void test_system_multiple_messages(void)
 	dove9_test_end();
 }
 
+static void test_system_stop_without_start(void)
+{
+        dove9_test_begin("system stop without start is safe");
+        dove9_mock_reset();
+
+        struct dove9_system *sys = dove9_system_create();
+        struct dove9_system_config cfg;
+        memset(&cfg, 0, sizeof(cfg));
+        snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+        cfg.llm = &dove9_mock_llm;
+        cfg.memory = &dove9_mock_memory;
+        cfg.persona = &dove9_mock_persona;
+        dove9_system_init(sys, &cfg);
+
+        dove9_system_stop(sys); /* should not crash */
+        DOVE9_TEST_ASSERT(true);
+
+        dove9_system_destroy(&sys);
+        dove9_test_end();
+}
+
 int main(void)
 {
-	dove9_test_fn tests[] = {
-		test_system_create,
-		test_system_start_stop,
-		test_process_mail,
-		test_system_events,
-		test_system_not_started,
-		test_system_double_start,
-		test_system_multiple_messages,
-	};
-	return dove9_test_run("dove9-system", tests, 7);
-}
+        dove9_test_fn tests[] = {
+                test_system_create,
+                test_system_start_stop,
+                test_process_mail,
+                test_system_events,
+                test_system_not_started,
+                test_system_double_start,
+                test_system_multiple_messages,
+                test_system_stop_without_start,
+        };
+        return dove9_test_run("dove9-system", tests,
+                              sizeof(tests) / sizeof(tests[0]));

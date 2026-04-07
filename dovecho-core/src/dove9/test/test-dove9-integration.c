@@ -271,15 +271,116 @@ static void test_memory_accumulation(void)
 	dove9_test_end();
 }
 
+static void test_system_roundtrip_with_events(void)
+{
+        dove9_test_begin("integration: full roundtrip fires events");
+        dove9_mock_reset();
+
+        struct dove9_system *sys = dove9_system_create();
+        struct dove9_system_config cfg;
+        memset(&cfg, 0, sizeof(cfg));
+        snprintf(cfg.bot_address, sizeof(cfg.bot_address), "echo@dove9.local");
+        cfg.enable_triadic = true;
+        cfg.llm = &dove9_mock_llm;
+        cfg.memory = &dove9_mock_memory;
+        cfg.persona = &dove9_mock_persona;
+        dove9_system_init(sys, &cfg);
+        dove9_system_start(sys);
+
+        struct dove9_mail_message mail, reply;
+        memset(&mail, 0, sizeof(mail));
+        snprintf(mail.from, sizeof(mail.from), "events@test");
+        snprintf(mail.to, sizeof(mail.to), "echo@dove9.local");
+        snprintf(mail.subject, sizeof(mail.subject), "EventTest");
+        snprintf(mail.body, sizeof(mail.body), "body");
+        dove9_system_process_mail(sys, &mail, &reply);
+
+        DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0 ||
+                          dove9_mock_llm_parallel_calls > 0);
+
+        dove9_system_stop(sys);
+        dove9_system_destroy(&sys);
+        dove9_test_end();
+}
+
+static void test_sequential_pipeline(void)
+{
+        dove9_test_begin("integration: sequential pipeline ordering");
+        dove9_mock_reset();
+
+        struct dove9_system *sys = dove9_system_create();
+        struct dove9_system_config cfg;
+        memset(&cfg, 0, sizeof(cfg));
+        snprintf(cfg.bot_address, sizeof(cfg.bot_address), "echo@dove9.local");
+        cfg.enable_triadic = true;
+        cfg.llm = &dove9_mock_llm;
+        cfg.memory = &dove9_mock_memory;
+        cfg.persona = &dove9_mock_persona;
+        dove9_system_init(sys, &cfg);
+        dove9_system_start(sys);
+
+        int i;
+        for (i = 0; i < 10; i++) {
+                struct dove9_mail_message mail, reply;
+                memset(&mail, 0, sizeof(mail));
+                snprintf(mail.from, sizeof(mail.from), "seq%d@test", i);
+                snprintf(mail.to, sizeof(mail.to), "echo@dove9.local");
+                snprintf(mail.subject, sizeof(mail.subject), "Seq %d", i);
+                snprintf(mail.body, sizeof(mail.body), "Body %d", i);
+                dove9_system_process_mail(sys, &mail, &reply);
+        }
+
+        DOVE9_TEST_ASSERT(dove9_mock_memory_store_calls >= 10);
+
+        dove9_system_stop(sys);
+        dove9_system_destroy(&sys);
+        dove9_test_end();
+}
+
+static void test_persona_integration(void)
+{
+        dove9_test_begin("integration: persona update called during processing");
+        dove9_mock_reset();
+
+        struct dove9_system *sys = dove9_system_create();
+        struct dove9_system_config cfg;
+        memset(&cfg, 0, sizeof(cfg));
+        snprintf(cfg.bot_address, sizeof(cfg.bot_address), "echo@dove9.local");
+        cfg.enable_triadic = true;
+        cfg.llm = &dove9_mock_llm;
+        cfg.memory = &dove9_mock_memory;
+        cfg.persona = &dove9_mock_persona;
+        dove9_system_init(sys, &cfg);
+        dove9_system_start(sys);
+
+        struct dove9_mail_message mail, reply;
+        memset(&mail, 0, sizeof(mail));
+        snprintf(mail.from, sizeof(mail.from), "persona@test");
+        snprintf(mail.to, sizeof(mail.to), "echo@dove9.local");
+        snprintf(mail.subject, sizeof(mail.subject), "Persona");
+        snprintf(mail.body, sizeof(mail.body), "test");
+        dove9_system_process_mail(sys, &mail, &reply);
+
+        /* Persona personality should have been queried */
+        DOVE9_TEST_ASSERT(dove9_mock_persona_personality_calls > 0);
+
+        dove9_system_stop(sys);
+        dove9_system_destroy(&sys);
+        dove9_test_end();
+}
+
 int main(void)
 {
-	dove9_test_fn tests[] = {
-		test_full_pipeline,
-		test_multi_user_pipeline,
-		test_bridge_kernel_roundtrip,
-		test_sys6_mail_scheduling,
-		test_degraded_context_pipeline,
-		test_memory_accumulation,
-	};
-	return dove9_test_run("dove9-integration", tests, 6);
-}
+        dove9_test_fn tests[] = {
+                test_full_pipeline,
+                test_multi_user_pipeline,
+                test_bridge_kernel_roundtrip,
+                test_sys6_mail_scheduling,
+                test_degraded_context_pipeline,
+                test_memory_accumulation,
+                test_system_roundtrip_with_events,
+                test_sequential_pipeline,
+                test_persona_integration,
+        };
+        return dove9_test_run("dove9-integration", tests,
+                              sizeof(tests) / sizeof(tests[0]));

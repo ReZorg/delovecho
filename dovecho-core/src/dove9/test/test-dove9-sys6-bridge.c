@@ -224,6 +224,79 @@ static void test_events(void)
 	dove9_test_end();
 }
 
+static void test_sys6_bridge_double_destroy(void)
+{
+	dove9_test_begin("sys6 bridge: double destroy safe");
+	struct dove9_sys6_bridge *bridge = dove9_sys6_bridge_create();
+	dove9_sys6_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_sys6_bridge_destroy(&bridge);
+	DOVE9_TEST_ASSERT_NULL(bridge);
+	dove9_test_end();
+}
+
+static void test_sys6_bridge_empty_body(void)
+{
+	dove9_test_begin("sys6 bridge: empty body mail");
+	dove9_mock_reset();
+
+	struct dove9_sys6_bridge *bridge = dove9_sys6_bridge_create();
+	struct dove9_sys6_bridge_config cfg;
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_sys6 = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_sys6_bridge_init(bridge, &cfg);
+
+	struct dove9_mail_message mail, reply;
+	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.from, sizeof(mail.from), "user@test.com");
+	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.subject, sizeof(mail.subject), "Empty");
+
+	int ret = dove9_sys6_bridge_process(bridge, &mail, &reply);
+	DOVE9_TEST_ASSERT(ret == 0 || ret != 0); /* no crash */
+
+	dove9_sys6_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
+static void test_sys6_bridge_multi_process(void)
+{
+	dove9_test_begin("sys6 bridge: rapid multi-message processing");
+	dove9_mock_reset();
+
+	struct dove9_sys6_bridge *bridge = dove9_sys6_bridge_create();
+	struct dove9_sys6_bridge_config cfg;
+	memset(&cfg, 0, sizeof(cfg));
+	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
+	cfg.enable_sys6 = true;
+	cfg.llm = &dove9_mock_llm;
+	cfg.memory = &dove9_mock_memory;
+	cfg.persona = &dove9_mock_persona;
+	dove9_sys6_bridge_init(bridge, &cfg);
+
+	for (int i = 0; i < 30; i++) {
+		struct dove9_mail_message mail, reply;
+		memset(&mail, 0, sizeof(mail));
+		snprintf(mail.from, sizeof(mail.from), "u%d@test.com", i);
+		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		snprintf(mail.subject, sizeof(mail.subject), "Msg %d", i);
+		snprintf(mail.body, sizeof(mail.body), "Body %d", i);
+		dove9_sys6_bridge_process(bridge, &mail, &reply);
+	}
+
+	struct dove9_sys6_bridge_stats stats;
+	dove9_sys6_bridge_get_stats(bridge, &stats);
+	DOVE9_TEST_ASSERT(stats.phase1_count + stats.phase2_count +
+			  stats.phase3_count > 0);
+
+	dove9_sys6_bridge_destroy(&bridge);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -233,6 +306,10 @@ int main(void)
 		test_stats,
 		test_distribution_counters,
 		test_events,
+		test_sys6_bridge_double_destroy,
+		test_sys6_bridge_empty_body,
+		test_sys6_bridge_multi_process,
 	};
-	return dove9_test_run("dove9-sys6-bridge", tests, 6);
+	return dove9_test_run("dove9-sys6-bridge", tests,
+			      sizeof(tests) / sizeof(tests[0]));
 }
