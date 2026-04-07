@@ -85,7 +85,8 @@ test_programs = \
 	test-dove9-orchestrator-bridge \
 	test-dove9-sys6-bridge \
 	test-dove9-system \
-	test-dove9-security
+	test-dove9-security \
+	test-dove9-integration
 
 noinst_PROGRAMS = $(test_programs)
 
@@ -132,6 +133,10 @@ test_dove9_system_CFLAGS = $(TEST_CFLAGS)
 test_dove9_security_SOURCES = test/test-dove9-security.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
 test_dove9_security_LDADD = $(TEST_LDADD)
 test_dove9_security_CFLAGS = $(TEST_CFLAGS)
+
+test_dove9_integration_SOURCES = test/test-dove9-integration.c $(TEST_COMMON_SRCS) $(TEST_MOCK_SRCS)
+test_dove9_integration_LDADD = $(TEST_LDADD)
+test_dove9_integration_CFLAGS = $(TEST_CFLAGS)
 
 # ---- check-local target ----
 
