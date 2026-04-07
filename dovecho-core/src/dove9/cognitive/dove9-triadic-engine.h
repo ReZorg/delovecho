@@ -135,4 +135,7 @@ int dove9_detect_couplings(int step,
 			   struct dove9_coupling_detection *out,
 			   int max_out);
 
+/* Advance the engine by one cognitive step (used by kernel tick) */
+void dove9_triadic_engine_advance_step(struct dove9_triadic_engine *engine);
+
 #endif /* DOVE9_TRIADIC_ENGINE_H */

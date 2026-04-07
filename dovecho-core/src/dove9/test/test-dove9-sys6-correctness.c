@@ -126,27 +126,29 @@ static void test_synchronization_events(void)
 
 static void test_scheduler_cycle_integrity(void)
 {
-	struct dove9_sys6_scheduler *sched;
-	struct dove9_sys6_positions pos;
+	struct dove9_sys6_mail_scheduler *sched;
+	struct dove9_cycle_positions pos;
+	struct dove9_sys6_scheduler_config scfg =
+		dove9_sys6_scheduler_config_default();
 	int i;
 
 	dove9_test_begin("scheduler returns to origin after 30 steps");
 
-	sched = dove9_sys6_scheduler_create();
+	sched = dove9_sys6_scheduler_create(100, &scfg);
 
 	/* Record initial positions */
-	pos = dove9_sys6_scheduler_get_positions(sched);
-	DOVE9_TEST_ASSERT_UINT_EQ(pos.dyadic_phase, 0);
-	DOVE9_TEST_ASSERT_UINT_EQ(pos.triadic_phase, 0);
+	dove9_sys6_scheduler_get_cycle_positions(sched, &pos);
+	DOVE9_TEST_ASSERT_UINT_EQ(pos.sys6_step, 0);
+	DOVE9_TEST_ASSERT_UINT_EQ(pos.dove9_step, 0);
 
 	/* Advance exactly 30 steps */
 	for (i = 0; i < 30; i++)
-		dove9_sys6_scheduler_advance(sched);
+		dove9_sys6_scheduler_advance_step(sched);
 
 	/* Should be back to (0, 0) modular positions */
-	pos = dove9_sys6_scheduler_get_positions(sched);
-	DOVE9_TEST_ASSERT_UINT_EQ(pos.dyadic_phase, 0);
-	DOVE9_TEST_ASSERT_UINT_EQ(pos.triadic_phase, 0);
+	dove9_sys6_scheduler_get_cycle_positions(sched, &pos);
+	DOVE9_TEST_ASSERT_UINT_EQ(pos.sys6_step, 0);
+	DOVE9_TEST_ASSERT_UINT_EQ(pos.dove9_step, 0);
 
 	dove9_sys6_scheduler_destroy(&sched);
 	dove9_test_end();

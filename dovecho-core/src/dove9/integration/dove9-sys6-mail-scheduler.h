@@ -144,6 +144,18 @@ typedef void (*dove9_scheduler_event_fn)(
 	const struct dove9_scheduler_event *event, void *context);
 
 /* ----------------------------------------------------------------
+ * Utility
+ * ---------------------------------------------------------------- */
+
+/* Priority-to-phase mapping: 7-9 → phase 1, 4-6 → phase 2, 1-3 → phase 3 */
+static inline unsigned int dove9_sys6_priority_to_phase(int priority)
+{
+	if (priority >= 7) return 1;
+	if (priority >= 4) return 2;
+	return 3;
+}
+
+/* ----------------------------------------------------------------
  * API
  * ---------------------------------------------------------------- */
 

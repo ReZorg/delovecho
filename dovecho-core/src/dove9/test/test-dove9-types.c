@@ -15,9 +15,9 @@ static void test_config_default(void)
 	struct dove9_config cfg = dove9_config_default();
 
 	dove9_test_begin("config_default returns sane values");
-	DOVE9_TEST_ASSERT(cfg.enable_triadic_loop == true);
-	DOVE9_TEST_ASSERT(cfg.max_processes == DOVE9_MAX_PROCESSES);
-	DOVE9_TEST_ASSERT(cfg.max_queue_depth == DOVE9_MAX_QUEUE_DEPTH);
+	DOVE9_TEST_ASSERT(cfg.enable_parallel_cognition == true);
+	DOVE9_TEST_ASSERT(cfg.max_concurrent_processes == 100);
+	DOVE9_TEST_ASSERT(cfg.max_queue_depth == 1000);
 	dove9_test_end();
 }
 
@@ -25,16 +25,15 @@ static void test_config_default(void)
 
 static void test_cognitive_context_init(void)
 {
-	struct dove9_cognitive_context ctx;
-	dove9_cognitive_context_init(&ctx);
+	struct dove9_cognitive_context ctx = dove9_cognitive_context_init();
 
-	dove9_test_begin("cognitive_context_init zeroes all fields");
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience, 0.0, 0.001);
-	DOVE9_TEST_ASSERT(ctx.degraded == false);
-	DOVE9_TEST_ASSERT(ctx.input[0] == '\0');
-	DOVE9_TEST_ASSERT(ctx.response[0] == '\0');
-	DOVE9_TEST_ASSERT(ctx.memory_context[0] == '\0');
-	DOVE9_TEST_ASSERT(ctx.error[0] == '\0');
+	dove9_test_begin("cognitive_context_init sets default fields");
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience_score, 0.5, 0.001);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.emotional_valence, 0.0, 0.001);
+	DOVE9_TEST_ASSERT(ctx.memory_count == 0);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.emotional_arousal, 0.5, 0.001);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.attention_weight, 1.0, 0.001);
+	DOVE9_TEST_ASSERT(ctx.perception_data == NULL);
 	dove9_test_end();
 }
 
@@ -50,7 +49,7 @@ static void test_mailbox_mapping_default(void)
 	DOVE9_TEST_ASSERT_STR_EQ(m.sent, "Sent");
 	DOVE9_TEST_ASSERT_STR_EQ(m.trash, "Trash");
 	DOVE9_TEST_ASSERT_STR_EQ(m.archive, "Archive");
-	DOVE9_TEST_ASSERT_STR_EQ(m.junk, "Junk");
+	DOVE9_TEST_ASSERT_STR_EQ(m.processing, "INBOX.Processing");
 	dove9_test_end();
 }
 
@@ -68,16 +67,16 @@ static void test_coupling_bitfield(void)
 	DOVE9_TEST_ASSERT(!dove9_coupling_is_active(mask, DOVE9_COUPLING_BALANCED_INTEGRATION));
 
 	/* Set one */
-	dove9_coupling_set(&mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
+	mask = dove9_coupling_set(mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
 	DOVE9_TEST_ASSERT(dove9_coupling_is_active(mask, DOVE9_COUPLING_PERCEPTION_MEMORY));
 	DOVE9_TEST_ASSERT(!dove9_coupling_is_active(mask, DOVE9_COUPLING_ASSESSMENT_PLANNING));
 
 	/* Set another */
-	dove9_coupling_set(&mask, DOVE9_COUPLING_BALANCED_INTEGRATION);
+	mask = dove9_coupling_set(mask, DOVE9_COUPLING_BALANCED_INTEGRATION);
 	DOVE9_TEST_ASSERT(dove9_coupling_is_active(mask, DOVE9_COUPLING_BALANCED_INTEGRATION));
 
 	/* Clear first */
-	dove9_coupling_clear(&mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
+	mask = dove9_coupling_clear(mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
 	DOVE9_TEST_ASSERT(!dove9_coupling_is_active(mask, DOVE9_COUPLING_PERCEPTION_MEMORY));
 	DOVE9_TEST_ASSERT(dove9_coupling_is_active(mask, DOVE9_COUPLING_BALANCED_INTEGRATION));
 
@@ -91,12 +90,12 @@ static void test_enum_ranges(void)
 	dove9_test_begin("enum value ranges are correct");
 
 	/* 6 cognitive terms (T1,T2,T4,T5,T7,T8) */
-	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T1_PERCEPTION, 0);
-	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T8_BALANCED_RESPONSE, 5);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T1_PERCEPTION, 1);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T8_BALANCED_RESPONSE, 8);
 
 	/* 7 process states */
-	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STATE_QUEUED, 0);
-	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STATE_TERMINATED, 6);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_PROCESS_PENDING, 0);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_PROCESS_TERMINATED, 6);
 
 	/* 3 coupling types */
 	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_COUPLING_PERCEPTION_MEMORY, 0);
@@ -129,10 +128,10 @@ static void test_step_type_enum(void)
 {
 	dove9_test_begin("step type enum has 4 values");
 
-	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STEP_NORMAL, 0);
-	DOVE9_TEST_ASSERT(DOVE9_STEP_PIVOTAL_RR > 0);
-	DOVE9_TEST_ASSERT(DOVE9_STEP_TRANSITION > 0);
-	DOVE9_TEST_ASSERT(DOVE9_STEP_PIVOTAL_RR != DOVE9_STEP_TRANSITION);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STEP_PIVOTAL_RR, 0);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STEP_EXPRESSIVE, 1);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STEP_TRANSITION, 2);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_STEP_REFLECTIVE, 3);
 
 	dove9_test_end();
 }
@@ -158,9 +157,9 @@ static void test_coupling_all_set(void)
 
 	dove9_test_begin("coupling bitfield supports all 3 simultaneous");
 
-	dove9_coupling_set(&mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
-	dove9_coupling_set(&mask, DOVE9_COUPLING_ASSESSMENT_PLANNING);
-	dove9_coupling_set(&mask, DOVE9_COUPLING_BALANCED_INTEGRATION);
+	mask = dove9_coupling_set(mask, DOVE9_COUPLING_PERCEPTION_MEMORY);
+	mask = dove9_coupling_set(mask, DOVE9_COUPLING_ASSESSMENT_PLANNING);
+	mask = dove9_coupling_set(mask, DOVE9_COUPLING_BALANCED_INTEGRATION);
 
 	DOVE9_TEST_ASSERT(dove9_coupling_is_active(mask, DOVE9_COUPLING_PERCEPTION_MEMORY));
 	DOVE9_TEST_ASSERT(dove9_coupling_is_active(mask, DOVE9_COUPLING_ASSESSMENT_PLANNING));
@@ -217,10 +216,10 @@ static void test_term_values_skip_t3_t6(void)
 	dove9_test_begin("cognitive terms skip T3 and T6 (reserved)");
 	/* The enum defines T1=1, T2=2, T4=4, T5=5, T7=7, T8=8 */
 	/* T3 (=3) and T6 (=6) are intentionally absent */
-	DOVE9_TEST_ASSERT(DOVE9_TERM_T1_PERCEPTION != 3);
-	DOVE9_TEST_ASSERT(DOVE9_TERM_T2_IDEA_FORMATION != 3);
-	DOVE9_TEST_ASSERT(DOVE9_TERM_T4_SENSORY_INPUT != 6);
-	DOVE9_TEST_ASSERT(DOVE9_TERM_T5_ACTION_SEQUENCE != 6);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T1_PERCEPTION, 1);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T2_IDEA_FORMATION, 2);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T4_SENSORY_INPUT, 4);
+	DOVE9_TEST_ASSERT_INT_EQ(DOVE9_TERM_T5_ACTION_SEQUENCE, 5);
 	dove9_test_end();
 }
 

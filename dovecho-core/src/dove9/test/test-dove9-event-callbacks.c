@@ -78,8 +78,14 @@ static void test_triadic_step_events(void)
 	dove9_mock_reset();
 	triadic_event_count = 0;
 
+	struct dove9_dte_processor_config pcfg =
+		dove9_dte_processor_config_default();
+	struct dove9_dte_processor *dte =
+		dove9_dte_processor_create(&dove9_mock_llm,
+					   &dove9_mock_memory,
+					   &dove9_mock_persona, &pcfg);
 	struct dove9_cognitive_processor cp =
-		dove9_dte_processor_as_cognitive(NULL);
+		dove9_dte_processor_as_cognitive(dte);
 	struct dove9_triadic_engine *eng =
 		dove9_triadic_engine_create(&cp, 100);
 	DOVE9_TEST_ASSERT_NOT_NULL(eng);
@@ -94,6 +100,7 @@ static void test_triadic_step_events(void)
 	snprintf(proc.subject, sizeof(proc.subject), "test");
 	snprintf(proc.content, sizeof(proc.content), "content");
 	proc.state = DOVE9_PROCESS_ACTIVE;
+	proc.cognitive_context = dove9_cognitive_context_init();
 
 	dove9_triadic_engine_process_message(eng, &proc);
 
@@ -102,6 +109,7 @@ static void test_triadic_step_events(void)
 
 	dove9_triadic_engine_stop(eng);
 	dove9_triadic_engine_destroy(&eng);
+	dove9_dte_processor_destroy(&dte);
 	dove9_test_end();
 }
 

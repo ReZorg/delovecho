@@ -6,6 +6,8 @@
 #include "dove9-test-common.h"
 #include "dove9-test-mocks.h"
 #include "../dove9-system.h"
+#include "../utils/dove9-logger.h"
+#include "../integration/dove9-sys6-mail-scheduler.h"
 #include <string.h>
 
 /* ---- test: logger lifecycle ---- */
@@ -229,9 +231,12 @@ static void test_context_opaque_ptrs(void)
 static void test_sys6_scheduler_lifecycle(void)
 {
 	dove9_test_begin("lifecycle: sys6 scheduler create+advance+destroy");
-	struct dove9_sys6_scheduler *sched = dove9_sys6_scheduler_create();
+	struct dove9_sys6_scheduler_config scfg =
+		dove9_sys6_scheduler_config_default();
+	struct dove9_sys6_mail_scheduler *sched =
+		dove9_sys6_scheduler_create(100, &scfg);
 	DOVE9_TEST_ASSERT_NOT_NULL(sched);
-	dove9_sys6_scheduler_advance(sched);
+	dove9_sys6_scheduler_advance_step(sched);
 	dove9_sys6_scheduler_destroy(&sched);
 	DOVE9_TEST_ASSERT_NULL(sched);
 	dove9_test_end();
@@ -242,7 +247,13 @@ static void test_sys6_scheduler_lifecycle(void)
 static void test_mail_bridge_lifecycle(void)
 {
 	dove9_test_begin("lifecycle: mail bridge create+destroy");
-	struct dove9_mail_bridge *bridge = dove9_mail_bridge_create();
+	struct dove9_mail_bridge_config bcfg;
+	memset(&bcfg, 0, sizeof(bcfg));
+	bcfg.mailbox_mapping = dove9_mailbox_mapping_default();
+	bcfg.default_priority = 5;
+	bcfg.enable_threading = true;
+	struct dove9_mail_protocol_bridge *bridge =
+		dove9_mail_bridge_create(&bcfg);
 	DOVE9_TEST_ASSERT_NOT_NULL(bridge);
 	dove9_mail_bridge_destroy(&bridge);
 	DOVE9_TEST_ASSERT_NULL(bridge);
@@ -263,8 +274,10 @@ static void test_repeated_lifecycle(void)
 			.salience_threshold = 0.1,
 		};
 		struct dove9_dte_processor *dte =
-			dove9_dte_processor_create(&cfg, &dove9_mock_llm,
-						   &dove9_mock_memory, &dove9_mock_persona);
+			dove9_dte_processor_create(&dove9_mock_llm,
+						   &dove9_mock_memory,
+						   &dove9_mock_persona,
+						   &cfg);
 		dove9_dte_processor_destroy(&dte);
 	}
 	DOVE9_TEST_ASSERT(true);

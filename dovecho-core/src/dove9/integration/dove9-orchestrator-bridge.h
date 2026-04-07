@@ -8,6 +8,9 @@
 /* Forward declarations */
 struct dove9_system;
 struct dove9_orchestrator_bridge;
+struct dove9_llm_service;
+struct dove9_memory_store;
+struct dove9_persona_core;
 
 /* ----------------------------------------------------------------
  * DovecotEmail — incoming email from Dovecot interface

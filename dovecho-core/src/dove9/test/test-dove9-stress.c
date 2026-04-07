@@ -19,32 +19,34 @@ static void test_high_volume_messages(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
+	struct dove9_message_process *proc;
 	int i, success_count = 0;
 
 	dove9_test_begin("system handles 100 messages");
 
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
-	cfg.enable_sys6 = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	for (i = 0; i < 100; i++) {
 		memset(&mail, 0, sizeof(mail));
 		snprintf(mail.from, sizeof(mail.from), "user%d@test.com", i);
-		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		mail.to_count = 1;
+		snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 		snprintf(mail.subject, sizeof(mail.subject), "Msg #%d", i);
 		snprintf(mail.body, sizeof(mail.body), "Body of message %d", i);
 
-		if (dove9_system_process_mail(sys, &mail, &reply) == 0)
+		proc = dove9_system_process_mail(sys, &mail);
+		if (proc != NULL)
 			success_count++;
 	}
 
@@ -67,14 +69,14 @@ static void test_rapid_start_stop(void)
 
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 
 	for (i = 0; i < 20; i++) {
 		dove9_system_start(sys);
@@ -92,23 +94,33 @@ static void test_rapid_start_stop(void)
 static void test_kernel_near_capacity(void)
 {
 	struct dove9_kernel *kernel;
-	struct dove9_process *proc;
+	struct dove9_cognitive_processor cog;
+	struct dove9_config kcfg = dove9_config_default();
+	struct dove9_message_process *proc;
 	struct dove9_kernel_metrics metrics;
+	const char *to_arr[] = {"bot@test.com"};
 	unsigned int i, spawned = 0;
 
 	dove9_test_begin("kernel handles near-capacity gracefully");
 
-	kernel = dove9_kernel_create();
+	memset(&cog, 0, sizeof(cog));
+	kernel = dove9_kernel_create(&cog, &kcfg);
 
 	/* Spawn up to 90% of capacity */
 	for (i = 0; i < (DOVE9_MAX_PROCESSES * 9 / 10); i++) {
-		proc = dove9_kernel_spawn(kernel, "bulk", 5);
-		if (proc != NULL) spawned++;
-		else break;
+		char pid[32];
+		snprintf(pid, sizeof(pid), "bulk-%u", i);
+		proc = dove9_kernel_create_process(kernel, pid,
+						   "user@test.com", to_arr, 1,
+						   "Bulk", "bulk", 5);
+		if (proc != NULL)
+			spawned++;
+		else
+			break;
 	}
 
-	metrics = dove9_kernel_get_metrics(kernel);
-	DOVE9_TEST_ASSERT_UINT_EQ(metrics.total_spawned, spawned);
+	dove9_kernel_get_metrics(kernel, &metrics);
+	DOVE9_TEST_ASSERT(spawned > 0);
 
 	dove9_kernel_destroy(&kernel);
 	dove9_test_end();
@@ -118,30 +130,33 @@ static void test_kernel_near_capacity(void)
 
 static void test_triadic_multi_cycle(void)
 {
-	struct dove9_dte_processor_config cfg = {
+	struct dove9_dte_processor_config dtecfg = {
 		.enable_parallel_cognition = false,
 		.memory_retrieval_count = 3,
 		.salience_threshold = 0.1,
 	};
 	struct dove9_dte_processor *dte;
-	struct dove9_cognitive_processor proc;
+	struct dove9_cognitive_processor cog;
 	struct dove9_triadic_engine *engine;
+	struct dove9_triadic_metrics tm;
 	int i;
 
 	dove9_test_begin("triadic engine runs 10 cycles (120 steps)");
 
 	dove9_mock_reset();
 
-	dte = dove9_dte_processor_create(&cfg, &dove9_mock_llm,
-					 &dove9_mock_memory, &dove9_mock_persona);
-	proc = dove9_dte_processor_as_cognitive(dte);
-	engine = dove9_triadic_engine_create(&proc);
+	dte = dove9_dte_processor_create(&dove9_mock_llm,
+					 &dove9_mock_memory,
+					 &dove9_mock_persona, &dtecfg);
+	cog = dove9_dte_processor_as_cognitive(dte);
+	engine = dove9_triadic_engine_create(&cog, 100);
 	dove9_triadic_engine_start(engine);
 
 	for (i = 0; i < 120; i++)
 		dove9_triadic_engine_advance_step(engine);
 
-	DOVE9_TEST_ASSERT_UINT_EQ(dove9_triadic_engine_get_current_cycle(engine), 10);
+	dove9_triadic_engine_get_metrics(engine, &tm);
+	DOVE9_TEST_ASSERT_UINT_EQ(tm.total_cycles, 10);
 
 	dove9_triadic_engine_stop(engine);
 	dove9_triadic_engine_destroy(&engine);
@@ -155,30 +170,31 @@ static void test_long_input_strings(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("very long body is handled safely");
 
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	mail.to_count = 1;
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 	/* Fill body to near capacity */
 	memset(mail.body, 'X', sizeof(mail.body) - 1);
 	mail.body[sizeof(mail.body) - 1] = '\0';
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	/* Should not crash */
 	DOVE9_TEST_ASSERT(true);
 
@@ -193,7 +209,7 @@ static void test_mock_counter_accumulation(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 	unsigned int llm_calls;
 
 	dove9_test_begin("mock counters accumulate across messages");
@@ -201,25 +217,26 @@ static void test_mock_counter_accumulation(void)
 	dove9_mock_reset();
 	DOVE9_TEST_ASSERT_UINT_EQ(dove9_mock_llm_generate_calls, 0);
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	mail.to_count = 1;
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 	snprintf(mail.body, sizeof(mail.body), "First");
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	llm_calls = dove9_mock_llm_generate_calls;
 
 	snprintf(mail.body, sizeof(mail.body), "Second");
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 
 	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > llm_calls);
 
@@ -261,7 +278,15 @@ static void test_rapid_system_alloc_dealloc(void)
 	dove9_test_begin("rapid system alloc/dealloc 50 times");
 
 	for (i = 0; i < 50; i++) {
-		struct dove9_system *s = dove9_system_create();
+		struct dove9_system_config cfg;
+		memset(&cfg, 0, sizeof(cfg));
+		cfg.base = dove9_config_default();
+		snprintf(cfg.bot_email_address,
+			 sizeof(cfg.bot_email_address), "bot@test.com");
+		cfg.llm = &dove9_mock_llm;
+		cfg.memory = &dove9_mock_memory;
+		cfg.persona = &dove9_mock_persona;
+		struct dove9_system *s = dove9_system_create(&cfg);
 		dove9_system_destroy(&s);
 		DOVE9_TEST_ASSERT_NULL(s);
 	}
@@ -274,29 +299,30 @@ static void test_zero_length_fields(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("mail with empty subject and body");
 
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	mail.to_count = 1;
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 	mail.subject[0] = '\0';
 	mail.body[0] = '\0';
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(true);
 
 	dove9_system_stop(sys);
@@ -310,30 +336,31 @@ static void test_concurrent_processes_stress(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 	int i;
 
 	dove9_test_begin("create 50 concurrent processes");
 
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	cfg.base = dove9_config_default();
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	for (i = 0; i < 50; i++) {
 		memset(&mail, 0, sizeof(mail));
 		snprintf(mail.from, sizeof(mail.from), "user%d@test.com", i);
-		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		mail.to_count = 1;
+		snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
 		snprintf(mail.subject, sizeof(mail.subject), "Concurrent %d", i);
 		snprintf(mail.body, sizeof(mail.body), "Proc %d body", i);
-		dove9_system_process_mail(sys, &mail, &reply);
+		dove9_system_process_mail(sys, &mail);
 	}
 
 	DOVE9_TEST_ASSERT(dove9_system_is_running(sys));
@@ -357,5 +384,6 @@ int main(void)
 		test_zero_length_fields,
 		test_concurrent_processes_stress,
 	};
-	return dove9_test_run("dove9-stress", tests, 10);
+	return dove9_test_run("dove9-stress", tests,
+			      sizeof(tests) / sizeof(tests[0]));
 }

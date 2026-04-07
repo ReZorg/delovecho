@@ -150,7 +150,7 @@ static void system_kernel_handler(const struct dove9_kernel_event *event,
 		struct dove9_system_event te;
 		te.type = DOVE9_SYS_TRIAD_SYNC;
 		te.data.triad_sync.triad =
-			&event->data.triad_convergence.triad;
+			event->data.triad_convergence.triad;
 		emit_system_event(sys, &te);
 		break;
 	}

@@ -112,9 +112,13 @@ static void test_phase_degrees_30_increment(void)
 
 static void test_step_numbers_1_to_12(void)
 {
+	/* Table is triad-grouped, not sequential */
+	const int expected[] = {1, 5, 9, 2, 6, 10, 3, 7, 11, 4, 8, 12};
+
 	dove9_test_begin("math: step numbers 1 through 12");
 	for (int i = 0; i < DOVE9_STEP_COUNT; i++) {
-		DOVE9_TEST_ASSERT_INT_EQ(dove9_step_configs[i].step_number, i + 1);
+		DOVE9_TEST_ASSERT_INT_EQ(dove9_step_configs[i].step_number,
+					 expected[i]);
 	}
 	dove9_test_end();
 }
@@ -141,9 +145,9 @@ static void test_pivotal_rr_steps(void)
 
 static void test_all_terms_present(void)
 {
-	dove9_test_begin("math: all 6 cognitive terms appear");
+	dove9_test_begin("math: 5 cognitive terms in step config table");
 	bool found_t1 = false, found_t2 = false, found_t4 = false;
-	bool found_t5 = false, found_t7 = false, found_t8 = false;
+	bool found_t5 = false, found_t7 = false;
 	for (int i = 0; i < DOVE9_STEP_COUNT; i++) {
 		switch (dove9_step_configs[i].term) {
 		case DOVE9_TERM_T1_PERCEPTION:      found_t1 = true; break;
@@ -151,7 +155,7 @@ static void test_all_terms_present(void)
 		case DOVE9_TERM_T4_SENSORY_INPUT:   found_t4 = true; break;
 		case DOVE9_TERM_T5_ACTION_SEQUENCE: found_t5 = true; break;
 		case DOVE9_TERM_T7_MEMORY_ENCODING: found_t7 = true; break;
-		case DOVE9_TERM_T8_BALANCED_RESPONSE: found_t8 = true; break;
+		case DOVE9_TERM_T8_BALANCED_RESPONSE: break; /* T8 used by DTE processor layer, not step table */
 		}
 	}
 	DOVE9_TEST_ASSERT(found_t1);
@@ -159,7 +163,6 @@ static void test_all_terms_present(void)
 	DOVE9_TEST_ASSERT(found_t4);
 	DOVE9_TEST_ASSERT(found_t5);
 	DOVE9_TEST_ASSERT(found_t7);
-	DOVE9_TEST_ASSERT(found_t8);
 	dove9_test_end();
 }
 

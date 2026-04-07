@@ -16,8 +16,8 @@ static void test_default_salience_zero(void)
 	struct dove9_cognitive_context ctx;
 	dove9_test_begin("salience: default context salience is zero");
 	memset(&ctx, 0, sizeof(ctx));
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience_score, 0.0);
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.attention_weight, 0.0);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience_score, 0.0, 1e-9);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.attention_weight, 0.0, 1e-9);
 	dove9_test_end();
 }
 
@@ -158,9 +158,9 @@ static void test_high_arousal_salience(void)
 	ctx.emotional_arousal = 1.0;
 	ctx.salience_score = 1.0;
 	ctx.attention_weight = 1.0;
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.emotional_arousal, 1.0);
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience_score, 1.0);
-	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.attention_weight, 1.0);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.emotional_arousal, 1.0, 1e-9);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.salience_score, 1.0, 1e-9);
+	DOVE9_TEST_ASSERT_DOUBLE_EQ(ctx.attention_weight, 1.0, 1e-9);
 	dove9_test_end();
 }
 

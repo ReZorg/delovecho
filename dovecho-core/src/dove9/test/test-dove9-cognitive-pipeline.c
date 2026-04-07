@@ -19,31 +19,31 @@ static void test_full_pipeline_one_message(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
-	int rc;
+	struct dove9_mail_message mail;
+	struct dove9_message_process *proc;
 
 	dove9_test_begin("pipeline: full message processing");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
-	cfg.enable_sys6 = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-1@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.subject, sizeof(mail.subject), "Pipeline Test");
 	snprintf(mail.body, sizeof(mail.body), "Hello pipeline!");
 
-	rc = dove9_system_process_mail(sys, &mail, &reply);
-	DOVE9_TEST_ASSERT_INT_EQ(rc, 0);
+	proc = dove9_system_process_mail(sys, &mail);
+	DOVE9_TEST_ASSERT_NOT_NULL(proc);
 
 	dove9_system_stop(sys);
 	dove9_system_destroy(&sys);
@@ -56,28 +56,29 @@ static void test_pipeline_invokes_llm(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("pipeline: LLM called during processing");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-llm@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.subject, sizeof(mail.subject), "LLM test");
 	snprintf(mail.body, sizeof(mail.body), "Does LLM fire?");
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(dove9_mock_llm_generate_calls > 0);
 
 	dove9_system_stop(sys);
@@ -91,27 +92,28 @@ static void test_pipeline_invokes_memory(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("pipeline: memory system called");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-mem@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.body, sizeof(mail.body), "Memory test");
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(dove9_mock_memory_store_calls > 0 ||
 			  dove9_mock_memory_retrieve_recent_calls > 0 ||
 			  dove9_mock_memory_retrieve_relevant_calls > 0);
@@ -127,27 +129,28 @@ static void test_pipeline_invokes_persona(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("pipeline: persona system called");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-per@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.body, sizeof(mail.body), "Persona test");
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(dove9_mock_persona_personality_calls > 0 ||
 			  dove9_mock_persona_emotion_calls > 0 ||
 			  dove9_mock_persona_update_calls > 0);
@@ -169,21 +172,24 @@ static void test_pipeline_triadic_advance(void)
 	struct dove9_dte_processor *dte;
 	struct dove9_cognitive_processor proc;
 	struct dove9_triadic_engine *engine;
+	struct dove9_triadic_metrics tmetrics;
 
 	dove9_test_begin("pipeline: triadic engine advances through 12 steps");
 	dove9_mock_reset();
 
-	dte = dove9_dte_processor_create(&dteconf, &dove9_mock_llm,
-					 &dove9_mock_memory, &dove9_mock_persona);
+	dte = dove9_dte_processor_create(&dove9_mock_llm,
+					 &dove9_mock_memory,
+					 &dove9_mock_persona, &dteconf);
 	proc = dove9_dte_processor_as_cognitive(dte);
-	engine = dove9_triadic_engine_create(&proc);
+	engine = dove9_triadic_engine_create(&proc, 0);
 	dove9_triadic_engine_start(engine);
 
 	int i;
 	for (i = 0; i < 12; i++)
 		dove9_triadic_engine_advance_step(engine);
 
-	DOVE9_TEST_ASSERT_UINT_EQ(dove9_triadic_engine_get_current_cycle(engine), 1);
+	dove9_triadic_engine_get_metrics(engine, &tmetrics);
+	DOVE9_TEST_ASSERT_UINT_EQ(tmetrics.total_cycles, 1);
 
 	dove9_triadic_engine_stop(engine);
 	dove9_triadic_engine_destroy(&engine);
@@ -197,31 +203,32 @@ static void test_pipeline_sequential_messages(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 	unsigned int first_total, second_total;
 
 	dove9_test_begin("pipeline: sequential messages accumulate mock calls");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-seq@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.body, sizeof(mail.body), "First");
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	first_total = dove9_mock_llm_generate_calls;
 
 	snprintf(mail.body, sizeof(mail.body), "Second");
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	second_total = dove9_mock_llm_generate_calls;
 
 	DOVE9_TEST_ASSERT(second_total >= first_total);
@@ -237,28 +244,28 @@ static void test_pipeline_without_triadic(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("pipeline: processing without triadic");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = false;
-	cfg.enable_sys6 = false;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-not@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.body, sizeof(mail.body), "No triadic");
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(true); /* must not crash */
 
 	dove9_system_stop(sys);
@@ -272,28 +279,28 @@ static void test_pipeline_without_sys6(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 
 	dove9_test_begin("pipeline: processing with triadic but no sys6");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
-	cfg.enable_sys6 = false;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	memset(&mail, 0, sizeof(mail));
+	snprintf(mail.message_id, sizeof(mail.message_id), "test-nos@example.com");
 	snprintf(mail.from, sizeof(mail.from), "user@test.com");
-	snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+	snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+	mail.to_count = 1;
 	snprintf(mail.body, sizeof(mail.body), "Triadic only");
 
-	dove9_system_process_mail(sys, &mail, &reply);
+	dove9_system_process_mail(sys, &mail);
 	DOVE9_TEST_ASSERT(true);
 
 	dove9_system_stop(sys);
@@ -307,28 +314,30 @@ static void test_pipeline_load_bounded(void)
 {
 	struct dove9_system *sys;
 	struct dove9_system_config cfg;
-	struct dove9_mail_message mail, reply;
+	struct dove9_mail_message mail;
 	int i;
 
 	dove9_test_begin("pipeline: cognitive load stays bounded after 10 messages");
 	dove9_mock_reset();
 
-	sys = dove9_system_create();
 	memset(&cfg, 0, sizeof(cfg));
-	snprintf(cfg.bot_address, sizeof(cfg.bot_address), "bot@test.com");
-	cfg.enable_triadic = true;
+	snprintf(cfg.bot_email_address, sizeof(cfg.bot_email_address),
+		 "bot@test.com");
 	cfg.llm = &dove9_mock_llm;
 	cfg.memory = &dove9_mock_memory;
 	cfg.persona = &dove9_mock_persona;
-	dove9_system_init(sys, &cfg);
+	sys = dove9_system_create(&cfg);
 	dove9_system_start(sys);
 
 	for (i = 0; i < 10; i++) {
 		memset(&mail, 0, sizeof(mail));
+		snprintf(mail.message_id, sizeof(mail.message_id),
+			 "test-load%d@example.com", i);
 		snprintf(mail.from, sizeof(mail.from), "u%d@test.com", i);
-		snprintf(mail.to, sizeof(mail.to), "bot@test.com");
+		snprintf(mail.to[0], sizeof(mail.to[0]), "bot@test.com");
+		mail.to_count = 1;
 		snprintf(mail.body, sizeof(mail.body), "Load test %d", i);
-		dove9_system_process_mail(sys, &mail, &reply);
+		dove9_system_process_mail(sys, &mail);
 	}
 
 	/* System should still be running and not overloaded */
@@ -353,8 +362,9 @@ static void test_pipeline_degraded_mode(void)
 	dove9_test_begin("pipeline: zero memory config creates processor");
 	dove9_mock_reset();
 
-	dte = dove9_dte_processor_create(&dteconf, &dove9_mock_llm,
-					 &dove9_mock_memory, &dove9_mock_persona);
+	dte = dove9_dte_processor_create(&dove9_mock_llm,
+					 &dove9_mock_memory,
+					 &dove9_mock_persona, &dteconf);
 	DOVE9_TEST_ASSERT_NOT_NULL(dte);
 
 	dove9_dte_processor_destroy(&dte);

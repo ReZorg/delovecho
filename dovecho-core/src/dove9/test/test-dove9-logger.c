@@ -6,6 +6,7 @@
 #include "../utils/dove9-logger.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 static void test_logger_create(void)
 {

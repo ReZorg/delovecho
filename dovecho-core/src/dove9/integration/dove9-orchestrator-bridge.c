@@ -139,7 +139,7 @@ static void bridge_kernel_handler(const struct dove9_kernel_event *event,
 	case DOVE9_KERNEL_TRIAD_CONVERGENCE: {
 		struct dove9_bridge_event be;
 		be.type = DOVE9_BRIDGE_TRIAD_SYNC;
-		be.data.triad_sync.triad = &event->data.triad_convergence.triad;
+		be.data.triad_sync.triad = event->data.triad_convergence.triad;
 		emit_bridge_event(b, &be);
 		break;
 	}
