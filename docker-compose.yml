@@ -1,10 +1,46 @@
 version: '3.8'
 
 services:
+  # -------------------------------------------------------------------------
+  # Dovecot mail server – acts as the "cognitive CPU" in the Dove9 paradigm.
+  # Emails received here become process-threads fed into the Deep Tree Echo
+  # triadic cognitive loop via the Milter and LMTP integration.
+  # -------------------------------------------------------------------------
+  dovecot:
+    image: dovecot/dovecot:2.3
+    container_name: deltecho-dovecot
+    hostname: mail.deltecho.local
+    ports:
+      - "143:143"    # IMAP
+      - "993:993"    # IMAPS
+      - "24:24"      # LMTP
+    environment:
+      - DOVECOT_PASSDB_DRIVER=${DOVECOT_PASSDB_DRIVER:-static}
+      - DOVECOT_PASSDB_ARGS=${DOVECOT_PASSDB_ARGS:-password=test}
+    volumes:
+      - ./docker/dovecot/dovecot.conf:/etc/dovecot/dovecot.conf:ro
+      - ./docker/dovecot/conf.d:/etc/dovecot/conf.d:ro
+      - dovecot-mail:/var/mail
+      - dovecot-sockets:/var/run/dovecot
+    restart: unless-stopped
+    networks:
+      - deltecho-network
+    healthcheck:
+      test: ["CMD", "doveadm", "service", "status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # -------------------------------------------------------------------------
+  # Deep Tree Echo Orchestrator – the cognitive runtime that processes emails
+  # from Dovecot through the Dove9 triadic loop and responds via SMTP.
+  # -------------------------------------------------------------------------
   deltecho:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: deltecho-orchestrator
     ports:
       - "3000:3000"   # Webhook server
       - "9876:9876"   # IPC TCP server
@@ -21,9 +57,22 @@ services:
       - ENABLE_PERSONALITY_EVOLUTION=true
       - ENABLE_EMOTIONAL_DYNAMICS=true
       - ENABLE_SECURITY_HARDENING=true
+      # Dove9-Dovecot integration
+      - ENABLE_DOVE9=true
+      - ENABLE_DOVECOT=true
+      - DOVECOT_MILTER_SOCKET=/var/run/dovecot/milter.sock
+      - DOVECOT_LMTP_SOCKET=/var/run/dovecot/lmtp.sock
+      - BOT_EMAIL_ADDRESS=${BOT_EMAIL_ADDRESS:-echo@deltecho.local}
+      - MAIL_ALLOWED_DOMAINS=${MAIL_ALLOWED_DOMAINS:-*}
     volumes:
       - deltecho-data:/app/data
+      - dovecot-sockets:/var/run/dovecot  # share unix sockets with dovecot
+    depends_on:
+      dovecot:
+        condition: service_healthy
     restart: unless-stopped
+    networks:
+      - deltecho-network
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
       interval: 30s
@@ -59,6 +108,8 @@ services:
 
 volumes:
   deltecho-data:
+  dovecot-mail:
+  dovecot-sockets:
   redis-data:
   postgres-data:
 

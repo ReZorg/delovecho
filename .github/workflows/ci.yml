@@ -312,6 +312,61 @@ jobs:
           retention-days: 7
 
   # ============================================
+  # Mail Pipeline Performance Benchmarks
+  # Runs on every PR/push to catch regressions in
+  # mail <-> process conversion throughput and latency.
+  # ============================================
+  mail-pipeline-benchmarks:
+    name: Mail Pipeline Benchmarks
+    runs-on: ubuntu-latest
+    needs: build-core
+    permissions:
+      contents: read
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages required for benchmarks
+        run: |
+          pnpm --filter @deltecho/shared build
+          pnpm --filter deep-tree-echo-core build
+          pnpm --filter dove9 build
+
+      - name: Run mail pipeline benchmarks
+        run: |
+          if pnpm ls ts-node &>/dev/null 2>&1; then
+            node --loader ts-node/esm benchmarks/mail-pipeline.bench.ts
+          else
+            echo "::warning::ts-node not available; install ts-node to enable mail pipeline benchmarks"
+          fi
+
+      - name: Upload benchmark results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mail-pipeline-benchmark-results
+          path: benchmarks/results/
+          retention-days: 30
+        continue-on-error: true
+
+  # ============================================
   # E2E Tests (Linux only for speed)
   # ============================================
   e2e-tests:
