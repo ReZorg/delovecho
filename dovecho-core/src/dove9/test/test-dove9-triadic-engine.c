@@ -297,6 +297,67 @@ static void test_engine_process_message(void)
 	dove9_test_end();
 }
 
+/* ---- Mode distribution: 7 expressive, 5 reflective ---- */
+
+static void test_mode_distribution(void)
+{
+	unsigned int expressive = 0, reflective = 0;
+	int i;
+
+	dove9_test_begin("12 steps have 7 expressive, 5 reflective");
+
+	for (i = 0; i < 12; i++) {
+		if (dove9_step_configs[i].mode == DOVE9_MODE_EXPRESSIVE)
+			expressive++;
+		else if (dove9_step_configs[i].mode == DOVE9_MODE_REFLECTIVE)
+			reflective++;
+	}
+
+	DOVE9_TEST_ASSERT_UINT_EQ(expressive, 7);
+	DOVE9_TEST_ASSERT_UINT_EQ(reflective, 5);
+
+	dove9_test_end();
+}
+
+/* ---- Each stream has 4 steps ---- */
+
+static void test_stream_step_counts(void)
+{
+	unsigned int primary = 0, secondary = 0, tertiary = 0;
+	int i;
+
+	dove9_test_begin("each stream has exactly 4 steps");
+
+	for (i = 0; i < 12; i++) {
+		switch (dove9_step_configs[i].stream) {
+		case DOVE9_STREAM_PRIMARY: primary++; break;
+		case DOVE9_STREAM_SECONDARY: secondary++; break;
+		case DOVE9_STREAM_TERTIARY: tertiary++; break;
+		}
+	}
+
+	DOVE9_TEST_ASSERT_UINT_EQ(primary, 4);
+	DOVE9_TEST_ASSERT_UINT_EQ(secondary, 4);
+	DOVE9_TEST_ASSERT_UINT_EQ(tertiary, 4);
+
+	dove9_test_end();
+}
+
+/* ---- Step numbers are 1..12 ---- */
+
+static void test_step_numbers_sequential(void)
+{
+	int i;
+
+	dove9_test_begin("step numbers are 1 through 12");
+
+	for (i = 0; i < 12; i++)
+		DOVE9_TEST_ASSERT_UINT_EQ(dove9_step_configs[i].step_number,
+					  (unsigned int)(i + 1));
+
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -308,6 +369,9 @@ int main(void)
 		test_engine_lifecycle,
 		test_triad_convergence_events,
 		test_engine_process_message,
+		test_mode_distribution,
+		test_stream_step_counts,
+		test_step_numbers_sequential,
 	};
-	return dove9_test_run("dove9-triadic-engine", tests, 8);
+	return dove9_test_run("dove9-triadic-engine", tests, 11);
 }

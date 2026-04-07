@@ -175,6 +175,46 @@ static void test_kernel_metrics(void)
 	dove9_test_end();
 }
 
+static void test_process_lookup_by_pid(void)
+{
+	struct dove9_kernel *kernel;
+	struct dove9_process *proc, *found;
+
+	dove9_test_begin("lookup by pid returns correct process");
+
+	kernel = dove9_kernel_create();
+	proc = dove9_kernel_spawn(kernel, "find-me", 5);
+
+	found = dove9_kernel_find(kernel, proc->pid);
+	DOVE9_TEST_ASSERT_NOT_NULL(found);
+	DOVE9_TEST_ASSERT_UINT_EQ(found->pid, proc->pid);
+
+	/* Non-existent pid */
+	found = dove9_kernel_find(kernel, 99999);
+	DOVE9_TEST_ASSERT_NULL(found);
+
+	dove9_kernel_destroy(&kernel);
+	dove9_test_end();
+}
+
+static void test_process_terminate(void)
+{
+	struct dove9_kernel *kernel;
+	struct dove9_process *proc;
+
+	dove9_test_begin("terminate sets TERMINATED state");
+
+	kernel = dove9_kernel_create();
+	proc = dove9_kernel_spawn(kernel, "die", 5);
+	dove9_kernel_schedule(kernel, proc);
+
+	dove9_kernel_terminate(kernel, proc);
+	DOVE9_TEST_ASSERT_INT_EQ(proc->state, DOVE9_PROC_TERMINATED);
+
+	dove9_kernel_destroy(&kernel);
+	dove9_test_end();
+}
+
 int main(void)
 {
 	dove9_test_fn tests[] = {
@@ -186,6 +226,8 @@ int main(void)
 		test_max_capacity,
 		test_kernel_tick,
 		test_kernel_metrics,
+		test_process_lookup_by_pid,
+		test_process_terminate,
 	};
-	return dove9_test_run("dove9-kernel", tests, 8);
+	return dove9_test_run("dove9-kernel", tests, 10);
 }
