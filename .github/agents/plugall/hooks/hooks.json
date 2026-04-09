@@ -1,0 +1,14 @@
+{
+	"hooks": {
+		"dailyActivity": [
+			{
+				"type": "command"
+			}
+		],
+		"dailyModelTokens": [
+			{
+				"type": "command"
+			}
+		]
+	}
+}

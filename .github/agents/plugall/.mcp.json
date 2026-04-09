@@ -1,0 +1,653 @@
+{
+	"mcpServers": {
+		"antfu/nuxt-mcp": {
+			"type": "http",
+			"url": "https://mcp.nuxt.com/sse"
+		},
+		"azure-ai-foundry/mcp-foundry": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"--prerelease=allow",
+				"--from",
+				"git+https://github.com/azure-ai-foundry/mcp-foundry.git",
+				"run-azure-ai-foundry-mcp",
+				"--envFile",
+				"${input:env_file_path}"
+			],
+			"env": {
+				"GITHUB_TOKEN": "${input:github_token}",
+				"AZURE_AI_SEARCH_ENDPOINT": "${input:ai_search_endpoint}",
+				"AZURE_AI_SEARCH_API_VERSION": "${input:ai_search_api_version}",
+				"SEARCH_AUTHENTICATION_METHOD": "${input:search_auth_method}",
+				"AZURE_TENANT_ID": "${input:azure_tenant_id}",
+				"AZURE_CLIENT_ID": "${input:azure_client_id}",
+				"AZURE_CLIENT_SECRET": "${input:azure_client_secret}",
+				"AZURE_AI_SEARCH_API_KEY": "${input:ai_search_api_key}",
+				"EVAL_DATA_DIR": "${input:eval_data_dir}",
+				"AZURE_OPENAI_ENDPOINT": "${input:az_openai_endpoint}",
+				"AZURE_OPENAI_API_KEY": "${input:az_openai_api_key}",
+				"AZURE_OPENAI_DEPLOYMENT": "${input:az_openai_deployment}",
+				"AZURE_OPENAI_API_VERSION": "${input:az_openai_api_version}",
+				"AZURE_AI_PROJECT_ENDPOINT": "${input:ai_project_endpoint}"
+			}
+		},
+		"co.axiom/mcp": {
+			"type": "http",
+			"url": "https://mcp.axiom.co/sse"
+		},
+		"cognitionai/deepwiki": {
+			"type": "http",
+			"url": "https://mcp.deepwiki.com/sse"
+		},
+		"com.apify/apify-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.apify.com/",
+			"headers": {
+				"Authorization": "${input:Authorization}"
+			}
+		},
+		"com.figma.mcp/mcp": {
+			"type": "http",
+			"url": "https://mcp.figma.com/mcp"
+		},
+		"com.getguru/mcp-server": {
+			"type": "http",
+			"url": "https://mcp.api.getguru.com/mcp"
+		},
+		"com.glean/mcp": {
+			"type": "http",
+			"url": "https://%7Bbaseurl%7D/mcp/%7Bserver-name%7D"
+		},
+		"com.microsoft/azure": {
+			"type": "stdio",
+			"command": "dnx",
+			"args": [
+				"Azure.Mcp@3.0.0-beta.1",
+				"--yes",
+				"--",
+				"server",
+				"start"
+			]
+		},
+		"com.microsoft/nuget": {
+			"type": "stdio",
+			"command": "dnx",
+			"args": [
+				"NuGet.Mcp.Server@1.2.3",
+				"--yes",
+				"--source",
+				"https://api.nuget.org/v3/index.json"
+			]
+		},
+		"com.microsoft/sentinel-data-exploration": {
+			"type": "http",
+			"url": "https://sentinel.microsoft.com/mcp/data-exploration"
+		},
+		"com.monday/monday.com": {
+			"type": "http",
+			"url": "https://mcp.monday.com/mcp",
+			"headers": {
+				"Authorization": "${input:Authorization}"
+			}
+		},
+		"com.postman/postman-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.postman.com/mcp",
+			"headers": {
+				"Authorization": "${input:Authorization}"
+			}
+		},
+		"com.shipstatic/mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@shipstatic/mcp@0.4.1"
+			],
+			"env": {
+				"SHIP_API_KEY": "${input:SHIP_API_KEY}"
+			}
+		},
+		"com.stripe/mcp": {
+			"type": "http",
+			"url": "https://mcp.stripe.com/"
+		},
+		"com.supabase/mcp": {
+			"type": "http",
+			"url": "https://mcp.supabase.com/mcp"
+		},
+		"com.vercel/vercel-mcp": {
+			"type": "http",
+			"url": "https://mcp.vercel.com/"
+		},
+		"com.webflow/mcp": {
+			"type": "http",
+			"url": "https://mcp.webflow.com/mcp"
+		},
+		"com.wix/mcp": {
+			"type": "http",
+			"url": "https://mcp.wix.com/sse"
+		},
+		"coplaydev/unity-mcp": {
+			"type": "stdio",
+			"command": "other",
+			"args": [
+				"--directory",
+				"${input:unity_mcp_server_src}",
+				"run",
+				"server.py"
+			]
+		},
+		"dev.svelte/mcp": {
+			"type": "http",
+			"url": "https://mcp.svelte.dev/mcp"
+		},
+		"elastic/mcp-server-elasticsearch": {
+			"type": "stdio",
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"run",
+				"-i",
+				"--rm",
+				"-e",
+				"$ES_URL",
+				"-e",
+				"$ES_API_KEY",
+				"docker.elastic.co/mcp/elasticsearch",
+				"stdio",
+				"-e",
+				"ES_URL",
+				"-e",
+				"ES_API_KEY",
+				"docker.elastic.co/mcp/elasticsearch:latest"
+			],
+			"env": {
+				"ES_URL": "${input:es_url}",
+				"ES_API_KEY": "${input:es_api_key}"
+			}
+		},
+		"firecrawl/firecrawl-mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"firecrawl-mcp@latest"
+			],
+			"env": {
+				"FIRECRAWL_API_KEY": "${input:api_key}"
+			}
+		},
+		"host.justcall.mcp/justcall-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.justcall.host/mcp"
+		},
+		"huggingface/hf-mcp-server": {
+			"type": "http",
+			"url": "https://huggingface.co/mcp?login"
+		},
+		"intercom/intercom-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.intercom.com/mcp"
+		},
+		"io.github.AnimaApp/anima": {
+			"type": "http",
+			"url": "https://public-api.animaapp.com/v1/mcp"
+		},
+		"io.github.brightdata/brightdata-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"--registry",
+				"https://registry.npmjs.org",
+				"@brightdata/mcp@2.9.4"
+			],
+			"env": {
+				"API_TOKEN": "${input:API_TOKEN}",
+				"WEB_UNLOCKER_ZONE": "${input:WEB_UNLOCKER_ZONE}",
+				"BROWSER_ZONE": "${input:BROWSER_ZONE}",
+				"PRO_MODE": "${input:PRO_MODE}",
+				"GROUPS": "${input:GROUPS}",
+				"TOOLS": "${input:TOOLS}",
+				"POLLING_TIMEOUT": "${input:POLLING_TIMEOUT}",
+				"BASE_TIMEOUT": "${input:BASE_TIMEOUT}",
+				"BASE_MAX_RETRIES": "${input:BASE_MAX_RETRIES}"
+			}
+		},
+		"io.github.bytebase/dbhub": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@bytebase/dbhub@0.21.1"
+			],
+			"env": {
+				"DSN": "${input:DSN}",
+				"DB_TYPE": "${input:DB_TYPE}",
+				"DB_HOST": "${input:DB_HOST}",
+				"DB_PORT": "${input:DB_PORT}",
+				"DB_USER": "${input:DB_USER}",
+				"DB_PASSWORD": "${input:DB_PASSWORD}",
+				"DB_NAME": "${input:DB_NAME}",
+				"TRANSPORT": "${input:TRANSPORT}",
+				"PORT": "${input:PORT}",
+				"ID": "${input:ID}",
+				"SSH_HOST": "${input:SSH_HOST}",
+				"SSH_PORT": "${input:SSH_PORT}",
+				"SSH_USER": "${input:SSH_USER}",
+				"SSH_PASSWORD": "${input:SSH_PASSWORD}",
+				"SSH_KEY": "${input:SSH_KEY}",
+				"SSH_PASSPHRASE": "${input:SSH_PASSPHRASE}"
+			}
+		},
+		"io.github.ChromeDevTools/chrome-devtools-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"--registry",
+				"https://registry.npmjs.org",
+				"chrome-devtools-mcp@0.21.0"
+			]
+		},
+		"io.github.contextstreamio/mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@contextstream/mcp-server@0.3.63"
+			]
+		},
+		"io.github.f/prompts.chat-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@fkadev/prompts.chat-mcp@1.0.9"
+			],
+			"env": {
+				"PROMPTS_API_KEY": "${input:PROMPTS_API_KEY}",
+				"PROMPTS_QUERY": "${input:PROMPTS_QUERY}"
+			}
+		},
+		"io.github.getsentry/sentry-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@sentry/mcp-server@0.25.0"
+			],
+			"env": {
+				"SENTRY_ACCESS_TOKEN": "${input:SENTRY_ACCESS_TOKEN}"
+			}
+		},
+		"io.github.github/github-mcp-server": {
+			"type": "http",
+			"url": "https://api.githubcopilot.com/mcp/"
+		},
+		"io.github.hashicorp/terraform-mcp-server": {
+			"type": "stdio",
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"-e",
+				"TFE_ADDRESS=${input:address}",
+				"-e",
+				"TFE_TOKEN=${input:token}",
+				"-e",
+				"ENABLE_TF_OPERATIONS=${input:enabled}",
+				"docker.io/hashicorp/terraform-mcp-server:0.5.0"
+			]
+		},
+		"io.github.holomodular/servicebricks": {
+			"type": "http",
+			"url": "https://servicebricks.com/api/mcp"
+		},
+		"io.github.mapbox/mcp-devkit-server": {
+			"type": "http",
+			"url": "https://mcp-devkit.mapbox.com/mcp"
+		},
+		"io.github.mapbox/mcp-server": {
+			"type": "http",
+			"url": "https://mcp.mapbox.com/mcp"
+		},
+		"io.github.microsoft/awesome-copilot": {
+			"type": "stdio",
+			"command": "docker",
+			"args": [
+				"run",
+				"-i",
+				"--rm",
+				"ghcr.io/microsoft/mcp-dotnet-samples/awesome-copilot:1.0.2026040123"
+			]
+		},
+		"io.github.microsoft/EnterpriseMCP": {
+			"type": "http",
+			"url": "https://mcp.svc.cloud.microsoft/enterprise"
+		},
+		"io.github.mongodb-js/mongodb-mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"mongodb-mcp-server@1.9.0",
+				"--allowRequestOverrides",
+				"${input:allowRequestOverrides}",
+				"--apiClientId",
+				"${input:apiClientId}",
+				"--apiClientSecret",
+				"${input:apiClientSecret}",
+				"--assistantBaseUrl",
+				"${input:assistantBaseUrl}",
+				"--atlasTemporaryDatabaseUserLifetimeMs",
+				"${input:atlasTemporaryDatabaseUserLifetimeMs}",
+				"--confirmationRequiredTools",
+				"${input:confirmationRequiredTools}",
+				"--connectionString",
+				"${input:connectionString}",
+				"--disabledTools",
+				"${input:disabledTools}",
+				"--dryRun",
+				"${input:dryRun}",
+				"--exportCleanupIntervalMs",
+				"${input:exportCleanupIntervalMs}",
+				"--exportTimeoutMs",
+				"${input:exportTimeoutMs}",
+				"--exportsPath",
+				"${input:exportsPath}",
+				"--externallyManagedSessions",
+				"${input:externallyManagedSessions}",
+				"--healthCheckHost",
+				"${input:healthCheckHost}",
+				"--healthCheckPort",
+				"${input:healthCheckPort}",
+				"--httpBodyLimit",
+				"${input:httpBodyLimit}",
+				"--httpHeaders",
+				"${input:httpHeaders}",
+				"--httpHost",
+				"${input:httpHost}",
+				"--httpPort",
+				"${input:httpPort}",
+				"--httpResponseType",
+				"${input:httpResponseType}",
+				"--idleTimeoutMs",
+				"${input:idleTimeoutMs}",
+				"--indexCheck",
+				"${input:indexCheck}",
+				"--logPath",
+				"${input:logPath}",
+				"--loggers",
+				"${input:loggers}",
+				"--maxBytesPerQuery",
+				"${input:maxBytesPerQuery}",
+				"--maxDocumentsPerQuery",
+				"${input:maxDocumentsPerQuery}",
+				"--monitoringServerFeatures",
+				"${input:monitoringServerFeatures}",
+				"--monitoringServerHost",
+				"${input:monitoringServerHost}",
+				"--monitoringServerPort",
+				"${input:monitoringServerPort}",
+				"--notificationTimeoutMs",
+				"${input:notificationTimeoutMs}",
+				"--previewFeatures",
+				"${input:previewFeatures}",
+				"--readOnly",
+				"${input:readOnly}",
+				"--telemetry",
+				"${input:telemetry}",
+				"--transport",
+				"${input:transport}",
+				"--voyageApiKey",
+				"${input:voyageApiKey}"
+			],
+			"env": {
+				"MDB_MCP_ALLOW_REQUEST_OVERRIDES": "${input:MDB_MCP_ALLOW_REQUEST_OVERRIDES}",
+				"MDB_MCP_API_CLIENT_ID": "${input:MDB_MCP_API_CLIENT_ID}",
+				"MDB_MCP_API_CLIENT_SECRET": "${input:MDB_MCP_API_CLIENT_SECRET}",
+				"MDB_MCP_ASSISTANT_BASE_URL": "${input:MDB_MCP_ASSISTANT_BASE_URL}",
+				"MDB_MCP_ATLAS_TEMPORARY_DATABASE_USER_LIFETIME_MS": "${input:MDB_MCP_ATLAS_TEMPORARY_DATABASE_USER_LIFETIME_MS}",
+				"MDB_MCP_CONFIRMATION_REQUIRED_TOOLS": "${input:MDB_MCP_CONFIRMATION_REQUIRED_TOOLS}",
+				"MDB_MCP_CONNECTION_STRING": "${input:MDB_MCP_CONNECTION_STRING}",
+				"MDB_MCP_DISABLED_TOOLS": "${input:MDB_MCP_DISABLED_TOOLS}",
+				"MDB_MCP_DRY_RUN": "${input:MDB_MCP_DRY_RUN}",
+				"MDB_MCP_EXPORT_CLEANUP_INTERVAL_MS": "${input:MDB_MCP_EXPORT_CLEANUP_INTERVAL_MS}",
+				"MDB_MCP_EXPORT_TIMEOUT_MS": "${input:MDB_MCP_EXPORT_TIMEOUT_MS}",
+				"MDB_MCP_EXPORTS_PATH": "${input:MDB_MCP_EXPORTS_PATH}",
+				"MDB_MCP_EXTERNALLY_MANAGED_SESSIONS": "${input:MDB_MCP_EXTERNALLY_MANAGED_SESSIONS}",
+				"MDB_MCP_HEALTH_CHECK_HOST": "${input:MDB_MCP_HEALTH_CHECK_HOST}",
+				"MDB_MCP_HEALTH_CHECK_PORT": "${input:MDB_MCP_HEALTH_CHECK_PORT}",
+				"MDB_MCP_HTTP_BODY_LIMIT": "${input:MDB_MCP_HTTP_BODY_LIMIT}",
+				"MDB_MCP_HTTP_HEADERS": "${input:MDB_MCP_HTTP_HEADERS}",
+				"MDB_MCP_HTTP_HOST": "${input:MDB_MCP_HTTP_HOST}",
+				"MDB_MCP_HTTP_PORT": "${input:MDB_MCP_HTTP_PORT}",
+				"MDB_MCP_HTTP_RESPONSE_TYPE": "${input:MDB_MCP_HTTP_RESPONSE_TYPE}",
+				"MDB_MCP_IDLE_TIMEOUT_MS": "${input:MDB_MCP_IDLE_TIMEOUT_MS}",
+				"MDB_MCP_INDEX_CHECK": "${input:MDB_MCP_INDEX_CHECK}",
+				"MDB_MCP_LOG_PATH": "${input:MDB_MCP_LOG_PATH}",
+				"MDB_MCP_LOGGERS": "${input:MDB_MCP_LOGGERS}",
+				"MDB_MCP_MAX_BYTES_PER_QUERY": "${input:MDB_MCP_MAX_BYTES_PER_QUERY}",
+				"MDB_MCP_MAX_DOCUMENTS_PER_QUERY": "${input:MDB_MCP_MAX_DOCUMENTS_PER_QUERY}",
+				"MDB_MCP_MONITORING_SERVER_FEATURES": "${input:MDB_MCP_MONITORING_SERVER_FEATURES}",
+				"MDB_MCP_MONITORING_SERVER_HOST": "${input:MDB_MCP_MONITORING_SERVER_HOST}",
+				"MDB_MCP_MONITORING_SERVER_PORT": "${input:MDB_MCP_MONITORING_SERVER_PORT}",
+				"MDB_MCP_NOTIFICATION_TIMEOUT_MS": "${input:MDB_MCP_NOTIFICATION_TIMEOUT_MS}",
+				"MDB_MCP_PREVIEW_FEATURES": "${input:MDB_MCP_PREVIEW_FEATURES}",
+				"MDB_MCP_READ_ONLY": "${input:MDB_MCP_READ_ONLY}",
+				"MDB_MCP_TELEMETRY": "${input:MDB_MCP_TELEMETRY}",
+				"MDB_MCP_TRANSPORT": "${input:MDB_MCP_TRANSPORT}",
+				"MDB_MCP_VOYAGE_API_KEY": "${input:MDB_MCP_VOYAGE_API_KEY}"
+			}
+		},
+		"io.github.netdata/mcp-server": {
+			"type": "http",
+			"url": "https://app.netdata.cloud/api/v1/mcp",
+			"headers": {
+				"Authorization": "Bearer ${input:NETDATA_CLOUD_API_TOKEN}"
+			}
+		},
+		"io.github.pubnub/mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@pubnub/mcp@2.3.2"
+			],
+			"env": {
+				"PUBNUB_API_KEY": "${input:PUBNUB_API_KEY}",
+				"PUBNUB_PUBLISH_KEY": "${input:PUBNUB_PUBLISH_KEY}",
+				"PUBNUB_SUBSCRIBE_KEY": "${input:PUBNUB_SUBSCRIBE_KEY}",
+				"PUBNUB_USER_ID": "${input:PUBNUB_USER_ID}",
+				"PUBNUB_EMAIL": "${input:PUBNUB_EMAIL}",
+				"PUBNUB_PASSWORD": "${input:PUBNUB_PASSWORD}"
+			}
+		},
+		"io.github.rigour-labs/rigour": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@rigour-labs/mcp@5.2.9"
+			]
+		},
+		"io.github.ScrapeGraphAI/scrapegraph-mcp": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"scrapegraph-mcp@1.0.1"
+			],
+			"env": {
+				"SGAI_API_KEY": "${input:SGAI_API_KEY}"
+			}
+		},
+		"io.github.serpapi/serpapi-mcp": {
+			"type": "http",
+			"url": "https://mcp.serpapi.com/mcp"
+		},
+		"io.github.sourcegraph/mcp": {
+			"type": "http",
+			"url": "https://%7Bsourcegraph_hostname%7D/.api/mcp"
+		},
+		"io.github.tavily-ai/tavily-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"tavily-mcp@0.2.15"
+			],
+			"env": {
+				"TAVILY_API_KEY": "${input:TAVILY_API_KEY}",
+				"DEFAULT_PARAMETERS": "${input:DEFAULT_PARAMETERS}"
+			}
+		},
+		"io.github.upstash/context7": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@upstash/context7-mcp@1.0.31"
+			],
+			"env": {
+				"CONTEXT7_API_KEY": "${input:CONTEXT7_API_KEY}"
+			}
+		},
+		"io.github.venomseven/nslookup": {
+			"type": "http",
+			"url": "https://mcp.nslookup.io/mcp"
+		},
+		"io.github.vercel/next-devtools-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"next-devtools-mcp@0.3.6"
+			]
+		},
+		"io.github.wonderwhy-er/desktop-commander": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"--registry",
+				"https://registry.npmjs.org",
+				"@wonderwhy-er/desktop-commander@0.2.38"
+			]
+		},
+		"io.port/Port": {
+			"type": "http",
+			"url": "https://mcp.port.io/v1"
+		},
+		"launchdarkly/mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"--package",
+				"@launchdarkly/mcp-server@latest",
+				"--",
+				"mcp",
+				"start",
+				"--api-key",
+				"${input:api_key}",
+				"--server-url",
+				"${input:server_url}"
+			]
+		},
+		"makenotion/notion-mcp-server": {
+			"type": "http",
+			"url": "https://mcp.notion.com/sse"
+		},
+		"microsoft/azure-devops-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@azure-devops/mcp@latest",
+				"${input:ado_org}",
+				"-d",
+				"${input:ado_domain}"
+			]
+		},
+		"microsoft/clarity-mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@microsoft/clarity-mcp-server@latest",
+				"--clarity_api_token",
+				"${input:clarity_api_token}"
+			]
+		},
+		"microsoft/devbox-mcp-server": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"-y",
+				"@microsoft/devbox-mcp@latest",
+				"@microsoft/devbox-mcp@latest"
+			]
+		},
+		"microsoft/fabric-rti-mcp": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"microsoft-fabric-rti-mcp@0.1.0"
+			],
+			"env": {
+				"KUSTO_SERVICE_URI": "${input:kusto_service_uri}",
+				"KUSTO_SERVICE_DEFAULT_DB": "${input:kusto_default_db}",
+				"AZ_OPENAI_EMBEDDING_ENDPOINT": "${input:az_openai_embedding_endpoint}",
+				"KUSTO_KNOWN_SERVICES": "${input:kusto_known_services_json}",
+				"KUSTO_EAGER_CONNECT": "${input:kusto_eager_connect}",
+				"KUSTO_ALLOW_UNKNOWN_SERVICES": "${input:kusto_allow_unknown_services}",
+				"FABRIC_API_BASE": "${input:fabric_api_base}"
+			}
+		},
+		"microsoft/markitdown": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"markitdown-mcp@0.0.1a4"
+			]
+		},
+		"microsoft/playwright-mcp": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"@playwright/mcp@latest"
+			]
+		},
+		"microsoftdocs/mcp": {
+			"type": "http",
+			"url": "https://learn.microsoft.com/api/mcp"
+		},
+		"neondatabase/mcp-server-neon": {
+			"type": "http",
+			"url": "https://mcp.neon.tech/sse"
+		},
+		"oraios/serena": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"--from",
+				"git+https://github.com/oraios/serena",
+				"serena",
+				"start-mcp-server",
+				"serena@latest",
+				"--context",
+				"ide-assistant"
+			]
+		},
+		"pydantic/logfire-mcp": {
+			"type": "stdio",
+			"command": "uvx",
+			"args": [
+				"logfire-mcp@v0.6.0",
+				"--read-token",
+				"${input:logfire_token}",
+				"--base-url",
+				"${input:logfire_base_url}"
+			]
+		},
+		"sunriseapps/imagesorcery-mcp": {
+			"type": "stdio",
+			"command": "other"
+		},
+		"zapier/zapier-mcp": {
+			"type": "http",
+			"url": "file:///%7Bzapier_mcp_url%7D"
+		}
+	}
+}
