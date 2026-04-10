@@ -2,11 +2,11 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, dovecho-core]
     tags:
       - 'v*'
   pull_request:
-    branches: [main, develop]
+    branches: [main, develop, dovecho-core]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -103,6 +103,9 @@ jobs:
 
   # ============================================
   # Dove9 C Layer — Build & Test
+  # TASK-026: Full C layer CI job
+  # TASK-027: Paths filter — only runs when C layer files change
+  # TASK-028: Generates compile_commands.json artifact
   # ============================================
   test-c-layer:
     name: Dove9 C Layer Tests
@@ -110,35 +113,78 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # TASK-027: Detect whether C layer files changed
+      - name: Detect changed C layer files
+        id: c-layer-changes
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            c_layer:
+              - 'dovecho-core/src/dove9/**'
+              - 'dovecho-core/configure.ac'
+              - 'dovecho-core/src/dove9/Makefile.am'
+              - 'dovecho-core/src/Makefile.am'
+
+      # TASK-026: Install build deps including valgrind and lcov
       - name: Install build dependencies
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           sudo apt-get update
-          sudo apt-get install -y autoconf automake libtool pkg-config gcc make
+          sudo apt-get install -y autoconf automake libtool pkg-config gcc make valgrind lcov
 
       - name: Generate build system
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: dovecho-core
         run: ./autogen.sh
 
       - name: Configure (with dev checks + coverage)
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: dovecho-core
         run: ./configure --enable-devel-checks --enable-coverage
 
       - name: Build dovecho-core
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: dovecho-core
         run: make -j$(nproc)
 
+      # TASK-028: Generate compile_commands.json for IDE/clangd integration
+      - name: Generate compile_commands.json
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
+        working-directory: dovecho-core
+        run: ./build-aux/generate-compile-commands.sh
+
+      # TASK-028: Upload compile_commands.json as artifact
+      - name: Upload compile_commands.json
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-artifact@v4
+        with:
+          name: compile-commands
+          path: dovecho-core/compile_commands.json
+          retention-days: 7
+
+      # TASK-026: Run unit tests
       - name: Run dove9 unit tests
+        if: steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch'
         working-directory: dovecho-core
         run: make -C src/dove9 check-local
 
+      # TASK-026: Generate lcov HTML coverage report
       - name: Generate coverage report
-        if: always()
+        if: (steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch') && always()
         working-directory: dovecho-core
-        run: |
-          if command -v gcov &> /dev/null; then
-            find src/dove9 -name '*.gcda' -exec gcov {} + || true
-          fi
+        run: make -C src/dove9 coverage
+
+      # TASK-026: Upload coverage HTML report as artifact
+      - name: Upload coverage report
+        if: (steps.c-layer-changes.outputs.c_layer == 'true' || github.event_name == 'workflow_dispatch') && always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dove9-coverage-report
+          path: dovecho-core/coverage/dove9/
+          retention-days: 30
 
   # ============================================
   # Security Scanning

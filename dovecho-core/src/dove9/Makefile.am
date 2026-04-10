@@ -226,3 +226,22 @@ check-local:
 		fi; \
 	done
 	@echo "All dove9 tests passed."
+
+# ---- Coverage target (TASK-024) ----
+# Run: make -C src/dove9 coverage  (after ./configure --enable-coverage && make)
+
+coverage: check-local
+	@if command -v lcov >/dev/null 2>&1; then \
+		lcov --capture --directory . --output-file dove9-coverage.info; \
+		genhtml dove9-coverage.info --output-directory $(top_builddir)/coverage/dove9; \
+		echo "Coverage report: $(top_builddir)/coverage/dove9/index.html"; \
+	else \
+		echo "Error: lcov not found. Install with: sudo apt-get install -y lcov"; \
+		exit 1; \
+	fi
+
+clean-coverage:
+	-rm -f *.gcda *.gcno dove9-coverage.info
+	-rm -rf $(top_builddir)/coverage/dove9
+
+.PHONY: coverage clean-coverage
