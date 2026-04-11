@@ -28,15 +28,12 @@
  */
 
 import { ipcMain } from 'electron'
-import {
-  Dove9System,
-  createDove9System,
-} from 'dove9'
+import { Dove9System, createDove9System } from '../../../../dove9/src/index.js'
 import type {
   LLMServiceInterface,
   MemoryStoreInterface,
   PersonaCoreInterface,
-} from 'dove9'
+} from '../../../../dove9/src/index.js'
 
 import { getLogger } from '../../shared/logger.js'
 
@@ -68,16 +65,17 @@ const defaultMemoryStore: MemoryStoreInterface = {
     }
   },
   retrieveRecentMemories(count) {
-    return memoryPool
-      .slice(-count)
-      .map(m => `[${m.sender}]: ${m.text}`)
+    return memoryPool.slice(-count).map(m => `[${m.sender}]: ${m.text}`)
   },
   async retrieveRelevantMemories(query, count) {
     const q = query.toLowerCase()
     const scored = memoryPool
       .map(m => ({
         text: `[${m.sender}]: ${m.text}`,
-        score: m.text.toLowerCase().split(' ').filter(w => q.includes(w)).length,
+        score: m.text
+          .toLowerCase()
+          .split(' ')
+          .filter(w => q.includes(w)).length,
       }))
       .sort((a, b) => b.score - a.score)
     return scored.slice(0, count).map(s => s.text)
@@ -113,7 +111,10 @@ const defaultLLMService: LLMServiceInterface = {
       context.length > 0
         ? ` (context: ${context.slice(-3).join('; ').slice(0, 120)})`
         : ''
-    return `[Dove9 triadic response] Processed: "${prompt.slice(0, 80)}"${contextSummary}`
+    return `[Dove9 triadic response] Processed: "${prompt.slice(
+      0,
+      80
+    )}"${contextSummary}`
   },
   async generateParallelResponse(prompt, history) {
     const base = await defaultLLMService.generateResponse(prompt, history)
@@ -146,10 +147,7 @@ export async function initCognitiveEngine(): Promise<() => Promise<void>> {
   // cognitive:initialize - start or restart the Dove9 system
   ipcMain.handle(
     'cognitive:initialize',
-    async (
-      _event,
-      opts: { name?: string; enableParallel?: boolean } = {}
-    ) => {
+    async (_event, opts: { name?: string; enableParallel?: boolean } = {}) => {
       try {
         if (dove9System?.isRunning()) {
           log.info('Dove9 already running, skipping re-init')
@@ -260,9 +258,9 @@ export async function initCognitiveEngine(): Promise<() => Promise<void>> {
   // Return cleanup function
   return async () => {
     if (dove9System?.isRunning()) {
-      await dove9System.stop().catch(err =>
-        log.error('Error stopping Dove9 on shutdown:', err)
-      )
+      await dove9System
+        .stop()
+        .catch(err => log.error('Error stopping Dove9 on shutdown:', err))
     }
     dove9System = null
 
