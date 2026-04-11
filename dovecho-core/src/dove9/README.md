@@ -23,7 +23,27 @@ dove9/
 
 ## Building
 
-The dove9 layer builds as `libdove9.la` within the dovecho-core Autotools system:
+### CMake (recommended)
+
+```bash
+# Configure (default Release build)
+cmake --preset default -S dovecho-core/src/dove9
+
+# Configure (development with debug checks)
+cmake --preset dev -S dovecho-core/src/dove9
+
+# Build
+cmake --build dovecho-core/src/dove9/build-dev -j4
+
+# Test (27 tests via CTest)
+ctest --test-dir dovecho-core/src/dove9/build-dev --output-on-failure
+```
+
+Available presets: `default` (Release), `dev` (Debug + devel-checks), `coverage` (gcov/lcov), `ci` (Release + `-Werror`).
+
+### Autotools (legacy)
+
+The dove9 layer also builds as `libdove9.la` within the dovecho-core Autotools system:
 
 ```bash
 cd dovecho-core
@@ -74,7 +94,16 @@ external dependencies. Key features:
 
 ## Coverage
 
-Build with coverage enabled:
+### CMake
+
+```bash
+cmake --preset coverage -S dovecho-core/src/dove9
+cmake --build dovecho-core/src/dove9/build-coverage
+ctest --test-dir dovecho-core/src/dove9/build-coverage
+cmake --build dovecho-core/src/dove9/build-coverage --target coverage
+```
+
+### Autotools
 
 ```bash
 ./configure --enable-coverage

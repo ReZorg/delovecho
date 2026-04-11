@@ -1,0 +1,8 @@
+# CMake build directories
+/build/
+/build-dev/
+/build-coverage/
+/build-ci/
+
+# CMake-generated compile_commands (the copy at dove9 root)
+/compile_commands.json
