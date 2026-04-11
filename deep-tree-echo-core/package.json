@@ -47,8 +47,8 @@
     "build": "tsc",
     "check:types": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
-    "test:coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
   },
   "keywords": [
     "ai",

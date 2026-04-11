@@ -10,6 +10,9 @@ module.exports = {
     '\\.(css|scss)$': '<rootDir>/__mocks__/styleMock.js',
     // Handle image imports
     '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/__mocks__/fileMock.js',
+    // Path aliases for monorepo packages
+    '^@deltachat-desktop/shared/(.*)$': '<rootDir>/../shared/$1',
+    '^@deltachat-desktop/shared$': '<rootDir>/../shared',
   },
   transform: {
     '^.+\\.(ts|tsx)$': [

@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'url';
+
 /** @type {import('jest').Config} */
 export default {
   preset: 'ts-jest/presets/default-esm',
@@ -13,6 +15,7 @@ export default {
       {
         useESM: true,
         tsconfig: {
+          module: 'esnext',
           types: ['jest', 'node'],
         },
       },

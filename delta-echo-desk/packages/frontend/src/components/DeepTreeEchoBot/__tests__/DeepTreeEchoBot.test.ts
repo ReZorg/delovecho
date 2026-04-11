@@ -1,7 +1,7 @@
 import { DeepTreeEchoBot } from '../DeepTreeEchoBot'
 
 // Mock dependencies
-jest.mock('../../../../shared/logger', () => ({
+jest.mock('../../shared/logger', () => ({
   getLogger: jest.fn(() => ({
     info: jest.fn(),
     error: jest.fn(),
