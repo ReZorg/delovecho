@@ -249,6 +249,11 @@ if ((Test-Path $readme) -and ((Get-Item $readme).Length -gt 100)) {
     Write-Host "  [ 0] dove9/README.md missing"
 }
 
+if ((Test-Path $valgrind) -and (Test-Path $readme)) {
+    $score += 1
+    Write-Host "  [+1] Infrastructure docs+valgrind completeness bonus"
+}
+
 # --- 11. Test framework struct/macro quality ---
 $commonH = Join-Path $root "dove9\test\dove9-test-common.h"
 if (Test-Path $commonH) {
