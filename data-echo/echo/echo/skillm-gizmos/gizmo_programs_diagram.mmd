@@ -1,0 +1,50 @@
+graph LR
+    subgraph "P1: Inventory Audit"
+        P1D["DISCOVER"] --> P1I["INSPECT"] --> P1C["CLASSIFY"] --> P1O["OBSERVE"]
+    end
+    subgraph "P2: Domain Extraction"
+        P2D["DISCOVER"] --> P2C["CLASSIFY"]
+        P2C --> P2I["INSPECT"]
+        P2C --> P2N["NAVIGATE"]
+    end
+    subgraph "P3: CRUD Lifecycle"
+        P3D["DISCOVER"] --> P3CR["CREATE"] --> P3M["MUTATE"] --> P3I["INSPECT"] --> P3CO["COMPOSE"]
+    end
+    subgraph "P4: Pattern Mining"
+        P4D["DISCOVER"] --> P4I["INSPECT"] --> P4O["OBSERVE"] --> P4CO["COMPOSE"] --> P4CL["CLASSIFY"]
+    end
+    subgraph "P5: Deployment"
+        P5D["DISCOVER"] --> P5I["INSPECT"] --> P5CO["COMPOSE"] --> P5OR["ORCHESTRATE"] --> P5O["OBSERVE"]
+    end
+    subgraph "P6: Knowledge Graph"
+        P6D["DISCOVER"] --> P6I["INSPECT"] --> P6N["NAVIGATE"] --> P6CO["COMPOSE"] --> P6CR["CREATE"]
+    end
+
+    style P1D fill:#3498db,color:#fff
+    style P1I fill:#3498db,color:#fff
+    style P1C fill:#9b59b6,color:#fff
+    style P1O fill:#e74c3c,color:#fff
+    style P2D fill:#3498db,color:#fff
+    style P2C fill:#9b59b6,color:#fff
+    style P2I fill:#3498db,color:#fff
+    style P2N fill:#2ecc71,color:#fff
+    style P3D fill:#3498db,color:#fff
+    style P3CR fill:#27ae60,color:#fff
+    style P3M fill:#f39c12,color:#fff
+    style P3I fill:#3498db,color:#fff
+    style P3CO fill:#3498db,color:#fff
+    style P4D fill:#3498db,color:#fff
+    style P4I fill:#3498db,color:#fff
+    style P4O fill:#e74c3c,color:#fff
+    style P4CO fill:#3498db,color:#fff
+    style P4CL fill:#9b59b6,color:#fff
+    style P5D fill:#3498db,color:#fff
+    style P5I fill:#3498db,color:#fff
+    style P5CO fill:#3498db,color:#fff
+    style P5OR fill:#f39c12,color:#fff
+    style P5O fill:#e74c3c,color:#fff
+    style P6D fill:#3498db,color:#fff
+    style P6I fill:#3498db,color:#fff
+    style P6N fill:#2ecc71,color:#fff
+    style P6CO fill:#3498db,color:#fff
+    style P6CR fill:#27ae60,color:#fff

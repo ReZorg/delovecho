@@ -1,0 +1,50 @@
+GizmoSkillm Key Findings
+========================
+
+Repository: github.com/ReZorg/gizmos
+Total gizmos: 87
+Bootstrap file: bootstrap-gizmos.json (single source of truth)
+Individual files: 87 in gizmos/ directory
+Extract scripts: extract_gizmos.py, extract_gizmos.ps1
+Knowledge file mapping: 352 unique files referenced
+
+Domain Taxonomy (11 domains):
+- Uncategorized: 16 gizmos
+- Cognitive/AGI: 15 gizmos (CogPrime, OpenCog Expert, AGI-FSG-LLML, HyperCog)
+- Skincare/RegimA: 10 gizmos (RegimA Skincare Architect, Skin Twin Reactor)
+- Math/Science: 10 gizmos (Wolfram, GROMACS, Numerical Methods)
+- Dev Tools: 8 gizmos (API to Postman, JSON Extractor, Config Converter)
+- ML/Architecture: 7 gizmos (GPT Dynamic Architect, Machine Learning)
+- Creative/Wizard: 5 gizmos (Grimoire, Wizard Reactor Alchemy)
+- Task Management: 5 gizmos (TaskMaster Pro, TaskMaster Influent)
+- Self-Image/Meta: 5 gizmos (AGSI, AutoExpert Chat)
+- Governance/Org: 4 gizmos (Holacracy Bot, Holaspirit, Co-operative Guide)
+- Hyper/Meta-Prompting: 2 gizmos (HyperDAN, HyperWeeeeeee)
+
+Instruction Statistics:
+- Total chars: 251,791
+- Average: 2,894 chars/gizmo
+- Max: 7,996 chars
+- Gizmos with instructions: 67 (77%)
+- Gizmos without: 20 (23%)
+
+Heaviest domains by instruction volume:
+1. Skincare/RegimA: 46,577 chars (avg 4,657)
+2. Uncategorized: 45,796 chars
+3. Cognitive/AGI: 39,479 chars
+4. ML/Architecture: 28,353 chars
+
+Verb patterns in instructions:
+BUILD: 7, CREATE: 7, TRANSFORM: 6, GENERATE: 5, MAP: 3, SIMULATE: 3, ANALYZE: 2
+
+Skillm Pipeline:
+DISCOVER ⊗ INSPECT ⊗ CLASSIFY ⊗ COMPOSE ⊗ NAVIGATE ⊗ OBSERVE ⊗ ORCHESTRATE
+
+6 Procedural Programs generated:
+P1: Inventory Audit (4 steps)
+P2: Domain Extraction (4 steps)
+P3: CRUD Lifecycle (5 steps)
+P4: Pattern Mining (5 steps)
+P5: Deployment Orchestration (5 steps)
+P6: Knowledge Graph Builder (5 steps)
+Total: 28 steps across 6 programs

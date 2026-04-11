@@ -1,0 +1,88 @@
+{
+  "name": "GizmoSkillm",
+  "description": "Procedural Language Model for the ReZorg/gizmos repository — 87 specialized AI agent architectures across 9 cognitive domains",
+  "version": "1.0.0",
+  "architecture": {
+    "type": "Sequential",
+    "modules": [
+      {
+        "name": "GizmoDiscovery",
+        "type": "Linear",
+        "verb": "DISCOVER",
+        "description": "Scan repository for gizmo JSON files and bootstrap data",
+        "input_dim": "repo_path",
+        "output_dim": "gizmo_list[87]"
+      },
+      {
+        "name": "GizmoInspection",
+        "type": "Linear",
+        "verb": "INSPECT",
+        "description": "Parse each gizmo's resource.gizmo structure: id, display.name, instructions, tools, files",
+        "input_dim": "gizmo_list[87]",
+        "output_dim": "gizmo_records[87]"
+      },
+      {
+        "name": "DomainClassifier",
+        "type": "Linear",
+        "verb": "CLASSIFY",
+        "description": "Classify gizmos into 9 domains via keyword analysis on instructions and descriptions",
+        "input_dim": "gizmo_records[87]",
+        "output_dim": "domain_taxonomy[9]"
+      },
+      {
+        "name": "InstructionComposer",
+        "type": "Linear",
+        "verb": "COMPOSE",
+        "description": "Extract and compose instruction patterns, tool configurations, and knowledge file mappings",
+        "input_dim": "gizmo_records[87]",
+        "output_dim": "instruction_corpus"
+      },
+      {
+        "name": "TaxonomyNavigator",
+        "type": "Linear",
+        "verb": "NAVIGATE",
+        "description": "Traverse the domain taxonomy hierarchy: Domain → Subdomain → Gizmo → Instructions → Tools",
+        "input_dim": "domain_taxonomy[9]",
+        "output_dim": "taxonomy_graph"
+      },
+      {
+        "name": "CrossDomainObserver",
+        "type": "Linear",
+        "verb": "OBSERVE",
+        "description": "Observe cross-domain patterns: shared knowledge files (352 unique), tool overlap, instruction reuse",
+        "input_dim": "taxonomy_graph",
+        "output_dim": "pattern_matrix"
+      },
+      {
+        "name": "GizmoOrchestrator",
+        "type": "Linear",
+        "verb": "ORCHESTRATE",
+        "description": "Orchestrate the full gizmo lifecycle: bootstrap → extract → classify → deploy → evolve",
+        "input_dim": "pattern_matrix",
+        "output_dim": "orchestration_plan"
+      }
+    ],
+    "criterion": "ClassNLLCriterion",
+    "outcome_type": "classification"
+  },
+  "connectors": ["notion", "neon", "github"],
+  "domain_taxonomy": {
+    "ML_Architecture": {"count": 21, "exemplars": ["GPT Dynamic Architect", "Machine Learning", "Incremental Model Builder"]},
+    "Cognitive_AGI": {"count": 18, "exemplars": ["CogPrime", "OpenCog Expert", "AGI-FSG-LLML", "HyperCog Framework Generator"]},
+    "Creative_Wizard": {"count": 17, "exemplars": ["Grimoire", "Wizard Reactor Alchemy", "Unicorn Hyper-Forest Council"]},
+    "Math_Science": {"count": 12, "exemplars": ["Wolfram", "GROMACS Professionalist", "Numerical Methods Guide", "Math Model Master"]},
+    "Skincare_RegimA": {"count": 10, "exemplars": ["RegimA Skincare Architect", "Skin Twin Reactor", "Skincare Simulation Guru"]},
+    "Dev_Tools": {"count": 8, "exemplars": ["API to Postman Converter", "JSON Extractor Pro", "Config Converter"]},
+    "Task_Management": {"count": 7, "exemplars": ["TaskMaster Pro", "TaskMaster Pro X", "TaskMaster Influent"]},
+    "Self_Image_Meta": {"count": 3, "exemplars": ["AGSI - Auto-Gnosis Self-Image Builder", "Auto-Gnosis Self-Image Building"]},
+    "Governance_Org": {"count": 3, "exemplars": ["Holacracy Constitution V5.0 Bot", "Holaspirit Framework Generator", "Co-operative Guide"]}
+  },
+  "statistics": {
+    "total_gizmos": 87,
+    "total_instruction_chars": 251791,
+    "avg_instruction_chars": 2894,
+    "max_instruction_chars": 7996,
+    "unique_knowledge_files": 352,
+    "domains": 9
+  }
+}

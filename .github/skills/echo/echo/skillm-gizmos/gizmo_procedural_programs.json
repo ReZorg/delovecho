@@ -1,0 +1,287 @@
+{
+  "version": "1.0.0",
+  "name": "GizmoSkillm Procedural Programs",
+  "description": "6 executable action sequence programs for the ReZorg/gizmos domain",
+  "core_equation": "( ( ( * ) , ** ) , *** ) <=> ( /function-creator [ /nn \u2192 skillm ] )",
+  "vocabulary": [
+    "DISCOVER",
+    "INSPECT",
+    "CREATE",
+    "MUTATE",
+    "DESTROY",
+    "NAVIGATE",
+    "COMPOSE",
+    "OBSERVE",
+    "ORCHESTRATE",
+    "CLASSIFY"
+  ],
+  "programs": [
+    {
+      "id": "P1",
+      "name": "gizmo_inventory_audit",
+      "goal": "Perform a complete inventory and audit of all gizmos in the repository",
+      "semiring": "\u2297 Pipeline (Sequential)",
+      "nn_architecture": "nn.Sequential(DISCOVER, INSPECT, CLASSIFY, OBSERVE)",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Scan bootstrap-gizmos.json for all gizmo entries",
+          "tool": "json:load",
+          "input": "bootstrap-gizmos.json",
+          "output": "gizmo_list[87]"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Parse resource.gizmo.display.name, instructions, tools for each entry",
+          "tool": "json:parse",
+          "input": "gizmo_list[87]",
+          "output": "gizmo_records[87]"
+        },
+        {
+          "verb": "CLASSIFY",
+          "action": "Apply keyword-based domain taxonomy (11 domains)",
+          "tool": "skillm:classify",
+          "input": "gizmo_records[87]",
+          "output": "domain_taxonomy"
+        },
+        {
+          "verb": "OBSERVE",
+          "action": "Compute statistics: instruction lengths, tool usage, file references",
+          "tool": "skillm:stats",
+          "input": "domain_taxonomy",
+          "output": "audit_report"
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "domain_gizmo_extraction",
+      "goal": "Extract all gizmos belonging to a specific domain (e.g., Cognitive/AGI)",
+      "semiring": "\u2297 Pipeline with \u2295 Choice",
+      "nn_architecture": "nn.Sequential(DISCOVER, CLASSIFY, nn.Concat(INSPECT \u2295 NAVIGATE))",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Load bootstrap and identify all gizmo entries",
+          "tool": "json:load",
+          "input": "bootstrap-gizmos.json",
+          "output": "all_gizmos"
+        },
+        {
+          "verb": "CLASSIFY",
+          "action": "Filter gizmos matching target domain keywords",
+          "tool": "skillm:filter",
+          "input": "all_gizmos + domain_query",
+          "output": "domain_gizmos"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Deep-parse instructions and tool configs for filtered set",
+          "tool": "json:deep_parse",
+          "input": "domain_gizmos",
+          "output": "detailed_records"
+        },
+        {
+          "verb": "NAVIGATE",
+          "action": "Traverse knowledge file references for domain gizmos",
+          "tool": "fs:traverse",
+          "input": "detailed_records.files",
+          "output": "knowledge_graph"
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "gizmo_crud_lifecycle",
+      "goal": "Create, update, and manage gizmo definitions in the repository",
+      "semiring": "\u2297 Pipeline (Full CRUD)",
+      "nn_architecture": "nn.Sequential(DISCOVER, CREATE, MUTATE, INSPECT, DESTROY)",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Check existing gizmos to avoid duplicates",
+          "tool": "json:search",
+          "input": "gizmo_name",
+          "output": "existing_check"
+        },
+        {
+          "verb": "CREATE",
+          "action": "Generate new gizmo JSON with id, display, instructions, tools",
+          "tool": "json:create",
+          "input": "gizmo_spec",
+          "output": "new_gizmo.json"
+        },
+        {
+          "verb": "MUTATE",
+          "action": "Update bootstrap-gizmos.json with new entry",
+          "tool": "json:append",
+          "input": "new_gizmo.json",
+          "output": "updated_bootstrap"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Validate the new gizmo structure against schema",
+          "tool": "json:validate",
+          "input": "updated_bootstrap",
+          "output": "validation_result"
+        },
+        {
+          "verb": "COMPOSE",
+          "action": "Run extract_gizmos.py to regenerate individual files",
+          "tool": "python:exec",
+          "input": "extract_gizmos.py",
+          "output": "gizmos/*.json"
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "name": "cross_domain_pattern_mining",
+      "goal": "Discover shared patterns across gizmo domains (knowledge files, instruction templates, tool configs)",
+      "semiring": "\u2297 Pipeline with nested \u2297",
+      "nn_architecture": "nn.Sequential(DISCOVER, INSPECT, OBSERVE, COMPOSE, CLASSIFY)",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Load all 87 gizmos and 352 unique knowledge file references",
+          "tool": "json:load_all",
+          "input": "bootstrap + gizmo_files_mapping.md",
+          "output": "full_corpus"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Extract instruction text and knowledge file IDs per gizmo",
+          "tool": "text:extract",
+          "input": "full_corpus",
+          "output": "instruction_matrix"
+        },
+        {
+          "verb": "OBSERVE",
+          "action": "Compute co-occurrence matrix: which gizmos share knowledge files",
+          "tool": "matrix:cooccurrence",
+          "input": "instruction_matrix",
+          "output": "sharing_matrix"
+        },
+        {
+          "verb": "COMPOSE",
+          "action": "Identify instruction template patterns (e.g., SME panels, iterative refinement)",
+          "tool": "text:pattern_match",
+          "input": "instruction_matrix",
+          "output": "template_patterns"
+        },
+        {
+          "verb": "CLASSIFY",
+          "action": "Cluster gizmos by shared patterns into meta-domains",
+          "tool": "cluster:kmeans",
+          "input": "sharing_matrix + template_patterns",
+          "output": "meta_taxonomy"
+        }
+      ]
+    },
+    {
+      "id": "P5",
+      "name": "gizmo_deployment_orchestration",
+      "goal": "Orchestrate the deployment of gizmos to target environments (ChatGPT, API, Notion)",
+      "semiring": "\u2297 Pipeline with \u2295 Choice at deployment",
+      "nn_architecture": "nn.Sequential(DISCOVER, INSPECT, COMPOSE, ORCHESTRATE, nn.Concat(CREATE_chatgpt \u2295 CREATE_api \u2295 CREATE_notion))",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Select gizmos for deployment batch",
+          "tool": "json:filter",
+          "input": "deployment_manifest",
+          "output": "deploy_batch"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Validate each gizmo has required fields for target platform",
+          "tool": "json:validate",
+          "input": "deploy_batch",
+          "output": "validated_batch"
+        },
+        {
+          "verb": "COMPOSE",
+          "action": "Transform gizmo JSON to platform-specific format",
+          "tool": "transform:platform",
+          "input": "validated_batch + target_platform",
+          "output": "platform_configs"
+        },
+        {
+          "verb": "ORCHESTRATE",
+          "action": "Execute deployment pipeline with rollback capability",
+          "tool": "deploy:orchestrate",
+          "input": "platform_configs",
+          "output": "deployment_status"
+        },
+        {
+          "verb": "OBSERVE",
+          "action": "Monitor deployment health and collect metrics",
+          "tool": "monitor:health",
+          "input": "deployment_status",
+          "output": "health_report"
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "name": "gizmo_knowledge_graph",
+      "goal": "Build a knowledge graph connecting gizmos, domains, knowledge files, tools, and instruction patterns",
+      "semiring": "\u2297 Pipeline (Graph Construction)",
+      "nn_architecture": "nn.Sequential(DISCOVER, INSPECT, NAVIGATE, COMPOSE, CREATE)",
+      "steps": [
+        {
+          "verb": "DISCOVER",
+          "action": "Enumerate all entities: 87 gizmos, 11 domains, 352 knowledge files",
+          "tool": "json:enumerate",
+          "input": "bootstrap + mapping",
+          "output": "entity_list"
+        },
+        {
+          "verb": "INSPECT",
+          "action": "Extract relationships: gizmo\u2192domain, gizmo\u2192files, gizmo\u2192tools",
+          "tool": "json:extract_relations",
+          "input": "entity_list",
+          "output": "relation_triples"
+        },
+        {
+          "verb": "NAVIGATE",
+          "action": "Traverse and resolve cross-references between gizmos",
+          "tool": "graph:traverse",
+          "input": "relation_triples",
+          "output": "resolved_graph"
+        },
+        {
+          "verb": "COMPOSE",
+          "action": "Merge into unified knowledge graph with typed edges",
+          "tool": "graph:compose",
+          "input": "resolved_graph",
+          "output": "knowledge_graph"
+        },
+        {
+          "verb": "CREATE",
+          "action": "Persist knowledge graph to Neon database",
+          "tool": "neon:create_tables",
+          "input": "knowledge_graph",
+          "output": "db_schema"
+        }
+      ]
+    }
+  ],
+  "composition_summary": {
+    "total_programs": 6,
+    "total_steps": 28,
+    "verb_distribution": {
+      "DISCOVER": 6,
+      "INSPECT": 6,
+      "COMPOSE": 4,
+      "CLASSIFY": 3,
+      "OBSERVE": 3,
+      "NAVIGATE": 2,
+      "CREATE": 2,
+      "MUTATE": 1,
+      "ORCHESTRATE": 1
+    },
+    "pipeline_compositions": 6,
+    "choice_compositions": 2
+  }
+}

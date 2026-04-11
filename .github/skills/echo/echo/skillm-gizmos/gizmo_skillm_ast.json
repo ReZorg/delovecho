@@ -1,0 +1,407 @@
+{
+  "version": "2.0.0",
+  "goal": "GizmoSkillm: Procedural Language Model for ReZorg/gizmos (87 AI agent architectures)",
+  "context": {
+    "repository": "github.com/ReZorg/gizmos",
+    "connectors": [
+      "github",
+      "notion",
+      "neon"
+    ],
+    "variables": {
+      "repo_path": "/home/ubuntu/gizmos",
+      "total_gizmos": 87,
+      "total_domains": 11,
+      "total_instruction_chars": 251791
+    },
+    "nn_architecture": {
+      "type": "Sequential",
+      "module_count": 7,
+      "criterion": "ClassNLLCriterion",
+      "outcome_type": "domain_classification"
+    }
+  },
+  "root": {
+    "type": "pipeline",
+    "steps": [
+      {
+        "type": "action",
+        "verb": "DISCOVER",
+        "tool": "github:clone_and_scan",
+        "params": {
+          "repo": "ReZorg/gizmos",
+          "pattern": "**/*.json"
+        },
+        "description": "Scan repository: 87 gizmos in bootstrap, 87 individual files",
+        "nn_origin": "nn.Linear(DISCOVER, scan)"
+      },
+      {
+        "type": "action",
+        "verb": "INSPECT",
+        "tool": "json:parse_gizmo_structure",
+        "params": {
+          "encoding": "utf-8-sig",
+          "schema": "resource.gizmo"
+        },
+        "description": "Parse 87 gizmo records: id, display.name, instructions, tools, files",
+        "nn_origin": "nn.Linear(INSPECT, parse)"
+      },
+      {
+        "type": "action",
+        "verb": "CLASSIFY",
+        "tool": "skillm:domain_taxonomy",
+        "params": {
+          "domains": [
+            "Skincare/RegimA",
+            "Cognitive/AGI",
+            "Creative/Wizard",
+            "ML/Architecture",
+            "Math/Science",
+            "Dev Tools",
+            "Task Management",
+            "Self-Image/Meta",
+            "Governance/Org",
+            "Hyper/Meta-Prompting",
+            "Uncategorized"
+          ],
+          "method": "keyword_analysis"
+        },
+        "description": "Classify into 11 domains via keyword analysis",
+        "nn_origin": "nn.Linear(CLASSIFY, categorize)",
+        "output": {
+          "Skincare/RegimA": 10,
+          "Cognitive/AGI": 15,
+          "Creative/Wizard": 5,
+          "ML/Architecture": 7,
+          "Math/Science": 10,
+          "Dev Tools": 8,
+          "Task Management": 5,
+          "Self-Image/Meta": 5,
+          "Governance/Org": 4,
+          "Hyper/Meta-Prompting": 2,
+          "Uncategorized": 16
+        }
+      },
+      {
+        "type": "action",
+        "verb": "COMPOSE",
+        "tool": "skillm:instruction_corpus",
+        "params": {
+          "extract": [
+            "verb_patterns",
+            "instruction_keywords",
+            "knowledge_files"
+          ]
+        },
+        "description": "Extract instruction corpus: 251791 chars, 67 active gizmos",
+        "nn_origin": "nn.Linear(COMPOSE, extract)"
+      },
+      {
+        "type": "action",
+        "verb": "NAVIGATE",
+        "tool": "skillm:taxonomy_graph",
+        "params": {
+          "root": "GizmoSkillm",
+          "depth": 3
+        },
+        "description": "Traverse hierarchy: 98 edges across 11 domains",
+        "nn_origin": "nn.Linear(NAVIGATE, traverse)"
+      },
+      {
+        "type": "action",
+        "verb": "OBSERVE",
+        "tool": "skillm:pattern_detector",
+        "params": {
+          "metrics": [
+            "tool_usage",
+            "domain_stats",
+            "cross_references"
+          ]
+        },
+        "description": "Detect cross-domain patterns across 87 gizmos",
+        "nn_origin": "nn.BatchNorm(OBSERVE)"
+      },
+      {
+        "type": "action",
+        "verb": "ORCHESTRATE",
+        "tool": "skillm:lifecycle_orchestrator",
+        "params": {
+          "stages": 7,
+          "composition": "pipeline"
+        },
+        "description": "Orchestrate full gizmo lifecycle: bootstrap \u2192 extract \u2192 classify \u2192 compose \u2192 navigate \u2192 observe \u2192 deploy",
+        "nn_origin": "nn.Linear(ORCHESTRATE, plan)"
+      }
+    ],
+    "nn_origin": "nn.Sequential(7 modules \u2192 7 actions)"
+  },
+  "tuple_construction": {
+    "equation": "( ( ( * ) , ** ) , *** )",
+    "star": "nn.Module \u2014 10 action verbs (DISCOVER, INSPECT, CLASSIFY, COMPOSE, NAVIGATE, OBSERVE, ORCHESTRATE, CREATE, MUTATE, DESTROY)",
+    "star_star": "gizmo_skillm_compiler.py \u2014 the function-creator functor F: nn \u2192 GizmoSkillm",
+    "star_star_star": "This AST \u2014 the compiled GizmoSkillm procedural language model for 87 AI agent architectures"
+  },
+  "semiring_composition": {
+    "pipeline_\u2297": "DISCOVER \u2297 INSPECT \u2297 CLASSIFY \u2297 COMPOSE \u2297 NAVIGATE \u2297 OBSERVE \u2297 ORCHESTRATE",
+    "choices_\u2295": [
+      "CLASSIFY \u2295 manual_tagging",
+      "COMPOSE \u2295 template_extraction",
+      "ORCHESTRATE \u2295 manual_deployment"
+    ],
+    "zero_0": "\u2205 \u2014 failed parse / missing gizmo",
+    "identity_1": "\u03b5 \u2014 no-op / passthrough"
+  },
+  "domain_taxonomy": {
+    "Skincare/RegimA": [
+      "RegimA Skincare Architect",
+      "RegimArc ZonEvo",
+      "Wizard Reactor Alchemy",
+      "Wizard Reactor Alchemy 2",
+      "Skin-Twin Reactor",
+      "Virtual Reactor Formulation Vessel",
+      "Skin Twin Reactor 3",
+      "Skin Twin Wizard v4",
+      "Medic Reactor Wizard",
+      "Skincare Simulation Guru"
+    ],
+    "Cognitive/AGI": [
+      "HyperCoq Architect",
+      "Mathemagical Symbolic Defiler",
+      "Hyperweeeeeee",
+      "HyperCog Framework Generator",
+      "HyperCog Reactor Generator",
+      "The LLML GPT",
+      "I AM the LLML",
+      "I AM the LLML of FSGs",
+      "AGI-FSG-LLML",
+      "CogPrime",
+      "CogPrime (copy)",
+      "Agi.zip",
+      "AGI Guidance and Exploration GPT",
+      "AGI-Zip",
+      "OpenCog Expert"
+    ],
+    "Creative/Wizard": [
+      "Unicorn Hyper-Forest Council of Wizards",
+      "Grimoire",
+      "Garganthaclops",
+      "Master Wizard of the Cosmic Order",
+      "Grimoire"
+    ],
+    "ML/Architecture": [
+      "Incremental Model Builder",
+      "Hyper-Titsopolis-Glyph",
+      "Dynamic Architect",
+      "Dynamic Architect Dude",
+      "GPT Dynamic Architect",
+      "GPT Dynamic Architect",
+      "Machine Learning"
+    ],
+    "Math/Science": [
+      "Docking and molecular dynamics",
+      "GROMACS Professionalist",
+      "Mathematical Symbolic Definer",
+      "Symmetry Enhanced GPT Modeler",
+      "The Next Language - Transparently Symbolic",
+      "Wolfram",
+      "Wolfram",
+      "Math Model Master",
+      "Visual Prolog 5.2 Program Writer",
+      "Numerical Methods Guide"
+    ],
+    "Dev Tools": [
+      "Data Extractor - JSON",
+      "JSON Extractor Pro",
+      "API Doc to Postman Collection Converter",
+      "API to Postman Converter",
+      "s2s API to Postman",
+      "Data Integration Helper",
+      "Cursor Expert",
+      "Config Converter"
+    ],
+    "Task Management": [
+      "TaskMaster Pro",
+      "FixGPT",
+      "TaskMaster Pro X",
+      "TaskMaster Pro X (copy)",
+      "TaskMaster Influent"
+    ],
+    "Self-Image/Meta": [
+      "Auto-Gnosis Self-Image Building",
+      "AutoExpert (Chat)",
+      "AutoExpert Chat",
+      "AGSI - Auto-Gnosis Self-Image Builder",
+      "Meaning Crisis Guide"
+    ],
+    "Governance/Org": [
+      "Holacracy Constitution V5.0 bot",
+      "Holaspirit Framework Generator",
+      "Co-operative Guide",
+      "Enlightened Manager"
+    ],
+    "Hyper/Meta-Prompting": [
+      "Hyper-Expert Advisor",
+      "HyperDAN"
+    ],
+    "Uncategorized": [
+      "Nasty Builder",
+      "Advanced Dual-Model Assistant",
+      "Mermaid Chart: diagrams and charts",
+      "AskYourPDF Research Assistant",
+      "B2B Interaction Modeler",
+      "my Netlogo Assistant",
+      "Pattern Mapper (copy)",
+      "Urban Suite Tijuana",
+      "Balanced Triad Expert",
+      "Balanced Triad Expert (copy) (copy)",
+      "Empathic Echo",
+      "Bracket Sequence Helper",
+      "Easymorph Guru",
+      "Pattern Mapper",
+      "Pattern Mapper X",
+      "365 Admin Support"
+    ]
+  },
+  "corpus_statistics": {
+    "verb_patterns": {
+      "BUILD": 7,
+      "CREATE": 7,
+      "TRANSFORM": 6,
+      "GENERATE": 5,
+      "MAP": 3,
+      "SIMULATE": 3,
+      "ANALYZE": 2
+    },
+    "instruction_keywords": {
+      "use": 32,
+      "must": 5,
+      "step": 4,
+      "should": 3,
+      "then": 2,
+      "always": 1
+    },
+    "total_instruction_chars": 251791,
+    "gizmos_with_instructions": 67,
+    "gizmos_without_instructions": 20
+  },
+  "pattern_matrix": {
+    "tool_usage": {},
+    "domain_stats": {
+      "Skincare/RegimA": {
+        "count": 10,
+        "avg_instructions": 4657,
+        "max_instructions": 7945,
+        "total_instructions": 46577
+      },
+      "Cognitive/AGI": {
+        "count": 15,
+        "avg_instructions": 2631,
+        "max_instructions": 7996,
+        "total_instructions": 39479
+      },
+      "Creative/Wizard": {
+        "count": 5,
+        "avg_instructions": 2467,
+        "max_instructions": 5791,
+        "total_instructions": 12337
+      },
+      "ML/Architecture": {
+        "count": 7,
+        "avg_instructions": 4050,
+        "max_instructions": 7013,
+        "total_instructions": 28353
+      },
+      "Math/Science": {
+        "count": 10,
+        "avg_instructions": 1561,
+        "max_instructions": 7722,
+        "total_instructions": 15612
+      },
+      "Dev Tools": {
+        "count": 8,
+        "avg_instructions": 1211,
+        "max_instructions": 2997,
+        "total_instructions": 9689
+      },
+      "Task Management": {
+        "count": 5,
+        "avg_instructions": 2190,
+        "max_instructions": 3738,
+        "total_instructions": 10953
+      },
+      "Self-Image/Meta": {
+        "count": 5,
+        "avg_instructions": 4398,
+        "max_instructions": 7990,
+        "total_instructions": 21993
+      },
+      "Governance/Org": {
+        "count": 4,
+        "avg_instructions": 1841,
+        "max_instructions": 4886,
+        "total_instructions": 7365
+      },
+      "Hyper/Meta-Prompting": {
+        "count": 2,
+        "avg_instructions": 4778,
+        "max_instructions": 5464,
+        "total_instructions": 9556
+      },
+      "Uncategorized": {
+        "count": 16,
+        "avg_instructions": 2862,
+        "max_instructions": 7440,
+        "total_instructions": 45796
+      }
+    },
+    "total_gizmos": 87,
+    "total_domains": 11
+  },
+  "lifecycle": {
+    "lifecycle_stages": [
+      {
+        "stage": "Bootstrap",
+        "verb": "DISCOVER",
+        "description": "Load bootstrap-gizmos.json, scan gizmos/ directory"
+      },
+      {
+        "stage": "Extract",
+        "verb": "INSPECT",
+        "description": "Parse resource.gizmo structure from each entry"
+      },
+      {
+        "stage": "Classify",
+        "verb": "CLASSIFY",
+        "description": "Apply domain taxonomy rules to categorize 87 gizmos into domains"
+      },
+      {
+        "stage": "Compose",
+        "verb": "COMPOSE",
+        "description": "Extract instruction patterns, verb distributions, knowledge file mappings"
+      },
+      {
+        "stage": "Navigate",
+        "verb": "NAVIGATE",
+        "description": "Build and traverse the domain \u2192 gizmo \u2192 instruction hierarchy"
+      },
+      {
+        "stage": "Observe",
+        "verb": "OBSERVE",
+        "description": "Detect cross-domain patterns, shared files, tool overlap"
+      },
+      {
+        "stage": "Orchestrate",
+        "verb": "ORCHESTRATE",
+        "description": "Generate deployment plan, evolution strategy, CI/CD pipeline"
+      }
+    ],
+    "semiring_composition": {
+      "pipeline": "DISCOVER \u2297 INSPECT \u2297 CLASSIFY \u2297 COMPOSE \u2297 NAVIGATE \u2297 OBSERVE \u2297 ORCHESTRATE",
+      "choices": [
+        "CLASSIFY \u2295 (manual tagging)",
+        "COMPOSE \u2295 (template extraction)",
+        "ORCHESTRATE \u2295 (manual deployment)"
+      ]
+    }
+  }
+}
