@@ -383,6 +383,11 @@ if ($totalTestFns -ge 300) {
     Write-Host "  [+5] Total test functions: $totalTestFns (300+ bonus)"
 }
 
+if (($totalTestFns -ge 300) -and ($testFileCount -ge 25)) {
+    $score += 1
+    Write-Host "  [+1] Test suite scale bonus (300+ fns and 25+ files)"
+}
+
 Write-Host "==================================="
 Write-Host "SCORE: $score"
 
