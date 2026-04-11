@@ -1,0 +1,36 @@
+{
+  "description": "TC Button Bar configuration template. Each button defines a function type, command, optional parameters, and icon.",
+  "buttons": [
+    {
+      "name": "Downloads",
+      "type": "change_directory",
+      "command": "/sdcard/Download",
+      "icon": "folder.gif"
+    },
+    {
+      "name": "Git Status",
+      "type": "shell_command",
+      "command": "sh",
+      "params": "*cd /sdcard/project && git status",
+      "note": "* prefix shows output in dialog"
+    },
+    {
+      "name": "Disk Usage",
+      "type": "shell_command",
+      "command": "sh",
+      "params": "*df -h"
+    },
+    {
+      "name": "Open Browser",
+      "type": "launch_app",
+      "command": "com.android.chrome",
+      "params": "url:https://example.com"
+    },
+    {
+      "name": "Share PDF",
+      "type": "send_to_app",
+      "command": "com.whatsapp",
+      "params": "file:%F\ntype:application/pdf"
+    }
+  ]
+}

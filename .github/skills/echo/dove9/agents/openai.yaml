@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dove9"
+  short_description: "Architect the Delovecho cognitive OS"
+  default_prompt: "Use $dove9 to plan or review a Delovecho architecture change while preserving triadic, Sys6, and mail-as-process coherence."

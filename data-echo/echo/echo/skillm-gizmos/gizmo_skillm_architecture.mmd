@@ -1,0 +1,57 @@
+graph TD
+    subgraph "( ( ( * ) , ** ) , *** ) — The Core Equation"
+        STAR["★ nn.Module<br/>10 Action Verbs"]
+        STARSTAR["★★ function-creator<br/>gizmo_skillm_compiler.py"]
+        STARSTARSTAR["★★★ GizmoSkillm<br/>Procedural Language Model"]
+        STAR -->|"F: nn → skillm"| STARSTAR
+        STARSTAR -->|"compile"| STARSTARSTAR
+    end
+
+    subgraph "⊗ Pipeline — nn.Sequential(7 modules)"
+        D["DISCOVER<br/>Scan repo: 87 gizmos"]
+        I["INSPECT<br/>Parse gizmo structures"]
+        CL["CLASSIFY<br/>11 domain taxonomy"]
+        CO["COMPOSE<br/>251K instruction chars"]
+        N["NAVIGATE<br/>98 edges, 11 domains"]
+        O["OBSERVE<br/>Cross-domain patterns"]
+        OR["ORCHESTRATE<br/>Lifecycle pipeline"]
+        D -->|⊗| I -->|⊗| CL -->|⊗| CO -->|⊗| N -->|⊗| O -->|⊗| OR
+    end
+
+    subgraph "Domain Taxonomy"
+        AGI["Cognitive/AGI<br/>15 gizmos"]
+        SKIN["Skincare/RegimA<br/>10 gizmos"]
+        MATH["Math/Science<br/>10 gizmos"]
+        DEV["Dev Tools<br/>8 gizmos"]
+        ML["ML/Architecture<br/>7 gizmos"]
+        WIZ["Creative/Wizard<br/>5 gizmos"]
+        TASK["Task Management<br/>5 gizmos"]
+        META["Self-Image/Meta<br/>5 gizmos"]
+        GOV["Governance/Org<br/>4 gizmos"]
+        HYP["Hyper/Meta-Prompting<br/>2 gizmos"]
+        UNC["Uncategorized<br/>16 gizmos"]
+    end
+
+    STARSTARSTAR --> D
+    CL --> AGI
+    CL --> SKIN
+    CL --> MATH
+    CL --> DEV
+    CL --> ML
+    CL --> WIZ
+    CL --> TASK
+    CL --> META
+    CL --> GOV
+    CL --> HYP
+    CL --> UNC
+
+    style STAR fill:#4a90d9,color:#fff
+    style STARSTAR fill:#e67e22,color:#fff
+    style STARSTARSTAR fill:#27ae60,color:#fff
+    style D fill:#3498db,color:#fff
+    style I fill:#3498db,color:#fff
+    style CL fill:#9b59b6,color:#fff
+    style CO fill:#3498db,color:#fff
+    style N fill:#3498db,color:#fff
+    style O fill:#e74c3c,color:#fff
+    style OR fill:#f39c12,color:#fff
