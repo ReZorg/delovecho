@@ -11,7 +11,7 @@ import {
   DeltaChatMessage,
 } from './deltachat-interface/index.js';
 import { DovecotInterface, DovecotConfig } from './dovecot-interface/index.js';
-import { IPCServer } from './ipc/server.js';
+import { IPCServer, IPCMessageType } from './ipc/server.js';
 import { TaskScheduler } from './scheduler/task-scheduler.js';
 import { WebhookServer } from './webhooks/webhook-server.js';
 import { Dove9Integration, Dove9IntegrationConfig, Dove9Response } from './dove9-integration.js';
@@ -254,13 +254,48 @@ export class Orchestrator {
           await this.handleEmailResponse(response);
         });
 
-        await this.dovecotInterface.start();
+        try {
+          await this.dovecotInterface.start();
+        } catch (error) {
+          log.warn('Failed to start Dovecot interface, will continue without mail server:', error);
+          this.dovecotInterface = undefined;
+        }
       }
 
       // Initialize IPC server for desktop app communication
       if (this.config.enableIPC) {
         this.ipcServer = new IPCServer();
         await this.ipcServer.start();
+
+        // Register cognitive request handler
+        this.ipcServer.registerHandler(
+          IPCMessageType.REQUEST_COGNITIVE,
+          async (payload: { message?: string; context?: Record<string, unknown> }) => {
+            const messageText = payload.message || '';
+            if (!messageText.trim()) {
+              return { error: 'Empty message' };
+            }
+
+            // Route through the full cognitive pipeline
+            const fakeMsg: DeltaChatMessage = {
+              text: messageText,
+              id: Date.now(),
+              chatId: 0,
+              fromId: 0,
+              timestamp: Math.floor(Date.now() / 1000),
+              isInfo: false,
+              isForwarded: false,
+              hasHtml: false,
+              viewtype: '',
+            };
+            const response = await this.processMessage(fakeMsg, 0, 0, 0);
+            return {
+              response: response || 'No response generated',
+              cognitiveMode: this.config.cognitiveTierMode,
+              timestamp: Date.now(),
+            };
+          }
+        );
       }
 
       // Initialize task scheduler

@@ -69,7 +69,7 @@ export interface IPCServerConfig {
 const DEFAULT_CONFIG: IPCServerConfig = {
   socketPath: '/tmp/deep-tree-echo.sock',
   tcpPort: 9876,
-  useTcp: false,
+  useTcp: process.platform === 'win32',
   maxConnections: 10,
 };
 
