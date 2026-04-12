@@ -1,0 +1,93 @@
+# Live2D {{char}}-Model Character Manifest
+# Copy this file to characters/{{char}}/manifest.yaml and customize
+
+id: "{{char}}"                    # unique identifier, lowercase, no spaces
+display_name: "Character Name"    # human-readable display name
+
+model:
+  path: "models/{{char}}/model3.json"  # relative to static dir
+  version: "cubism4"              # cubism2 | cubism4
+  scale: 0.12                     # model-specific scale factor (Cubism 4: 0.08-0.15, Cubism 2: 0.2-0.3)
+  idle_motion_group: "idle"       # default idle motion group name
+  hit_areas: ["head", "body"]     # interactive hit areas defined in model
+
+# Big Five personality (from Vorticog DreamCog integration)
+# Each value 0-100. Drives needs decay rates and endocrine sensitivity.
+personality:
+  ocean:
+    openness: 50          # curiosity, imagination, novelty-seeking
+    conscientiousness: 50  # organization, discipline, goal-directed
+    extraversion: 50       # sociability, assertiveness, energy
+    agreeableness: 50      # cooperation, trust, empathy
+    neuroticism: 50        # emotional instability, anxiety, stress-reactivity
+  archetype: "explorer"    # explorer | guardian | creator | sage | rebel
+
+# Virtual Endocrine System overrides
+# Baselines: resting concentration for each hormone (0.0-1.0)
+# Sensitivity: multiplier on event signals (1.0 = default)
+endocrine:
+  baselines:
+    cortisol: 0.15         # stress hormone (default 0.15)
+    dopamine_tonic: 0.30   # baseline motivation (default 0.3)
+    serotonin: 0.40        # mood / patience (default 0.4)
+    norepinephrine: 0.10   # arousal / vigilance (default 0.1)
+    oxytocin: 0.10         # trust / bonding (default 0.1)
+    t3_t4: 0.50            # global processing rate (default 0.5)
+    anandamide: 0.10       # noise reduction (default 0.1)
+  sensitivity:
+    reward: 1.0            # multiplier for REWARD_RECEIVED events
+    threat: 1.0            # multiplier for THREAT_DETECTED events
+    social: 1.0            # multiplier for SOCIAL_BOND_SIGNAL events
+    novelty: 1.0           # multiplier for NOVELTY_ENCOUNTERED events
+
+# Expression mapping: Cubism expression name → hormone conditions
+# Format: hormone_name: ">threshold" or "<threshold"
+# The bridge evaluates all conditions; best-matching expression wins.
+expressions:
+  smile:
+    dopamine_tonic: ">0.5"
+    serotonin: ">0.4"
+  surprised:
+    norepinephrine: ">0.6"
+    dopamine_phasic: ">0.3"
+  sad:
+    serotonin: "<0.2"
+    cortisol: ">0.4"
+  angry:
+    cortisol: ">0.6"
+    norepinephrine: ">0.5"
+  relaxed:
+    anandamide: ">0.3"
+    cortisol: "<0.1"
+  focused:
+    norepinephrine: ">0.4"
+    t3_t4: ">0.6"
+  social:
+    oxytocin: ">0.4"
+    dopamine_tonic: ">0.3"
+  thinking:
+    t3_t4: ">0.5"
+    serotonin: ">0.3"
+
+# Motion mapping: Cubism motion group → cognitive modes that trigger it
+# Modes: RESTING, EXPLORATORY, FOCUSED, STRESSED, SOCIAL,
+#        REFLECTIVE, VIGILANT, MAINTENANCE, REWARD, THREAT
+motions:
+  idle: ["RESTING", "REFLECTIVE"]
+  excited: ["REWARD", "EXPLORATORY"]
+  nervous: ["STRESSED", "VIGILANT"]
+  social: ["SOCIAL"]
+  thinking: ["FOCUSED"]
+
+# Simulation backend configuration
+simulation:
+  backend: "cogsim-pml"           # "anylogic" | "cogsim-pml"
+  tick_interval_ms: 2000          # milliseconds between simulation ticks
+  needs_decay: true               # enable Vorticog SimsFreePlay needs system
+  needs_config:                   # per-need decay rate overrides (ticks per unit)
+    hunger: 50
+    energy: 40
+    hygiene: 60
+    social: 45
+    fun: 35
+    bladder: 30

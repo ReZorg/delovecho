@@ -1,0 +1,194 @@
+OpenCog Atomese Pattern Language - Structure Diagram
+=====================================================
+
+Pattern Language Hypergraph Structure
+--------------------------------------
+
+                    ┌─────────────────────────────┐
+                    │   Pattern-0 (Meta-Pattern)  │
+                    │   "Pattern Language"        │
+                    └─────────────┬───────────────┘
+                                  │
+                    ImplicationLinks to all patterns
+                                  │
+                    ┌─────────────┴───────────────┐
+                    │                             │
+          ┌─────────▼─────────┐       ┌──────────▼──────────┐
+          │  Category-Towns   │       │  Category-Buildings │
+          │  (Patterns 1-94)  │       │  (Patterns 95-204)  │
+          └─────────┬─────────┘       └──────────┬──────────┘
+                    │                             │
+          InheritanceLinks            InheritanceLinks
+                    │                             │
+          ┌─────────▼─────────┐       ┌──────────▼──────────┐
+          │   15 Sequences    │       │   13 Sequences      │
+          │   (Seq 1-15)      │       │   (Seq 16-28)       │
+          └─────────┬─────────┘       └──────────┬──────────┘
+                    │                             │
+            MemberLinks                   MemberLinks
+                    │                             │
+          ┌─────────▼─────────┐       ┌──────────▼──────────┐
+          │  94 Patterns      │       │  110 Patterns       │
+          │  (Pattern 1-94)   │       │  (Pattern 95-204)   │
+          └───────────────────┘       └─────────────────────┘
+
+                    ┌─────────────────────────────┐
+                    │  Category-Construction      │
+                    │  (Patterns 205-253)         │
+                    └─────────────┬───────────────┘
+                                  │
+                    InheritanceLinks
+                                  │
+                    ┌─────────────▼───────────────┐
+                    │   8 Sequences               │
+                    │   (Seq 29-36)               │
+                    └─────────────┬───────────────┘
+                                  │
+                          MemberLinks
+                                  │
+                    ┌─────────────▼───────────────┐
+                    │  49 Patterns                │
+                    │  (Pattern 205-253)          │
+                    └─────────────────────────────┘
+
+
+Node Types
+----------
+ConceptNode: □   Represents patterns, categories, sequences, values
+PredicateNode: ◇  Represents properties and relationships
+
+Link Types
+----------
+EvaluationLink: →   Property assertions (has-name, has-solution, etc.)
+InheritanceLink: ⟶  Category memberships (pattern belongs to category)
+ImplicationLink: ⇒  Pattern dependencies (pattern implies pattern)
+MemberLink: ⊂      Sequence memberships (pattern belongs to sequence)
+
+
+Pattern Structure Example
+--------------------------
+
+Pattern-42 (ConceptNode)
+  │
+  ├─→ has-number (EvaluationLink)
+  │   └─ "42"
+  │
+  ├─→ has-name (EvaluationLink)
+  │   └─ "Pattern Name"
+  │
+  ├─→ has-problem-summary (EvaluationLink)
+  │   └─ "Problem description..."
+  │
+  ├─→ has-solution (EvaluationLink)
+  │   └─ "Solution description..."
+  │
+  ├─⟶ Category-Towns (InheritanceLink)
+  │
+  └─⊂ Sequence-7 (MemberLink)
+
+
+Category Structure Example
+---------------------------
+
+Category-Towns (ConceptNode)
+  │
+  ├─→ has-description (EvaluationLink)
+  │   └─ "Category description..."
+  │
+  ├─→ has-process (EvaluationLink)
+  │   └─ "Design process..."
+  │
+  ├─→ has-pattern-range-start (EvaluationLink)
+  │   └─ "1"
+  │
+  ├─→ has-pattern-range-end (EvaluationLink)
+  │   └─ "94"
+  │
+  └─⟵ Pattern-1, Pattern-2, ... Pattern-94 (InheritanceLinks)
+
+
+Sequence Structure Example
+---------------------------
+
+Sequence-7-Local centers (ConceptNode)
+  │
+  ├─→ has-sequence-id (EvaluationLink)
+  │   └─ "7"
+  │
+  ├─→ has-heading (EvaluationLink)
+  │   └─ "Local centers"
+  │
+  ├─→ has-emergent-phenomena (EvaluationLink)
+  │   └─ "Vibrant centers that draw people together..."
+  │
+  ├─⟶ Category-Towns (InheritanceLink)
+  │
+  └─⊃ Pattern-28, Pattern-29, ... Pattern-34 (MemberLinks)
+
+
+Hypergraph Statistics
+----------------------
+Total Nodes: ~3,800
+  - ConceptNodes: ~3,550 (patterns, categories, sequences, values)
+  - PredicateNodes: ~250 (properties and relationships)
+
+Total Links: ~1,700
+  - EvaluationLinks: ~780 (property assertions)
+  - InheritanceLinks: ~290 (category memberships)
+  - ImplicationLinks: ~250 (pattern dependencies)
+  - MemberLinks: ~260 (sequence memberships)
+  - ListLinks: ~120 (argument collections)
+
+
+Query Patterns
+--------------
+
+1. Find patterns by category:
+   GetLink($pattern, InheritanceLink($pattern, Category-X))
+
+2. Find patterns in sequence:
+   GetLink($pattern, MemberLink($pattern, Sequence-N))
+
+3. Find pattern properties:
+   GetLink($value, EvaluationLink(has-X, ListLink(Pattern-N, $value)))
+
+4. Find pattern dependencies:
+   GetLink($next, ImplicationLink(Pattern-N, $next))
+
+5. Find sequences by category:
+   GetLink($sequence, InheritanceLink($sequence, Category-X))
+
+
+File Organization
+-----------------
+opencog_atomese/
+├── pattern_language.scm    # Complete hypergraph (all-in-one)
+├── meta_pattern.scm         # Meta-pattern only
+├── categories.scm           # Categories only
+├── sequences.scm            # Sequences only
+├── README.md                # Usage documentation
+└── STRUCTURE.txt            # This file
+
+
+Loading Sequence
+----------------
+1. Load OpenCog modules in Guile
+2. (load "pattern_language.scm")   # Loads entire hypergraph
+   OR
+   (load "meta_pattern.scm")        # Load components individually
+   (load "categories.scm")
+   (load "sequences.scm")
+3. Execute queries with (cog-execute! query)
+4. Traverse results, perform reasoning
+
+
+Integration Points
+------------------
+✓ Pattern Matcher: Complex graph queries
+✓ PLN (Probabilistic Logic Networks): Inference and reasoning
+✓ URE (Unified Rule Engine): Rule-based transformations
+✓ AtomSpace: Persistent hypergraph storage
+✓ Python bindings: Integration with Python tools
+✓ Scheme REPL: Interactive exploration
+✓ REST API: Web service integration
+

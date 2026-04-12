@@ -1,0 +1,743 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Z++ FORMAL SPECIFICATION: PATTERN LANGUAGE OPERATIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This specification defines all operations on the Pattern Language System,
+including pattern generation, domain transformation, validation, and queries.
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 1: PATTERN LOADING OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ LoadPattern ─────────────────────────────────────────────────────────────┐
+│ Load a single pattern from markdown source into the registry               │
+└───────────────────────────────────────────────────────────────────────────┘
+  LoadPattern
+    ΔPatternLanguageSystem
+    pattern_number?: PatternNumber
+    markdown_content?: String
+    pattern!: Pattern
+    success!: 𝔹
+  where
+    /* Input must be valid pattern number */
+    pattern_number? ≥ 1 ∧ pattern_number? ≤ 253
+    
+    /* Parse pattern from markdown content */
+    pattern! = ParseMarkdownPattern(markdown_content?)
+    
+    /* Pattern number must match */
+    pattern!.number = pattern_number?
+    
+    /* Success if pattern is valid */
+    success! ⟺ ValidPattern(pattern!)
+    
+    /* STATE CHANGES */
+    success! ⇒
+      /* Add pattern to registry */
+      pattern_registry'.patterns = 
+        pattern_registry.patterns ⊕ {pattern_number? ↦ pattern!} ∧
+      
+      /* Mark as loaded */
+      pattern_registry'.loaded_patterns = 
+        pattern_registry.loaded_patterns ∪ {pattern_number?} ∧
+      
+      /* Other state unchanged */
+      pattern_registry'.meta_pattern = pattern_registry.meta_pattern
+    
+    ¬success! ⇒
+      /* State unchanged on failure */
+      pattern_registry' = pattern_registry
+
+
+┌─ LoadMetaPattern ─────────────────────────────────────────────────────────┐
+│ Load the meta-pattern (Pattern Language itself as a pattern)               │
+└───────────────────────────────────────────────────────────────────────────┘
+  LoadMetaPattern
+    ΔPatternLanguageSystem
+    markdown_content?: String
+    meta_pattern!: Pattern
+    success!: 𝔹
+  where
+    /* Parse meta-pattern from markdown */
+    meta_pattern! = ParseMetaPattern(markdown_content?)
+    
+    /* Meta-pattern must have number 0 */
+    meta_pattern!.number = 0
+    
+    /* Meta-pattern must have maximum evidence level */
+    meta_pattern!.asterisks = 2
+    
+    /* Success if valid */
+    success! ⟺ ValidPattern(meta_pattern!)
+    
+    /* STATE CHANGES */
+    success! ⇒
+      pattern_registry'.meta_pattern = meta_pattern! ∧
+      pattern_registry'.patterns = pattern_registry.patterns ∧
+      pattern_registry'.loaded_patterns = pattern_registry.loaded_patterns
+    
+    ¬success! ⇒
+      pattern_registry' = pattern_registry
+
+
+┌─ LoadArchetypalPattern ───────────────────────────────────────────────────┐
+│ Load an archetypal pattern with domain mappings                            │
+└───────────────────────────────────────────────────────────────────────────┘
+  LoadArchetypalPattern
+    ΔPatternLanguageSystem
+    pattern_id?: String
+    markdown_content?: String
+    archetypal_pattern!: ArchetypalPattern
+    success!: 𝔹
+  where
+    /* Pattern ID must be valid UIA identifier */
+    #pattern_id? ≥ 8
+    
+    /* Parse archetypal pattern from markdown */
+    archetypal_pattern! = ParseArchetypalMarkdown(markdown_content?)
+    
+    /* Pattern ID must match */
+    archetypal_pattern!.pattern_id = pattern_id?
+    
+    /* Success if valid */
+    success! ⟺ ValidArchetypalPattern(archetypal_pattern!)
+    
+    /* STATE CHANGES */
+    success! ⇒
+      /* Add to registry */
+      archetypal_registry'.patterns = 
+        archetypal_registry.patterns ⊕ 
+        {pattern_id? ↦ archetypal_pattern!} ∧
+      
+      /* Mark as loaded */
+      archetypal_registry'.loaded_archetypes = 
+        archetypal_registry.loaded_archetypes ∪ {pattern_id?} ∧
+      
+      /* Update placeholder registry with new placeholders */
+      archetypal_registry'.placeholder_registry = 
+        archetypal_registry.placeholder_registry ⊕
+        ExtractPlaceholderDefinitions(archetypal_pattern!)
+    
+    ¬success! ⇒
+      archetypal_registry' = archetypal_registry
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 2: PATTERN QUERY OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ GetPattern ──────────────────────────────────────────────────────────────┐
+│ Retrieve a pattern by its number (read-only)                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetPattern
+    ΞPatternLanguageSystem
+    pattern_number?: PatternNumber
+    pattern!: Pattern
+    found!: 𝔹
+  where
+    /* Check if pattern exists */
+    found! ⟺ pattern_number? ∈ dom pattern_registry.patterns
+    
+    /* Return pattern if found */
+    found! ⇒ pattern! = pattern_registry.patterns(pattern_number?)
+    
+    /* No state changes */
+
+
+┌─ GetPatternByName ────────────────────────────────────────────────────────┐
+│ Retrieve a pattern by name (read-only)                                     │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetPatternByName
+    ΞPatternLanguageSystem
+    name?: String
+    pattern!: Pattern
+    found!: 𝔹
+  where
+    /* Search for pattern with matching name */
+    found! ⟺ ∃ pn ∈ dom pattern_registry.patterns • 
+      pattern_registry.patterns(pn).name = name?
+    
+    /* Return first matching pattern */
+    found! ⇒ 
+      pattern! ∈ ran pattern_registry.patterns ∧
+      pattern!.name = name?
+
+
+┌─ GetPatternsInSequence ───────────────────────────────────────────────────┐
+│ Retrieve all patterns in a specific sequence (read-only)                   │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetPatternsInSequence
+    ΞPatternLanguageSystem
+    sequence_id?: 1..36
+    patterns!: seq Pattern
+    sequence!: PatternSequence
+  where
+    /* Sequence must exist */
+    sequence_id? ∈ dom sequence_registry.sequences
+    
+    /* Get sequence definition */
+    sequence! = sequence_registry.sequences(sequence_id?)
+    
+    /* Retrieve all patterns in sequence */
+    patterns! = ⟨pattern_registry.patterns(pn) | 
+                 pn ∈ sequence!.patterns⟩
+    
+    /* Patterns in output maintain sequence order */
+    ∀ i, j: ℕ | i < j ∧ j < #patterns! ⇒ 
+      patterns![i].number ≤ patterns![j].number
+
+
+┌─ GetPatternsInCategory ───────────────────────────────────────────────────┐
+│ Retrieve all patterns in a category (read-only)                            │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetPatternsInCategory
+    ΞPatternLanguageSystem
+    category?: CategoryName
+    patterns!: seq Pattern
+    count!: ℕ
+  where
+    /* Category must exist */
+    category? ∈ dom category_registry.categories
+    
+    /* Get category definition */
+    let cat = category_registry.categories(category?) in
+    
+    /* Retrieve all patterns in range */
+    patterns! = ⟨pattern_registry.patterns(pn) | 
+                 pn ∈ {cat.pattern_range_start .. cat.pattern_range_end}⟩
+    
+    /* Return count */
+    count! = #patterns!
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 3: DOMAIN TRANSFORMATION OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ TransformToPhysical ─────────────────────────────────────────────────────┐
+│ Transform an archetypal pattern to Physical domain                         │
+└───────────────────────────────────────────────────────────────────────────┘
+  TransformToPhysical
+    ΞArchetypalRegistry
+    ΔTransformationContext
+    pattern_id?: String
+    transformed!: TransformedPattern
+    success!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    let ap = archetypal_registry.patterns(pattern_id?) in
+    
+    /* Set transformation context */
+    transformation_context'.current_pattern = pattern_id? ∧
+    transformation_context'.target_domain = Physical
+    
+    /* Build substitutions from domain mappings */
+    transformation_context'.placeholder_substitutions = 
+      {ph ↦ archetypal_registry.placeholder_registry(ph).domains.physical |
+       ph ∈ ap.placeholders}
+    
+    /* Apply transformations */
+    let text = ap.archetypal_pattern in
+    let result = ApplySubstitutions(text, 
+                   transformation_context'.placeholder_substitutions) in
+    
+    /* Build result */
+    transformed!.source_pattern_id = pattern_id? ∧
+    transformed!.target_domain = Physical ∧
+    transformed!.transformed_text = result ∧
+    transformed!.substitutions = 
+      transformation_context'.placeholder_substitutions
+    
+    /* Success if no unreplaced placeholders remain */
+    success! ⟺ ¬(result contains "{{")
+    
+    /* Record in history */
+    transformation_context'.transformation_history = 
+      transformation_context.transformation_history ⌢ 
+      ⟨(pattern_id?, Physical, CurrentTimestamp())⟩
+
+
+┌─ TransformToDomain ───────────────────────────────────────────────────────┐
+│ Generic transformation to any domain                                        │
+└───────────────────────────────────────────────────────────────────────────┘
+  TransformToDomain
+    ΞArchetypalRegistry
+    ΔTransformationContext
+    ΔDomainMappingCache
+    pattern_id?: String
+    target_domain?: Domain
+    transformed!: TransformedPattern
+    success!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    let ap = archetypal_registry.patterns(pattern_id?) in
+    
+    /* Set transformation context */
+    transformation_context'.current_pattern = pattern_id? ∧
+    transformation_context'.target_domain = target_domain?
+    
+    /* Build substitutions based on target domain */
+    transformation_context'.placeholder_substitutions = 
+      {ph ↦ GetDomainMapping(ph, target_domain?, domain_cache) |
+       ph ∈ ap.placeholders}
+    
+    /* Apply transformations */
+    let result = ApplySubstitutions(
+                   ap.archetypal_pattern,
+                   transformation_context'.placeholder_substitutions) in
+    
+    /* Build result */
+    transformed!.source_pattern_id = pattern_id? ∧
+    transformed!.target_domain = target_domain? ∧
+    transformed!.transformed_text = result ∧
+    transformed!.substitutions = 
+      transformation_context'.placeholder_substitutions
+    
+    /* Success if complete transformation */
+    success! ⟺ ¬(result contains "{{")
+    
+    /* Update cache hit counts */
+    ∀ ph ∈ ap.placeholders •
+      let key = (ph, target_domain?) in
+      domain_cache'.hit_count = domain_cache.hit_count ⊕
+        {key ↦ (domain_cache.hit_count(key) + 1)}
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 4: SCHEMA GENERATION OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ GeneratePatternSchema ───────────────────────────────────────────────────┐
+│ Generate JSON schema for the pattern language                              │
+└───────────────────────────────────────────────────────────────────────────┘
+  GeneratePatternSchema
+    ΞPatternRegistry
+    ΞCategoryRegistry
+    ΞSequenceRegistry
+    ΔSchemaRegistry
+    output!: String
+    success!: 𝔹
+  where
+    /* Construct complete pattern language structure */
+    let pl = PatternLanguage where
+      pl.meta_pattern = pattern_registry.meta_pattern ∧
+      pl.categories = ⟨category_registry.categories(c) | 
+                       c ∈ {Towns, Buildings, Construction}⟩ ∧
+      pl.sequences = ⟨sequence_registry.sequences(sid) | 
+                      sid ∈ {1..36}⟩
+    
+    /* Serialize to JSON */
+    output! = SerializeToJSON(pl, schema_registry.pattern_schema)
+    
+    /* Success if serialization valid */
+    success! ⟺ ValidJSON(output!) ∧
+               ValidatesAgainstSchema(output!, schema_registry.pattern_schema)
+    
+    /* Update schema registry */
+    schema_registry'.validation_cache = 
+      schema_registry.validation_cache ⊕
+      {"pattern_language:complete" ↦ success!}
+
+
+┌─ GenerateArchetypalSchema ────────────────────────────────────────────────┐
+│ Generate JSON schema for archetypal patterns                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  GenerateArchetypalSchema
+    ΞArchetypalRegistry
+    ΔSchemaRegistry
+    output!: String
+    success!: 𝔹
+  where
+    /* Construct archetypal pattern collection */
+    let apc = ArchetypalPatternCollection where
+      apc.title = "UIA Archetypal Patterns" ∧
+      apc.total_patterns = #(dom archetypal_registry.patterns) ∧
+      apc.patterns = ⟨archetypal_registry.patterns(pid) | 
+                      pid ∈ dom archetypal_registry.patterns⟩ ∧
+      apc.placeholder_definitions = 
+        ⟨archetypal_registry.placeholder_registry(ph) |
+         ph ∈ dom archetypal_registry.placeholder_registry⟩
+    
+    /* Serialize to JSON */
+    output! = SerializeToJSON(apc, schema_registry.archetypal_schema)
+    
+    /* Validate */
+    success! ⟺ ValidJSON(output!) ∧
+               ValidatesAgainstSchema(output!, 
+                                     schema_registry.archetypal_schema)
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 5: VALIDATION OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ ValidatePattern ─────────────────────────────────────────────────────────┐
+│ Validate a pattern against structural and semantic rules                   │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidatePattern
+    ΞPatternRegistry
+    ΔValidationState
+    pattern_number?: PatternNumber
+    errors!: seq String
+    valid!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_number? ∈ dom pattern_registry.patterns
+    
+    let p = pattern_registry.patterns(pattern_number?) in
+    
+    /* Collect validation errors */
+    errors! = ⟨⟩
+    
+    /* Check required fields */
+    p.name = "" ⇒ errors! = errors! ⌢ ⟨"Pattern name is empty"⟩
+    p.problem_summary = "" ⇒ 
+      errors! = errors! ⌢ ⟨"Problem summary is empty"⟩
+    p.solution = "" ⇒ errors! = errors! ⌢ ⟨"Solution is empty"⟩
+    
+    /* Check pattern number */
+    p.number ≠ pattern_number? ⇒ 
+      errors! = errors! ⌢ ⟨"Pattern number mismatch"⟩
+    
+    /* Check asterisk level */
+    p.asterisks ∉ {0, 1, 2} ⇒ 
+      errors! = errors! ⌢ ⟨"Invalid asterisk level"⟩
+    
+    /* Check pattern references */
+    ∀ preceding ∈ p.preceding_patterns •
+      preceding ≥ p.number ⇒ 
+        errors! = errors! ⌢ ⟨"Preceding pattern has higher number"⟩
+    
+    ∀ following ∈ p.following_patterns •
+      following ≤ p.number ⇒ 
+        errors! = errors! ⌢ ⟨"Following pattern has lower number"⟩
+    
+    /* Valid if no errors */
+    valid! ⟺ errors! = ⟨⟩
+    
+    /* Update validation state */
+    valid! ⇒
+      validation_state'.patterns_validated = 
+        validation_state.patterns_validated ∪ {pattern_number?}
+    
+    ¬valid! ⇒
+      validation_state'.validation_errors = 
+        validation_state.validation_errors ⊕
+        {("pattern", pattern_number?) ↦ errors!}
+
+
+┌─ ValidateArchetypalPattern ───────────────────────────────────────────────┐
+│ Validate an archetypal pattern                                             │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidateArchetypalPattern
+    ΞArchetypalRegistry
+    ΔValidationState
+    pattern_id?: String
+    errors!: seq String
+    valid!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    let ap = archetypal_registry.patterns(pattern_id?) in
+    
+    /* Collect validation errors */
+    errors! = ⟨⟩
+    
+    /* Check required fields */
+    ap.name = "" ⇒ errors! = errors! ⌢ ⟨"Pattern name is empty"⟩
+    ap.archetypal_pattern = "" ⇒ 
+      errors! = errors! ⌢ ⟨"Archetypal pattern is empty"⟩
+    
+    /* Check placeholders */
+    ap.placeholders = ⟨⟩ ⇒ 
+      errors! = errors! ⌢ ⟨"No placeholders defined"⟩
+    
+    /* Check all placeholders have domain mappings */
+    ∀ ph ∈ ap.placeholders •
+      ph ∉ dom ap.domain_mappings ⇒ 
+        errors! = errors! ⌢ 
+          ⟨"Placeholder " ⌢ ph ⌢ " missing domain mapping"⟩
+    
+    /* Check placeholder syntax in pattern text */
+    ∀ ph ∈ ap.placeholders •
+      ¬(ap.archetypal_pattern contains ("{{" ⌢ ph ⌢ "}}")) ⇒ 
+        errors! = errors! ⌢ 
+          ⟨"Placeholder " ⌢ ph ⌢ " not found in pattern text"⟩
+    
+    /* Check domain completeness */
+    ∀ ph ∈ dom ap.domain_mappings •
+      ¬CompleteDomainMapping(ap.domain_mappings(ph)) ⇒ 
+        errors! = errors! ⌢ 
+          ⟨"Incomplete domain mapping for " ⌢ ph⟩
+    
+    /* Valid if no errors */
+    valid! ⟺ errors! = ⟨⟩
+    
+    /* Update validation state */
+    valid! ⇒
+      validation_state'.archetypes_validated = 
+        validation_state.archetypes_validated ∪ {pattern_id?}
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 6: BATCH OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ LoadAllPatterns ─────────────────────────────────────────────────────────┐
+│ Load all APL patterns from markdown directory                              │
+└───────────────────────────────────────────────────────────────────────────┘
+  LoadAllPatterns
+    ΔPatternLanguageSystem
+    markdown_dir?: String
+    loaded_count!: ℕ
+    success!: 𝔹
+  where
+    /* Load meta-pattern first */
+    ∃ meta_content: String • 
+      LoadMetaPattern[meta_content?/markdown_content?]
+    
+    /* Load all 253 patterns */
+    ∀ pn: PatternNumber | pn ∈ {1..253} •
+      ∃ content: String • 
+        LoadPattern[pn/pattern_number?, content/markdown_content?]
+    
+    /* Count successfully loaded patterns */
+    loaded_count! = #pattern_registry'.loaded_patterns
+    
+    /* Success if all patterns loaded */
+    success! ⟺ loaded_count! = 253
+
+
+┌─ ValidateAllPatterns ─────────────────────────────────────────────────────┐
+│ Validate all loaded patterns                                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidateAllPatterns
+    ΞPatternRegistry
+    ΔValidationState
+    total_errors!: ℕ
+    all_valid!: 𝔹
+  where
+    /* Validate each loaded pattern */
+    ∀ pn ∈ pattern_registry.loaded_patterns •
+      ValidatePattern[pn/pattern_number?]
+    
+    /* Count total errors */
+    total_errors! = #(dom validation_state'.validation_errors)
+    
+    /* All valid if no errors */
+    all_valid! ⟺ total_errors! = 0
+
+
+┌─ TransformAllToAllDomains ────────────────────────────────────────────────┐
+│ Transform all archetypal patterns to all four domains                      │
+└───────────────────────────────────────────────────────────────────────────┘
+  TransformAllToAllDomains
+    ΞArchetypalRegistry
+    ΔTransformationContext
+    ΔDomainMappingCache
+    results!: seq TransformedPattern
+    success_count!: ℕ
+  where
+    /* Transform each pattern to each domain */
+    results! = ⟨transformed | 
+      pid ∈ dom archetypal_registry.patterns,
+      d ∈ {Physical, Social, Conceptual, Psychic},
+      TransformToDomain[pid/pattern_id?, d/target_domain?, 
+                        transformed/transformed!]⟩
+    
+    /* Count successful transformations */
+    success_count! = #{t | t ∈ results! ∧ 
+                          ¬(t.transformed_text contains "{{")}
+    
+    /* Should be 253 patterns × 4 domains = 1012 transformations */
+    #results! = 1012
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 6: PATTERN HIERARCHY NAVIGATION OPERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ GetBroaderPatterns ──────────────────────────────────────────────────────┐
+│ Retrieve all broader (higher-level) patterns for a given pattern           │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetBroaderPatterns
+    ΞArchetypalRegistry
+    pattern_id?: String
+    broader_patterns!: seq ArchetypalPattern
+    found!: 𝔹
+  where
+    /* Pattern must exist in registry */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    /* Look up the pattern */
+    found! ⟺ pattern_id? ∈ dom archetypal_registry.patterns
+    
+    found! ⇒
+      let source_pattern == archetypal_registry.patterns(pattern_id?) •
+        broader_patterns! = ⟨bp | 
+          bp_id ∈ source_pattern.broader_patterns,
+          bp_id ∈ dom archetypal_registry.patterns,
+          bp = archetypal_registry.patterns(bp_id)⟩
+    
+    ¬found! ⇒
+      broader_patterns! = ⟨⟩
+
+
+┌─ GetNarrowerPatterns ─────────────────────────────────────────────────────┐
+│ Retrieve all narrower (lower-level) patterns for a given pattern           │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetNarrowerPatterns
+    ΞArchetypalRegistry
+    pattern_id?: String
+    narrower_patterns!: seq ArchetypalPattern
+    found!: 𝔹
+  where
+    /* Pattern must exist in registry */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    /* Look up the pattern */
+    found! ⟺ pattern_id? ∈ dom archetypal_registry.patterns
+    
+    found! ⇒
+      let source_pattern == archetypal_registry.patterns(pattern_id?) •
+        narrower_patterns! = ⟨np | 
+          np_id ∈ source_pattern.narrower_patterns,
+          np_id ∈ dom archetypal_registry.patterns,
+          np = archetypal_registry.patterns(np_id)⟩
+    
+    ¬found! ⇒
+      narrower_patterns! = ⟨⟩
+
+
+┌─ TraversePatternHierarchy ────────────────────────────────────────────────┐
+│ Traverse the pattern hierarchy starting from a given pattern, visiting     │
+│ all patterns reachable through broader or narrower relationships           │
+└───────────────────────────────────────────────────────────────────────────┘
+  TraversePatternHierarchy
+    ΞArchetypalRegistry
+    start_pattern_id?: String
+    direction?: {broader, narrower, both}
+    max_depth?: ℕ
+    visited_patterns!: seq ArchetypalPattern
+    traversal_depth!: ℕ
+  where
+    /* Starting pattern must exist */
+    start_pattern_id? ∈ dom archetypal_registry.patterns
+    
+    /* Max depth must be reasonable */
+    max_depth? > 0 ∧ max_depth? ≤ 253
+    
+    /* Traverse based on direction */
+    direction? = broader ⇒
+      visited_patterns! = BreadthFirstTraversal(
+        start_pattern_id?, 
+        λ p • p.broader_patterns,
+        max_depth?)
+    
+    direction? = narrower ⇒
+      visited_patterns! = BreadthFirstTraversal(
+        start_pattern_id?,
+        λ p • p.narrower_patterns,
+        max_depth?)
+    
+    direction? = both ⇒
+      visited_patterns! = BreadthFirstTraversal(
+        start_pattern_id?,
+        λ p • p.broader_patterns ⊕ p.narrower_patterns,
+        max_depth?)
+    
+    /* Calculate actual traversal depth */
+    traversal_depth! = MaxDistanceFromStart(visited_patterns!)
+
+
+┌─ FindPatternPath ─────────────────────────────────────────────────────────┐
+│ Find the shortest path between two patterns in the hierarchy               │
+└───────────────────────────────────────────────────────────────────────────┘
+  FindPatternPath
+    ΞArchetypalRegistry
+    start_pattern_id?: String
+    target_pattern_id?: String
+    path!: seq String
+    distance!: ℕ
+    found!: 𝔹
+  where
+    /* Both patterns must exist */
+    start_pattern_id? ∈ dom archetypal_registry.patterns ∧
+    target_pattern_id? ∈ dom archetypal_registry.patterns
+    
+    /* Find shortest path using bidirectional search */
+    found! ⟺ 
+      ∃ connecting_path: seq String •
+        connecting_path(0) = start_pattern_id? ∧
+        connecting_path(#connecting_path - 1) = target_pattern_id? ∧
+        ∀ i: 0..(#connecting_path - 2) •
+          let current == archetypal_registry.patterns(connecting_path(i)),
+              next == connecting_path(i + 1) •
+            next ∈ current.broader_patterns ∪ current.narrower_patterns
+    
+    found! ⇒
+      path! = ShortestPath(start_pattern_id?, target_pattern_id?) ∧
+      distance! = #path! - 1
+    
+    ¬found! ⇒
+      path! = ⟨⟩ ∧
+      distance! = 0
+
+
+┌─ GetPatternLineage ───────────────────────────────────────────────────────┐
+│ Get the complete lineage from a pattern to the root pattern                │
+└───────────────────────────────────────────────────────────────────────────┘
+  GetPatternLineage
+    ΞArchetypalRegistry
+    pattern_id?: String
+    lineage!: seq ArchetypalPattern
+    depth!: ℕ
+  where
+    /* Pattern must exist */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    /* Recursively follow broader patterns to root */
+    lineage! = ⟨p | 
+      p = TraceToRoot(pattern_id?, archetypal_registry.patterns)⟩
+    
+    /* First element should be the root pattern (12610010) */
+    #lineage! > 0 ⇒ lineage!(0).pattern_id = "12610010"
+    
+    /* Last element should be the starting pattern */
+    #lineage! > 0 ⇒ 
+      lineage!(#lineage! - 1).pattern_id = pattern_id?
+    
+    /* Depth is number of levels from root */
+    depth! = #lineage! - 1
+
+
+┌─ ValidatePatternRelationships ────────────────────────────────────────────┐
+│ Validate that all pattern relationships are consistent and bidirectional   │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidatePatternRelationships
+    ΞArchetypalRegistry
+    inconsistencies!: seq String
+    is_valid!: 𝔹
+  where
+    /* Check bidirectional consistency */
+    inconsistencies! = ⟨error_msg |
+      pid ∈ dom archetypal_registry.patterns,
+      let p == archetypal_registry.patterns(pid) •
+        (∃ bp ∈ p.broader_patterns •
+          bp ∈ dom archetypal_registry.patterns ∧
+          let broader == archetypal_registry.patterns(bp) •
+            pid ∉ broader.narrower_patterns ∧
+            error_msg = "Pattern " ⌢ pid ⌢ " has broader " ⌢ bp ⌢
+                       " but is not in its narrower patterns") ∨
+        (∃ np ∈ p.narrower_patterns •
+          np ∈ dom archetypal_registry.patterns ∧
+          let narrower == archetypal_registry.patterns(np) •
+            pid ∉ narrower.broader_patterns ∧
+            error_msg = "Pattern " ⌢ pid ⌢ " has narrower " ⌢ np ⌢
+                       " but is not in its broader patterns")⟩
+    
+    /* Valid if no inconsistencies found */
+    is_valid! ⟺ inconsistencies! = ⟨⟩
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ END OF OPERATIONS SPECIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

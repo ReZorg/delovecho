@@ -1,0 +1,53 @@
+# Chain Specification Template
+# Define a pipeline of skill transformations to generate a family of skills.
+#
+# Usage:
+#   python chain_transforms.py my_chain.yaml [--output /path/to/output]
+#
+# Supports:
+#   - Sequential chains: A → B → C (each step uses previous output)
+#   - Parallel forks: A → [B, C, D] (independent transforms from same source)
+#   - Dependency graphs: arbitrary DAGs with depends_on
+
+meta:
+  name: "my-skill-family"
+  description: "Description of the skill family being generated"
+
+chain:
+  # Step 1: First transformation (must have 'source')
+  - id: step_1
+    label: "First Skill"
+    source: /home/ubuntu/skills/source-skill  # Path to source skill directory
+    transform:
+      slot_mappings:
+        name: "first-transformed-skill"
+        description: "Description of first skill"
+        primary_domain: "domain_1"
+      term_mappings:
+        "source_term": "target_term_1"
+
+  # Step 2: Independent transformation from same source (parallel fork)
+  - id: step_2
+    label: "Second Skill"
+    source: /home/ubuntu/skills/source-skill  # Same source = parallel fork
+    transform:
+      slot_mappings:
+        name: "second-transformed-skill"
+        description: "Description of second skill"
+        primary_domain: "domain_2"
+      term_mappings:
+        "source_term": "target_term_2"
+
+  # Step 3: Chained transformation (uses output of step_1)
+  # - id: step_3
+  #   label: "Chained Skill"
+  #   source: previous
+  #   depends_on:
+  #     - step_1
+  #   transform:
+  #     slot_mappings:
+  #       name: "chained-skill"
+  #       description: "Built on top of first skill"
+  #       primary_domain: "domain_3"
+  #     term_mappings:
+  #       "domain_1_term": "domain_3_term"

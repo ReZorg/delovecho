@@ -1,0 +1,1047 @@
+{
+  "name": "Construction",
+  "description": "Patterns that create buildable buildings directly from rough schemes of spaces. These patterns give you the exact geometry of the built up elements which define the spaces.",
+  "pattern_range": {
+    "start": 205,
+    "end": 253
+  },
+  "patterns": [
+    {
+      "id": "apl205",
+      "number": 205,
+      "name": "205 STRUCTURE FOLLOWS SOCIAL SPACES",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        159
+      ],
+      "following_patterns": [
+        206,
+        207,
+        208,
+        212,
+        219
+      ]
+    },
+    {
+      "id": "apl206",
+      "number": 206,
+      "name": "206 EFFICIENT STRUCTURE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        190,
+        191,
+        205
+      ],
+      "following_patterns": [
+        207,
+        209,
+        210,
+        212,
+        213,
+        216,
+        217,
+        218,
+        219,
+        220,
+        225,
+        227
+      ]
+    },
+    {
+      "id": "apl207",
+      "number": 207,
+      "name": "207 GOOD MATERIALS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        21,
+        205,
+        206
+      ],
+      "following_patterns": [
+        208,
+        234,
+        235
+      ]
+    },
+    {
+      "id": "apl208",
+      "number": 208,
+      "name": "208 GRADUAL STIFFENING",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        205,
+        206,
+        207
+      ],
+      "following_patterns": [
+        216,
+        217,
+        218,
+        219,
+        220
+      ]
+    },
+    {
+      "id": "apl209",
+      "number": 209,
+      "name": "209 ROOF LAYOUT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        99,
+        115,
+        116,
+        117,
+        118,
+        190,
+        191
+      ],
+      "following_patterns": [
+        211,
+        220
+      ]
+    },
+    {
+      "id": "apl210",
+      "number": 210,
+      "name": "210 FLOOR AND CEILING LAYOUT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        129,
+        139,
+        180,
+        190,
+        205,
+        206,
+        209
+      ],
+      "following_patterns": [
+        211,
+        212,
+        213,
+        217,
+        219,
+        220,
+        233
+      ]
+    },
+    {
+      "id": "apl211",
+      "number": 211,
+      "name": "211 THICKENING THE OUTER WALLS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        116,
+        179,
+        180,
+        197,
+        199,
+        201,
+        202,
+        203,
+        204,
+        206,
+        209,
+        210
+      ],
+      "following_patterns": [
+        212,
+        217,
+        219,
+        220
+      ]
+    },
+    {
+      "id": "apl212",
+      "number": 212,
+      "name": "212 COLUMNS AT THE CORNERS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        205,
+        206,
+        208,
+        209,
+        210
+      ],
+      "following_patterns": [
+        213,
+        214,
+        216,
+        217,
+        219,
+        220,
+        226
+      ]
+    },
+    {
+      "id": "apl213",
+      "number": 213,
+      "name": "213 FINAL COLUMN DISTRIBUTION",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        117,
+        190,
+        206,
+        212
+      ],
+      "following_patterns": [
+        216,
+        218
+      ]
+    },
+    {
+      "id": "apl214",
+      "number": 214,
+      "name": "214 ROOT FOUNDATIONS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        104,
+        168,
+        212,
+        213
+      ],
+      "following_patterns": [
+        215,
+        216
+      ]
+    },
+    {
+      "id": "apl215",
+      "number": 215,
+      "name": "215 GROUND FLOOR SLAB",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        168,
+        206,
+        212,
+        214
+      ],
+      "following_patterns": [
+        219,
+        233,
+        248
+      ]
+    },
+    {
+      "id": "apl216",
+      "number": 216,
+      "name": "216 BOX COLUMNS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        207,
+        213,
+        214
+      ],
+      "following_patterns": [
+        217,
+        218,
+        219,
+        226,
+        227
+      ]
+    },
+    {
+      "id": "apl217",
+      "number": 217,
+      "name": "217 PERIMETER BEAMS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        206,
+        207,
+        210,
+        216
+      ],
+      "following_patterns": [
+        218,
+        219,
+        227
+      ]
+    },
+    {
+      "id": "apl218",
+      "number": 218,
+      "name": "218 WALL MEMBRANE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        206,
+        207,
+        208,
+        213,
+        216
+      ],
+      "following_patterns": [
+        234,
+        235,
+        248
+      ]
+    },
+    {
+      "id": "apl219",
+      "number": 219,
+      "name": "FLOOR-CEILING VAULTS",
+      "asterisks": 0,
+      "context": ". . . we have already discussed the fact that ordinary joist floors and slab floors are inefficient and wasteful because the tension materials they use to resist bending are less common than pure compression materials - EFFICIENT STRUCTURE (206), GOOD MATERIALS (207), and that it is therefore desirable to use vaults wherever possible. This pattern gives the shape and construction of the vaults. The vaults will help to complete FLOOR AND CEILING LAYOUT (210), and PERIMETER BEAMS (217); and, most important of all, they will help to create the CEILING HEIGHT VARIETY (190) in different rooms.",
+      "problem": "We seek a ceiling vault shape which will support a live load on the floor above, form the ceiling of the room below, and generate as little bending and tension as possible so that compressive materials can be relied on.",
+      "solution": "Build floors and ceilings in the form of elliptical vaults which rise between 13 and 20 per cent of the shorter span. Use a type of construction which makes it possible to fit the vault to any shaped room after the walls and columns are in position: on no account use a prefabricated vault.",
+      "preceding_patterns": [
+        190,
+        205,
+        206,
+        207,
+        210,
+        213,
+        214,
+        216,
+        217
+      ],
+      "following_patterns": [
+        229,
+        233,
+        235
+      ]
+    },
+    {
+      "id": "apl220",
+      "number": 220,
+      "name": "220 ROOF VAULTS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        106,
+        116,
+        117,
+        118,
+        205,
+        206,
+        207,
+        209,
+        217,
+        219
+      ],
+      "following_patterns": [
+        231,
+        232,
+        234
+      ]
+    },
+    {
+      "id": "apl221",
+      "number": 221,
+      "name": "221 NATURAL DOORS AND WINDOWS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        134,
+        164,
+        180,
+        192,
+        196,
+        216,
+        217
+      ],
+      "following_patterns": [
+        222,
+        223,
+        239
+      ]
+    },
+    {
+      "id": "apl222",
+      "number": 222,
+      "name": "222 LOW SILL",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        134,
+        180,
+        192,
+        201,
+        221
+      ],
+      "following_patterns": [
+        225,
+        236,
+        245
+      ]
+    },
+    {
+      "id": "apl223",
+      "number": 223,
+      "name": "223 DEEP REVEALS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        159,
+        197
+      ],
+      "following_patterns": [
+        225,
+        238,
+        240,
+        246
+      ]
+    },
+    {
+      "id": "apl224",
+      "number": 224,
+      "name": "224 LOW DOORWAY",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        102,
+        110,
+        131,
+        196,
+        221
+      ],
+      "following_patterns": [
+        225,
+        237,
+        249
+      ]
+    },
+    {
+      "id": "apl225",
+      "number": 225,
+      "name": "225 FRAMES AS THICKENED EDGES",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        206,
+        208,
+        218,
+        221,
+        223
+      ],
+      "following_patterns": [
+        236,
+        237,
+        239
+      ]
+    },
+    {
+      "id": "apl226",
+      "number": 226,
+      "name": "226 COLUMN PLACE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        69,
+        119,
+        163,
+        166,
+        167,
+        174,
+        212,
+        216
+      ],
+      "following_patterns": [
+        227,
+        243,
+        245,
+        251
+      ]
+    },
+    {
+      "id": "apl227",
+      "number": 227,
+      "name": "227 COLUMN CONNECTIONS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        119,
+        166,
+        167,
+        206,
+        216,
+        217,
+        225,
+        226
+      ],
+      "following_patterns": [
+        249
+      ]
+    },
+    {
+      "id": "apl228",
+      "number": 228,
+      "name": "228 STAIR VAULT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        133,
+        179,
+        195,
+        198,
+        203,
+        206,
+        207,
+        208,
+        219
+      ],
+      "following_patterns": [
+        233,
+        248
+      ]
+    },
+    {
+      "id": "apl229",
+      "number": 229,
+      "name": "229 DUCT SPACE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        206,
+        219
+      ],
+      "following_patterns": [
+        230,
+        252
+      ]
+    },
+    {
+      "id": "apl230",
+      "number": 230,
+      "name": "230 RADIANT HEAT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        202,
+        218,
+        219,
+        229
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl231",
+      "number": 231,
+      "name": "231 DORMER WINDOWS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        117,
+        179,
+        180,
+        192,
+        208,
+        212,
+        216,
+        217,
+        218,
+        219,
+        220,
+        225
+      ],
+      "following_patterns": [
+        236,
+        239
+      ]
+    },
+    {
+      "id": "apl232",
+      "number": 232,
+      "name": "232 ROOF CAPS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        118,
+        168,
+        220
+      ],
+      "following_patterns": [
+        249
+      ]
+    },
+    {
+      "id": "apl233",
+      "number": 233,
+      "name": "233 FLOOR SURFACE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        127,
+        215,
+        219
+      ],
+      "following_patterns": [
+        248,
+        249,
+        250
+      ]
+    },
+    {
+      "id": "apl234",
+      "number": 234,
+      "name": "234 LAPPED OUTSIDE WALLS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        218,
+        220
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl235",
+      "number": 235,
+      "name": "235 SOFT INSIDE WALLS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        218,
+        219
+      ],
+      "following_patterns": [
+        240
+      ]
+    },
+    {
+      "id": "apl236",
+      "number": 236,
+      "name": "236 WINDOWS WHICH OPEN WIDE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        180,
+        192,
+        221
+      ],
+      "following_patterns": [
+        239
+      ]
+    },
+    {
+      "id": "apl237",
+      "number": 237,
+      "name": "237 SOLID DOORS WITH GLASS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        135,
+        194,
+        196,
+        218,
+        224
+      ],
+      "following_patterns": [
+        239
+      ]
+    },
+    {
+      "id": "apl238",
+      "number": 238,
+      "name": "238 FILTERED LIGHT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        221,
+        223
+      ],
+      "following_patterns": [
+        239,
+        244,
+        246,
+        250
+      ]
+    },
+    {
+      "id": "apl239",
+      "number": 239,
+      "name": "239 SMALL PANES",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        194,
+        221,
+        225,
+        236,
+        237,
+        238
+      ],
+      "following_patterns": [
+        240
+      ]
+    },
+    {
+      "id": "apl240",
+      "number": 240,
+      "name": "240 HALF-INCH TRIM",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        216,
+        217,
+        219,
+        225,
+        234,
+        235
+      ],
+      "following_patterns": [
+        249,
+        250
+      ]
+    },
+    {
+      "id": "apl241",
+      "number": 241,
+      "name": "241 SEAT SPOTS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        121,
+        124,
+        125,
+        140,
+        160,
+        161,
+        163,
+        168,
+        174,
+        176
+      ],
+      "following_patterns": [
+        242,
+        243
+      ]
+    },
+    {
+      "id": "apl242",
+      "number": 242,
+      "name": "242 FRONT DOOR BENCH",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        119,
+        130,
+        155,
+        160,
+        161,
+        168,
+        241
+      ],
+      "following_patterns": [
+        243,
+        245
+      ]
+    },
+    {
+      "id": "apl243",
+      "number": 243,
+      "name": "243 SITTING WALL",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        51,
+        100,
+        106,
+        111,
+        114,
+        121,
+        124,
+        140,
+        163,
+        165,
+        166,
+        172,
+        241,
+        242
+      ],
+      "following_patterns": [
+        245,
+        248,
+        249
+      ]
+    },
+    {
+      "id": "apl244",
+      "number": 244,
+      "name": "244 CANVAS ROOFS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        103,
+        118,
+        119,
+        140,
+        163,
+        166,
+        174,
+        180,
+        238
+      ],
+      "following_patterns": [
+        249,
+        250
+      ]
+    },
+    {
+      "id": "apl245",
+      "number": 245,
+      "name": "245 RAISED FLOWERS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        120,
+        125,
+        160,
+        169,
+        173,
+        243
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl246",
+      "number": 246,
+      "name": "246 CLIMBING PLANTS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        174,
+        238
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl247",
+      "number": 247,
+      "name": "247 PAVING WITH CRACKS BETWEEN THE STONES",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        51,
+        121,
+        140,
+        163,
+        168,
+        169
+      ],
+      "following_patterns": [
+        248
+      ]
+    },
+    {
+      "id": "apl248",
+      "number": 248,
+      "name": "248 SOFT TILE AND BRICK",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        168,
+        207,
+        233,
+        243,
+        247
+      ],
+      "following_patterns": [
+        249,
+        250
+      ]
+    },
+    {
+      "id": "apl249",
+      "number": 249,
+      "name": "249 ORNAMENT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        13,
+        15,
+        110,
+        119,
+        160,
+        166,
+        168,
+        173,
+        180,
+        193,
+        196,
+        197,
+        218,
+        225,
+        226,
+        227,
+        232,
+        234,
+        235,
+        240,
+        243,
+        248
+      ],
+      "following_patterns": [
+        250,
+        253
+      ]
+    },
+    {
+      "id": "apl250",
+      "number": 250,
+      "name": "250 WARM COLORS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        207,
+        233,
+        235,
+        240,
+        244,
+        248,
+        249
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl251",
+      "number": 251,
+      "name": "251 DIFFERENT CHAIRS",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        142,
+        185,
+        202
+      ],
+      "following_patterns": [
+        252
+      ]
+    },
+    {
+      "id": "apl252",
+      "number": 252,
+      "name": "252 POOLS OF LIGHT",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        129,
+        130,
+        146,
+        179,
+        182,
+        183,
+        185,
+        250,
+        251
+      ],
+      "following_patterns": []
+    },
+    {
+      "id": "apl253",
+      "number": 253,
+      "name": "253 THINGS FROM YOUR LIFE",
+      "asterisks": 0,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [],
+      "following_patterns": []
+    }
+  ]
+}

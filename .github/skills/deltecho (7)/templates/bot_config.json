@@ -1,0 +1,7 @@
+{
+    "addr": "bot@example.com",
+    "mail_pw": "your-password",
+    "displayname": "Deltecho Bot",
+    "bot": "1",
+    "e2ee_enabled": "1"
+}

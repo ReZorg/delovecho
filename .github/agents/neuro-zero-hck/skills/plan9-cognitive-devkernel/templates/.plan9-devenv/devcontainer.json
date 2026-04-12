@@ -1,0 +1,69 @@
+{
+    "name": "Plan9Cog Cognitive DevKernel",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "PLAN9": "/usr/local/plan9",
+            "PLAN9_IMG": "9front",
+            "GRID_NODES": "3",
+            "ENABLE_GUI": "false"
+        }
+    },
+    "containerEnv": {
+        "PLAN9": "/usr/local/plan9",
+        "PATH": "/usr/local/plan9/bin:${containerEnv:PATH}",
+        "PLAN9_9P_PORT": "564",
+        "PLAN9_GRID_NODES": "3"
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": false,
+            "configureZshAsDefaultShell": false,
+            "username": "glenda",
+            "userUid": "1000",
+            "userGid": "1000"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {
+            "dockerDashComposeVersion": "v2"
+        },
+        "ghcr.io/devcontainers/features/git:1": {},
+        "ghcr.io/devcontainers/features/github-cli:1": {},
+        "ghcr.io/devcontainers/features/python:1": {
+            "version": "3.11"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "files.associations": {
+                    "*.c": "c",
+                    "*.h": "c",
+                    "*.rc": "shellscript",
+                    "mkfile": "makefile",
+                    "mkconfig": "makefile"
+                },
+                "editor.tabSize": 8,
+                "editor.insertSpaces": false,
+                "editor.rulers": [80]
+            },
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.makefile-tools",
+                "ms-azuretools.vscode-docker",
+                "mhutchie.git-graph",
+                "usernamehw.errorlens"
+            ]
+        }
+    },
+    "forwardPorts": [564, 565, 566, 8080, 9090],
+    "portsAttributes": {
+        "564": {"label": "9P2000 (auth/name server)", "protocol": "tcp"},
+        "565": {"label": "9P2000 (cpu1)", "protocol": "tcp"},
+        "566": {"label": "9P2000 (cpu2)", "protocol": "tcp"},
+        "8080": {"label": "Plan 9 web interface", "protocol": "http"},
+        "9090": {"label": "Grid monitor dashboard", "protocol": "http"}
+    },
+    "postCreateCommand": "bash .plan9-devenv/scripts/cpurc",
+    "postStartCommand": "bash .plan9-devenv/scripts/termrc",
+    "remoteUser": "glenda"
+}

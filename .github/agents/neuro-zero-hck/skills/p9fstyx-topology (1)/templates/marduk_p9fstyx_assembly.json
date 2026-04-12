@@ -1,0 +1,172 @@
+{
+  "name": "marduk-p9fstyx-cognitive-mesh",
+  "components": {
+    "atomspace": {
+      "ports": {
+        "query_in": {"name": "query_in", "kind": "SINK", "dtype": "pattern"},
+        "atoms_out": {"name": "atoms_out", "kind": "SOURCE", "dtype": "atom"},
+        "kv_io": {"name": "kv_io", "kind": "BIDI", "dtype": "kv"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "core", "subsystem": "knowledge", "kv_binding": "ATOMSPACE_KV"}
+    },
+    "pattern_matcher": {
+      "ports": {
+        "pattern_in": {"name": "pattern_in", "kind": "SINK", "dtype": "pattern"},
+        "results_out": {"name": "results_out", "kind": "SOURCE", "dtype": "atom"},
+        "atomspace_io": {"name": "atomspace_io", "kind": "BIDI", "dtype": "atom"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "core", "subsystem": "reasoning"}
+    },
+    "styx_server": {
+      "ports": {
+        "9p_io": {"name": "9p_io", "kind": "BIDI", "dtype": "9p"},
+        "state_out": {"name": "state_out", "kind": "SOURCE", "dtype": "kv"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "infra", "subsystem": "protocol", "mount": "/n/cognitive", "kv_binding": "P9FSTYX_STATE"}
+    },
+    "powerscribe": {
+      "ports": {
+        "modules_in": {"name": "modules_in", "kind": "SINK", "dtype": "module"},
+        "orchestration_out": {"name": "orchestration_out", "kind": "SOURCE", "dtype": "schedule"},
+        "styx_io": {"name": "styx_io", "kind": "BIDI", "dtype": "9p"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "orchestration", "subsystem": "self-assembly", "auto_orchestrate": true}
+    },
+    "micro_kernel_network": {
+      "ports": {
+        "kernel_in": {"name": "kernel_in", "kind": "SINK", "dtype": "kernel"},
+        "field_out": {"name": "field_out", "kind": "SOURCE", "dtype": "field"},
+        "styx_io": {"name": "styx_io", "kind": "BIDI", "dtype": "9p"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "compute", "subsystem": "distributed", "dimensions": 3}
+    },
+    "wave_field": {
+      "ports": {
+        "excitation_in": {"name": "excitation_in", "kind": "SINK", "dtype": "field"},
+        "dynamics_out": {"name": "dynamics_out", "kind": "SOURCE", "dtype": "field"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "compute", "subsystem": "dynamics", "wave_speed": 1.0, "damping": 0.01}
+    },
+    "gauge_kernel": {
+      "ports": {
+        "field_in": {"name": "field_in", "kind": "SINK", "dtype": "field"},
+        "transport_out": {"name": "transport_out", "kind": "SOURCE", "dtype": "vector"},
+        "curvature_out": {"name": "curvature_out", "kind": "SOURCE", "dtype": "tensor"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "compute", "subsystem": "geometry", "gauge_group": "U1", "dimension": 3}
+    },
+    "differential_engine": {
+      "ports": {
+        "domain_in": {"name": "domain_in", "kind": "SINK", "dtype": "domain"},
+        "kernel_out": {"name": "kernel_out", "kind": "SOURCE", "dtype": "kernel"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "compute", "subsystem": "analysis"}
+    },
+    "grip_optimizer": {
+      "ports": {
+        "topology_in": {"name": "topology_in", "kind": "SINK", "dtype": "topology"},
+        "coefficients_out": {"name": "coefficients_out", "kind": "SOURCE", "dtype": "vector"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "optimization", "subsystem": "grip", "learning_rate": 0.01, "momentum": 0.9}
+    },
+    "powerskill": {
+      "ports": {
+        "landscape_in": {"name": "landscape_in", "kind": "SINK", "dtype": "field"},
+        "pathways_out": {"name": "pathways_out", "kind": "SOURCE", "dtype": "pathway"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "optimization", "subsystem": "niche", "population_size": 10}
+    },
+    "lambda_promises": {
+      "ports": {
+        "constraints_in": {"name": "constraints_in", "kind": "SINK", "dtype": "constraint"},
+        "solutions_out": {"name": "solutions_out", "kind": "SOURCE", "dtype": "solution"},
+        "styx_io": {"name": "styx_io", "kind": "BIDI", "dtype": "9p"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "orchestration", "subsystem": "constraint-satisfaction"}
+    },
+    "marduk_memory": {
+      "ports": {
+        "store_in": {"name": "store_in", "kind": "SINK", "dtype": "memory"},
+        "recall_out": {"name": "recall_out", "kind": "SOURCE", "dtype": "memory"},
+        "kv_io": {"name": "kv_io", "kind": "BIDI", "dtype": "kv"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "core", "subsystem": "memory", "kv_binding": "MARDUK_KV"}
+    },
+    "moses_evolution": {
+      "ports": {
+        "population_in": {"name": "population_in", "kind": "SINK", "dtype": "genome"},
+        "evolved_out": {"name": "evolved_out", "kind": "SOURCE", "dtype": "genome"},
+        "fitness_io": {"name": "fitness_io", "kind": "BIDI", "dtype": "metric"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "optimization", "subsystem": "evolution"}
+    },
+    "ecan_attention": {
+      "ports": {
+        "stimuli_in": {"name": "stimuli_in", "kind": "SINK", "dtype": "atom"},
+        "focus_out": {"name": "focus_out", "kind": "SOURCE", "dtype": "atom"},
+        "atomspace_io": {"name": "atomspace_io", "kind": "BIDI", "dtype": "atom"}
+      },
+      "state": "idle",
+      "metadata": {"layer": "core", "subsystem": "attention"}
+    }
+  },
+  "simplices": [
+    [["atomspace"], ["pattern_matcher"], ["styx_server"], ["powerscribe"], ["micro_kernel_network"], ["wave_field"], ["gauge_kernel"], ["differential_engine"], ["grip_optimizer"], ["powerskill"], ["lambda_promises"], ["marduk_memory"], ["moses_evolution"], ["ecan_attention"]],
+    [
+      ["atomspace", "pattern_matcher"],
+      ["atomspace", "marduk_memory"],
+      ["atomspace", "ecan_attention"],
+      ["styx_server", "powerscribe"],
+      ["styx_server", "micro_kernel_network"],
+      ["styx_server", "lambda_promises"],
+      ["powerscribe", "micro_kernel_network"],
+      ["micro_kernel_network", "wave_field"],
+      ["wave_field", "gauge_kernel"],
+      ["gauge_kernel", "differential_engine"],
+      ["differential_engine", "grip_optimizer"],
+      ["grip_optimizer", "powerskill"],
+      ["pattern_matcher", "ecan_attention"],
+      ["moses_evolution", "powerskill"],
+      ["moses_evolution", "ecan_attention"],
+      ["marduk_memory", "ecan_attention"],
+      ["marduk_memory", "styx_server"],
+      ["lambda_promises", "powerscribe"],
+      ["grip_optimizer", "lambda_promises"],
+      ["powerskill", "wave_field"]
+    ],
+    [
+      ["atomspace", "pattern_matcher", "ecan_attention"],
+      ["styx_server", "powerscribe", "micro_kernel_network"],
+      ["wave_field", "gauge_kernel", "differential_engine"]
+    ]
+  ],
+  "constraints": [
+    {
+      "name": "connected",
+      "dimension": 0,
+      "op": "==",
+      "value": 1,
+      "description": "All cognitive subsystems must form a single connected mesh"
+    },
+    {
+      "name": "redundant_paths",
+      "dimension": 1,
+      "op": ">=",
+      "value": 3,
+      "description": "At least 3 independent cycles for fault-tolerant cognitive processing"
+    }
+  ]
+}

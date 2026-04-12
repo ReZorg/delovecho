@@ -1,0 +1,35 @@
+# Plan 9 Editor Configuration
+# Plan 9 convention: tabs, width 8
+
+root = true
+
+[*]
+indent_style = tab
+indent_size = 8
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.c]
+indent_style = tab
+indent_size = 8
+
+[*.h]
+indent_style = tab
+indent_size = 8
+
+[mkfile]
+indent_style = tab
+indent_size = 8
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.json]
+indent_style = space
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false

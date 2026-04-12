@@ -1,0 +1,4197 @@
+{
+  "title": "Archetypal Pattern Placeholder Reference",
+  "description": "Complete reference of all placeholders used in archetypal patterns",
+  "total_placeholders": 10,
+  "placeholders": [
+    {
+      "placeholder": "domains",
+      "domains": {
+        "physical": "regions/areas",
+        "social": "functional domains/communities",
+        "conceptual": "knowledge domains",
+        "psychic": "modes of awareness"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "frameworks",
+      "domains": {
+        "physical": "cities/infrastructure",
+        "social": "institutions/systems",
+        "conceptual": "paradigms/theories",
+        "psychic": "mental structures"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "elements",
+      "domains": {
+        "physical": "materials/spaces",
+        "social": "members/participants",
+        "conceptual": "concepts/ideas",
+        "psychic": "perceptions/insights"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "organization-type",
+      "domains": {
+        "physical": "building/development",
+        "social": "institution/community",
+        "conceptual": "framework/theory",
+        "psychic": "structured awareness"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "resources",
+      "domains": {
+        "physical": "land/agriculture",
+        "social": "social resources",
+        "conceptual": "creative resources",
+        "psychic": "psychic resources"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "influence-type",
+      "domains": {
+        "physical": "influence",
+        "social": "influence",
+        "conceptual": "insight",
+        "psychic": "influence"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "areas",
+      "domains": {
+        "physical": "land/regions",
+        "social": "functional areas",
+        "conceptual": "domains",
+        "psychic": "modes of awareness"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "positions",
+      "domains": {
+        "physical": "central locations",
+        "social": "central organizations",
+        "conceptual": "central frameworks",
+        "psychic": "ordered modes"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "patterns",
+      "domains": {
+        "physical": "urban environments",
+        "social": "organizational patterns",
+        "conceptual": "knowledge patterns",
+        "psychic": "awareness patterns"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    },
+    {
+      "placeholder": "modes",
+      "domains": {
+        "physical": "environments",
+        "social": "modes of organization",
+        "conceptual": "modes of organization",
+        "psychic": "modes of awareness"
+      },
+      "used_in_patterns": [
+        {
+          "pattern_id": "12610010",
+          "pattern_name": "Independent domains"
+        },
+        {
+          "pattern_id": "12610020",
+          "pattern_name": "Distribution of organization"
+        },
+        {
+          "pattern_id": "12610030",
+          "pattern_name": "Interpretation of complementary modes of organization"
+        },
+        {
+          "pattern_id": "12610040",
+          "pattern_name": "Regenerative resource cultivation areas"
+        },
+        {
+          "pattern_id": "12610050",
+          "pattern_name": "Network of inter-relationships"
+        },
+        {
+          "pattern_id": "12610060",
+          "pattern_name": "Intermediate scale organization"
+        },
+        {
+          "pattern_id": "12610070",
+          "pattern_name": "Non-linear organization"
+        },
+        {
+          "pattern_id": "12610080",
+          "pattern_name": "Variety of forms and processes"
+        },
+        {
+          "pattern_id": "12610090",
+          "pattern_name": "Decentralized formal processes"
+        },
+        {
+          "pattern_id": "12610100",
+          "pattern_name": "Access to intensity"
+        },
+        {
+          "pattern_id": "12610110",
+          "pattern_name": "Local interrelationship domains"
+        },
+        {
+          "pattern_id": "12610120",
+          "pattern_name": "Individuality in multiplicity"
+        },
+        {
+          "pattern_id": "12610130",
+          "pattern_name": "Sub-domain boundary"
+        },
+        {
+          "pattern_id": "12610140",
+          "pattern_name": "Identifiable context"
+        },
+        {
+          "pattern_id": "12610150",
+          "pattern_name": "Context boundary"
+        },
+        {
+          "pattern_id": "12610160",
+          "pattern_name": "Web of general interrelationships"
+        },
+        {
+          "pattern_id": "12610170",
+          "pattern_name": "Encirclement"
+        },
+        {
+          "pattern_id": "12610180",
+          "pattern_name": "Network of redefinitions"
+        },
+        {
+          "pattern_id": "12610190",
+          "pattern_name": "Web of selective interchange"
+        },
+        {
+          "pattern_id": "12610200",
+          "pattern_name": "User-determined specialized communications"
+        },
+        {
+          "pattern_id": "12610210",
+          "pattern_name": "Four-level structural limit"
+        },
+        {
+          "pattern_id": "12610220",
+          "pattern_name": "Occupiable temporary site limit"
+        },
+        {
+          "pattern_id": "12610230",
+          "pattern_name": "Compensating relationships in parallel"
+        },
+        {
+          "pattern_id": "12610240",
+          "pattern_name": "Positions enabling transcendence"
+        },
+        {
+          "pattern_id": "12610250",
+          "pattern_name": "Relationship to indeterminacy"
+        },
+        {
+          "pattern_id": "12610260",
+          "pattern_name": "Functional cycle"
+        },
+        {
+          "pattern_id": "12610270",
+          "pattern_name": "Complementarity"
+        },
+        {
+          "pattern_id": "12610280",
+          "pattern_name": "Coherent pattern of relationship densities"
+        },
+        {
+          "pattern_id": "12610290",
+          "pattern_name": "Stable density gradient of local relationships"
+        },
+        {
+          "pattern_id": "12610300",
+          "pattern_name": "Activity nodes"
+        },
+        {
+          "pattern_id": "12610310",
+          "pattern_name": "Cycle of relationship reinforcement"
+        },
+        {
+          "pattern_id": "12610320",
+          "pattern_name": "Selective interchange axis"
+        },
+        {
+          "pattern_id": "12610330",
+          "pattern_name": "Underdefined processes"
+        },
+        {
+          "pattern_id": "12610340",
+          "pattern_name": "Interchange"
+        },
+        {
+          "pattern_id": "12610350",
+          "pattern_name": "Adequate variety of cyclic elements"
+        },
+        {
+          "pattern_id": "12610360",
+          "pattern_name": "Differentiation by relationship density"
+        },
+        {
+          "pattern_id": "12610370",
+          "pattern_name": "Cluster of frameworks"
+        },
+        {
+          "pattern_id": "12610380",
+          "pattern_name": "Standard frameworks"
+        },
+        {
+          "pattern_id": "12610390",
+          "pattern_name": "Integrating a new dimension"
+        },
+        {
+          "pattern_id": "12610400",
+          "pattern_name": "Integrating the historical dimension"
+        },
+        {
+          "pattern_id": "12610410",
+          "pattern_name": "Informal context for formal processes"
+        },
+        {
+          "pattern_id": "12610420",
+          "pattern_name": "Chain of fundamental transformation zones"
+        },
+        {
+          "pattern_id": "12610430",
+          "pattern_name": "Presentation of new dimensions"
+        },
+        {
+          "pattern_id": "12610440",
+          "pattern_name": "Local focal points"
+        },
+        {
+          "pattern_id": "12610450",
+          "pattern_name": "Local action network"
+        },
+        {
+          "pattern_id": "12610460",
+          "pattern_name": "Diversified interchange environment"
+        },
+        {
+          "pattern_id": "12610470",
+          "pattern_name": "Functionality enhancement"
+        },
+        {
+          "pattern_id": "12610480",
+          "pattern_name": "Adaptive interstices"
+        },
+        {
+          "pattern_id": "12610490",
+          "pattern_name": "Local relationship loops"
+        },
+        {
+          "pattern_id": "12610500",
+          "pattern_name": "Three-way relationship entrainment"
+        },
+        {
+          "pattern_id": "12610510",
+          "pattern_name": "Linear relationships enhanced by non-linear processes"
+        },
+        {
+          "pattern_id": "12610520",
+          "pattern_name": "Interfacing vehicles of communication and networks of unmediated relationships"
+        },
+        {
+          "pattern_id": "12610530",
+          "pattern_name": "Principal points of entry"
+        },
+        {
+          "pattern_id": "12610540",
+          "pattern_name": "Intersection of differently paced communications"
+        },
+        {
+          "pattern_id": "12610550",
+          "pattern_name": "Protected low intensity relationships"
+        },
+        {
+          "pattern_id": "12610560",
+          "pattern_name": "Special modes of relationship"
+        },
+        {
+          "pattern_id": "12610570",
+          "pattern_name": "Protection of emerging foci"
+        },
+        {
+          "pattern_id": "12610580",
+          "pattern_name": "Context for disorder"
+        },
+        {
+          "pattern_id": "12612050",
+          "pattern_name": "Congruence between spaces defined by the framework and spaces defined by the processes within it"
+        },
+        {
+          "pattern_id": "12612060",
+          "pattern_name": "Efficient enclosure of spaces with minimal structural distinctions"
+        },
+        {
+          "pattern_id": "12612070",
+          "pattern_name": "Appropriate construction elements"
+        },
+        {
+          "pattern_id": "12612080",
+          "pattern_name": "Progressive framework definition"
+        },
+        {
+          "pattern_id": "12612090",
+          "pattern_name": "Organization of integrative superstructure"
+        },
+        {
+          "pattern_id": "12612100",
+          "pattern_name": "Harmonizing space distribution between levels"
+        },
+        {
+          "pattern_id": "12612110",
+          "pattern_name": "Boundary expansion permitting new level generation"
+        },
+        {
+          "pattern_id": "12612120",
+          "pattern_name": "Primary inter-level connections at transitions in boundary orientation"
+        },
+        {
+          "pattern_id": "12612130",
+          "pattern_name": "Distribution of secondary inter-level connections"
+        },
+        {
+          "pattern_id": "12612140",
+          "pattern_name": "Integrative infrastructure"
+        },
+        {
+          "pattern_id": "12612150",
+          "pattern_name": "Initial level formation"
+        },
+        {
+          "pattern_id": "12612160",
+          "pattern_name": "Inter-level connections"
+        },
+        {
+          "pattern_id": "12612170",
+          "pattern_name": "Perimeter continuity"
+        },
+        {
+          "pattern_id": "12612180",
+          "pattern_name": "Distortion resistant boundaries"
+        },
+        {
+          "pattern_id": "12612190",
+          "pattern_name": "Level generation of minimum tension"
+        },
+        {
+          "pattern_id": "12612200",
+          "pattern_name": "Integration superstructure"
+        },
+        {
+          "pattern_id": "12612210",
+          "pattern_name": "Aperture compatibility"
+        },
+        {
+          "pattern_id": "12612220",
+          "pattern_name": "Ground-level visibility"
+        },
+        {
+          "pattern_id": "12612230",
+          "pattern_name": "Zones of intermediate insight"
+        },
+        {
+          "pattern_id": "12612240",
+          "pattern_name": "Emphasizing transitions across boundaries"
+        },
+        {
+          "pattern_id": "12612260",
+          "pattern_name": "Inter-level zone"
+        },
+        {
+          "pattern_id": "12612270",
+          "pattern_name": "Inter-level integrity"
+        },
+        {
+          "pattern_id": "12612320",
+          "pattern_name": "Symbolic connection to encompassing domains"
+        },
+        {
+          "pattern_id": "12612330",
+          "pattern_name": "Zoning internal domains"
+        },
+        {
+          "pattern_id": "12612340",
+          "pattern_name": "Maintainable, multi-element external boundaries"
+        },
+        {
+          "pattern_id": "12612350",
+          "pattern_name": "Unalienating internal boundaries"
+        },
+        {
+          "pattern_id": "12612360",
+          "pattern_name": "Displaceable frameworks"
+        },
+        {
+          "pattern_id": "12612370",
+          "pattern_name": "Connectedness in isolation"
+        },
+        {
+          "pattern_id": "12612380",
+          "pattern_name": "Filtered insights"
+        },
+        {
+          "pattern_id": "12612390",
+          "pattern_name": "Multi-faceted frameworks"
+        },
+        {
+          "pattern_id": "12612400",
+          "pattern_name": "Tolerance at level interfaces"
+        },
+        {
+          "pattern_id": "12612410",
+          "pattern_name": "Attractive temporary positions"
+        },
+        {
+          "pattern_id": "12612420",
+          "pattern_name": "Intermediate position"
+        },
+        {
+          "pattern_id": "12612430",
+          "pattern_name": "Ambiguous boundaries"
+        },
+        {
+          "pattern_id": "12612440",
+          "pattern_name": "Flexible interfaces"
+        },
+        {
+          "pattern_id": "12612450",
+          "pattern_name": "Protecting variability to enhance fixity"
+        },
+        {
+          "pattern_id": "12612460",
+          "pattern_name": "Integration within context"
+        },
+        {
+          "pattern_id": "12612470",
+          "pattern_name": "Embedding fixity within variability"
+        },
+        {
+          "pattern_id": "12612480",
+          "pattern_name": "Time binding"
+        },
+        {
+          "pattern_id": "12612490",
+          "pattern_name": "Symbols of integration"
+        },
+        {
+          "pattern_id": "12612500",
+          "pattern_name": "Encouraging emphases"
+        },
+        {
+          "pattern_id": "12612510",
+          "pattern_name": "Different settings"
+        },
+        {
+          "pattern_id": "12612520",
+          "pattern_name": "Domains of insight"
+        },
+        {
+          "pattern_id": "12612530",
+          "pattern_name": "Meaningful symbols of self-transformation"
+        }
+      ]
+    }
+  ]
+}

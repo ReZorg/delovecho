@@ -1,0 +1,72 @@
+version: "3.8"
+
+# Forgejo Docker Compose Template
+#
+# This template provides a production-ready setup for Forgejo using Docker Compose.
+# It includes Forgejo, a PostgreSQL database, and is configured with recommended
+# settings for performance and security.
+#
+# --- USAGE ---
+# 1. Create a .env file in this directory with:
+#    FORGEJO_DB_PASSWORD=generate_a_strong_password_here
+#
+# 2. Update the `ROOT_URL` environment variable below to your domain.
+#
+# 3. Run `docker-compose up -d` to start.
+
+networks:
+  forgejo:
+    name: forgejo
+    driver: bridge
+
+services:
+  server:
+    image: codeberg.org/forgejo/forgejo:13 # Use a specific version tag in production
+    container_name: forgejo-server
+    restart: always
+    environment:
+      # -- General Settings --
+      - USER_UID=1000
+      - USER_GID=1000
+      - TZ=Etc/UTC
+
+      # -- Database Settings (PostgreSQL) --
+      - FORGEJO__database__DB_TYPE=postgres
+      - FORGEJO__database__HOST=db:5432
+      - FORGEJO__database__NAME=forgejo
+      - FORGEJO__database__USER=forgejo
+      - FORGEJO__database__PASSWD=${FORGEJO_DB_PASSWORD}
+
+      # -- Production Recommendations --
+      - FORGEJO__server__ROOT_URL=https://git.example.com # IMPORTANT: Change this to your domain
+      - FORGEJO__server__DISABLE_SSH=false
+      - FORGEJO__server__SSH_PORT=222
+      - FORGEJO__service__ENABLE_CAPTCHA=true
+      - FORGEJO__security__LOGIN_REMEMBER_DAYS=365
+      - FORGEJO__repository.signing__DEFAULT_TRUST_MODEL=committer
+      - FORGEJO__cache__ADAPTER=twoqueue
+      - FORGEJO__cache__HOST={"size":100, "recent_ratio":0.25, "ghost_ratio":0.5}
+
+    networks:
+      - forgejo
+    volumes:
+      - ./data:/data
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3000:3000"
+      - "222:22"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:14
+    container_name: forgejo-db
+    restart: always
+    environment:
+      - POSTGRES_USER=forgejo
+      - POSTGRES_PASSWORD=${FORGEJO_DB_PASSWORD}
+      - POSTGRES_DB=forgejo
+    networks:
+      - forgejo
+    volumes:
+      - ./postgres:/var/lib/postgresql/data

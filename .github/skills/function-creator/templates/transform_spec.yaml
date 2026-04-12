@@ -1,0 +1,50 @@
+# Transform Specification Template
+# Use this to define how a skill template maps to a new domain.
+#
+# Usage:
+#   1. Run decompose_skill.py on the source skill to get template_manifest.yaml
+#   2. Copy this template and fill in your target domain values
+#   3. Run transform_skill.py with your manifest and this spec
+#
+# Example:
+#   python transform_skill.py template_manifest.yaml my_transform.yaml
+
+# Slot mappings — fill parameterized slots from the template manifest
+slot_mappings:
+  # New skill name (kebab-case)
+  name: "your-new-skill-name"
+
+  # New skill description (include what it does AND when to use it)
+  description: "Description of the new skill. Use when..."
+
+  # Target domain identifier
+  primary_domain: "your_domain"
+
+  # Domain-specific terms (list, replaces source domain terms)
+  # domain_terms:
+  #   - term1
+  #   - term2
+
+  # API references (list, replaces source API references)
+  # api_references:
+  #   - "https://api.example.com/v1"
+
+  # Data formats used
+  # data_formats:
+  #   - JSON
+  #   - CSV
+
+  # External services
+  # external_services:
+  #   - "Service Name"
+
+# Term mappings — explicit old→new term replacements
+# These are applied as text replacements across all skill files
+term_mappings:
+  # "source_term": "target_term"
+  # "Source Term": "Target Term"
+  # Note: include both cases if the term appears in different cases
+
+# File mappings — rename resource files
+# file_mappings:
+#   "old_filename": "new_filename"

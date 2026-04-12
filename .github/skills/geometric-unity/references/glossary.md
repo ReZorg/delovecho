@@ -1,0 +1,130 @@
+# Geometric Unity Glossary
+
+## Core Concepts
+
+### Observerse (U^14)
+The 14-dimensional space that serves as the arena for Geometric Unity. Defined as `U^14 = met(X^4)`, the space of all metrics on a 4-dimensional manifold X^4. The observerse combines the base spacetime (4 dimensions) with the fiber of possible metrics (10 dimensions for symmetric 2-tensors).
+
+### Chimeric Bundle
+A fiber bundle that combines properties of both intrinsic (Riemannian) and auxiliary (Ehresmann/gauge) geometry. The chimeric bundle allows treating gravity as a proper gauge theory by unifying the metric structure with gauge connections.
+
+### Shiab Operator (Ship in a Bottle)
+A family of operators that map ad-valued i-forms to ad-valued (d-3+i)-forms:
+```
+Shiab: Ω^i(ad) → Ω^{d-3+i}(ad)
+```
+In 4 dimensions, the Shiab operator takes ad-valued 2-forms (like curvature) to ad-valued 1-forms, analogous to extracting the Ricci tensor from the Riemann tensor.
+
+### Swervature
+The combination of the Shiab operator applied to curvature with the Hodge dual of augmented torsion:
+```
+Swervature = Shiab(F_∇) + ★(T_aug)
+```
+This is the central object in the GU field equations.
+
+### Inhomogeneous Gauge Group
+An extension of the standard gauge group that includes translations in addition to rotations. The inhomogeneous gauge group allows for "tilted" gauge transformations that depend on the metric.
+
+### Tilted Gauge Group
+A subgroup of the inhomogeneous gauge group where transformations depend on the metric. This allows the Einstein projection to transform covariantly under gauge transformations.
+
+## Mathematical Objects
+
+### Metric Tensor (g_μν)
+A symmetric 2-tensor that defines distances and angles on a manifold. In 4D, has 10 independent components.
+
+### Connection (Γ^ρ_μν)
+The Christoffel symbols or more general connection coefficients that define parallel transport. For a metric connection, related to derivatives of the metric.
+
+### Curvature Tensor (R^ρ_σμν)
+The Riemann curvature tensor measuring the failure of parallel transport to commute. Contains all information about spacetime curvature.
+
+### Torsion Tensor (T^ρ_μν)
+Measures the antisymmetric part of the connection. Zero for the Levi-Civita connection but can be non-zero in more general theories.
+
+### Field Strength (F_μν)
+The curvature of a gauge connection, generalizing the electromagnetic field tensor. For non-Abelian gauge theories, takes values in the Lie algebra.
+
+### Hodge Star (★)
+An operator that maps k-forms to (n-k)-forms using the metric. Essential for defining duality in differential forms.
+
+## Gauge Theory
+
+### Gauge Group
+The group of local symmetry transformations. Standard Model uses SU(3) × SU(2) × U(1).
+
+### Lie Algebra
+The infinitesimal version of a Lie group, consisting of generators and their commutation relations.
+
+### Adjoint Action
+The action of a group element g on a Lie algebra element X: Ad_g(X) = gXg^{-1}
+
+### Gauge Transformation
+A local symmetry transformation. For connections: A → h^{-1}Ah + h^{-1}dh
+
+### Gauge Covariance
+A quantity is gauge covariant if it transforms as F → h^{-1}Fh under gauge transformations.
+
+## Differential Geometry
+
+### Manifold
+A topological space that locally looks like Euclidean space. The base of GU is a 4-manifold X^4.
+
+### Fiber Bundle
+A space that locally looks like a product of a base space and a fiber. The observerse is a fiber bundle over X^4.
+
+### Section
+A map from the base space to the total space that picks out one point in each fiber. A metric section assigns a metric to each point of spacetime.
+
+### Projection
+A map from the total space to the base space. π: U^14 → X^4 projects the observerse to spacetime.
+
+### Differential Form
+An antisymmetric tensor that can be integrated over submanifolds. k-forms are integrated over k-dimensional surfaces.
+
+## GU-Specific Terms
+
+### Endogenous GU
+The version of GU where all structure emerges from the observerse itself, without external inputs.
+
+### Exogenous GU
+Versions of GU that include additional external structure.
+
+### The Trade
+The exchange of working in higher dimensions (the observerse) for gaining full gauge covariance of gravity.
+
+### Einstein Projection
+The map from the full curvature to the Einstein tensor. In standard GR, this doesn't transform covariantly under gauge.
+
+### Augmented Torsion
+Torsion plus additional correction terms from the connection and curvature.
+
+## Physical Predictions
+
+### Generation Structure
+GU predicts 16 fermions per generation (not 15 as in Standard Model), with 2 true generations and 1 "imposter."
+
+### Gauge Group Containment
+```
+SU(3) × SU(2) × U(1) ⊂ U(3) × U(2) ⊂ Spin(6) × Spin(4) ⊂ Spin(6,4)
+```
+
+### Emergent Chirality
+In GU, chirality (handedness) of fermions emerges from the geometric structure rather than being fundamental.
+
+## Related Mathematical Structures
+
+### Clifford Algebra
+Algebra generated by vectors with relation v² = g(v,v). Used to define spinors.
+
+### Spin Group
+The double cover of the rotation group. Spin(n) covers SO(n).
+
+### Spinor Bundle
+A fiber bundle whose fibers are spinor representations. Required for fermion fields.
+
+### Principal Bundle
+A fiber bundle with a group as fiber. Gauge theories are formulated on principal bundles.
+
+### Associated Bundle
+A bundle constructed from a principal bundle using a representation of the structure group.

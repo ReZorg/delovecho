@@ -1,0 +1,34 @@
+# .promise - Promise-Lambda Attention Configuration
+# This file defines the assertions (promises) that this repository must satisfy.
+# Place this file at the root of your repository.
+
+version: 1
+
+# Assertions are the core of the Promise-Lambda paradigm.
+# Each assertion is a constraint that the repository must satisfy.
+# The system will traverse the repository and filter for files that violate these assertions.
+
+assertions:
+  # Code Quality Assertions (applied to .py files)
+  - type: code_quality
+    rule: "all functions must have docstrings"
+    description: "Every function definition must be followed by a docstring."
+
+  # Security Assertions (applied to all files)
+  - type: security
+    rule: "no hardcoded secrets"
+    description: "Files must not contain hardcoded passwords, API keys, or tokens."
+
+  # Documentation Assertions (applied to the repository structure)
+  # - type: documentation
+  #   rule: "README.md must exist at root"
+  #   description: "The repository must have a README.md file at its root."
+
+# --- Custom Assertions ---
+# You can define custom assertions by adding new rules.
+# To implement a custom rule, add a corresponding lambda function to the
+# PROMISE_LAMBDAS dictionary in the `repo_analyzer.py` script.
+#
+# Example:
+# - type: custom
+#   rule: "all classes must have __init__ methods"

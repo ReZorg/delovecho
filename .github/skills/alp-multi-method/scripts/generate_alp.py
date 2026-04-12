@@ -1,0 +1,915 @@
+#!/usr/bin/env python3
+"""
+ALP XML Generator
+=================
+Generates valid AnyLogic .alp project files from a JSON model specification.
+
+Usage:
+    python generate_alp.py <spec.json> --output <output_dir>
+
+The spec.json must contain:
+{
+  "name": "Model Name",
+  "description": "Description of the model",
+  "package_name": "model_package",
+  "time_unit": "Minute",
+  "final_time": 100.0,
+  "paradigms": ["SD", "DES", "ABM"],
+  "variables": [
+    {"class": "StockVariable", "name": "Money", "initial_value": "1000", "x": 150, "y": 100},
+    {"class": "Flow", "name": "Expenses", "formula": "100", "source_name": "Money", "x": 150, "y": 100},
+    {"class": "AuxVariable", "name": "Rate", "formula": "sin(time())", "x": 300, "y": 100},
+    {"class": "PlainVariable", "name": "counter", "initial_value": "0", "type": "int", "x": 400, "y": 100},
+    {"class": "Parameter", "name": "param1", "default_value": "10", "type": "double", "x": 500, "y": 100}
+  ],
+  "flowchart_blocks": [
+    {"class": "Source", "name": "source", "params": {"rate": "1", "rate_unit": "PER_MINUTE"}, "x": 50, "y": 300},
+    {"class": "Queue", "name": "queue", "params": {"capacity": "100"}, "x": 150, "y": 300},
+    {"class": "Service", "name": "service", "params": {"delayTime": "triangular(1,3,5)"}, "x": 250, "y": 300},
+    {"class": "Sink", "name": "sink", "x": 350, "y": 300}
+  ],
+  "connections": [
+    {"from": "source", "to": "queue"},
+    {"from": "queue", "to": "service"},
+    {"from": "service", "to": "sink"}
+  ],
+  "statechart": {
+    "states": [
+      {"name": "Idle", "x": 500, "y": 100, "width": 100, "height": 30},
+      {"name": "Working", "x": 500, "y": 170, "width": 100, "height": 30}
+    ],
+    "transitions": [
+      {"name": "Start", "from": "Idle", "to": "Working", "trigger": "condition", "condition": "queue.size() > 0", "action": ""},
+      {"name": "Finish", "from": "Working", "to": "Idle", "trigger": "timeout", "timeout": "1", "timeout_unit": "MINUTE", "action": ""}
+    ]
+  },
+  "events": [
+    {"name": "myEvent", "trigger": "condition", "condition": "Money <= 0", "action": "traceln(\"triggered\");", "mode": "occuresOnce"}
+  ],
+  "functions": [
+    {"name": "myFunc", "return_type": "double", "body": "return 42;", "args": []}
+  ],
+  "agent_classes": [],
+  "libraries": ["processmodeling"]
+}
+"""
+
+import json
+import os
+import sys
+import time
+import hashlib
+
+
+def gen_id(seed_str=""):
+    """Generate a unique 13-digit ID similar to AnyLogic's timestamp-based IDs."""
+    base = int(time.time() * 1000) % 10000000000000
+    if seed_str:
+        h = int(hashlib.md5(seed_str.encode()).hexdigest()[:8], 16) % 1000000
+        base += h
+    return str(base)
+
+
+def cdata(text):
+    return f"<![CDATA[{text}]]>"
+
+
+class ALPGenerator:
+    def __init__(self, spec):
+        self.spec = spec
+        self.id_counter = int(time.time() * 1000) % 10000000000000
+        self.id_map = {}  # name -> id for cross-referencing
+
+    def next_id(self, name=None):
+        self.id_counter += 1
+        id_str = str(self.id_counter)
+        if name:
+            self.id_map[name] = id_str
+        return id_str
+
+    def get_id(self, name):
+        return self.id_map.get(name, self.next_id(name))
+
+    def generate(self):
+        """Generate the complete .alp XML string."""
+        model_id = self.next_id("_model")
+        main_class_id = self.next_id("_main_class")
+        connections_id = self.next_id("_connections")
+        scale_id = self.next_id("_scale")
+        generic_param_id = self.next_id("_generic_param")
+        level_id = self.next_id("_level")
+        experiment_id = self.next_id("_experiment")
+
+        name = self.spec.get("name", "GeneratedModel")
+        desc = self.spec.get("description", "")
+        pkg = self.spec.get("package_name", name.lower().replace(" ", "_").replace("-", "_"))
+        time_unit = self.spec.get("time_unit", "Minute")
+        final_time = self.spec.get("final_time", 100.0)
+        libraries = self.spec.get("libraries", [])
+
+        # Pre-generate IDs for all named elements
+        for v in self.spec.get("variables", []):
+            self.next_id(v["name"])
+        for b in self.spec.get("flowchart_blocks", []):
+            self.next_id(b["name"])
+        if self.spec.get("statechart"):
+            for s in self.spec["statechart"].get("states", []):
+                self.next_id(f"state_{s['name']}")
+            for t in self.spec["statechart"].get("transitions", []):
+                self.next_id(f"trans_{t['name']}")
+            self.next_id("_entrypoint")
+        for e in self.spec.get("events", []):
+            self.next_id(f"event_{e['name']}")
+        for f in self.spec.get("functions", []):
+            self.next_id(f"func_{f['name']}")
+
+        lines = []
+        lines.append('<?xml version="1.0" encoding="UTF-8"?>')
+        lines.append("<!--")
+        lines.append("*************************************************")
+        lines.append("         AnyLogic Project File")
+        lines.append("         Generated by alp-multi-method skill")
+        lines.append("*************************************************")
+        lines.append("-->")
+        lines.append(f'<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.6.0.202004061611" AlpVersion="8.5.7">')
+        lines.append("<Model>")
+        lines.append(f"\t<Id>{model_id}</Id>")
+        lines.append(f"\t<Name>{cdata(name)}</Name>")
+        lines.append(f"\t<Description>{cdata(desc)}</Description>")
+        lines.append(f"\t<EngineVersion>6</EngineVersion>")
+        lines.append(f"\t<JavaPackageName>{cdata(pkg)}</JavaPackageName>")
+        lines.append(f"\t<ModelTimeUnit>{cdata(time_unit)}</ModelTimeUnit>")
+
+        # ActiveObjectClasses
+        lines.append("\t<ActiveObjectClasses>")
+        lines.append("\t\t<!--   =========   Active Object Class   ========  -->")
+        lines.append("\t\t<ActiveObjectClass>")
+        lines.append(f"\t\t\t<Id>{main_class_id}</Id>")
+        lines.append(f"\t\t\t<Name>{cdata('Main')}</Name>")
+        lines.append(f"\t\t\t<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>")
+        lines.append(f"\t\t\t<Generic>false</Generic>")
+
+        # GenericParameter
+        lines.append(f"\t\t\t<GenericParameter>")
+        lines.append(f"\t\t\t\t<Id>{generic_param_id}</Id>")
+        lines.append(f"\t\t\t\t<Name>{cdata(generic_param_id)}</Name>")
+        lines.append(f'\t\t\t\t<GenericParameterValue Class="CodeValue">')
+        lines.append(f"\t\t\t\t\t<Code>{cdata('T')}</Code>")
+        lines.append(f"\t\t\t\t</GenericParameterValue>")
+        lines.append(f"\t\t\t\t<GenericParameterLabel>{cdata('Generic parameters:')}</GenericParameterLabel>")
+        lines.append(f"\t\t\t</GenericParameter>")
+
+        lines.append(f"\t\t\t<FlowChartsUsage>ENTITY</FlowChartsUsage>")
+        lines.append(f"\t\t\t<SamplesToKeep>100</SamplesToKeep>")
+        lines.append(f"\t\t\t<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>")
+        lines.append(f"\t\t\t<ElementsLimitValue>100</ElementsLimitValue>")
+        lines.append(f"\t\t\t<MakeDefaultViewArea>true</MakeDefaultViewArea>")
+        lines.append(f"\t\t\t<SceneGridColor/>")
+        lines.append(f"\t\t\t<SceneBackgroundColor/>")
+        lines.append(f"\t\t\t<SceneSkybox>null</SceneSkybox>")
+
+        # AgentProperties
+        lines.extend(self._agent_properties())
+
+        # EnvironmentProperties
+        lines.extend(self._environment_properties())
+
+        # DatasetsCreationProperties
+        lines.extend(self._dataset_properties())
+
+        # ScaleRuler
+        lines.extend(self._scale_ruler(scale_id))
+
+        lines.append(f"\t\t\t<CurrentLevel>{level_id}</CurrentLevel>")
+        lines.append(f"\t\t\t<ConnectionsId>{connections_id}</ConnectionsId>")
+
+        # Variables (SD elements)
+        if self.spec.get("variables"):
+            lines.append(f"\t\t\t<Variables>")
+            for v in self.spec["variables"]:
+                lines.extend(self._variable(v))
+            lines.append(f"\t\t\t</Variables>")
+
+        # Events
+        if self.spec.get("events"):
+            lines.append(f"\t\t\t<Events>")
+            for e in self.spec["events"]:
+                lines.extend(self._event(e))
+            lines.append(f"\t\t\t</Events>")
+
+        # Functions
+        if self.spec.get("functions"):
+            lines.append(f"\t\t\t<Functions>")
+            for f in self.spec["functions"]:
+                lines.extend(self._function(f))
+            lines.append(f"\t\t\t</Functions>")
+
+        # EmbeddedObjects (DES flowchart blocks)
+        if self.spec.get("flowchart_blocks"):
+            lines.append(f"\t\t\t<EmbeddedObjects>")
+            for b in self.spec["flowchart_blocks"]:
+                lines.extend(self._embedded_object(b, pkg))
+            lines.append(f"\t\t\t</EmbeddedObjects>")
+
+        # Connectors (connections between flowchart blocks)
+        if self.spec.get("connections"):
+            lines.append(f"\t\t\t<Connectors>")
+            for c in self.spec["connections"]:
+                lines.extend(self._connector(c, pkg))
+            lines.append(f"\t\t\t</Connectors>")
+
+        # StatechartElements
+        if self.spec.get("statechart"):
+            lines.append(f"\t\t\t<StatechartElements>")
+            lines.extend(self._statechart(self.spec["statechart"]))
+            lines.append(f"\t\t\t</StatechartElements>")
+
+        # Presentation (Level + title text)
+        lines.append(f"\t\t\t<Presentation>")
+        lines.append(f"\t\t\t\t<Level>")
+        lines.append(f"\t\t\t\t\t<Id>{level_id}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata('level')}</Name>")
+        lines.append(f"\t\t\t\t\t<X>0</X><Y>0</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>true</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>false</ShowLabel>")
+        lines.append(f"\t\t\t\t\t<DrawMode>SHAPE_DRAW_2D3D</DrawMode>")
+        lines.append(f"\t\t\t\t</Level>")
+        # Title text
+        title_id = self.next_id("_title_text")
+        lines.append(f"\t\t\t\t<Text>")
+        lines.append(f"\t\t\t\t\t<Id>{title_id}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata('titleText')}</Name>")
+        lines.append(f"\t\t\t\t\t<X>50</X><Y>30</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>true</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>false</ShowLabel>")
+        lines.append(f"\t\t\t\t\t<DrawMode>SHAPE_DRAW_2D</DrawMode>")
+        lines.append(f"\t\t\t\t\t<EmbeddedIcon>false</EmbeddedIcon>")
+        lines.append(f"\t\t\t\t\t<Z>0</Z>")
+        lines.append(f"\t\t\t\t\t<Rotation>0.0</Rotation>")
+        lines.append(f"\t\t\t\t\t<Color>-12490271</Color>")
+        lines.append(f"\t\t\t\t\t<Text>{cdata(name)}</Text>")
+        lines.append(f"\t\t\t\t\t<Font>")
+        lines.append(f"\t\t\t\t\t\t<Name>SansSerif</Name>")
+        lines.append(f"\t\t\t\t\t\t<Size>20</Size>")
+        lines.append(f"\t\t\t\t\t\t<Style>0</Style>")
+        lines.append(f"\t\t\t\t\t</Font>")
+        lines.append(f"\t\t\t\t\t<Alignment>LEFT</Alignment>")
+        lines.append(f"\t\t\t\t</Text>")
+        lines.append(f"\t\t\t</Presentation>")
+
+        lines.append(f"\t\t</ActiveObjectClass>")
+
+        # Additional agent classes
+        for ac in self.spec.get("agent_classes", []):
+            lines.extend(self._agent_class(ac))
+
+        lines.append(f"\t</ActiveObjectClasses>")
+
+        # RunConfiguration
+        lines.extend(self._run_configuration(main_class_id))
+
+        # Experiments
+        lines.extend(self._experiment(experiment_id, main_class_id, name, final_time))
+
+        # ModelResources
+        lines.append(f"\t<ModelResources>")
+        lines.append(f"\t</ModelResources>")
+
+        # RequiredLibraryReferences
+        if "processmodeling" in libraries or self.spec.get("flowchart_blocks"):
+            lines.append(f"\t<RequiredLibraryReference>")
+            lines.append(f"\t\t<LibraryName>{cdata('com.anylogic.libraries.processmodeling')}</LibraryName>")
+            lines.append(f"\t\t<VersionMajor>1</VersionMajor>")
+            lines.append(f"\t\t<VersionMinor>0</VersionMinor>")
+            lines.append(f"\t\t<VersionBuild>0</VersionBuild>")
+            lines.append(f"\t</RequiredLibraryReference>")
+
+        lines.append(f"\t<RequiredLibraryReference>")
+        lines.append(f"\t\t<LibraryName>{cdata('com.anylogic.libraries.modules.markup_descriptors')}</LibraryName>")
+        lines.append(f"\t\t<VersionMajor>1</VersionMajor>")
+        lines.append(f"\t\t<VersionMinor>0</VersionMinor>")
+        lines.append(f"\t\t<VersionBuild>0</VersionBuild>")
+        lines.append(f"\t</RequiredLibraryReference>")
+
+        lines.append(f"</Model>")
+        lines.append(f"</AnyLogicWorkspace>")
+
+        return "\n".join(lines)
+
+    def _agent_properties(self):
+        return [
+            "\t\t\t<AgentProperties>",
+            "\t\t\t\t<SpaceType>CONTINUOUS</SpaceType>",
+            "\t\t\t\t<EnvironmentDefinesInitialLocation>true</EnvironmentDefinesInitialLocation>",
+            "\t\t\t\t<RotateAnimationTowardsMovement>true</RotateAnimationTowardsMovement>",
+            "\t\t\t\t<RotateAnimationVertically>false</RotateAnimationVertically>",
+            '\t\t\t\t<VelocityCode Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('10')}</Code>",
+            f'\t\t\t\t\t<Unit Class="SpeedUnits">{cdata("MPS")}</Unit>',
+            "\t\t\t\t</VelocityCode>",
+            '\t\t\t\t<PhysicalLength Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('1')}</Code>",
+            f'\t\t\t\t\t<Unit Class="LengthUnits">{cdata("METER")}</Unit>',
+            "\t\t\t\t</PhysicalLength>",
+            '\t\t\t\t<PhysicalWidth Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('1')}</Code>",
+            f'\t\t\t\t\t<Unit Class="LengthUnits">{cdata("METER")}</Unit>',
+            "\t\t\t\t</PhysicalWidth>",
+            '\t\t\t\t<PhysicalHeight Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('1')}</Code>",
+            f'\t\t\t\t\t<Unit Class="LengthUnits">{cdata("METER")}</Unit>',
+            "\t\t\t\t</PhysicalHeight>",
+            "\t\t\t</AgentProperties>",
+        ]
+
+    def _environment_properties(self):
+        return [
+            "\t\t\t<EnvironmentProperties>",
+            "\t\t\t\t<EnableSteps>false</EnableSteps>",
+            '\t\t\t\t<StepDurationCode Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('1.0')}</Code>",
+            f'\t\t\t\t\t<Unit Class="TimeUnits">{cdata("MINUTE")}</Unit>',
+            "\t\t\t\t</StepDurationCode>",
+            "\t\t\t\t<SpaceType>CONTINUOUS</SpaceType>",
+            f"\t\t\t\t<WidthCode>{cdata('500')}</WidthCode>",
+            f"\t\t\t\t<HeightCode>{cdata('500')}</HeightCode>",
+            f"\t\t\t\t<ZHeightCode>{cdata('0')}</ZHeightCode>",
+            f"\t\t\t\t<ColumnsCountCode>{cdata('100')}</ColumnsCountCode>",
+            f"\t\t\t\t<RowsCountCode>{cdata('100')}</RowsCountCode>",
+            "\t\t\t\t<NeigborhoodType>MOORE</NeigborhoodType>",
+            "\t\t\t\t<LayoutType>USER_DEF</LayoutType>",
+            "\t\t\t\t<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>",
+            "\t\t\t\t<NetworkType>USER_DEF</NetworkType>",
+            "\t\t\t\t<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>",
+            f"\t\t\t\t<ConnectionsPerAgentCode>{cdata('2')}</ConnectionsPerAgentCode>",
+            f"\t\t\t\t<ConnectionsRangeCode>{cdata('50')}</ConnectionsRangeCode>",
+            f"\t\t\t\t<NeighborLinkFractionCode>{cdata('0.95')}</NeighborLinkFractionCode>",
+            f"\t\t\t\t<MCode>{cdata('10')}</MCode>",
+            "\t\t\t</EnvironmentProperties>",
+        ]
+
+    def _dataset_properties(self):
+        return [
+            "\t\t\t<DatasetsCreationProperties>",
+            "\t\t\t\t<AutoCreate>true</AutoCreate>",
+            "\t\t\t\t<OccurrenceAtTime>true</OccurrenceAtTime>",
+            "\t\t\t\t<OccurrenceDate>1537430400000</OccurrenceDate>",
+            '\t\t\t\t<OccurrenceTime Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('0')}</Code>",
+            f'\t\t\t\t\t<Unit Class="TimeUnits">{cdata("MINUTE")}</Unit>',
+            "\t\t\t\t</OccurrenceTime>",
+            '\t\t\t\t<RecurrenceCode Class="CodeUnitValue">',
+            f"\t\t\t\t\t<Code>{cdata('1')}</Code>",
+            f'\t\t\t\t\t<Unit Class="TimeUnits">{cdata("MINUTE")}</Unit>',
+            "\t\t\t\t</RecurrenceCode>",
+            "\t\t\t</DatasetsCreationProperties>",
+        ]
+
+    def _scale_ruler(self, scale_id):
+        return [
+            "\t\t\t<ScaleRuler>",
+            f"\t\t\t\t<Id>{scale_id}</Id>",
+            f"\t\t\t\t<Name>{cdata('scale')}</Name>",
+            "\t\t\t\t<X>0</X><Y>-150</Y>",
+            "\t\t\t\t<PublicFlag>false</PublicFlag>",
+            "\t\t\t\t<PresentationFlag>false</PresentationFlag>",
+            "\t\t\t\t<ShowLabel>false</ShowLabel>",
+            "\t\t\t\t<DrawMode>SHAPE_DRAW_2D3D</DrawMode>",
+            "\t\t\t\t<Length>100</Length>",
+            "\t\t\t\t<Rotation>0</Rotation>",
+            "\t\t\t\t<ScaleType>BASED_ON_LENGTH</ScaleType>",
+            "\t\t\t\t<ModelLength>10</ModelLength>",
+            "\t\t\t\t<LengthUnits>METER</LengthUnits>",
+            "\t\t\t\t<Scale>10</Scale>",
+            "\t\t\t\t<InheritedFromParentAgentType>true</InheritedFromParentAgentType>",
+            "\t\t\t</ScaleRuler>",
+        ]
+
+    def _variable(self, v):
+        """Generate XML for a Variable element (StockVariable, Flow, AuxVariable, PlainVariable, Parameter)."""
+        cls = v["class"]
+        vid = self.get_id(v["name"])
+        x = v.get("x", 150)
+        y = v.get("y", 100)
+        lines = []
+
+        lines.append(f'\t\t\t\t<Variable Class="{cls}">')
+        lines.append(f"\t\t\t\t\t<Id>{vid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata(v['name'])}</Name>")
+        lines.append(f"\t\t\t\t\t<X>{x}</X><Y>{y}</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>-20</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+
+        if cls == "StockVariable":
+            lines.append(f'\t\t\t\t\t<Properties Array="false">')
+            lines.append(f"\t\t\t\t\t\t<EquationStyle>classic</EquationStyle>")
+            lines.append(f"\t\t\t\t\t\t<Width>72</Width>")
+            lines.append(f"\t\t\t\t\t\t<Height>32</Height>")
+            lines.append(f"\t\t\t\t\t\t<InitialValue>{cdata(v.get('initial_value', '0'))}</InitialValue>")
+            lines.append(f"\t\t\t\t\t\t<Color/>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+
+        elif cls == "Flow":
+            source_name = v.get("source_name", "")
+            dest_name = v.get("dest_name", "")
+            source_id = self.get_id(source_name) if source_name else ""
+            dest_id = self.get_id(dest_name) if dest_name else ""
+            props_attrs = []
+            if source_id:
+                props_attrs.append(f'SourceId="{source_id}"')
+            if dest_id:
+                props_attrs.append(f'DestinationId="{dest_id}"')
+            props_attrs.append('External="false" Constant="false" Array="false"')
+            lines.append(f'\t\t\t\t\t<Properties {" ".join(props_attrs)}>')
+            lines.append(f"\t\t\t\t\t\t<Formula>{cdata(v.get('formula', '0'))}</Formula>")
+            lines.append(f"\t\t\t\t\t\t<Color/>")
+            lines.append(f"\t\t\t\t\t\t<ValveIndex>1</ValveIndex>")
+            lines.append(f"\t\t\t\t\t\t<Points>")
+            lines.append(f"\t\t\t\t\t\t\t<Point><X>0</X><Y>0</Y></Point>")
+            lines.append(f"\t\t\t\t\t\t\t<Point><X>100</X><Y>0</Y></Point>")
+            lines.append(f"\t\t\t\t\t\t\t<Point><X>150</X><Y>0</Y></Point>")
+            lines.append(f"\t\t\t\t\t\t</Points>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+
+        elif cls == "AuxVariable":
+            lines.append(f'\t\t\t\t\t<Properties External="false" Constant="false" Array="false">')
+            lines.append(f"\t\t\t\t\t\t<Formula>{cdata(v.get('formula', '0'))}</Formula>")
+            lines.append(f"\t\t\t\t\t\t<Color/>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+
+        elif cls == "PlainVariable":
+            var_type = v.get("type", "double")
+            lines.append(f'\t\t\t\t\t<Properties Type="{var_type}" Array="false">')
+            lines.append(f"\t\t\t\t\t\t<InitialValue>{cdata(v.get('initial_value', '0'))}</InitialValue>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+
+        elif cls == "Parameter":
+            var_type = v.get("type", "double")
+            lines.append(f'\t\t\t\t\t<Properties Type="{var_type}" Array="false">')
+            lines.append(f"\t\t\t\t\t\t<DefaultValue>{cdata(v.get('default_value', '0'))}</DefaultValue>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+
+        lines.append(f"\t\t\t\t</Variable>")
+        return lines
+
+    def _event(self, e):
+        """Generate XML for an Event element."""
+        eid = self.get_id(f"event_{e['name']}")
+        x = e.get("x", 450)
+        y = e.get("y", 100)
+        trigger = e.get("trigger", "condition")
+        mode = e.get("mode", "occuresOnce")
+        lines = []
+
+        lines.append(f"\t\t\t\t<Event>")
+        lines.append(f"\t\t\t\t\t<Id>{eid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata(e['name'])}</Name>")
+        lines.append(f"\t\t\t\t\t<X>{x}</X><Y>{y}</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+        lines.append(f'\t\t\t\t\t<Properties TriggerType="{trigger}" Mode="{mode}">')
+        lines.append(f'\t\t\t\t\t\t<Timeout Class="CodeUnitValue">')
+        timeout_val = e.get("timeout", "1")
+        timeout_unit = e.get("timeout_unit", "MINUTE")
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata(timeout_val)}</Code>")
+        lines.append(f'\t\t\t\t\t\t\t<Unit Class="TimeUnits">{cdata(timeout_unit)}</Unit>')
+        lines.append(f"\t\t\t\t\t\t</Timeout>")
+        rate_val = e.get("rate", "1")
+        rate_unit = e.get("rate_unit", "PER_MINUTE")
+        lines.append(f'\t\t\t\t\t\t<Rate Class="CodeUnitValue">')
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata(rate_val)}</Code>")
+        lines.append(f'\t\t\t\t\t\t\t<Unit Class="RateUnits">{cdata(rate_unit)}</Unit>')
+        lines.append(f"\t\t\t\t\t\t</Rate>")
+        lines.append(f"\t\t\t\t\t\t<OccurrenceAtTime>true</OccurrenceAtTime>")
+        lines.append(f"\t\t\t\t\t\t<OccurrenceDate>1348743962000</OccurrenceDate>")
+        lines.append(f'\t\t\t\t\t\t<OccurrenceTime Class="CodeUnitValue">')
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata('0')}</Code>")
+        lines.append(f'\t\t\t\t\t\t\t<Unit Class="TimeUnits">{cdata("MINUTE")}</Unit>')
+        lines.append(f"\t\t\t\t\t\t</OccurrenceTime>")
+        lines.append(f'\t\t\t\t\t\t<RecurrenceCode Class="CodeUnitValue">')
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata('1')}</Code>")
+        lines.append(f'\t\t\t\t\t\t\t<Unit Class="TimeUnits">{cdata("MINUTE")}</Unit>')
+        lines.append(f"\t\t\t\t\t\t</RecurrenceCode>")
+        if e.get("condition"):
+            lines.append(f"\t\t\t\t\t\t<Condition>{cdata(e['condition'])}</Condition>")
+        lines.append(f"\t\t\t\t\t</Properties>")
+        if e.get("action"):
+            lines.append(f"\t\t\t\t\t<Action>{cdata(e['action'])}</Action>")
+        lines.append(f"\t\t\t\t</Event>")
+        return lines
+
+    def _function(self, f):
+        """Generate XML for a Function element."""
+        fid = self.get_id(f"func_{f['name']}")
+        lines = []
+        lines.append(f"\t\t\t\t<Function>")
+        lines.append(f"\t\t\t\t\t<Id>{fid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata(f['name'])}</Name>")
+        lines.append(f"\t\t\t\t\t<X>{f.get('x', 50)}</X><Y>{f.get('y', 400)}</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+        ret_type = f.get("return_type", "void")
+        lines.append(f'\t\t\t\t\t<Properties ReturnType="{ret_type}">')
+        lines.append(f"\t\t\t\t\t\t<Body>{cdata(f.get('body', ''))}</Body>")
+        for arg in f.get("args", []):
+            lines.append(f"\t\t\t\t\t\t<Arg>")
+            lines.append(f"\t\t\t\t\t\t\t<Name>{cdata(arg.get('name', 'arg'))}</Name>")
+            lines.append(f"\t\t\t\t\t\t\t<Type>{cdata(arg.get('type', 'double'))}</Type>")
+            lines.append(f"\t\t\t\t\t\t</Arg>")
+        lines.append(f"\t\t\t\t\t</Properties>")
+        lines.append(f"\t\t\t\t</Function>")
+        return lines
+
+    def _embedded_object(self, b, pkg):
+        """Generate XML for an EmbeddedObject (flowchart block)."""
+        bid = self.get_id(b["name"])
+        cls = b["class"]
+        x = b.get("x", 100)
+        y = b.get("y", 300)
+        lines = []
+
+        lines.append(f"\t\t\t\t<EmbeddedObject>")
+        lines.append(f"\t\t\t\t\t<Id>{bid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata(b['name'])}</Name>")
+        lines.append(f"\t\t\t\t\t<X>{x}</X><Y>{y}</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>-5</X><Y>-20</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+        lines.append(f"\t\t\t\t\t<ActiveObjectClass>")
+        lines.append(f"\t\t\t\t\t\t<PackageName>{cdata('com.anylogic.libraries.processmodeling')}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t<ClassName>{cdata(cls)}</ClassName>")
+        lines.append(f"\t\t\t\t\t</ActiveObjectClass>")
+
+        # GenericParameterSubstitute
+        lines.append(f"\t\t\t\t\t<GenericParameterSubstitute>")
+        lines.append(f"\t\t\t\t\t\t<GenericParameterSubstituteReference>")
+        lines.append(f"\t\t\t\t\t\t\t<PackageName>{cdata('com.anylogic.libraries.processmodeling')}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t\t<ClassName>{cdata(cls)}</ClassName>")
+        lines.append(f"\t\t\t\t\t\t\t<ItemName>{cdata('1537373228962')}</ItemName>")
+        lines.append(f"\t\t\t\t\t\t</GenericParameterSubstituteReference>")
+        lines.append(f'\t\t\t\t\t\t<GenericParameterSubstituteValue Class="CodeValue">')
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata('Agent')}</Code>")
+        lines.append(f"\t\t\t\t\t\t</GenericParameterSubstituteValue>")
+        lines.append(f"\t\t\t\t\t</GenericParameterSubstitute>")
+
+        # Parameters
+        params = b.get("params", {})
+        if params:
+            lines.append(f"\t\t\t\t\t<Parameters>")
+            for pname, pval in params.items():
+                lines.append(f"\t\t\t\t\t\t<Parameter>")
+                lines.append(f"\t\t\t\t\t\t\t<Name>{cdata(pname)}</Name>")
+                if isinstance(pval, dict):
+                    # CodeUnitValue
+                    lines.append(f'\t\t\t\t\t\t\t<Value Class="CodeUnitValue">')
+                    lines.append(f"\t\t\t\t\t\t\t\t<Code>{cdata(pval.get('code', ''))}</Code>")
+                    lines.append(f'\t\t\t\t\t\t\t\t<Unit Class="{pval.get("unit_class", "TimeUnits")}">{cdata(pval.get("unit", "MINUTE"))}</Unit>')
+                    lines.append(f"\t\t\t\t\t\t\t</Value>")
+                elif pval:
+                    lines.append(f'\t\t\t\t\t\t\t<Value Class="CodeValue">')
+                    lines.append(f"\t\t\t\t\t\t\t\t<Code>{cdata(str(pval))}</Code>")
+                    lines.append(f"\t\t\t\t\t\t\t</Value>")
+                lines.append(f"\t\t\t\t\t\t</Parameter>")
+            lines.append(f"\t\t\t\t\t</Parameters>")
+
+        lines.append(f"\t\t\t\t\t<ReplicationFlag>false</ReplicationFlag>")
+        lines.append(f'\t\t\t\t\t<Replication Class="CodeValue">')
+        lines.append(f"\t\t\t\t\t\t<Code>{cdata('100')}</Code>")
+        lines.append(f"\t\t\t\t\t</Replication>")
+        lines.append(f"\t\t\t\t\t<CollectionType>ARRAY_LIST_BASED</CollectionType>")
+        lines.append(f'\t\t\t\t\t<InitialSpeedCode Class="CodeUnitValue">')
+        lines.append(f"\t\t\t\t\t\t<Code>{cdata('10')}</Code>")
+        lines.append(f'\t\t\t\t\t\t<Unit Class="SpeedUnits">{cdata("MPS")}</Unit>')
+        lines.append(f"\t\t\t\t\t</InitialSpeedCode>")
+        lines.append(f"\t\t\t\t\t<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>")
+        lines.append(f'\t\t\t\t\t<XCode Class="CodeValue"><Code>{cdata("0")}</Code></XCode>')
+        lines.append(f'\t\t\t\t\t<YCode Class="CodeValue"><Code>{cdata("0")}</Code></YCode>')
+        lines.append(f'\t\t\t\t\t<ZCode Class="CodeValue"><Code>{cdata("0")}</Code></ZCode>')
+        lines.append(f'\t\t\t\t\t<ColumnCode Class="CodeValue"><Code>{cdata("0")}</Code></ColumnCode>')
+        lines.append(f'\t\t\t\t\t<RowCode Class="CodeValue"><Code>{cdata("0")}</Code></RowCode>')
+        lines.append(f'\t\t\t\t\t<LatitudeCode Class="CodeValue"><Code>{cdata("0")}</Code></LatitudeCode>')
+        lines.append(f'\t\t\t\t\t<LongitudeCode Class="CodeValue"><Code>{cdata("0")}</Code></LongitudeCode>')
+        lines.append(f'\t\t\t\t\t<LocationNameCode Class="CodeValue"><Code>{cdata("")}</Code></LocationNameCode>')
+        lines.append(f"\t\t\t\t\t<InitializationType>SPECIFIED_NUMBER</InitializationType>")
+        lines.append(f"\t\t\t\t\t<InitializationDatabaseTableQuery>")
+        lines.append(f"\t\t\t\t\t\t<TableReference/>")
+        lines.append(f"\t\t\t\t\t</InitializationDatabaseTableQuery>")
+        lines.append(f"\t\t\t\t\t<InitializationDatabaseType>ONE_AGENT_PER_DATABASE_RECORD</InitializationDatabaseType>")
+        lines.append(f"\t\t\t\t\t<QuantityColumn/>")
+        lines.append(f"\t\t\t\t</EmbeddedObject>")
+        return lines
+
+    def _connector(self, c, pkg):
+        """Generate XML for a Connector between flowchart blocks."""
+        cid = self.next_id(f"conn_{c['from']}_{c['to']}")
+        from_name = c["from"]
+        to_name = c["to"]
+
+        # Determine block classes from spec
+        from_cls = "Source"
+        to_cls = "Sink"
+        for b in self.spec.get("flowchart_blocks", []):
+            if b["name"] == from_name:
+                from_cls = b["class"]
+            if b["name"] == to_name:
+                to_cls = b["class"]
+
+        from_port = c.get("from_port", "out")
+        to_port = c.get("to_port", "in")
+
+        lines = []
+        lines.append(f"\t\t\t\t<Connector>")
+        lines.append(f"\t\t\t\t\t<Id>{cid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata('connector')}</Name>")
+        lines.append(f"\t\t\t\t\t<X>0</X><Y>0</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>false</ShowLabel>")
+
+        lines.append(f"\t\t\t\t\t<SourceEmbeddedObjectReference>")
+        lines.append(f"\t\t\t\t\t\t<PackageName>{cdata(pkg)}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t<ClassName>{cdata('Main')}</ClassName>")
+        lines.append(f"\t\t\t\t\t\t<ItemName>{cdata(from_name)}</ItemName>")
+        lines.append(f"\t\t\t\t\t</SourceEmbeddedObjectReference>")
+        lines.append(f"\t\t\t\t\t<SourceConnectableItemReference>")
+        lines.append(f"\t\t\t\t\t\t<PackageName>{cdata('com.anylogic.libraries.processmodeling')}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t<ClassName>{cdata(from_cls)}</ClassName>")
+        lines.append(f"\t\t\t\t\t\t<ItemName>{cdata(from_port)}</ItemName>")
+        lines.append(f"\t\t\t\t\t</SourceConnectableItemReference>")
+
+        lines.append(f"\t\t\t\t\t<TargetEmbeddedObjectReference>")
+        lines.append(f"\t\t\t\t\t\t<PackageName>{cdata(pkg)}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t<ClassName>{cdata('Main')}</ClassName>")
+        lines.append(f"\t\t\t\t\t\t<ItemName>{cdata(to_name)}</ItemName>")
+        lines.append(f"\t\t\t\t\t</TargetEmbeddedObjectReference>")
+        lines.append(f"\t\t\t\t\t<TargetConnectableItemReference>")
+        lines.append(f"\t\t\t\t\t\t<PackageName>{cdata('com.anylogic.libraries.processmodeling')}</PackageName>")
+        lines.append(f"\t\t\t\t\t\t<ClassName>{cdata(to_cls)}</ClassName>")
+        lines.append(f"\t\t\t\t\t\t<ItemName>{cdata(to_port)}</ItemName>")
+        lines.append(f"\t\t\t\t\t</TargetConnectableItemReference>")
+
+        lines.append(f"\t\t\t\t\t<Points>")
+        lines.append(f"\t\t\t\t\t\t<Point><X>0</X><Y>0</Y></Point>")
+        lines.append(f"\t\t\t\t\t\t<Point><X>70</X><Y>0</Y></Point>")
+        lines.append(f"\t\t\t\t\t</Points>")
+        lines.append(f"\t\t\t\t</Connector>")
+        return lines
+
+    def _statechart(self, sc):
+        """Generate XML for StatechartElements."""
+        lines = []
+
+        # Entry point
+        ep_id = self.get_id("_entrypoint")
+        first_state = sc["states"][0]["name"] if sc.get("states") else ""
+        first_state_id = self.get_id(f"state_{first_state}") if first_state else ""
+
+        lines.append(f'\t\t\t\t<StatechartElement Class="EntryPoint" ParentState="ROOT_NODE">')
+        lines.append(f"\t\t\t\t\t<Id>{ep_id}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata('statechart')}</Name>")
+        lines.append(f"\t\t\t\t\t<X>{sc['states'][0].get('x', 500) - 30}</X><Y>{sc['states'][0].get('y', 100) - 30}</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+        lines.append(f"\t\t\t\t\t<Points>")
+        lines.append(f"\t\t\t\t\t\t<Point><X>0</X><Y>0</Y></Point>")
+        lines.append(f"\t\t\t\t\t\t<Point><X>30</X><Y>30</Y></Point>")
+        lines.append(f"\t\t\t\t\t</Points>")
+        lines.append(f"\t\t\t\t\t<IconOffset>14.0</IconOffset>")
+        lines.append(f'\t\t\t\t\t<Properties Target="{first_state_id}" Trigger="timeout">')
+        lines.append(f'\t\t\t\t\t\t<Timeout Class="CodeUnitValue">')
+        lines.append(f"\t\t\t\t\t\t\t<Code>{cdata('0')}</Code>")
+        lines.append(f'\t\t\t\t\t\t\t<Unit Class="TimeUnits">{cdata("SECOND")}</Unit>')
+        lines.append(f"\t\t\t\t\t\t</Timeout>")
+        lines.append(f"\t\t\t\t\t</Properties>")
+        lines.append(f"\t\t\t\t</StatechartElement>")
+
+        # States
+        for s in sc.get("states", []):
+            sid = self.get_id(f"state_{s['name']}")
+            lines.append(f'\t\t\t\t<StatechartElement Class="State" ParentState="ROOT_NODE">')
+            lines.append(f"\t\t\t\t\t<Id>{sid}</Id>")
+            lines.append(f"\t\t\t\t\t<Name>{cdata(s['name'])}</Name>")
+            lines.append(f"\t\t\t\t\t<X>{s.get('x', 500)}</X><Y>{s.get('y', 100)}</Y>")
+            lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>10</Y></Label>")
+            lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+            lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+            lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+            w = s.get("width", 100)
+            h = s.get("height", 30)
+            lines.append(f'\t\t\t\t\t<Properties Width="{w}" Height="{h}">')
+            lines.append(f"\t\t\t\t\t\t<FillColor/>")
+            if s.get("entry_action"):
+                lines.append(f"\t\t\t\t\t\t<EntryAction>{cdata(s['entry_action'])}</EntryAction>")
+            if s.get("exit_action"):
+                lines.append(f"\t\t\t\t\t\t<ExitAction>{cdata(s['exit_action'])}</ExitAction>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+            lines.append(f"\t\t\t\t</StatechartElement>")
+
+        # Transitions
+        for t in sc.get("transitions", []):
+            tid = self.get_id(f"trans_{t['name']}")
+            from_id = self.get_id(f"state_{t['from']}")
+            to_id = self.get_id(f"state_{t['to']}")
+            trigger = t.get("trigger", "condition")
+
+            lines.append(f'\t\t\t\t<StatechartElement Class="Transition" ParentState="ROOT_NODE">')
+            lines.append(f"\t\t\t\t\t<Id>{tid}</Id>")
+            lines.append(f"\t\t\t\t\t<Name>{cdata(t['name'])}</Name>")
+            lines.append(f"\t\t\t\t\t<X>{t.get('x', 530)}</X><Y>{t.get('y', 130)}</Y>")
+            lines.append(f"\t\t\t\t\t<Label><X>-35</X><Y>15</Y></Label>")
+            lines.append(f"\t\t\t\t\t<PublicFlag>false</PublicFlag>")
+            lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+            lines.append(f"\t\t\t\t\t<ShowLabel>true</ShowLabel>")
+            lines.append(f"\t\t\t\t\t<Points>")
+            lines.append(f"\t\t\t\t\t\t<Point><X>0</X><Y>0</Y></Point>")
+            lines.append(f"\t\t\t\t\t\t<Point><X>0</X><Y>40</Y></Point>")
+            lines.append(f"\t\t\t\t\t</Points>")
+            lines.append(f"\t\t\t\t\t<IconOffset>14.0</IconOffset>")
+            lines.append(f'\t\t\t\t\t<Properties Source="{from_id}" Target="{to_id}" Trigger="{trigger}">')
+            if t.get("action"):
+                lines.append(f"\t\t\t\t\t\t<Action>{cdata(t['action'])}</Action>")
+            lines.append(f'\t\t\t\t\t\t<Timeout Class="CodeUnitValue">')
+            lines.append(f"\t\t\t\t\t\t\t<Code>{cdata(t.get('timeout', '1'))}</Code>")
+            lines.append(f'\t\t\t\t\t\t\t<Unit Class="TimeUnits">{cdata(t.get("timeout_unit", "MINUTE"))}</Unit>')
+            lines.append(f"\t\t\t\t\t\t</Timeout>")
+            if t.get("condition"):
+                lines.append(f"\t\t\t\t\t\t<Condition>{cdata(t['condition'])}</Condition>")
+            lines.append(f'\t\t\t\t\t\t<Rate Class="CodeUnitValue">')
+            lines.append(f"\t\t\t\t\t\t\t<Code>{cdata(t.get('rate', '1'))}</Code>")
+            lines.append(f'\t\t\t\t\t\t\t<Unit Class="RateUnits">{cdata(t.get("rate_unit", "PER_MINUTE"))}</Unit>')
+            lines.append(f"\t\t\t\t\t\t</Rate>")
+            lines.append(f"\t\t\t\t\t\t<MessageType>{cdata('Object')}</MessageType>")
+            lines.append(f"\t\t\t\t\t\t<DefaultTransition>true</DefaultTransition>")
+            lines.append(f"\t\t\t\t\t\t<FilterType>{cdata('unconditionally')}</FilterType>")
+            lines.append(f"\t\t\t\t\t</Properties>")
+            lines.append(f"\t\t\t\t</StatechartElement>")
+
+        return lines
+
+    def _agent_class(self, ac):
+        """Generate XML for an additional ActiveObjectClass (agent type)."""
+        acid = self.next_id(f"agent_{ac['name']}")
+        lines = []
+        lines.append(f"\t\t<!--   =========   Active Object Class: {ac['name']}   ========  -->")
+        lines.append(f"\t\t<ActiveObjectClass>")
+        lines.append(f"\t\t\t<Id>{acid}</Id>")
+        lines.append(f"\t\t\t<Name>{cdata(ac['name'])}</Name>")
+        lines.append(f"\t\t\t<ClientAreaTopLeft><X>0</X><Y>0</Y></ClientAreaTopLeft>")
+        lines.append(f"\t\t\t<Generic>false</Generic>")
+        # Minimal agent class structure
+        lines.append(f"\t\t\t<FlowChartsUsage>ENTITY</FlowChartsUsage>")
+        lines.append(f"\t\t\t<SamplesToKeep>100</SamplesToKeep>")
+        lines.append(f"\t\t\t<LimitNumberOfArrayElements>false</LimitNumberOfArrayElements>")
+        lines.append(f"\t\t\t<ElementsLimitValue>100</ElementsLimitValue>")
+        lines.append(f"\t\t\t<MakeDefaultViewArea>true</MakeDefaultViewArea>")
+        lines.append(f"\t\t\t<SceneGridColor/>")
+        lines.append(f"\t\t\t<SceneBackgroundColor/>")
+        lines.append(f"\t\t\t<SceneSkybox>null</SceneSkybox>")
+
+        # Variables for this agent
+        if ac.get("variables"):
+            lines.append(f"\t\t\t<Variables>")
+            for v in ac["variables"]:
+                # Reuse the variable generator with adjusted indentation
+                for line in self._variable(v):
+                    lines.append(line.replace("\t\t\t\t", "\t\t\t", 1))
+            lines.append(f"\t\t\t</Variables>")
+
+        # Statechart for this agent
+        if ac.get("statechart"):
+            lines.append(f"\t\t\t<StatechartElements>")
+            for line in self._statechart(ac["statechart"]):
+                lines.append(line.replace("\t\t\t\t", "\t\t\t", 1))
+            lines.append(f"\t\t\t</StatechartElements>")
+
+        lines.append(f"\t\t\t<Presentation>")
+        lid = self.next_id(f"level_{ac['name']}")
+        lines.append(f"\t\t\t\t<Level>")
+        lines.append(f"\t\t\t\t\t<Id>{lid}</Id>")
+        lines.append(f"\t\t\t\t\t<Name>{cdata('level')}</Name>")
+        lines.append(f"\t\t\t\t\t<X>0</X><Y>0</Y>")
+        lines.append(f"\t\t\t\t\t<Label><X>10</X><Y>0</Y></Label>")
+        lines.append(f"\t\t\t\t\t<PublicFlag>true</PublicFlag>")
+        lines.append(f"\t\t\t\t\t<PresentationFlag>true</PresentationFlag>")
+        lines.append(f"\t\t\t\t\t<ShowLabel>false</ShowLabel>")
+        lines.append(f"\t\t\t\t\t<DrawMode>SHAPE_DRAW_2D3D</DrawMode>")
+        lines.append(f"\t\t\t\t</Level>")
+        lines.append(f"\t\t\t</Presentation>")
+        lines.append(f"\t\t</ActiveObjectClass>")
+        return lines
+
+    def _run_configuration(self, main_class_id):
+        rc_id = self.next_id("_run_config")
+        return [
+            f'\t<RunConfiguration ActiveObjectClassId="{main_class_id}">',
+            f"\t\t<Id>{rc_id}</Id>",
+            f"\t\t<Name>{cdata('RunConfiguration')}</Name>",
+            f"\t\t<MaximumMemory>512</MaximumMemory>",
+            f"\t\t<ModelTimeProperties>",
+            f"\t\t\t<StopOption>{cdata('Stop at specified time')}</StopOption>",
+            f"\t\t\t<InitialDate>{cdata('1350406956713')}</InitialDate>",
+            f"\t\t\t<InitialTime>{cdata('0.0')}</InitialTime>",
+            f"\t\t\t<FinalDate>{cdata('1350412956713')}</FinalDate>",
+            f"\t\t\t<FinalTime>{cdata(str(self.spec.get('final_time', 100.0)))}</FinalTime>",
+            f"\t\t</ModelTimeProperties>",
+            f"\t\t<AnimationProperties>",
+            f"\t\t\t<EnableZoomAndPanning>true</EnableZoomAndPanning>",
+            f"\t\t\t<EnableDeveloperPanel>true</EnableDeveloperPanel>",
+            f"\t\t\t<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>",
+            f"\t\t\t<ExecutionMode>{cdata('realTimeScaled')}</ExecutionMode>",
+            f"\t\t\t<RealTimeScale>1.0</RealTimeScale>",
+            f"\t\t\t<StopNever>false</StopNever>",
+            f"\t\t</AnimationProperties>",
+            f"\t\t<Inputs/>",
+            f"\t\t<Outputs/>",
+            f"\t</RunConfiguration>",
+        ]
+
+    def _experiment(self, exp_id, main_class_id, name, final_time):
+        return [
+            f"\t<Experiments>",
+            f'\t\t<SimulationExperiment ActiveObjectClassId="{main_class_id}">',
+            f"\t\t\t<Id>{exp_id}</Id>",
+            f"\t\t\t<Name>{cdata('Simulation')}</Name>",
+            f"\t\t\t<CommandLineArguments>{cdata('')}</CommandLineArguments>",
+            f"\t\t\t<MaximumMemory>512</MaximumMemory>",
+            f"\t\t\t<RandomNumberGenerationType>fixedSeed</RandomNumberGenerationType>",
+            f"\t\t\t<SeedValue>1</SeedValue>",
+            f"\t\t\t<SelectionModeForSimultaneousEvents>LIFO</SelectionModeForSimultaneousEvents>",
+            f"\t\t\t<VmArgs>{cdata('')}</VmArgs>",
+            f"\t\t\t<LoadRootFromSnapshot>false</LoadRootFromSnapshot>",
+            f"\t\t\t<CustomGeneratorCode>{cdata('')}</CustomGeneratorCode>",
+            f"\t\t\t<Presentation>",
+            f"\t\t\t</Presentation>",
+            f"\t\t\t<Parameters>",
+            f"\t\t\t</Parameters>",
+            f"\t\t\t<PresentationProperties>",
+            f"\t\t\t\t<EnableZoomAndPanning>true</EnableZoomAndPanning>",
+            f"\t\t\t\t<ExecutionMode>{cdata('realTimeScaled')}</ExecutionMode>",
+            f"\t\t\t\t<Title>{cdata(f'{name} : Simulation')}</Title>",
+            f"\t\t\t\t<EnableDeveloperPanel>true</EnableDeveloperPanel>",
+            f"\t\t\t\t<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>",
+            f"\t\t\t\t<RealTimeScale>1.0</RealTimeScale>",
+            f"\t\t\t</PresentationProperties>",
+            f"\t\t\t<ModelTimeProperties>",
+            f"\t\t\t\t<StopOption>{cdata('Stop at specified time')}</StopOption>",
+            f"\t\t\t\t<InitialDate>{cdata('1350406956713')}</InitialDate>",
+            f"\t\t\t\t<InitialTime>{cdata('0.0')}</InitialTime>",
+            f"\t\t\t\t<FinalDate>{cdata('1350412956713')}</FinalDate>",
+            f"\t\t\t\t<FinalTime>{cdata(str(final_time))}</FinalTime>",
+            f"\t\t\t</ModelTimeProperties>",
+            f"\t\t\t<BypassInitialScreen>false</BypassInitialScreen>",
+            f"\t\t</SimulationExperiment>",
+            f"\t</Experiments>",
+        ]
+
+
+def main():
+    import argparse
+    parser = argparse.ArgumentParser(description="Generate AnyLogic .alp project files from JSON spec")
+    parser.add_argument("spec", help="Path to JSON model specification file")
+    parser.add_argument("--output", "-o", default=".", help="Output directory")
+    args = parser.parse_args()
+
+    with open(args.spec) as f:
+        spec = json.load(f)
+
+    os.makedirs(args.output, exist_ok=True)
+
+    gen = ALPGenerator(spec)
+    xml_content = gen.generate()
+
+    name = spec.get("name", "GeneratedModel")
+    safe_name = name.replace(" ", "_").replace("-", "_")
+    output_path = os.path.join(args.output, f"{name}.alp")
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(xml_content)
+
+    print(f"Generated: {output_path}")
+    print(f"  Variables: {len(spec.get('variables', []))}")
+    print(f"  Flowchart blocks: {len(spec.get('flowchart_blocks', []))}")
+    print(f"  Connections: {len(spec.get('connections', []))}")
+    print(f"  Statechart states: {len(spec.get('statechart', {}).get('states', []))}")
+    print(f"  Statechart transitions: {len(spec.get('statechart', {}).get('transitions', []))}")
+    print(f"  Events: {len(spec.get('events', []))}")
+    print(f"  Functions: {len(spec.get('functions', []))}")
+    print(f"  Agent classes: {len(spec.get('agent_classes', []))}")
+
+
+if __name__ == "__main__":
+    main()

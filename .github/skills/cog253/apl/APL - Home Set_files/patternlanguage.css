@@ -1,0 +1,11 @@
+.patternlanguage {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px}
+.bold {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; font-weight: bold}
+.header1 { font-family: Georgia, "Times New Roman", Times, serif; font-size: 14px; font-weight: bold }
+.header2 { font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; font-weight: bold }
+.white {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; color: #FFFFFF}
+.bolditalic {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; font-style: italic; font-weight: bold}
+.italic {  font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; font-style: italic}
+.red {  font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #FF8811}
+.red {  }
+.BODY {SCROLLBAR-FACE-COLOR: #333333; SCROLLBAR-HIGHLIGHT-COLOR: #333333; SCROLLBAR-SHADOW-COLOR: #999999; SCROLLBAR-3DLIGHT-COLOR: #999999; SCROLLBAR-ARROW-COLOR:  #000000; SCROLLBAR-TRACK-COLOR: #FFFFFF; SCROLLBAR-DARKSHADOW-COLOR: #666666; }
+

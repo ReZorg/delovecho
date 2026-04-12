@@ -1,0 +1,29 @@
+![](./APL - Home Main_files/apl.gif) | ![](./APL - Home Main_files/105sm.jpg) | ![](./APL - Home Main_files/shim.gif)  
+---|---  
+"People say, A Pattern Language changes their lives, by which I think they mean it changes the way they physically organize their lives... What Alexander and his co-authors set out to do was collect and organize the elements that make buildings loved, that make buildings 'live'. Freed from modernity, they teased out the deep-dwelling 'pattern language' that people understand buildings with... Every year some 10,000 copies of this $50 biblical tome are bought, and the number increases yearly."
+-Stewart Brand editor, Whole Earth Catalog
+[A Pattern Language](http://www.amazon.com/exec/obidos/ASIN/0195019199/qid=1013371542/sr=8-1/ref=sr_8_3_1/103-3258309-9162211) is a philosophy of the human use of space and an analysis of what makes humans comfortable in the space they inhabit - city streets, public areas or private rooms. 
+Each pattern starts out with a design challenge, such as: 
+[3 City Country Fingers**](http://www.iwritewordsgood.com/apl/patterns/apl003.htm) "Continuous sprawling urbanization destroys life, and makes cities unbearable. But the sheer size of cities is also valuable and potent." 
+[132 Short Passages*](http://www.iwritewordsgood.com/apl/patterns/apl132.htm) ". . . long, sterile corridors set the scene for everything bad about modern architecture." 
+[134 Zen View*](http://www.iwritewordsgood.com/apl/patterns/apl134.htm) "...If there is a beautiful view, don't spoil it by building huge windows that gape incessantly at it."
+The patterns explore the problem in depth and then state a solution, linking to preceding and concluding patterns that relate to the subject at hand. 
+You and your neighbors can use it as a tool to improve your neighborhood, an individual can use it to design a home or office, and it can also function as a guide in the process of construction. 
+Reading A Pattern Language changed the way I look at the world. It's the one book I won't loan to friends, but creating a website made sharing easy. Its linked hierarchy of patterns made it perfect for linking, and clicking from pattern to pattern is more efficient than flipping pages. The web also allowed me to index its 1100 pages. Copyright issues are a concern, so the site is obscured from search engines and shared only with friends and as part of my portfolio. 
+How to use the book:
+Each page has...
+![](./APL - Home Main_files/screenshot.gif)  
+1\. An introductory paragraph linking a pattern to the patterns that preceded it.  
+2\. A summary of the problem in bold.  
+3\. The problem's details, background and manifestations.  
+4\. The solution, in bold.  
+5\. A diagram of the solution.  
+6\. A paragraph linking the smaller patterns which are needed to complete or embellish this pattern.   
+7\. A button to bookmark the page in Internet Explorer, and a reminder for Netscape users.  
+Choosing a language:  
+1\. Find the pattern that best describes your project and bookmark it.  
+2\. Read the smaller patterns at the end of the first pattern and if they apply to your project, bookmark them. Ignore the preceding patterns unless you have the power to create them.   
+3\. Turn to the next highest pattern in the smaller patterns list that applies, and explore it if it seems relevant.   
+4\. Proceed in this fashion, bookmarking patterns, until you've fleshed out the details for your project. You can adjust the sequence by adding your own material where you haven't found a corresponding pattern and change patterns where you have a truer or more relevant version. Finally, compress the patterns together as densely as possible.  Pattern Hierarchies  
+Asterisks indicate the amount of confirming evidence for each pattern.  
+[](http://www.iwritewordsgood.com/apl/hierarchies2.htm)[Patterns with two asterisks](http://www.iwritewordsgood.com/apl/hierarchies2.htm) True invarients. The authors believe it is impossible to solve the problem without shaping the environment according to the pattern given. In these cases the pattern describes a deep, inescapable property of a well-formed environment.  [](http://www.iwritewordsgood.com/apl/hierarchies1.htm)[Patterns with one asterisk](http://www.iwritewordsgood.com/apl/hierarchies1.htm) The authors believe they have made progress toward identifying an invariant, but improvement on the solution is possible. In these cases they believe it would be wise to treat the pattern with some disrespect and seek out variants, since there are probably ranges of solutions which are not covered by what has been written. [Patterns without asterisks](http://www.iwritewordsgood.com/apl/hierarchies0.htm) The authors are certain that they have not succeeded in defining a true invariant - and on the contrary there are certainly different ways of solving the problem. In these cases they have still stated a solution to provide the reader with at least one way of solving the problem - but finding the true invariant which lies at the heart of all possible solutions to this problem remains undone.  To fully understand the book, read [A Pattern Language](http://www.amazon.com/exec/obidos/ASIN/0195019199/qid=1013371542/sr=8-1/ref=sr_8_3_1/103-3258309-9162211) and its companion volumes, [The Timeless Way of Building](http://www.amazon.com/exec/obidos/ASIN/0195024028/qid=1013424210/sr=8-1/ref=sr_8_3_1/103-3258309-9162211) and [The Oregon Experiment](http://www.amazon.com/exec/obidos/ASIN/0195018249/qid=1013424253/sr=2-3/ref=sr_2_3/103-3258309-9162211). [A Pattern Language : Towns, Buildings, Construction](http://www.amazon.com/exec/obidos/ASIN/0195019199/qid=1013371542/sr=8-1/ref=sr_8_3_1/103-3258309-9162211) by Christopher Alexander, Sara Ishikawa, Murray Silverstein with Max Jacobson, Ingrid Fiksdahl-King, Shlomo Angel. New York, NY: Oxford University Press 1977.

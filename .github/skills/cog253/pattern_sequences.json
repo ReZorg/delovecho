@@ -1,0 +1,588 @@
+{
+  "sequences": [
+    {
+      "id": 1,
+      "heading": "Regions instead of countries",
+      "description": "Sequence 1 focuses on regions instead of countries",
+      "category": "Towns",
+      "patterns": [
+        1
+      ],
+      "emergent_phenomena": "Autonomous regions that can govern themselves and maintain their unique cultural identity"
+    },
+    {
+      "id": 2,
+      "heading": "Regional policies",
+      "description": "Sequence 2 focuses on regional policies",
+      "category": "Towns",
+      "patterns": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "emergent_phenomena": "Balanced distribution of settlements that preserves countryside while supporting urban vitality"
+    },
+    {
+      "id": 3,
+      "heading": "Major structures which define the city",
+      "description": "Sequence 3 focuses on major structures which define the city",
+      "category": "Towns",
+      "patterns": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "emergent_phenomena": "Cities with clear identity and character formed by coherent underlying structures"
+    },
+    {
+      "id": 4,
+      "heading": "Communities and neighborhoods",
+      "description": "Sequence 4 focuses on communities and neighborhoods",
+      "category": "Towns",
+      "patterns": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "emergent_phenomena": "Human-scale communities where people know each other and can participate in local governance"
+    },
+    {
+      "id": 5,
+      "heading": "Community networks",
+      "description": "Sequence 5 focuses on community networks",
+      "category": "Towns",
+      "patterns": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "emergent_phenomena": "Connected networks that allow easy movement and communication while maintaining local character"
+    },
+    {
+      "id": 6,
+      "heading": "Character of local environments",
+      "description": "Sequence 6 focuses on character of local environments",
+      "category": "Towns",
+      "patterns": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "emergent_phenomena": "Local environments that support human life and activity at the pedestrian scale"
+    },
+    {
+      "id": 7,
+      "heading": "Local centers",
+      "description": "Sequence 7 focuses on local centers",
+      "category": "Towns",
+      "patterns": [
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "emergent_phenomena": "Vibrant centers that draw people together for commerce, culture, and social interaction"
+    },
+    {
+      "id": 8,
+      "heading": "Housing",
+      "description": "Sequence 8 focuses on housing",
+      "category": "Towns",
+      "patterns": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "emergent_phenomena": "Diverse housing that accommodates different household types and life stages"
+    },
+    {
+      "id": 9,
+      "heading": "Work",
+      "description": "Sequence 9 focuses on work",
+      "category": "Towns",
+      "patterns": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "emergent_phenomena": "Integration of work into the fabric of community life rather than segregated industrial zones"
+    },
+    {
+      "id": 10,
+      "heading": "Local road and path network",
+      "description": "Sequence 10 focuses on local road and path network",
+      "category": "Towns",
+      "patterns": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "emergent_phenomena": "Path networks that prioritize pedestrians while accommodating necessary vehicle access"
+    },
+    {
+      "id": 11,
+      "heading": "Public open land",
+      "description": "Sequence 11 focuses on public open land",
+      "category": "Towns",
+      "patterns": [
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64
+      ],
+      "emergent_phenomena": "Public spaces that provide access to nature and opportunities for recreation and gathering"
+    },
+    {
+      "id": 12,
+      "heading": "Local common land",
+      "description": "Sequence 12 focuses on local common land",
+      "category": "Towns",
+      "patterns": [
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "emergent_phenomena": "Common lands that strengthen community bonds and provide shared resources"
+    },
+    {
+      "id": 13,
+      "heading": "Transformation of the family",
+      "description": "Sequence 13 focuses on transformation of the family",
+      "category": "Towns",
+      "patterns": [
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78
+      ],
+      "emergent_phenomena": "Family structures that support child development and intergenerational connection"
+    },
+    {
+      "id": 14,
+      "heading": "Transformation of work and learning",
+      "description": "Sequence 14 focuses on transformation of work and learning",
+      "category": "Towns",
+      "patterns": [
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "emergent_phenomena": "Learning and work environments that are integrated into community life"
+    },
+    {
+      "id": 15,
+      "heading": "Transformation of local shops and gathering places",
+      "description": "Sequence 15 focuses on transformation of local shops and gathering places",
+      "category": "Towns",
+      "patterns": [
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "emergent_phenomena": "Local economies that provide for daily needs and social gathering within walking distance"
+    },
+    {
+      "id": 16,
+      "heading": "The overall arrangement of a group of buildings",
+      "description": "Sequence 16 focuses on the overall arrangement of a group of buildings",
+      "category": "Buildings",
+      "patterns": [
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ],
+      "emergent_phenomena": "Building groups that create coherent outdoor spaces and support community interaction"
+    },
+    {
+      "id": 17,
+      "heading": "The position of individual buildings",
+      "description": "Sequence 17 focuses on the position of individual buildings",
+      "category": "Buildings",
+      "patterns": [
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ],
+      "emergent_phenomena": "Individual buildings positioned to take advantage of site conditions and create good outdoor spaces"
+    },
+    {
+      "id": 18,
+      "heading": "Entrances, gardens, courtyards, roofs and terraces",
+      "description": "Sequence 18 focuses on entrances, gardens, courtyards, roofs and terraces",
+      "category": "Buildings",
+      "patterns": [
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119
+      ],
+      "emergent_phenomena": "Transitions between inside and outside that extend the usable space and connect building to site"
+    },
+    {
+      "id": 19,
+      "heading": "Paths and squares",
+      "description": "Sequence 19 focuses on paths and squares",
+      "category": "Buildings",
+      "patterns": [
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131
+      ],
+      "emergent_phenomena": "Pedestrian circulation that creates opportunities for encounter and makes spaces feel alive"
+    },
+    {
+      "id": 20,
+      "heading": "Gradients and connection of space",
+      "description": "Sequence 20 focuses on gradients and connection of space",
+      "category": "Buildings",
+      "patterns": [
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142
+      ],
+      "emergent_phenomena": "Spatial sequences that create privacy gradients and support different types of activities"
+    },
+    {
+      "id": 21,
+      "heading": "The most important areas and rooms (in a house)",
+      "description": "Sequence 21 focuses on the most important areas and rooms (in a house)",
+      "category": "Buildings",
+      "patterns": [
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151
+      ],
+      "emergent_phenomena": "Houses with clearly defined main areas that support family life and privacy"
+    },
+    {
+      "id": 22,
+      "heading": "The most important areas and rooms (in offices, workshops and public buildings)",
+      "description": "Sequence 22 focuses on the most important areas and rooms (in offices, workshops and public buildings)",
+      "category": "Buildings",
+      "patterns": [
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161
+      ],
+      "emergent_phenomena": "Work buildings with spaces that support both individual work and group collaboration"
+    },
+    {
+      "id": 23,
+      "heading": "Outbuildings and access to the street and gardens",
+      "description": "Sequence 23 focuses on outbuildings and access to the street and gardens",
+      "category": "Buildings",
+      "patterns": [
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171
+      ],
+      "emergent_phenomena": "Support buildings and connections that complete the building complex"
+    },
+    {
+      "id": 24,
+      "heading": "Knit the inside of the building to the outside",
+      "description": "Sequence 24 focuses on knit the inside of the building to the outside",
+      "category": "Buildings",
+      "patterns": [
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182
+      ],
+      "emergent_phenomena": "Buildings that open to and engage with their surroundings rather than turning inward"
+    },
+    {
+      "id": 25,
+      "heading": "Arrange the gardens, and the places in the gardens",
+      "description": "Sequence 25 focuses on arrange the gardens, and the places in the gardens",
+      "category": "Buildings",
+      "patterns": [
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189
+      ],
+      "emergent_phenomena": "Gardens that extend the life of the building and provide connection to nature"
+    },
+    {
+      "id": 26,
+      "heading": "Inside, attach necessary minor rooms and alcoves",
+      "description": "Sequence 26 focuses on inside, attach necessary minor rooms and alcoves",
+      "category": "Buildings",
+      "patterns": [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196
+      ],
+      "emergent_phenomena": "Secondary spaces that support the main activities without overwhelming them"
+    },
+    {
+      "id": 27,
+      "heading": "Fine tune the shape and size of rooms and alcoves",
+      "description": "Sequence 27 focuses on fine tune the shape and size of rooms and alcoves",
+      "category": "Buildings",
+      "patterns": [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196
+      ],
+      "emergent_phenomena": "Rooms shaped and sized to support their specific functions and create comfort"
+    },
+    {
+      "id": 28,
+      "heading": "Give the walls some depth",
+      "description": "Sequence 28 focuses on give the walls some depth",
+      "category": "Buildings",
+      "patterns": [
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204
+      ],
+      "emergent_phenomena": "Walls with depth that provide storage, seating, and architectural richness"
+    },
+    {
+      "id": 29,
+      "heading": "Let the structure grow directly from your plans and your conception of the buildings",
+      "description": "Sequence 29 focuses on let the structure grow directly from your plans and your conception of the buildings",
+      "category": "Construction",
+      "patterns": [
+        205,
+        206,
+        207,
+        208
+      ],
+      "emergent_phenomena": "Structural systems that grow naturally from the spatial organization rather than imposing a grid"
+    },
+    {
+      "id": 30,
+      "heading": "Work out the complete structural layout",
+      "description": "Sequence 30 focuses on work out the complete structural layout",
+      "category": "Construction",
+      "patterns": [
+        209,
+        210,
+        211,
+        212,
+        213
+      ],
+      "emergent_phenomena": "Coherent structural layouts that efficiently support the intended spatial arrangements"
+    },
+    {
+      "id": 31,
+      "heading": "Mark the column locations and erect the main frame",
+      "description": "Sequence 31 focuses on mark the column locations and erect the main frame",
+      "category": "Construction",
+      "patterns": [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220
+      ],
+      "emergent_phenomena": "Primary structural framework that can support the intended building form and loads"
+    },
+    {
+      "id": 32,
+      "heading": "Fix the exact positions for openings and frame them",
+      "description": "Sequence 32 focuses on fix the exact positions for openings and frame them",
+      "category": "Construction",
+      "patterns": [
+        221,
+        222,
+        223,
+        224,
+        225
+      ],
+      "emergent_phenomena": "Window and door openings positioned to support both structure and spatial quality"
+    },
+    {
+      "id": 33,
+      "heading": "Put in the following subsidiary patterns",
+      "description": "Sequence 33 focuses on put in the following subsidiary patterns",
+      "category": "Construction",
+      "patterns": [
+        226,
+        227,
+        228,
+        229,
+        230,
+        231,
+        232
+      ],
+      "emergent_phenomena": "Secondary structural elements that complete the building system"
+    },
+    {
+      "id": 34,
+      "heading": "Put in the surfaces and indoor details",
+      "description": "Sequence 34 focuses on put in the surfaces and indoor details",
+      "category": "Construction",
+      "patterns": [
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240
+      ],
+      "emergent_phenomena": "Interior surfaces and details that create comfortable and beautiful interior spaces"
+    },
+    {
+      "id": 35,
+      "heading": "Build outdoor details",
+      "description": "Sequence 35 focuses on build outdoor details",
+      "category": "Construction",
+      "patterns": [
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248
+      ],
+      "emergent_phenomena": "Exterior details that connect the building to its immediate surroundings"
+    },
+    {
+      "id": 36,
+      "heading": "Complete the building",
+      "description": "Sequence 36 focuses on complete the building",
+      "category": "Construction",
+      "patterns": [
+        249,
+        250,
+        251,
+        252,
+        253
+      ],
+      "emergent_phenomena": "Final elements that give the building its unique character and sense of completion"
+    }
+  ]
+}

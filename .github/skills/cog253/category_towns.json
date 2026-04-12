@@ -1,0 +1,2075 @@
+{
+  "name": "Towns",
+  "description": "Patterns that define towns and communities. These patterns can never be designed or built in one fell swoop - but patient piecemeal growth, designed in such a way that every individual act is always helping to create or generate these larger global patterns, will, slowly and surely, over the months and years, make a community that has these global patterns in it.",
+  "pattern_range": {
+    "start": 1,
+    "end": 94
+  },
+  "patterns": [
+    {
+      "id": "apl1",
+      "number": 1,
+      "name": "INDEPENDENT REGIONS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "Metropolitan regions will not come to balance until each one is small and autonomous enough to be an independent sphere of culture.",
+      "solution": "Wherever possible, work toward the evolution of independent regions in the world; each with a population between 2 and 10 million; each with its own natural and geographic boundaries; each with its own economy; each one autonomous and self-governing; each with a seat in a world government, without the intervening power of larger states or countries.",
+      "preceding_patterns": [],
+      "following_patterns": [
+        2,
+        8
+      ]
+    },
+    {
+      "id": "apl2",
+      "number": 2,
+      "name": "THE DISTRIBUTION OF TOWNS",
+      "asterisks": 2,
+      "context": ". . . consider now the character of settlements within the region: what balance of villages, towns, and cities is in keeping with the independence of the region - INDEPENDENT REGIONS (1)?",
+      "problem": "If the population of a region is weighted too far toward small villages, modern civilization can never emerge; but if the population is weighted too far toward big cities, the earth will go to ruin because the population isn't where it needs to be, to take care of it.",
+      "solution": "Encourage a birth and death process for towns within the region, which gradually has these effects:1. The population is evenly distributed in terms of different sizes- example, one town with 1,000,000 people, 10 towns with 100,000 people each, 100 towns with 10,000 people each, and 1000 towns with 1000 people each. 2. These towns are distributed in space in such a way that within each size category the towns are homogeneously distributed all across the region.",
+      "preceding_patterns": [
+        1
+      ],
+      "following_patterns": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "id": "apl3",
+      "number": 3,
+      "name": "CITY COUNTRY FINGERS",
+      "asterisks": 2,
+      "context": ". . . the distribution of towns required to make a balanced region - DISTRIBUTION OF TOWNS (2) - can be further helped by controlling the balance of urban land and open countryside within the towns and cities themselves.",
+      "problem": "Continuous sprawling urbanization destroys life, and makes cities unbearable. But the sheer size of cities is also valuable and potent.",
+      "solution": "Keep interlocking fingers of farmland and urban land, even at the center of the metropolis. The urban fingers should never be more than 1 mile wide, while the farmland fingers should never be less than 1 mile wide.",
+      "preceding_patterns": [
+        2
+      ],
+      "following_patterns": [
+        4,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "apl4",
+      "number": 4,
+      "name": "AGRICULTURAL VALLEYS",
+      "asterisks": 2,
+      "context": ". . . this pattern helps maintain the INDEPENDENT REGIONS (1) by making regions more self-sufficient agriculturally; and it will create CITY COUNTRY FINGERS (3) almost automatically by preserving agricultural land in urban areas. But just exactly which land ought to be preserved, and which land built upon?",
+      "problem": "The land which is best for agriculture happens to be best for building too. But it is limited and once destroyed, it cannot be regained for centuries.",
+      "solution": "Preserve all agricultural valleys as farmland and protect this land from any development which would destroy or lock up the unique fertility of the soil. Even when valleys are not cultivated now, protect them: keep them for farms and parks and wilds.",
+      "preceding_patterns": [
+        1,
+        3
+      ],
+      "following_patterns": [
+        7
+      ]
+    },
+    {
+      "id": "apl5",
+      "number": 5,
+      "name": "LACE OF COUNTRY STREETS",
+      "asterisks": 2,
+      "context": ". . . according to the pattern CITY COUNTRY FINGERS (3), there is a rather sharp division between city land and rural land. But at the ends of city fingers, where the country fingers open out, there is a need for an additional kind of structure. This structure has traditionally been the suburbs. But. . .",
+      "problem": "The suburb is an obsolete and contradictory form of human settlement.",
+      "solution": "In the zone where city and country meet, place country roads at least a mile apart, so that they enclose squares of countryside and farmland at least one square mile in area. Build homesteads along these roads, one lot deep, on lots of at least half an acre, with the square mile of open countryside or farmland behind the houses.",
+      "preceding_patterns": [
+        3
+      ],
+      "following_patterns": [
+        7,
+        14,
+        37
+      ]
+    },
+    {
+      "id": "apl6",
+      "number": 6,
+      "name": "6 COUNTRY TOWNS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        2
+      ],
+      "following_patterns": [
+        7,
+        12,
+        26
+      ]
+    },
+    {
+      "id": "apl7",
+      "number": 7,
+      "name": "7 THE COUNTRYSIDE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "following_patterns": [
+        37,
+        51
+      ]
+    },
+    {
+      "id": "apl8",
+      "number": 8,
+      "name": "8 MOSAIC OF SUBCULTURES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        4
+      ],
+      "following_patterns": [
+        12,
+        13,
+        37
+      ]
+    },
+    {
+      "id": "apl9",
+      "number": 9,
+      "name": "9 SCATTERED WORK",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        4,
+        5,
+        8
+      ],
+      "following_patterns": [
+        42,
+        80,
+        157
+      ]
+    },
+    {
+      "id": "apl10",
+      "number": 10,
+      "name": "10 MAGIC OF THE CITY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        8
+      ],
+      "following_patterns": [
+        11,
+        16,
+        21,
+        29,
+        31,
+        33,
+        58,
+        63
+      ]
+    },
+    {
+      "id": "apl11",
+      "number": 11,
+      "name": "LOCAL TRANSPORT AREAS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "Cars give people wonderful freedom and increase their opportunities. But they also destroy the environment, to an extent so drastic that they kill all social life.",
+      "solution": "Break the urban area down into local transport oreas, each one between 1 and 2 miles across, surrounded by a ring road. Within the local transport area, build minor local roads and paths for internal movements on foot, by bike, on horseback, and in local vehicles; build major roads which make it easy for cars and trucks to get to and from the ring roads, but place them to make internal local trips slow and inconvenient.",
+      "preceding_patterns": [
+        3,
+        5,
+        8,
+        10
+      ],
+      "following_patterns": [
+        17,
+        22,
+        23,
+        34,
+        52,
+        56,
+        97
+      ]
+    },
+    {
+      "id": "apl12",
+      "number": 12,
+      "name": "COMMUNITY OF 7000",
+      "asterisks": 2,
+      "context": ". . . the MOSAIC OF SUBCULTURES (8) is made up of a great number of large and small self-governing communities and neighborhoods. Community of 7000 helps define the structure of the large communities.",
+      "problem": "Individuals have no effective voice in any community of more than 5000-10,000 persons.",
+      "solution": "Decentralize city governments in a way that gives local control to communities of 5,000 to 10,000 persons. As nearly as possible, use natural geographic and historical boundaries to mark these communites. Give each community the power to initiate, decide, and execute the affairs that concern it closely: land use, housing, maintenance, streets, parks, police, schooling, welfare, neighborhood services.",
+      "preceding_patterns": [
+        3,
+        8
+      ],
+      "following_patterns": [
+        14,
+        28,
+        31,
+        44
+      ]
+    },
+    {
+      "id": "apl13",
+      "number": 13,
+      "name": "SUBCULTURE BOUNDARY",
+      "asterisks": 2,
+      "context": ". . . the MOSAlC OF SUBCULTURES (8) and its individual subcultures, whether they are COMMUNITIES OF 7000 (12) or IDENTIFlABLE NEIGHBORHOODS (14), need to be completed by boundaries. In fact, the mere creation of the boundary areas, according to this pattern, will begin to give life to the subcultures between the boundaries, by giving them a chance to be themselves.",
+      "problem": "The mosaic of subcultures requires that hundreds of different cultures live, in their own way, at full intensity, next door to one another. But subcultures have their own ecology. They can only live at full intensity, unhampered by their neighbors, if they are physically separated by physical boundaries.",
+      "solution": "Separate neighboring subcultures with a swath of land at least 200 feet wide. Let this boundary be natural wilderness, farmland, water - or man-made - railroads, major roads, parks, schools, some housing. Along the seam between two subcultures, build meeting places, shared functions, touching each community.",
+      "preceding_patterns": [
+        7,
+        8,
+        12
+      ],
+      "following_patterns": [
+        14,
+        17,
+        23,
+        24,
+        25,
+        28,
+        30,
+        41,
+        42,
+        59,
+        60,
+        64,
+        71,
+        84,
+        97
+      ]
+    },
+    {
+      "id": "apl14",
+      "number": 14,
+      "name": "IDENTIFIABLE NEIGHBORHOOD",
+      "asterisks": 2,
+      "context": ". . . the MOSAIC OF SUBCULTURES (8) and the COMMUNITY OF 7000 (12) are made up of neighborhoods. This pattern defines the neighborhoods. It defines those small human groups which create the energy and character which can bring the larger COMMUNITY OF 7000 (12) and the MOSAlC OF SUBCULTURES (8) to life.",
+      "problem": "People need an identifiable spatial unit to belong to.",
+      "solution": "Help people to define the neighborhoods they live in, not more than 300 yards across, with no more than 400 or 500 inhabitants. In existing cities, encourage local groups to organize themselves to form such neighborhoods. Give the neighborhoods some degree of autonomy as far as taxes and land controls are concerned. Keep major roads outside these neighborhoods.",
+      "preceding_patterns": [
+        8,
+        12
+      ],
+      "following_patterns": [
+        15,
+        23,
+        37,
+        41,
+        53,
+        60,
+        61
+      ]
+    },
+    {
+      "id": "apl15",
+      "number": 15,
+      "name": "NEIGHBORHOOD BOUNDARY",
+      "asterisks": 2,
+      "context": ". . . the physical boundary needed to protect subcultures from one another, and to allow their ways of life to be unique and idiosyncratic, is guaranteed, for a COMMUNITY OF 7000 (12), by the pattern SUBCULTURE BOUNDARY (13). But a second, smaller kind of boundary is needed to create the smaller IDENTIFlABLE NEIGHBORHOOD (14).",
+      "problem": "The strength of the boundary is essential to a neighborhood. If the boundary is too weak the neighborhood will not be able to maintain its own identifiable character.",
+      "solution": "Encourage the formation of a boundary around each neighborhood, to separate it from the next door neighborhoods. Form this boundary by closing down streets and limiting access to the neighborhood - cut the normal number of streets at least in half. Place gateways at those points where the restricted access paths cross the boundary; and make the boundary zone wide enough to contain meeting places for the common functions shared by several neighborhoods.",
+      "preceding_patterns": [
+        12,
+        13,
+        14
+      ],
+      "following_patterns": [
+        23,
+        32,
+        41,
+        53,
+        59,
+        60,
+        64,
+        69,
+        70,
+        72,
+        73,
+        88,
+        89,
+        97,
+        103
+      ]
+    },
+    {
+      "id": "apl16",
+      "number": 16,
+      "name": "WEB OF PUBLIC TRANSPORTATION",
+      "asterisks": 2,
+      "context": ". . . the city, as defined by CITY COUNTRY FINGERS (3), spreads out in ribbon fashion, throughout the countryside, and is broken into LOCAL TRANSPORT AREAS (11). To connect the transport areas, and to maintain the flow of people and goods along the fingers of the cities, it is now necessary to create a web of public tranportation.",
+      "problem": "The system of public transportation - the entire web of airplanes, helicopters, hovercraft, trains, boats, ferries, buses, taxis, mini-trains, carts, ski-lifts, moving sidewalks - can only work if all the parts are well connected. But they usually aren't, because the different agencies in charge of various forms of public transportation have no incentives to connect to one another. Therefore: Treat interchanges as primary and transportation lines as secondary. Create incentives so that all the different modes of public transportation - airplanes, helicopters, ferries, boats, trains, rapid transit, buses, mini-buses, skilifts, escalators, travelators, elevator - plan their lines to connect the interchanges, with the hope that gradually many different lines, of many different types, will meet at every interchange. Give the local communities control over their interchanges so that they can implement the pattern by giving contracts only to those transportation companies which are willing to serve these interchanges.",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        11
+      ],
+      "following_patterns": [
+        20,
+        34
+      ]
+    },
+    {
+      "id": "apl17",
+      "number": 17,
+      "name": "RING ROADS",
+      "asterisks": 2,
+      "context": ". . . the ring roads which this pattern specifies, help to define and generate the LOCAI, TRANSPORT AREAS (11); if they are placed to make connections between INTERCHANGES (34), they also help to form the WEB OF PUBLIC TRANSPORTATION (16).",
+      "problem": "It is not possible to avoid the need for high speed roads in modern society; but it is essential to place them and build them in such a way that they do not destroy communities or countryside.",
+      "solution": "Place high speed roads (freeways and other major arteries) so that: 1. At least one high speed road lies tangent to each local transport area. 2. Each local transport area has at least one side not bounded by a high speed road' but directly open to the countryside. 3. The road is always sunken, or shielded along its length by berms, or earth, or industrial buildings, to protect the nearby neighborhoods from noise.",
+      "preceding_patterns": [
+        3,
+        11,
+        13,
+        16
+      ],
+      "following_patterns": [
+        25,
+        34,
+        42,
+        97
+      ]
+    },
+    {
+      "id": "apl18",
+      "number": 18,
+      "name": "NETWORK OF LEARNING",
+      "asterisks": 2,
+      "context": ". . . another network, not physical like transportation, but conceptual, and equal in importance, is the network of learning: the thousands of interconnected situations that occur all over the city, and which in fact comprise the city's \"curriculum\": the way of life it teaches to its young.",
+      "problem": "In a society which emphasizes teaching, children and students - and adults - become passive and unable to think or act for themselves. Creative, active individuals can only grow up in a society which emphasizes learning instead of teaching.",
+      "solution": "Instead of the lock-step of compulsory schooling in a fixed place, work in piecemeal ways to decentralize the process of learning and enrich it through contact with many places and people all over the city: workshops, teachers at home or walking through the city, professionals willing to take on the young as helpers, older children teaching younger children, museums, youth groups traveling, scholarly seminars, industrial workshops, old people, and so on. Conceive of all these situations as forming the backbone of the learning process; survey all these situations, describe them, and publish them as the city's \"curriculum\"; then let students, children, their families and neighborhoods weave together for themselves the situations that comprise their \"school\" paying as they go with standard vouchers, raised by community tax. Build new educational facilities in a way which extends and enriches this network.",
+      "preceding_patterns": [],
+      "following_patterns": [
+        43,
+        57,
+        83,
+        84,
+        85,
+        86,
+        157
+      ]
+    },
+    {
+      "id": "apl19",
+      "number": 19,
+      "name": "WEB OF SHOPPING",
+      "asterisks": 2,
+      "context": ". . . this pattern defines a piecemeal process which can help to locate shops and services where they are needed, in such a way that they will strengthen the MOSAlC OF SUBCULTURES (8), SUBCULTURE BOUNDARIES (13), and the decentralized economy needed for SCATTERED WORK (9) and LOCAL TRANSPORT AREAS (11).",
+      "problem": "Shops rarely place themselves in those positions which best serve the people's needs, and also guarantee their own stability.",
+      "solution": "When you locate any individual shop, follow a three-step procedure: 1. Identify all other shops which offer the service you are interested in; locate them on the map. 2. Identify and map the location of potential consumers. Wherever possible, indicate the density or total number of potential consumers in any given area. 3. Look for the biggest gap in the existing web of shops in those areas where there are potential consumers. 4. Within the gap in the web of similar shops, locate your shop next to the largest cluster of other kinds of shops.",
+      "preceding_patterns": [
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "following_patterns": [
+        31,
+        32,
+        46,
+        89
+      ]
+    },
+    {
+      "id": "apl20",
+      "number": 20,
+      "name": "20 MINI-BUSES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        11,
+        16
+      ],
+      "following_patterns": [
+        23,
+        34,
+        92
+      ]
+    },
+    {
+      "id": "apl21",
+      "number": 21,
+      "name": "21 FOUR-STORY LIMIT",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        5,
+        10
+      ],
+      "following_patterns": [
+        29,
+        39,
+        62,
+        82,
+        95,
+        96
+      ]
+    },
+    {
+      "id": "apl22",
+      "number": 22,
+      "name": "22 NINE PER CENT PARKING",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        11,
+        12,
+        14,
+        16
+      ],
+      "following_patterns": [
+        97,
+        103
+      ]
+    },
+    {
+      "id": "apl23",
+      "number": 23,
+      "name": "23 PARALLEL ROADS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        11,
+        13,
+        15,
+        17
+      ],
+      "following_patterns": [
+        49,
+        50,
+        51,
+        52,
+        54,
+        55
+      ]
+    },
+    {
+      "id": "apl24",
+      "number": 24,
+      "name": "24 SACRED SITES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [],
+      "following_patterns": [
+        59,
+        66,
+        134,
+        171,
+        176
+      ]
+    },
+    {
+      "id": "apl25",
+      "number": 25,
+      "name": "25 ACCESS TO WATER",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        7,
+        23,
+        24
+      ],
+      "following_patterns": [
+        31,
+        103
+      ]
+    },
+    {
+      "id": "apl26",
+      "number": 26,
+      "name": "26 LIFE CYCLE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        12,
+        14
+      ],
+      "following_patterns": [
+        35,
+        40,
+        41,
+        44,
+        57,
+        65,
+        66,
+        70,
+        75,
+        79,
+        83,
+        84,
+        85,
+        86,
+        153,
+        154,
+        155,
+        156,
+        187
+      ]
+    },
+    {
+      "id": "apl27",
+      "number": 27,
+      "name": "27 MEN AND WOMEN",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        12,
+        14,
+        26
+      ],
+      "following_patterns": [
+        141
+      ]
+    },
+    {
+      "id": "apl28",
+      "number": 28,
+      "name": "28 ECCENTRIC NUCLEUS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        10,
+        12,
+        13,
+        19,
+        21,
+        24
+      ],
+      "following_patterns": [
+        29,
+        30,
+        31,
+        32,
+        59,
+        71
+      ]
+    },
+    {
+      "id": "apl29",
+      "number": 29,
+      "name": "29 DENSITY RINGS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        8,
+        12,
+        13,
+        28
+      ],
+      "following_patterns": [
+        31,
+        37,
+        38,
+        39,
+        61,
+        123
+      ]
+    },
+    {
+      "id": "apl30",
+      "number": 30,
+      "name": "30 ACTIVITY NODES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        12,
+        13,
+        14,
+        15,
+        28,
+        29
+      ],
+      "following_patterns": [
+        31,
+        33,
+        36,
+        41,
+        43,
+        44,
+        47,
+        52,
+        61,
+        65,
+        84,
+        85,
+        87,
+        88,
+        90,
+        93,
+        100,
+        120
+      ]
+    },
+    {
+      "id": "apl31",
+      "number": 31,
+      "name": "31 PROMENADE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        8,
+        12,
+        30
+      ],
+      "following_patterns": [
+        32,
+        33,
+        58,
+        63,
+        100,
+        121,
+        123
+      ]
+    },
+    {
+      "id": "apl32",
+      "number": 32,
+      "name": "32 SHOPPING STREET",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        10,
+        19,
+        31
+      ],
+      "following_patterns": [
+        46,
+        48,
+        52,
+        54,
+        87,
+        97,
+        100,
+        244
+      ]
+    },
+    {
+      "id": "apl33",
+      "number": 33,
+      "name": "33 NIGHT LIFE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        10,
+        12,
+        30,
+        31
+      ],
+      "following_patterns": [
+        44,
+        58,
+        63,
+        88,
+        90,
+        91
+      ]
+    },
+    {
+      "id": "apl34",
+      "number": 34,
+      "name": "34 INTERCHANGE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        11,
+        16,
+        20,
+        30
+      ],
+      "following_patterns": [
+        39,
+        40,
+        41,
+        92,
+        119
+      ]
+    },
+    {
+      "id": "apl35",
+      "number": 35,
+      "name": "35 HOUSEHOLD MIX",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        26
+      ],
+      "following_patterns": [
+        37,
+        40,
+        41,
+        68,
+        75,
+        76,
+        77,
+        78
+      ]
+    },
+    {
+      "id": "apl36",
+      "number": 36,
+      "name": "36 DEGREES OF PUBLICNESS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        29,
+        30
+      ],
+      "following_patterns": [
+        37,
+        38,
+        39,
+        51,
+        55,
+        100,
+        121,
+        123
+      ]
+    },
+    {
+      "id": "apl37",
+      "number": 37,
+      "name": "37 HOUSE CLUSTER",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        29,
+        35,
+        36
+      ],
+      "following_patterns": [
+        38,
+        39,
+        57,
+        67,
+        75,
+        76,
+        77,
+        78,
+        79,
+        98,
+        103
+      ]
+    },
+    {
+      "id": "apl38",
+      "number": 38,
+      "name": "38 ROW HOUSES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        23,
+        29,
+        36,
+        37
+      ],
+      "following_patterns": [
+        52,
+        75,
+        76,
+        77,
+        78,
+        95,
+        103,
+        109
+      ]
+    },
+    {
+      "id": "apl39",
+      "number": 39,
+      "name": "39 HOUSING HILL",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        3,
+        21,
+        29
+      ],
+      "following_patterns": [
+        67,
+        68,
+        79,
+        118,
+        158,
+        177
+      ]
+    },
+    {
+      "id": "apl40",
+      "number": 40,
+      "name": "40 OLD PEOPLE EVERYWHERE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        18,
+        26,
+        35
+      ],
+      "following_patterns": [
+        75,
+        86,
+        155,
+        156,
+        177
+      ]
+    },
+    {
+      "id": "apl41",
+      "number": 41,
+      "name": "41 WORK COMMUNITY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        13,
+        15,
+        27,
+        30
+      ],
+      "following_patterns": [
+        60,
+        61,
+        72,
+        80,
+        88,
+        93,
+        115,
+        147
+      ]
+    },
+    {
+      "id": "apl42",
+      "number": 42,
+      "name": "42 INDUSTRIAL RIBBON",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        13,
+        15,
+        17,
+        41
+      ],
+      "following_patterns": [
+        106,
+        122
+      ]
+    },
+    {
+      "id": "apl43",
+      "number": 43,
+      "name": "43 UNIVERSITY AS MARKETPLACE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        31
+      ],
+      "following_patterns": [
+        48,
+        59,
+        83,
+        95,
+        100,
+        119,
+        158
+      ]
+    },
+    {
+      "id": "apl44",
+      "number": 44,
+      "name": "44 LOCAL TOWN HALL",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        8,
+        12,
+        14,
+        30
+      ],
+      "following_patterns": [
+        45,
+        61,
+        81,
+        123
+      ]
+    },
+    {
+      "id": "apl45",
+      "number": 45,
+      "name": "45 NECKLACE OF COMMUNITY PROJECTS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        43,
+        44
+      ],
+      "following_patterns": [
+        47,
+        69,
+        87,
+        122,
+        160,
+        165
+      ]
+    },
+    {
+      "id": "apl46",
+      "number": 46,
+      "name": "46 MARKET OF MANY SHOPS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        19,
+        32
+      ],
+      "following_patterns": [
+        87,
+        100,
+        101,
+        212,
+        244
+      ]
+    },
+    {
+      "id": "apl47",
+      "number": 47,
+      "name": "47 HEALTH CENTER",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        26
+      ],
+      "following_patterns": [
+        48,
+        65,
+        71,
+        72,
+        73,
+        81,
+        157,
+        177
+      ]
+    },
+    {
+      "id": "apl48",
+      "number": 48,
+      "name": "48 HOUSING IN BETWEEN",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        13,
+        14,
+        15,
+        37,
+        38,
+        41
+      ],
+      "following_patterns": [
+        79
+      ]
+    },
+    {
+      "id": "apl49",
+      "number": 49,
+      "name": "49 LOOPED LOCAL ROADS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        11,
+        14,
+        23,
+        37,
+        41
+      ],
+      "following_patterns": [
+        50,
+        51,
+        52,
+        103,
+        113
+      ]
+    },
+    {
+      "id": "apl50",
+      "number": 50,
+      "name": "50 T JUNCTIONS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        23,
+        49
+      ],
+      "following_patterns": [
+        54
+      ]
+    },
+    {
+      "id": "apl51",
+      "number": 51,
+      "name": "51 GREEN STREETS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        49,
+        50
+      ],
+      "following_patterns": [
+        52,
+        67,
+        103,
+        170,
+        245,
+        247
+      ]
+    },
+    {
+      "id": "apl52",
+      "number": 52,
+      "name": "52 NETWORK OF PATHS AND CARS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        23,
+        30,
+        31,
+        49,
+        51
+      ],
+      "following_patterns": [
+        54,
+        55,
+        120,
+        121
+      ]
+    },
+    {
+      "id": "apl53",
+      "number": 53,
+      "name": "53 MAIN GATEWAYS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        37,
+        41
+      ],
+      "following_patterns": [
+        95,
+        98,
+        110,
+        112
+      ]
+    },
+    {
+      "id": "apl54",
+      "number": 54,
+      "name": "54 ROAD CROSSING",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        23,
+        52
+      ],
+      "following_patterns": [
+        55,
+        61,
+        92,
+        93,
+        103,
+        174,
+        244
+      ]
+    },
+    {
+      "id": "apl55",
+      "number": 55,
+      "name": "55 RAISED WALK",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        23,
+        52,
+        54
+      ],
+      "following_patterns": [
+        119,
+        125,
+        243
+      ]
+    },
+    {
+      "id": "apl56",
+      "number": 56,
+      "name": "BIKE PATHS AND RACKS",
+      "asterisks": 2,
+      "context": ". . . within a LOCAL TRANSPORT AREA (11) there is a heavy concentration of small vehicles like bikes, electric carts, perhaps even horses, which need a system of bike paths. The bike paths will play a very large role in helping to create the local transport areas, and may also help to modify Looped Local Roads (49) and Network of Paths and Cars (52).",
+      "problem": "Bikes are cheap, healthy, and good for the environment; but the environment is not designed for them. Bikes on roads are threatened by cars; bikes on paths threaten pedestrians.",
+      "solution": "Build a system of paths designated as bike paths, with the following properties: the bike paths are marked clearly with a special, easily recognizable surface (for example, a red asphalt surface). As far as possible they run along local roads, or major pedestrian paths. Where a bike path runs along a local road, its surface may be level with the road - if possible, on the sunny side; where a bike path runs along a pedestrian path, keep it separate from the path with a low curb and make it lower than the path. Bring bike paths together at bike racks, placed at the major entrances to buildings; provide one space in the rack for every ten active users.",
+      "preceding_patterns": [
+        11,
+        49,
+        52
+      ],
+      "following_patterns": [
+        59,
+        110,
+        119,
+        173
+      ]
+    },
+    {
+      "id": "apl57",
+      "number": 57,
+      "name": "57 CHILDREN IN THE CITY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        23,
+        31,
+        40,
+        41,
+        43,
+        49,
+        51,
+        52,
+        56
+      ],
+      "following_patterns": [
+        68,
+        70,
+        72,
+        73,
+        74,
+        84,
+        85,
+        86,
+        164
+      ]
+    },
+    {
+      "id": "apl58",
+      "number": 58,
+      "name": "58 CARNIVAL",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        31,
+        33
+      ],
+      "following_patterns": [
+        61,
+        63,
+        69,
+        93,
+        100,
+        244
+      ]
+    },
+    {
+      "id": "apl59",
+      "number": 59,
+      "name": "59 QUIET BACKS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        40
+      ],
+      "following_patterns": [
+        60,
+        64,
+        71,
+        171,
+        173
+      ]
+    },
+    {
+      "id": "apl60",
+      "number": 60,
+      "name": "60 ACCESSIBLE GREEN",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        13,
+        14,
+        15,
+        41,
+        59
+      ],
+      "following_patterns": [
+        66,
+        70,
+        72,
+        74,
+        94,
+        106,
+        171,
+        173
+      ]
+    },
+    {
+      "id": "apl61",
+      "number": 61,
+      "name": "61 SMALL PUBLIC SQUARES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        30,
+        31,
+        41
+      ],
+      "following_patterns": [
+        106,
+        114,
+        122,
+        123,
+        124,
+        125,
+        126
+      ]
+    },
+    {
+      "id": "apl62",
+      "number": 62,
+      "name": "62 HIGH PLACES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        12,
+        21,
+        61
+      ],
+      "following_patterns": [
+        66,
+        125,
+        134,
+        158
+      ]
+    },
+    {
+      "id": "apl63",
+      "number": 63,
+      "name": "63 DANCING IN THE STREETS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        10,
+        31,
+        33,
+        58,
+        61
+      ],
+      "following_patterns": [
+        69,
+        93,
+        124,
+        244
+      ]
+    },
+    {
+      "id": "apl64",
+      "number": 64,
+      "name": "64 POOLS AND STREAMS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        15,
+        24,
+        25,
+        31,
+        59
+      ],
+      "following_patterns": [
+        66,
+        71,
+        100,
+        119
+      ]
+    },
+    {
+      "id": "apl65",
+      "number": 65,
+      "name": "65 BIRTH PLACES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        12,
+        14,
+        26
+      ],
+      "following_patterns": [
+        95,
+        111,
+        129,
+        136,
+        139,
+        173
+      ]
+    },
+    {
+      "id": "apl66",
+      "number": 66,
+      "name": "66 HOLY GROUND",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        24,
+        26,
+        53,
+        64
+      ],
+      "following_patterns": [
+        134,
+        171
+      ]
+    },
+    {
+      "id": "apl67",
+      "number": 67,
+      "name": "67 COMMON LAND",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        37,
+        38,
+        39,
+        41,
+        51,
+        60
+      ],
+      "following_patterns": [
+        68,
+        69,
+        72,
+        105,
+        106,
+        177
+      ]
+    },
+    {
+      "id": "apl68",
+      "number": 68,
+      "name": "68 CONNECTED PLAY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        37,
+        50,
+        67
+      ],
+      "following_patterns": [
+        71,
+        73,
+        74,
+        86
+      ]
+    },
+    {
+      "id": "apl69",
+      "number": 69,
+      "name": "69 PUBLIC OUTDOOR ROOM",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        53,
+        60,
+        61,
+        67
+      ],
+      "following_patterns": [
+        73,
+        84,
+        93,
+        100,
+        115,
+        119,
+        120,
+        121,
+        124,
+        125,
+        129,
+        160,
+        163,
+        240,
+        244
+      ]
+    },
+    {
+      "id": "apl70",
+      "number": 70,
+      "name": "70 GRAVE SITES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        26,
+        59,
+        66,
+        67
+      ],
+      "following_patterns": [
+        171,
+        241
+      ]
+    },
+    {
+      "id": "apl71",
+      "number": 71,
+      "name": "71 STILL WATER",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        25,
+        37,
+        41,
+        47,
+        64,
+        67,
+        69
+      ],
+      "following_patterns": [
+        72,
+        105,
+        174,
+        243
+      ]
+    },
+    {
+      "id": "apl72",
+      "number": 72,
+      "name": "72 LOCAL SPORTS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        41,
+        47,
+        71
+      ],
+      "following_patterns": [
+        95,
+        101,
+        144,
+        165,
+        241,
+        243
+      ]
+    },
+    {
+      "id": "apl73",
+      "number": 73,
+      "name": "73 ADVENTURE PLAYGROUND",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        56,
+        67,
+        68
+      ],
+      "following_patterns": [
+        161,
+        172,
+        173,
+        243
+      ]
+    },
+    {
+      "id": "apl74",
+      "number": 74,
+      "name": "74 ANIMALS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        51,
+        60,
+        67
+      ],
+      "following_patterns": [
+        79,
+        86,
+        178
+      ]
+    },
+    {
+      "id": "apl75",
+      "number": 75,
+      "name": "75 THE FAMILY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        26,
+        35,
+        37,
+        38,
+        39,
+        48
+      ],
+      "following_patterns": [
+        76,
+        77,
+        78,
+        79,
+        95,
+        129,
+        147
+      ]
+    },
+    {
+      "id": "apl76",
+      "number": 76,
+      "name": "76 HOUSE FOR A SMALL FAMILY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        37,
+        75
+      ],
+      "following_patterns": [
+        79,
+        129,
+        136,
+        137,
+        143
+      ]
+    },
+    {
+      "id": "apl77",
+      "number": 77,
+      "name": "77 HOUSE FOR A COUPLE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        37,
+        75
+      ],
+      "following_patterns": [
+        79,
+        136,
+        140
+      ]
+    },
+    {
+      "id": "apl78",
+      "number": 78,
+      "name": "78 HOUSE FOR ONE PERSON",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        75,
+        76,
+        77
+      ],
+      "following_patterns": [
+        79,
+        139,
+        144,
+        154,
+        155,
+        180,
+        183,
+        188,
+        189
+      ]
+    },
+    {
+      "id": "apl79",
+      "number": 79,
+      "name": "79 YOUR OWN HOME",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        38,
+        39,
+        75,
+        76,
+        77,
+        78
+      ],
+      "following_patterns": [
+        95,
+        111
+      ]
+    },
+    {
+      "id": "apl80",
+      "number": 80,
+      "name": "80 SELF-GOVERNING WORKSHOPS AND OFFICES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        9,
+        41,
+        42
+      ],
+      "following_patterns": [
+        81,
+        82,
+        83,
+        95,
+        148
+      ]
+    },
+    {
+      "id": "apl81",
+      "number": 81,
+      "name": "81 SMALL SERVICES WITHOUT RED TAPE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        41,
+        43,
+        44,
+        45,
+        47
+      ],
+      "following_patterns": [
+        82,
+        84,
+        95,
+        101,
+        102,
+        146,
+        148
+      ]
+    },
+    {
+      "id": "apl82",
+      "number": 82,
+      "name": "82 OFFICE CONNECTIONS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        21,
+        41,
+        80,
+        81
+      ],
+      "following_patterns": [
+        95,
+        100,
+        101,
+        102,
+        158
+      ]
+    },
+    {
+      "id": "apl83",
+      "number": 83,
+      "name": "83 MASTER AND APRENTICES",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        80
+      ],
+      "following_patterns": [
+        129,
+        147,
+        148,
+        151,
+        152,
+        183
+      ]
+    },
+    {
+      "id": "apl84",
+      "number": 84,
+      "name": "84 TEENAGE SOCIETY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        26,
+        72,
+        83
+      ],
+      "following_patterns": [
+        95,
+        147,
+        157
+      ]
+    },
+    {
+      "id": "apl85",
+      "number": 85,
+      "name": "85 SHOPFRONT SCHOOLS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        60,
+        80
+      ],
+      "following_patterns": [
+        86,
+        95,
+        100,
+        165
+      ]
+    },
+    {
+      "id": "apl86",
+      "number": 86,
+      "name": "86 CHILDREN'S HOME",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        18,
+        57,
+        68,
+        73,
+        75,
+        79
+      ],
+      "following_patterns": [
+        95,
+        101,
+        129
+      ]
+    },
+    {
+      "id": "apl87",
+      "number": 87,
+      "name": "87 INDIVIDUALLY OWNED SHOPS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        32,
+        46
+      ],
+      "following_patterns": [
+        88,
+        89,
+        95,
+        165,
+        191,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "apl88",
+      "number": 88,
+      "name": "88 STREET CAFE",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        30,
+        61
+      ],
+      "following_patterns": [
+        95,
+        125,
+        150,
+        165,
+        243,
+        244,
+        250
+      ]
+    },
+    {
+      "id": "apl89",
+      "number": 89,
+      "name": "89 CORNER GROCERY",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        14,
+        19,
+        46,
+        87
+      ],
+      "following_patterns": [
+        95,
+        110,
+        165,
+        191,
+        197,
+        200
+      ]
+    },
+    {
+      "id": "apl90",
+      "number": 90,
+      "name": "90 BEER HALL",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        15,
+        31,
+        33
+      ],
+      "following_patterns": [
+        95,
+        179,
+        181,
+        190
+      ]
+    },
+    {
+      "id": "apl91",
+      "number": 91,
+      "name": "91 TRAVELLER'S INN",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        10,
+        30,
+        31,
+        33,
+        41,
+        65,
+        90
+      ],
+      "following_patterns": [
+        94,
+        95,
+        129,
+        147,
+        186
+      ]
+    },
+    {
+      "id": "apl92",
+      "number": 92,
+      "name": "92 BUS STOP",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        20,
+        53,
+        69
+      ],
+      "following_patterns": [
+        93,
+        121,
+        150,
+        241
+      ]
+    },
+    {
+      "id": "apl93",
+      "number": 93,
+      "name": "93 FOOD STANDS",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        22,
+        30,
+        52,
+        54,
+        55,
+        61,
+        87,
+        92
+      ],
+      "following_patterns": [
+        124,
+        244
+      ]
+    },
+    {
+      "id": "apl94",
+      "number": 94,
+      "name": "94 SLEEPING IN PUBLIC",
+      "asterisks": 2,
+      "context": "",
+      "problem": "",
+      "solution": "",
+      "preceding_patterns": [
+        34,
+        62,
+        69,
+        88
+      ],
+      "following_patterns": [
+        100,
+        101,
+        150,
+        160,
+        188,
+        241
+      ]
+    }
+  ]
+}

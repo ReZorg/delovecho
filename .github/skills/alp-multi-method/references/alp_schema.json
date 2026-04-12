@@ -1,0 +1,5423 @@
+{
+  "AnyLogicWorkspace": {
+    "count": 19,
+    "attrs": [
+      "AlpVersion",
+      "AnyLogicVersion",
+      "WorkspaceVersion"
+    ],
+    "has_text": false,
+    "children": [
+      "Model"
+    ]
+  },
+  "AnyLogicWorkspace/Model": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AbsoluteAccuracy",
+      "ActiveObjectClasses",
+      "AlgebraicEquationsMethod",
+      "Database",
+      "Description",
+      "DifferentialEquationsMethod",
+      "Dimensions",
+      "EngineVersion",
+      "Experiments",
+      "FixedTimeStep",
+      "Folders",
+      "Frame",
+      "Id",
+      "JavaPackageName",
+      "MixedEquationsMethod",
+      "ModelResources",
+      "ModelTimeUnit",
+      "Name",
+      "RelativeAccuracy",
+      "RequiredLibraryReference",
+      "RunConfiguration",
+      "TimeAccuracy"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Id": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Name": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Description": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/EngineVersion": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/JavaPackageName": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ModelTimeUnit": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ActiveObjectClass"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AgentLinks",
+      "AgentProperties",
+      "ClientAreaTopLeft",
+      "ConnectionsId",
+      "Connectors",
+      "ContainerLinks",
+      "CurrentLevel",
+      "DatasetsCreationProperties",
+      "Dependences",
+      "ElementsLimitValue",
+      "EmbeddedObjects",
+      "EnvironmentProperties",
+      "Events",
+      "FlowChartsUsage",
+      "Functions",
+      "Generic",
+      "GenericParameter",
+      "Id",
+      "LimitNumberOfArrayElements",
+      "MakeDefaultViewArea",
+      "Name",
+      "Presentation",
+      "SamplesToKeep",
+      "ScaleRuler",
+      "SceneBackgroundColor",
+      "SceneGridColor",
+      "SceneSkybox",
+      "StatechartElements",
+      "Variables"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Id": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Name": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ClientAreaTopLeft": {
+    "count": 15,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ClientAreaTopLeft/X": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ClientAreaTopLeft/Y": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Generic": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "GenericParameterLabel",
+      "GenericParameterValue",
+      "Id",
+      "Name"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter/Id": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter/Name": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter/GenericParameterValue": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter/GenericParameterValue/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/GenericParameter/GenericParameterLabel": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/FlowChartsUsage": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/SamplesToKeep": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/LimitNumberOfArrayElements": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ElementsLimitValue": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/MakeDefaultViewArea": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/SceneGridColor": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/SceneBackgroundColor": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/SceneSkybox": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "EnvironmentDefinesInitialLocation",
+      "PhysicalHeight",
+      "PhysicalLength",
+      "PhysicalWidth",
+      "RotateAnimationTowardsMovement",
+      "RotateAnimationVertically",
+      "SpaceType",
+      "VelocityCode"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/SpaceType": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/EnvironmentDefinesInitialLocation": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/RotateAnimationTowardsMovement": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/RotateAnimationVertically": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/VelocityCode": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/VelocityCode/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/VelocityCode/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalLength": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalLength/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalLength/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalWidth": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalWidth/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalWidth/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalHeight": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalHeight/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentProperties/PhysicalHeight/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ColumnsCountCode",
+      "ConnectionsPerAgentCode",
+      "ConnectionsRangeCode",
+      "EnableSteps",
+      "HeightCode",
+      "LayoutType",
+      "LayoutTypeApplyOnStartup",
+      "MCode",
+      "NeigborhoodType",
+      "NeighborLinkFractionCode",
+      "NetworkType",
+      "NetworkTypeApplyOnStartup",
+      "RowsCountCode",
+      "SpaceType",
+      "StepDurationCode",
+      "WidthCode",
+      "ZHeightCode"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/EnableSteps": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/StepDurationCode": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/StepDurationCode/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/StepDurationCode/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/SpaceType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/WidthCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/HeightCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/ZHeightCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/ColumnsCountCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/RowsCountCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/NeigborhoodType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/LayoutType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/LayoutTypeApplyOnStartup": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/NetworkType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/NetworkTypeApplyOnStartup": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/ConnectionsPerAgentCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/ConnectionsRangeCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/NeighborLinkFractionCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EnvironmentProperties/MCode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AutoCreate",
+      "OccurrenceAtTime",
+      "OccurrenceDate",
+      "OccurrenceTime",
+      "RecurrenceCode"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/AutoCreate": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/OccurrenceAtTime": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/OccurrenceDate": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/OccurrenceTime": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/OccurrenceTime/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/OccurrenceTime/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/RecurrenceCode": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/RecurrenceCode/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/DatasetsCreationProperties/RecurrenceCode/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "Id",
+      "InheritedFromParentAgentType",
+      "Length",
+      "LengthUnits",
+      "ModelLength",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "Scale",
+      "ScaleType",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Id": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Name": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/X": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Y": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/PublicFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/PresentationFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/ShowLabel": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/DrawMode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Length": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Rotation": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/ScaleType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/ModelLength": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/LengthUnits": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/Scale": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ScaleRuler/InheritedFromParentAgentType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/CurrentLevel": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ConnectionsId": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables": {
+    "count": 15,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Variable"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable": {
+    "count": 27,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "Properties",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Id": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Name": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/X": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Y": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Label": {
+    "count": 27,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Label/X": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Label/Y": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/PublicFlag": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/PresentationFlag": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/ShowLabel": {
+    "count": 27,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties": {
+    "count": 27,
+    "attrs": [
+      "AccessType",
+      "Array",
+      "Constant",
+      "External",
+      "ModificatorType",
+      "SaveInSnapshot",
+      "SourceId",
+      "StaticVariable",
+      "TargetId"
+    ],
+    "has_text": false,
+    "children": [
+      "Array",
+      "Color",
+      "DefaultValue",
+      "EquationStyle",
+      "Formula",
+      "Height",
+      "InitialValue",
+      "ParameterEditor",
+      "Points",
+      "SdArray",
+      "Type",
+      "UnitType",
+      "Value",
+      "ValveIndex",
+      "Width"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/EquationStyle": {
+    "count": 10,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Width": {
+    "count": 10,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Height": {
+    "count": 10,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/InitialValue": {
+    "count": 10,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Color": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Formula": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ValveIndex": {
+    "count": 8,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Points": {
+    "count": 8,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Point"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Points/Point": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Points/Point/X": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Points/Point/Y": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Event"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event": {
+    "count": 5,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Action",
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "Properties",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Id": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Name": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/X": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Y": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Label": {
+    "count": 5,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Label/X": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Label/Y": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/PublicFlag": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/PresentationFlag": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/ShowLabel": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties": {
+    "count": 5,
+    "attrs": [
+      "Mode",
+      "TriggerType"
+    ],
+    "has_text": false,
+    "children": [
+      "Condition",
+      "OccurrenceAtTime",
+      "OccurrenceDate",
+      "OccurrenceTime",
+      "Rate",
+      "RecurrenceCode",
+      "Timeout"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Timeout": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Timeout/Code": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Timeout/Unit": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Rate": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Rate/Code": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Rate/Unit": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/OccurrenceAtTime": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/OccurrenceDate": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/OccurrenceTime": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/OccurrenceTime/Code": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/OccurrenceTime/Unit": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/RecurrenceCode": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/RecurrenceCode/Code": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/RecurrenceCode/Unit": {
+    "count": 5,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Properties/Condition": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Events/Event/Action": {
+    "count": 5,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AgentLink"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AgentLinkBidirectional",
+      "AgentLinkType",
+      "HandleReceiveInConnections",
+      "Id",
+      "Label",
+      "LineArrow",
+      "LineArrowPosition",
+      "LineColor",
+      "LineStyle",
+      "LineWidth",
+      "LineZOrder",
+      "MessageType",
+      "Name",
+      "OnReceive",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Id": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Name": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/X": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Y": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Label": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Label/X": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/Label/Y": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/PublicFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/PresentationFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/ShowLabel": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/HandleReceiveInConnections": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/AgentLinkType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/AgentLinkBidirectional": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/MessageType": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineStyle": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineWidth": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineColor": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineZOrder": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineArrow": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/LineArrowPosition": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Level"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "Id",
+      "Label",
+      "LevelVisibility",
+      "Name",
+      "Presentation",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Id": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Name": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/X": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Y": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Label": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Label/X": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Label/Y": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/PublicFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/PresentationFlag": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/ShowLabel": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/DrawMode": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Z": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/LevelVisibility": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation": {
+    "count": 23,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Control",
+      "Curve",
+      "Group",
+      "Image",
+      "Oval",
+      "Polyline",
+      "Rectangle",
+      "Text"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline": {
+    "count": 25,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "BeginArrowSize",
+      "BeginArrowStyle",
+      "Closed",
+      "DrawMode",
+      "EmbeddedIcon",
+      "EndArrowSize",
+      "EndArrowStyle",
+      "FillColor",
+      "FillMaterial",
+      "Id",
+      "Label",
+      "LineColor",
+      "LineMaterial",
+      "LineStyle",
+      "LineWidth",
+      "Name",
+      "Points",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z",
+      "ZHeight"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Id": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Name": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/X": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Y": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Label": {
+    "count": 25,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Label/X": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Label/Y": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/PublicFlag": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/PresentationFlag": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/ShowLabel": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/DrawMode": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/EmbeddedIcon": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Z": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/ZHeight": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/LineWidth": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/LineColor": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/LineMaterial": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/LineStyle": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/BeginArrowSize": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/BeginArrowStyle": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/EndArrowSize": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/EndArrowStyle": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/FillColor": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/FillMaterial": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Points": {
+    "count": 25,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Point"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Points/Point": {
+    "count": 201,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Points/Point/X": {
+    "count": 201,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Points/Point/Y": {
+    "count": 201,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Points/Point/Z": {
+    "count": 201,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Polyline/Closed": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/DifferentialEquationsMethod": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/MixedEquationsMethod": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/AlgebraicEquationsMethod": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/AbsoluteAccuracy": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/FixedTimeStep": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RelativeAccuracy": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/TimeAccuracy": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Frame": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Height",
+      "Width"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Frame/Width": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Frame/Height": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Database": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "AutoExport",
+      "ExportSettings",
+      "ImportSettings",
+      "Logging",
+      "ShutdownCompact"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Database/Logging": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Database/AutoExport": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Database/ShutdownCompact": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Database/ImportSettings": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Database/ExportSettings": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration": {
+    "count": 19,
+    "attrs": [
+      "ActiveObjectClassId"
+    ],
+    "has_text": false,
+    "children": [
+      "AnimationProperties",
+      "Id",
+      "Inputs",
+      "MaximumMemory",
+      "ModelTimeProperties",
+      "Name",
+      "Outputs"
+    ]
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/Id": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/Name": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/MaximumMemory": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "FinalDate",
+      "FinalTime",
+      "InitialDate",
+      "InitialTime",
+      "StopOption"
+    ]
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties/StopOption": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties/InitialDate": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties/InitialTime": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties/FinalDate": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/ModelTimeProperties/FinalTime": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "EnableDeveloperPanel",
+      "EnableZoomAndPanning",
+      "ExecutionMode",
+      "RealTimeScale",
+      "ShowDeveloperPanelOnStart",
+      "StopNever"
+    ]
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/StopNever": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/ExecutionMode": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/RealTimeScale": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/EnableZoomAndPanning": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/EnableDeveloperPanel": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/AnimationProperties/ShowDeveloperPanelOnStart": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/Inputs": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RunConfiguration/Outputs": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "SimulationExperiment"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment": {
+    "count": 19,
+    "attrs": [
+      "ActiveObjectClassId"
+    ],
+    "has_text": false,
+    "children": [
+      "BypassInitialScreen",
+      "ClientAreaTopLeft",
+      "CommandLineArguments",
+      "CustomGeneratorCode",
+      "Id",
+      "LoadRootFromSnapshot",
+      "MaximumMemory",
+      "ModelTimeProperties",
+      "Name",
+      "Parameters",
+      "Presentation",
+      "PresentationProperties",
+      "RandomNumberGenerationType",
+      "SeedValue",
+      "SelectionModeForSimultaneousEvents",
+      "VmArgs"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Id": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Name": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ClientAreaTopLeft": {
+    "count": 15,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ClientAreaTopLeft/X": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ClientAreaTopLeft/Y": {
+    "count": 15,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/CommandLineArguments": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/MaximumMemory": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/RandomNumberGenerationType": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/CustomGeneratorCode": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/SeedValue": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/SelectionModeForSimultaneousEvents": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/VmArgs": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/LoadRootFromSnapshot": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Image",
+      "Text"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text": {
+    "count": 48,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Alignment",
+      "Color",
+      "DrawMode",
+      "EmbeddedIcon",
+      "Font",
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "Text",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Id": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Name": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/X": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Y": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Label": {
+    "count": 48,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Label/X": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Label/Y": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/PublicFlag": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/PresentationFlag": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/ShowLabel": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/DrawMode": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/EmbeddedIcon": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Z": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Rotation": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Color": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Text": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Font": {
+    "count": 48,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Name",
+      "Size",
+      "Style"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Font/Name": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Font/Size": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Font/Style": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Text/Alignment": {
+    "count": 48,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image": {
+    "count": 38,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "Height",
+      "Id",
+      "ImageFiles",
+      "Label",
+      "Name",
+      "OnClickCode",
+      "OriginalSize",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "Width",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Id": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Name": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/X": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Y": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Label": {
+    "count": 38,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Label/X": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Label/Y": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/PublicFlag": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/PresentationFlag": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/ShowLabel": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/DrawMode": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/EmbeddedIcon": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Z": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Width": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Height": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/Rotation": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/ImageFiles": {
+    "count": 38,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ImageResourceReference"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/ImageFiles/ImageResourceReference": {
+    "count": 38,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/ImageFiles/ImageResourceReference/PackageName": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/ImageFiles/ImageResourceReference/ClassName": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/OriginalSize": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Presentation/Image/OnClickCode": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Parameters": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Parameter"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "EnableDeveloperPanel",
+      "EnableZoomAndPanning",
+      "ExecutionMode",
+      "RealTimeScale",
+      "ShowDeveloperPanelOnStart",
+      "Title"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/EnableZoomAndPanning": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/ExecutionMode": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/Title": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/EnableDeveloperPanel": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/ShowDeveloperPanelOnStart": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/PresentationProperties/RealTimeScale": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "FinalDate",
+      "FinalTime",
+      "InitialDate",
+      "InitialTime",
+      "StopOption"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties/StopOption": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties/InitialDate": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties/InitialTime": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties/FinalDate": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/ModelTimeProperties/FinalTime": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/BypassInitialScreen": {
+    "count": 19,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ModelResources": {
+    "count": 19,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Resource"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ModelResources/Resource": {
+    "count": 41,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Location",
+      "Path",
+      "ReferencedFromUserCode"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ModelResources/Resource/Path": {
+    "count": 41,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ModelResources/Resource/ReferencedFromUserCode": {
+    "count": 41,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RequiredLibraryReference": {
+    "count": 25,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "LibraryName",
+      "VersionBuild",
+      "VersionMajor",
+      "VersionMinor"
+    ]
+  },
+  "AnyLogicWorkspace/Model/RequiredLibraryReference/LibraryName": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RequiredLibraryReference/VersionMajor": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RequiredLibraryReference/VersionMinor": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/RequiredLibraryReference/VersionBuild": {
+    "count": 25,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements": {
+    "count": 8,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "StatechartElement"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement": {
+    "count": 38,
+    "attrs": [
+      "Class",
+      "ParentState"
+    ],
+    "has_text": false,
+    "children": [
+      "IconOffset",
+      "Id",
+      "Label",
+      "Name",
+      "Points",
+      "PresentationFlag",
+      "Properties",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Id": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Name": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/X": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Y": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Label": {
+    "count": 38,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Label/X": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Label/Y": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/PublicFlag": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/PresentationFlag": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/ShowLabel": {
+    "count": 38,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties": {
+    "count": 38,
+    "attrs": [
+      "Height",
+      "Source",
+      "Target",
+      "Trigger",
+      "Width"
+    ],
+    "has_text": false,
+    "children": [
+      "Action",
+      "Condition",
+      "DefaultTransition",
+      "EqualsExpression",
+      "FillColor",
+      "FilterType",
+      "MessageType",
+      "Rate",
+      "SatisfiesExpression",
+      "Timeout"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/FillColor": {
+    "count": 17,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Points": {
+    "count": 21,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Point"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Points/Point": {
+    "count": 42,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Points/Point/X": {
+    "count": 42,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Points/Point/Y": {
+    "count": 42,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/IconOffset": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Action": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Timeout": {
+    "count": 13,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Timeout/Code": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Timeout/Unit": {
+    "count": 13,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Condition": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Rate": {
+    "count": 13,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Rate/Code": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/Rate/Unit": {
+    "count": 13,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/MessageType": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/DefaultTransition": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/FilterType": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/EqualsExpression": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/StatechartElements/StatechartElement/Properties/SatisfiesExpression": {
+    "count": 13,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors": {
+    "count": 6,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Connector"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Id",
+      "Label",
+      "Name",
+      "Points",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "SourceConnectableItemReference",
+      "SourceEmbeddedObjectReference",
+      "TargetConnectableItemReference",
+      "TargetEmbeddedObjectReference",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Id": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Name": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/X": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Y": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Label": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Label/X": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Label/Y": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/PublicFlag": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/PresentationFlag": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/ShowLabel": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceEmbeddedObjectReference": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "ItemName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceEmbeddedObjectReference/PackageName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceEmbeddedObjectReference/ClassName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceEmbeddedObjectReference/ItemName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceConnectableItemReference": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "ItemName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceConnectableItemReference/PackageName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceConnectableItemReference/ClassName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/SourceConnectableItemReference/ItemName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetEmbeddedObjectReference": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "ItemName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetEmbeddedObjectReference/PackageName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetEmbeddedObjectReference/ClassName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetEmbeddedObjectReference/ItemName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetConnectableItemReference": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "ItemName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetConnectableItemReference/PackageName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetConnectableItemReference/ClassName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/TargetConnectableItemReference/ItemName": {
+    "count": 12,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Points": {
+    "count": 12,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Point"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Points/Point": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Points/Point/X": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Connectors/Connector/Points/Point/Y": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects": {
+    "count": 10,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "EmbeddedObject"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ActiveObjectClass",
+      "CollectionType",
+      "ColumnCode",
+      "GenericParameterSubstitute",
+      "Id",
+      "InitialLocationType",
+      "InitialSpeedCode",
+      "InitializationDatabaseTableQuery",
+      "InitializationDatabaseType",
+      "InitializationType",
+      "Label",
+      "LatitudeCode",
+      "LocationNameCode",
+      "LongitudeCode",
+      "Name",
+      "Parameters",
+      "PresentationFlag",
+      "PresentationId",
+      "PublicFlag",
+      "QuantityColumn",
+      "Replication",
+      "ReplicationFlag",
+      "RowCode",
+      "ShowLabel",
+      "StatisticsItem",
+      "X",
+      "XCode",
+      "Y",
+      "YCode",
+      "ZCode"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Id": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Name": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/X": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Y": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Label": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Label/X": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Label/Y": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/PublicFlag": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/PresentationFlag": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ShowLabel": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ActiveObjectClass": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ActiveObjectClass/PackageName": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ActiveObjectClass/ClassName": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "GenericParameterSubstituteReference",
+      "GenericParameterSubstituteValue"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteReference": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "ItemName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteReference/PackageName": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteReference/ClassName": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteReference/ItemName": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteValue": {
+    "count": 20,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/GenericParameterSubstitute/GenericParameterSubstituteValue/Code": {
+    "count": 20,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Parameter"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters/Parameter": {
+    "count": 564,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Name",
+      "Value"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters/Parameter/Name": {
+    "count": 564,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ReplicationFlag": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Replication": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Replication/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/CollectionType": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitialSpeedCode": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitialSpeedCode/Code": {
+    "count": 23,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitialSpeedCode/Unit": {
+    "count": 23,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitialLocationType": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/XCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/XCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/YCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/YCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ZCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ZCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ColumnCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/ColumnCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/RowCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/RowCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LatitudeCode": {
+    "count": 20,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LatitudeCode/Code": {
+    "count": 20,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LongitudeCode": {
+    "count": 20,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LongitudeCode/Code": {
+    "count": 20,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LocationNameCode": {
+    "count": 24,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/LocationNameCode/Code": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitializationType": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitializationDatabaseTableQuery": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "TableReference"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitializationDatabaseTableQuery/TableReference": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/InitializationDatabaseType": {
+    "count": 24,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/QuantityColumn": {
+    "count": 24,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters/Parameter/Value": {
+    "count": 45,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code",
+      "Unit"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters/Parameter/Value/Code": {
+    "count": 45,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/Parameters/Parameter/Value/Unit": {
+    "count": 26,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Function"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function": {
+    "count": 2,
+    "attrs": [
+      "AccessType",
+      "StaticFunction"
+    ],
+    "has_text": false,
+    "children": [
+      "Body",
+      "Id",
+      "Label",
+      "Name",
+      "Parameter",
+      "PresentationFlag",
+      "PublicFlag",
+      "ReturnModificator",
+      "ReturnType",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/ReturnModificator": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/ReturnType": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Id": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Name": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/X": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Y": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Label": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Label/X": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Label/Y": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/PublicFlag": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/PresentationFlag": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/ShowLabel": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Body": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control": {
+    "count": 4,
+    "attrs": [
+      "Type"
+    ],
+    "has_text": false,
+    "children": [
+      "BasicProperties",
+      "DrawMode",
+      "EmbeddedIcon",
+      "ExtendedProperties",
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/EmbeddedIcon": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Id": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Name": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Label": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Label/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/Label/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/PublicFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/PresentationFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/ShowLabel": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/DrawMode": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties": {
+    "count": 4,
+    "attrs": [
+      "Height",
+      "Width"
+    ],
+    "has_text": false,
+    "children": [
+      "ActionCode",
+      "EmbeddedIcon",
+      "EnableExpression",
+      "Enabled",
+      "TextColor"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties/EmbeddedIcon": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties/TextColor": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties/Enabled": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties/ActionCode": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/ExtendedProperties": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Font",
+      "LabelText"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/ExtendedProperties/Font": {
+    "count": 4,
+    "attrs": [
+      "Name",
+      "Size",
+      "Style"
+    ],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/ExtendedProperties/LabelText": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Folders": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Type": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/UnitType": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/SdArray": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/DefaultValue": {
+    "count": 3,
+    "attrs": [
+      "Class"
+    ],
+    "has_text": false,
+    "children": [
+      "Code"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/DefaultValue/Code": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DelimeterType",
+      "EditorContolType",
+      "Id",
+      "MaxSliderValue",
+      "MinSliderValue"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor/Id": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor/EditorContolType": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor/MinSliderValue": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor/MaxSliderValue": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/ParameterEditor/DelimeterType": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Link"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link": {
+    "count": 3,
+    "attrs": [
+      "Polarity",
+      "SourceId",
+      "TargetId"
+    ],
+    "has_text": false,
+    "children": [
+      "Color",
+      "Delay",
+      "Direction",
+      "Height",
+      "Id",
+      "Label",
+      "LineWidth",
+      "Name",
+      "PolarityPosition",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Height": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/PolarityPosition": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Direction": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Direction/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Direction/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Id": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Name": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Label": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Label/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Label/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/PublicFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/PresentationFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/ShowLabel": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Color": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/LineWidth": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Dependences/Link/Delay": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/PresentationId": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "Id",
+      "Label",
+      "Name",
+      "Presentation",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Id": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Name": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Label": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Label/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Label/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/PublicFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/PresentationFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/ShowLabel": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/DrawMode": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/EmbeddedIcon": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Z": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Rotation": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "EmbeddedObjectPresentation"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "GISScaleForFixedEmbeddedObjectPresentationSize",
+      "GISScaleForRealEmbeddedObjectPresentationSize",
+      "Id",
+      "Label",
+      "Latitude",
+      "Longitude",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ScaleType",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Id": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Name": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Label": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Label/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Label/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/PublicFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/PresentationFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/ShowLabel": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/DrawMode": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/EmbeddedIcon": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Z": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Rotation": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/ScaleType": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/GISScaleForRealEmbeddedObjectPresentationSize": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/GISScaleForFixedEmbeddedObjectPresentationSize": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Latitude": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Group/Presentation/EmbeddedObjectPresentation/Longitude": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ContainerLink"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ActiveObjectClass",
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Id": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Name": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Label": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Label/X": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/Label/Y": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/PublicFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/PresentationFlag": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/ShowLabel": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/ActiveObjectClass": {
+    "count": 4,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/ActiveObjectClass/PackageName": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/ContainerLinks/ContainerLink/ActiveObjectClass/ClassName": {
+    "count": 4,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text": {
+    "count": 7,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Alignment",
+      "Color",
+      "DrawMode",
+      "EmbeddedIcon",
+      "Font",
+      "Id",
+      "Label",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "Text",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Id": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Name": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/X": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Y": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Label": {
+    "count": 7,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Label/X": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Label/Y": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/PublicFlag": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/PresentationFlag": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/ShowLabel": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/DrawMode": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/EmbeddedIcon": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Z": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Rotation": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Color": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Text": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Font": {
+    "count": 7,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Name",
+      "Size",
+      "Style"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Font/Name": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Font/Size": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Font/Style": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Text/Alignment": {
+    "count": 7,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Parameters/Parameter": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ParameterName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Experiments/SimulationExperiment/Parameters/Parameter/ParameterName": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ModelResources/Resource/Location": {
+    "count": 8,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Condition",
+      "Expression",
+      "Id",
+      "Name",
+      "Type"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem/Id": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem/Name": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem/Type": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem/Expression": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/EmbeddedObjects/EmbeddedObject/StatisticsItem/Condition": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Value": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/AgentLinks/AgentLink/OnReceive": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "Height",
+      "Id",
+      "ImageFiles",
+      "Label",
+      "Name",
+      "OriginalSize",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "Width",
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Id": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Name": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Label": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Label/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Label/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/PublicFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/PresentationFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/ShowLabel": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/DrawMode": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/EmbeddedIcon": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Z": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Width": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Height": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/Rotation": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/ImageFiles": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ImageResourceReference"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/ImageFiles/ImageResourceReference": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/ImageFiles/ImageResourceReference/PackageName": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/ImageFiles/ImageResourceReference/ClassName": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Image/OriginalSize": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions": {
+    "count": 1,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Dimension"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension": {
+    "count": 1,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Element",
+      "Id",
+      "Name",
+      "Range",
+      "Type"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Id": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Name": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Type": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Range": {
+    "count": 1,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Element": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Id",
+      "Name",
+      "Value"
+    ]
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Element/Id": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Element/Name": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/Dimensions/Dimension/Element/Value": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "CustomExpression",
+      "Dimension"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/Dimension": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/Dimension/PackageName": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/Dimension/ClassName": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/CustomExpression": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Coordinate"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/CustomExpression/Coordinate": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "ClassName",
+      "PackageName"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/CustomExpression/Coordinate/PackageName": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Variables/Variable/Properties/Array/CustomExpression/Coordinate/ClassName": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Parameter": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Name",
+      "Type"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Parameter/Name": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Functions/Function/Parameter/Type": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve": {
+    "count": 3,
+    "attrs": [
+      "ControlPoints"
+    ],
+    "has_text": false,
+    "children": [
+      "BeginArrowSize",
+      "BeginArrowStyle",
+      "Closed",
+      "DrawMode",
+      "EmbeddedIcon",
+      "EndArrowSize",
+      "EndArrowStyle",
+      "FillColor",
+      "FillMaterial",
+      "Id",
+      "Label",
+      "LineColor",
+      "LineMaterial",
+      "LineStyle",
+      "LineWidth",
+      "Name",
+      "Points",
+      "PresentationFlag",
+      "PublicFlag",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z",
+      "ZHeight"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Id": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Name": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Label": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Label/X": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Label/Y": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/PublicFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/PresentationFlag": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/ShowLabel": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/DrawMode": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/EmbeddedIcon": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Z": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/ZHeight": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/LineWidth": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/LineColor": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/LineMaterial": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/LineStyle": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/BeginArrowSize": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/BeginArrowStyle": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/EndArrowSize": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/EndArrowStyle": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/FillColor": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/FillMaterial": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Points": {
+    "count": 3,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "Point"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Points/Point": {
+    "count": 46,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y",
+      "Z"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Points/Point/X": {
+    "count": 46,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Points/Point/Y": {
+    "count": 46,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Points/Point/Z": {
+    "count": 46,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Curve/Closed": {
+    "count": 3,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "FillColor",
+      "FillMaterial",
+      "Id",
+      "Label",
+      "LineColor",
+      "LineMaterial",
+      "LineStyle",
+      "LineWidth",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "RadiusX",
+      "RadiusY",
+      "Rotation",
+      "ShowLabel",
+      "X",
+      "Y",
+      "Z",
+      "ZHeight"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Id": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Name": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/X": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Y": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Label": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Label/X": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Label/Y": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/PublicFlag": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/PresentationFlag": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/ShowLabel": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/DrawMode": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/EmbeddedIcon": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Z": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/ZHeight": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/LineWidth": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/LineColor": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/LineMaterial": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/LineStyle": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/RadiusX": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/RadiusY": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/Rotation": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/FillColor": {
+    "count": 2,
+    "attrs": [],
+    "has_text": false,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Oval/FillMaterial": {
+    "count": 2,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Control/BasicProperties/EnableExpression": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle": {
+    "count": 1,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "DrawMode",
+      "EmbeddedIcon",
+      "FillColor",
+      "FillMaterial",
+      "Height",
+      "Id",
+      "Label",
+      "LineColor",
+      "LineMaterial",
+      "LineStyle",
+      "LineWidth",
+      "Name",
+      "PresentationFlag",
+      "PublicFlag",
+      "Rotation",
+      "ShowLabel",
+      "Width",
+      "X",
+      "Y",
+      "Z",
+      "ZHeight"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Id": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Name": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/X": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Y": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Label": {
+    "count": 1,
+    "attrs": [],
+    "has_text": false,
+    "children": [
+      "X",
+      "Y"
+    ]
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Label/X": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Label/Y": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/PublicFlag": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/PresentationFlag": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/ShowLabel": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/DrawMode": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/EmbeddedIcon": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Z": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/ZHeight": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/LineWidth": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/LineColor": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/LineMaterial": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/LineStyle": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Width": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Height": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/Rotation": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/FillColor": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  },
+  "AnyLogicWorkspace/Model/ActiveObjectClasses/ActiveObjectClass/Presentation/Level/Presentation/Rectangle/FillMaterial": {
+    "count": 1,
+    "attrs": [],
+    "has_text": true,
+    "children": []
+  }
+}

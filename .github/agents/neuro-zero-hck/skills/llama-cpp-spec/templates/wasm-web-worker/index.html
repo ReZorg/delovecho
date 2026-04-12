@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny LLM Chat</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tiny LLM Chat</h1>
+            <p id="status">Loading...</p>
+        </header>
+        
+        <div class="model-select">
+            <label for="model-url">Model URL:</label>
+            <input type="text" id="model-url" 
+                   value="https://huggingface.co/Qwen/Qwen2-0.5B-Instruct-GGUF/resolve/main/qwen2-0_5b-instruct-q4_0.gguf"
+                   placeholder="Enter GGUF model URL">
+            <button id="load-btn">Load Model</button>
+        </div>
+        
+        <div id="progress-container" class="hidden">
+            <div id="progress-bar"></div>
+            <span id="progress-text">0%</span>
+        </div>
+        
+        <div id="chat-container">
+            <div id="messages"></div>
+        </div>
+        
+        <div class="input-area">
+            <textarea id="input" placeholder="Type your message..." rows="2" disabled></textarea>
+            <button id="send-btn" disabled>Send</button>
+            <button id="clear-btn" disabled>Clear</button>
+        </div>
+        
+        <div class="settings">
+            <details>
+                <summary>Settings</summary>
+                <div class="settings-grid">
+                    <label>
+                        Temperature:
+                        <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
+                        <span id="temp-value">0.7</span>
+                    </label>
+                    <label>
+                        Max Tokens:
+                        <input type="number" id="max-tokens" min="1" max="2048" value="256">
+                    </label>
+                    <label>
+                        Top P:
+                        <input type="range" id="top-p" min="0" max="1" step="0.05" value="0.9">
+                        <span id="top-p-value">0.9</span>
+                    </label>
+                    <label>
+                        Top K:
+                        <input type="number" id="top-k" min="1" max="100" value="40">
+                    </label>
+                </div>
+            </details>
+        </div>
+        
+        <footer>
+            <p>Model: <span id="model-info">Not loaded</span></p>
+            <p>Performance: <span id="perf-info">-</span></p>
+        </footer>
+    </div>
+    
+    <script type="module">
+        import { LlamaChat } from './llama-client.js';
+        
+        // DOM elements
+        const status = document.getElementById('status');
+        const modelUrl = document.getElementById('model-url');
+        const loadBtn = document.getElementById('load-btn');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const messagesDiv = document.getElementById('messages');
+        const input = document.getElementById('input');
+        const sendBtn = document.getElementById('send-btn');
+        const clearBtn = document.getElementById('clear-btn');
+        const modelInfo = document.getElementById('model-info');
+        const perfInfo = document.getElementById('perf-info');
+        
+        // Settings
+        const tempSlider = document.getElementById('temperature');
+        const tempValue = document.getElementById('temp-value');
+        const maxTokens = document.getElementById('max-tokens');
+        const topPSlider = document.getElementById('top-p');
+        const topPValue = document.getElementById('top-p-value');
+        const topK = document.getElementById('top-k');
+        
+        // Update setting displays
+        tempSlider.oninput = () => tempValue.textContent = tempSlider.value;
+        topPSlider.oninput = () => topPValue.textContent = topPSlider.value;
+        
+        // Chat instance
+        let chat = null;
+        let generating = false;
+        
+        // Initialize
+        async function init() {
+            status.textContent = 'Initializing WASM...';
+            
+            try {
+                chat = new LlamaChat({
+                    systemPrompt: 'You are a helpful, friendly assistant. Keep responses concise.'
+                });
+                
+                await chat.init();
+                status.textContent = 'Ready. Load a model to start chatting.';
+                loadBtn.disabled = false;
+            } catch (error) {
+                status.textContent = `Error: ${error.message}`;
+                console.error(error);
+            }
+        }
+        
+        // Load model
+        async function loadModel() {
+            const url = modelUrl.value.trim();
+            if (!url) return;
+            
+            loadBtn.disabled = true;
+            progressContainer.classList.remove('hidden');
+            status.textContent = 'Loading model...';
+            
+            try {
+                await chat.loadModel(url, {
+                    onProgress: ({ loaded, total, percent }) => {
+                        progressBar.style.width = `${percent}%`;
+                        progressText.textContent = `${percent}% (${formatBytes(loaded)} / ${formatBytes(total)})`;
+                    }
+                });
+                
+                const info = chat.getInfo();
+                modelInfo.textContent = `${info.name || 'Unknown'} (${info.arch}, ${info.n_layer}L, ${info.n_ctx} ctx)`;
+                
+                status.textContent = 'Model loaded. Start chatting!';
+                input.disabled = false;
+                sendBtn.disabled = false;
+                clearBtn.disabled = false;
+                input.focus();
+            } catch (error) {
+                status.textContent = `Error: ${error.message}`;
+                console.error(error);
+            } finally {
+                progressContainer.classList.add('hidden');
+                loadBtn.disabled = false;
+            }
+        }
+        
+        // Send message
+        async function sendMessage() {
+            const text = input.value.trim();
+            if (!text || generating) return;
+            
+            // Add user message
+            addMessage('user', text);
+            input.value = '';
+            
+            // Create assistant message placeholder
+            const assistantDiv = addMessage('assistant', '');
+            const contentSpan = assistantDiv.querySelector('.content');
+            
+            generating = true;
+            sendBtn.textContent = 'Stop';
+            
+            const startTime = performance.now();
+            let tokenCount = 0;
+            
+            try {
+                for await (const token of chat.stream(text, {
+                    temperature: parseFloat(tempSlider.value),
+                    maxTokens: parseInt(maxTokens.value),
+                    topP: parseFloat(topPSlider.value),
+                    topK: parseInt(topK.value)
+                })) {
+                    contentSpan.textContent += token;
+                    tokenCount++;
+                    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                }
+                
+                const elapsed = (performance.now() - startTime) / 1000;
+                perfInfo.textContent = `${tokenCount} tokens in ${elapsed.toFixed(1)}s (${(tokenCount/elapsed).toFixed(1)} tok/s)`;
+            } catch (error) {
+                contentSpan.textContent = `Error: ${error.message}`;
+                console.error(error);
+            } finally {
+                generating = false;
+                sendBtn.textContent = 'Send';
+            }
+        }
+        
+        // Add message to chat
+        function addMessage(role, content) {
+            const div = document.createElement('div');
+            div.className = `message ${role}`;
+            div.innerHTML = `
+                <span class="role">${role === 'user' ? 'You' : 'Assistant'}</span>
+                <span class="content">${escapeHtml(content)}</span>
+            `;
+            messagesDiv.appendChild(div);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            return div;
+        }
+        
+        // Clear chat
+        async function clearChat() {
+            await chat.clear();
+            messagesDiv.innerHTML = '';
+            perfInfo.textContent = '-';
+        }
+        
+        // Utilities
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function formatBytes(bytes) {
+            if (bytes < 1024) return bytes + ' B';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+        
+        // Event listeners
+        loadBtn.onclick = loadModel;
+        sendBtn.onclick = () => {
+            if (generating) {
+                chat.abort();
+            } else {
+                sendMessage();
+            }
+        };
+        clearBtn.onclick = clearChat;
+        
+        input.onkeydown = (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        };
+        
+        // Start
+        init();
+    </script>
+</body>
+</html>

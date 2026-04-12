@@ -1,0 +1,28 @@
+# Plan 9 Cognitive File Server — mkfile
+# Build cognitive 9P file servers
+#
+# Usage:
+#   mk           — build all
+#   mk clean     — remove objects
+#   mk install   — install to /bin
+
+</$objtype/mkfile
+
+TARG=cogfs atomspace_9p
+
+OFILES=\
+	cogfs.$O\
+	atomspace_9p.$O\
+
+BIN=/$objtype/bin
+
+</sys/src/cmd/mkone
+
+cogfs: cogfs.$O
+	$LD -o $target $prereq
+
+atomspace_9p: atomspace_9p.$O
+	$LD -o $target $prereq
+
+clean:V:
+	rm -f *.[$OS] [$OS].out cogfs atomspace_9p

@@ -1,0 +1,13 @@
+# Conversion scripts (temporary)
+convert_apl.py
+convert_uia.py
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store

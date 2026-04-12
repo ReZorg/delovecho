@@ -1,0 +1,476 @@
+#!/usr/bin/env python3
+"""
+OpenCog Binding Generator
+
+Automates the creation of language bindings for OpenCog components
+(cogutil, atomspace, cogserver) in new programming languages.
+
+Usage:
+    opencog-bindgen --lang <language> --component <component> --output <dir>
+    opencog-bindgen --auto-complete
+    opencog-bindgen --list-missing
+"""
+
+import argparse
+import json
+import os
+import sys
+from pathlib import Path
+from typing import Dict, List, Set
+
+# Language configurations
+LANGUAGES = {
+    "go": {
+        "extension": ".go",
+        "test_extension": "_test.go",
+        "module_file": "go.mod",
+        "package_keyword": "package",
+    },
+    "julia": {
+        "extension": ".jl",
+        "test_extension": "_test.jl",
+        "module_file": "Project.toml",
+        "package_keyword": "module",
+    },
+    "rust": {
+        "extension": ".rs",
+        "test_extension": "_test.rs",
+        "module_file": "Cargo.toml",
+        "package_keyword": "mod",
+    },
+    "scheme": {
+        "extension": ".scm",
+        "test_extension": "_test.scm",
+        "module_file": "module.scm",
+        "package_keyword": "define-module",
+    },
+    "prolog": {
+        "extension": ".pl",
+        "test_extension": "_test.pl",
+        "module_file": "module.pl",
+        "package_keyword": ":-module",
+    },
+}
+
+COMPONENTS = ["cogutil", "atomspace", "cogserver"]
+
+# Component interface specifications
+COMPONENT_SPECS = {
+    "cogutil": {
+        "description": "Core utilities for OpenCog",
+        "interfaces": [
+            "Logger",
+            "Config",
+            "Exceptions",
+            "Concurrent data structures",
+        ],
+    },
+    "atomspace": {
+        "description": "Hypergraph knowledge representation",
+        "interfaces": [
+            "Atom (base interface)",
+            "Node",
+            "Link",
+            "AtomSpace",
+            "TruthValue",
+            "Handle",
+            "Pattern matching",
+            "Query interface",
+        ],
+    },
+    "cogserver": {
+        "description": "Network server and REPL",
+        "interfaces": [
+            "CogServer",
+            "Command",
+            "Module",
+            "Network protocol",
+            "REPL interface",
+        ],
+    },
+}
+
+
+def get_repo_root() -> Path:
+    """Get the repository root directory."""
+    script_path = Path(__file__).resolve()
+    # Assuming script is in opencog/bin/
+    return script_path.parent.parent.parent
+
+
+def get_existing_implementations() -> Dict[str, Set[str]]:
+    """Get existing language implementations for each component."""
+    repo_root = get_repo_root()
+    implementations = {comp: set() for comp in COMPONENTS}
+    
+    for component in COMPONENTS:
+        component_dir = repo_root / "Repo" / "opencog" / component
+        if component_dir.exists():
+            for item in component_dir.iterdir():
+                if item.is_dir() and item.name not in [".git", "__pycache__"]:
+                    implementations[component].add(item.name.lower())
+    
+    return implementations
+
+
+def list_missing_implementations():
+    """List missing language implementations."""
+    implementations = get_existing_implementations()
+    
+    print("=== Missing Language Implementations ===\n")
+    
+    for component in COMPONENTS:
+        print(f"{component}:")
+        existing = implementations[component]
+        
+        # Get all languages from cogutil as reference
+        all_langs = implementations["cogutil"]
+        missing = all_langs - existing
+        
+        if missing:
+            for lang in sorted(missing):
+                print(f"  - {lang}")
+        else:
+            print("  (complete)")
+        print()
+
+
+def generate_template(lang: str, component: str, output_dir: Path):
+    """Generate language binding template."""
+    lang_config = LANGUAGES.get(lang.lower())
+    if not lang_config:
+        print(f"Error: Unsupported language '{lang}'")
+        print(f"Supported languages: {', '.join(LANGUAGES.keys())}")
+        return False
+    
+    if component not in COMPONENTS:
+        print(f"Error: Unknown component '{component}'")
+        print(f"Supported components: {', '.join(COMPONENTS)}")
+        return False
+    
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Generate main file
+    main_file = output_dir / f"{component}{lang_config['extension']}"
+    test_file = output_dir / f"{component}{lang_config['test_extension']}"
+    module_file = output_dir / lang_config['module_file']
+    readme_file = output_dir / "README.md"
+    
+    print(f"Generating {lang} bindings for {component} in {output_dir}")
+    
+    # Generate files based on language
+    if lang.lower() == "go":
+        generate_go_template(component, main_file, test_file, module_file, readme_file)
+    elif lang.lower() == "julia":
+        generate_julia_template(component, main_file, test_file, module_file, readme_file)
+    elif lang.lower() == "rust":
+        generate_rust_template(component, main_file, test_file, module_file, readme_file)
+    elif lang.lower() == "scheme":
+        generate_scheme_template(component, main_file, test_file, module_file, readme_file)
+    elif lang.lower() == "prolog":
+        generate_prolog_template(component, main_file, test_file, module_file, readme_file)
+    
+    print(f"✓ Generated {component} {lang} bindings")
+    print(f"  Main: {main_file}")
+    print(f"  Test: {test_file}")
+    print(f"  Module: {module_file}")
+    print(f"  README: {readme_file}")
+    
+    return True
+
+
+def generate_go_template(component: str, main_file: Path, test_file: Path, 
+                        module_file: Path, readme_file: Path):
+    """Generate Go template files."""
+    spec = COMPONENT_SPECS[component]
+    
+    # Main file
+    with open(main_file, 'w') as f:
+        f.write(f"""// Package {component} provides a Go implementation of OpenCog {component}
+// {spec['description']}
+package {component}
+
+import (
+    "fmt"
+    "sync"
+)
+
+// TODO: Implement {component} interfaces:
+""")
+        for interface in spec['interfaces']:
+            f.write(f"// - {interface}\n")
+        f.write("\n")
+    
+    # Test file
+    with open(test_file, 'w') as f:
+        f.write(f"""package {component}
+
+import (
+    "testing"
+)
+
+func TestBasic(t *testing.T) {{
+    // TODO: Add tests
+    t.Skip("Not implemented yet")
+}}
+""")
+    
+    # Module file
+    with open(module_file, 'w') as f:
+        f.write(f"""module github.com/e9-o9/ro9se/{component}
+
+go 1.21
+""")
+    
+    # README
+    with open(readme_file, 'w') as f:
+        f.write(f"""# {component.title()} Go Implementation
+
+{spec['description']}
+
+## Status
+
+🚧 **Under Development** 🚧
+
+## Interfaces to Implement
+
+""")
+        for interface in spec['interfaces']:
+            f.write(f"- [ ] {interface}\n")
+        f.write("""
+## Installation
+
+```bash
+go get github.com/e9-o9/ro9se/{component}
+```
+
+## Usage
+
+TODO: Add usage examples
+
+## Testing
+
+```bash
+go test -v
+```
+
+## See Also
+
+- [C++ Implementation](../c++)
+- [Python Implementation](../Python)
+""")
+
+
+def generate_julia_template(component: str, main_file: Path, test_file: Path,
+                           module_file: Path, readme_file: Path):
+    """Generate Julia template files."""
+    spec = COMPONENT_SPECS[component]
+    module_name = component.title().replace("_", "")
+    
+    # Main file
+    with open(main_file, 'w') as f:
+        f.write(f'''"""
+{module_name}.jl - Julia implementation of OpenCog {component}
+{spec['description']}
+"""
+module {module_name}
+
+# TODO: Implement {component} interfaces:
+''')
+        for interface in spec['interfaces']:
+            f.write(f"# - {interface}\n")
+        f.write("\nend # module\n")
+    
+    # Test file
+    with open(test_file, 'w') as f:
+        f.write(f"""using Test
+using {module_name}
+
+@testset "{module_name} Tests" begin
+    @test_skip "Not implemented yet"
+end
+""")
+    
+    # Project file
+    with open(module_file, 'w') as f:
+        f.write(f"""name = "{module_name}"
+uuid = "TODO-GENERATE-UUID"
+authors = ["RO9SE Contributors"]
+version = "0.1.0"
+
+[deps]
+
+[compat]
+julia = "1.6"
+""")
+    
+    # README
+    with open(readme_file, 'w') as f:
+        f.write(f"""# {module_name}.jl
+
+{spec['description']}
+
+## Status
+
+🚧 **Under Development** 🚧
+
+## Installation
+
+```julia
+] add {module_name}
+```
+
+## Usage
+
+TODO: Add usage examples
+
+## Testing
+
+```julia
+] test {module_name}
+```
+""")
+
+
+def generate_rust_template(component: str, main_file: Path, test_file: Path,
+                          module_file: Path, readme_file: Path):
+    """Generate Rust template files."""
+    spec = COMPONENT_SPECS[component]
+    
+    # Main file (lib.rs)
+    main_file = main_file.parent / "lib.rs"
+    with open(main_file, 'w') as f:
+        f.write(f"""//! {component} - Rust implementation of OpenCog {component}
+//! {spec['description']}
+
+// TODO: Implement {component} interfaces:
+""")
+        for interface in spec['interfaces']:
+            f.write(f"// - {interface}\n")
+    
+    # Cargo.toml
+    with open(module_file, 'w') as f:
+        f.write(f"""[package]
+name = "{component}"
+version = "0.1.0"
+edition = "2021"
+authors = ["RO9SE Contributors"]
+
+[dependencies]
+""")
+    
+    # README
+    with open(readme_file, 'w') as f:
+        f.write(f"""# {component} Rust Implementation
+
+{spec['description']}
+
+## Status
+
+🚧 **Under Development** 🚧
+
+## Installation
+
+```toml
+[dependencies]
+{component} = "0.1"
+```
+
+## Usage
+
+TODO: Add usage examples
+
+## Testing
+
+```bash
+cargo test
+```
+""")
+
+
+def generate_scheme_template(component: str, main_file: Path, test_file: Path,
+                            module_file: Path, readme_file: Path):
+    """Generate Scheme template files."""
+    spec = COMPONENT_SPECS[component]
+    
+    with open(main_file, 'w') as f:
+        f.write(f""";; {component}.scm - Scheme implementation of OpenCog {component}
+;; {spec['description']}
+
+(define-module ({component})
+  #:export ())
+
+;; TODO: Implement {component} interfaces:
+""")
+        for interface in spec['interfaces']:
+            f.write(f";; - {interface}\n")
+
+
+def generate_prolog_template(component: str, main_file: Path, test_file: Path,
+                            module_file: Path, readme_file: Path):
+    """Generate Prolog template files."""
+    spec = COMPONENT_SPECS[component]
+    
+    with open(main_file, 'w') as f:
+        f.write(f"""% {component}.pl - Prolog implementation of OpenCog {component}
+% {spec['description']}
+
+:-module({component}, []).
+
+% TODO: Implement {component} interfaces:
+""")
+        for interface in spec['interfaces']:
+            f.write(f"% - {interface}\n")
+
+
+def auto_complete():
+    """Automatically generate missing implementations."""
+    implementations = get_existing_implementations()
+    repo_root = get_repo_root()
+    
+    print("=== Auto-generating Missing Implementations ===\n")
+    
+    # Use cogutil languages as reference
+    all_langs = implementations["cogutil"]
+    
+    for component in ["atomspace", "cogserver"]:
+        existing = implementations[component]
+        missing = all_langs - existing
+        
+        for lang in sorted(missing):
+            output_dir = repo_root / "Repo" / "opencog" / component / lang.title()
+            print(f"Generating {lang} for {component}...")
+            generate_template(lang, component, output_dir)
+    
+    print("\n✓ Auto-generation complete!")
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="OpenCog Binding Generator - Automate language binding creation"
+    )
+    
+    parser.add_argument("--lang", help="Target language (go, julia, rust, scheme, prolog)")
+    parser.add_argument("--component", help="Component (cogutil, atomspace, cogserver)")
+    parser.add_argument("--output", help="Output directory")
+    parser.add_argument("--list-missing", action="store_true", 
+                       help="List missing implementations")
+    parser.add_argument("--auto-complete", action="store_true",
+                       help="Auto-generate all missing implementations")
+    
+    args = parser.parse_args()
+    
+    if args.list_missing:
+        list_missing_implementations()
+    elif args.auto_complete:
+        auto_complete()
+    elif args.lang and args.component and args.output:
+        output_dir = Path(args.output)
+        generate_template(args.lang, args.component, output_dir)
+    else:
+        parser.print_help()
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

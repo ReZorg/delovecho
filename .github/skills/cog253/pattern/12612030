@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "" "">
+<!--[if IEMobile 7]><html class="iem7" ><![endif]-->
+<!--[if lte IE 6]><html class="lt-ie9 lt-ie8 lt-ie7" ><![endif]-->
+<!--[if (IE 7)&(!IEMobile)]><html class="lt-ie9 lt-ie8" ><![endif]-->
+<!--[if IE 8]><html class="lt-ie9" ><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)]><!-->
+<html class="js wf-brandongrotesque-n4-active wf-brandongrotesque-n7-active wf-brandongrotesque-n3-active wf-active" xmlns:schema="http://schema.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sioct="http://rdfs.org/sioc/types#" xmlns:sioc="http://rdfs.org/sioc/ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:og="http://ogp.me/ns#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:dc="http://purl.org/dc/terms/" xmlns:content="http://purl.org/rss/1.0/modules/content/"><!--<![endif]--><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="../../misc/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+<meta name="HandheldFriendly" content="true">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="MobileOptimized" content="width">
+<meta name="generator" content="Drupal 7 (http://drupal.org)">
+<meta name="rights" content="https://edit.ewphp.org/node/189005">
+<link href="12612030" rel="canonical">
+<link href="12612030" rel="shortlink">
+ 
+  <title>Exclusive spaces for emergent perspectives | Patterns and Metaphors | The Encyclopedia of World Problems</title>
+
+    <meta http-equiv="cleartype" content="on">
+
+  <style type="text/css" media="all">
+@import url("../../modules/system/system.base.css@psmslv");
+@import url("../../modules/system/system.menus.css@psmslv");
+@import url("../../modules/system/system.messages.css@psmslv");
+@import url("../../modules/system/system.theme.css@psmslv");
+</style>
+<style type="text/css" media="all">
+@import url("../../sites/all/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.core.css@psmslv");
+@import url("../../sites/all/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.theme.css@psmslv");
+@import url("../../sites/all/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.button.css@psmslv");
+@import url("../../sites/all/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.resizable.css@psmslv");
+@import url("../../sites/all/modules/contrib/jquery_update/replace/ui/themes/base/jquery.ui.dialog.css@psmslv");
+</style>
+<style type="text/css" media="all">
+@import url("../../sites/all/modules/contrib/assembler/css/assembler.css@psmslv");
+@import url("../../sites/all/modules/contrib/collapsiblock/collapsiblock.css@psmslv");
+@import url("../../sites/all/modules/contrib/date/date_api/date.css@psmslv");
+@import url("../../modules/field/theme/field.css@psmslv");
+@import url("../../sites/all/modules/contrib/logintoboggan/logintoboggan.css@psmslv");
+@import url("../../sites/all/modules/contrib/md_wordcloud/css/md_wordcloud.css@psmslv");
+@import url("../../modules/node/node.css@psmslv");
+@import url("../../sites/all/modules/contrib/puzzler/css/puzzler.css@psmslv");
+@import url("../../modules/user/user.css@psmslv");
+@import url("../../sites/all/modules/contrib/extlink/extlink.css@psmslv");
+@import url("../../sites/all/modules/contrib/views/css/views.css@psmslv");
+</style>
+<style type="text/css" media="all">
+@import url("../../sites/all/modules/contrib/colorbox/styles/default/colorbox_style.css@psmslv");
+@import url("../../sites/all/modules/contrib/ctools/css/ctools.css@psmslv");
+@import url("../../sites/all/modules/contrib/graph_phyz/css/graph-phyz.css@psmslv");
+@import url("../../sites/all/libraries/superfish/css/superfish.css@psmslv");
+@import url("../../sites/all/libraries/superfish/css/superfish-smallscreen.css@psmslv");
+</style>
+<style type="text/css" media="all">
+@import url("../../sites/all/themes/uia2016/css/reset.css@psmslv");
+@import url("../../sites/all/themes/uia2016/css/column-layouts.css@psmslv");
+@import url("../../sites/all/themes/uia2016/js/flexslider/flexslider.css@psmslv");
+@import url("../../sites/all/themes/uia2016/style.css@psmslv");
+@import url("../../sites/all/themes/uia2016/emio_custom.css@psmslv");
+</style>
+<style type="text/css" media="all">
+@import url("../../sites/all/themes/bestbrand/style-blue.css@psmslv");
+@import url("../../sites/all/themes/bestbrand/fonts/oswald-font.css@psmslv");
+@import url("../../sites/all/themes/bestbrand/fonts/sourcesanspro-font.css@psmslv");
+@import url("../../sites/all/themes/bestbrand/fonts/sourcecodepro-font.css@psmslv");
+</style>
+<style type="text/css" media="all and (min-width: 1200px)">
+@import url("../../sites/all/themes/bestbrand/css/1200.css@psmslv");
+</style>
+<style type="text/css" media="all and (min-width: 980px) and (max-width: 1199px)">
+@import url("../../sites/all/themes/bestbrand/css/960.css@psmslv");
+</style>
+<style type="text/css" media="all and (min-width: 768px) and (max-width: 979px)">
+@import url("../../sites/all/themes/bestbrand/css/720.css@psmslv");
+</style>
+<style type="text/css" media="all and (max-width: 767px)">
+@import url("../../sites/all/themes/bestbrand/css/mobile.css@psmslv");
+</style>
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="../../sites/all/themes/bestbrand/css/layout-ie.css@psmslv" media="all" />
+<![endif]-->
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="../../sites/all/themes/bestbrand/ie.css@psmslv" media="all" />
+<![endif]-->
+
+<!--[if (IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="../../sites/all/themes/bestbrand/ie9.css@psmslv" media="all" />
+<![endif]-->
+<style type="text/css" media="all">
+@import url("../../sites/all/themes/bestbrand/local.css@psmslv");
+</style>
+  
+<style type="text/css">.tk-brandon-grotesque {
+	font-family: "brandon-grotesque",sans-serif;
+}
+</style><style type="text/css">@font-face {
+	font-family: brandon-grotesque;
+	src: url(../../../https@use.typekit.com/af/53f8f6/0000000000000000000132df/27/l@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3) format("woff2"), url(../../../https@use.typekit.com/af/53f8f6/0000000000000000000132df/27/d@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3) format("woff"), url(../../../https@use.typekit.com/af/53f8f6/0000000000000000000132df/27/a@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n4&v=3) format("opentype");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: brandon-grotesque;
+	src: url(../../../https@use.typekit.com/af/6286a5/0000000000000000000132e3/27/l@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3) format("woff2"), url(../../../https@use.typekit.com/af/6286a5/0000000000000000000132e3/27/d@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3) format("woff"), url(../../../https@use.typekit.com/af/6286a5/0000000000000000000132e3/27/a@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n7&v=3) format("opentype");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: brandon-grotesque;
+	src: url(../../../https@use.typekit.com/af/dc987d/0000000000000000000132dd/27/l@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n3&v=3) format("woff2"), url(../../../https@use.typekit.com/af/dc987d/0000000000000000000132dd/27/d@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n3&v=3) format("woff"), url(../../../https@use.typekit.com/af/dc987d/0000000000000000000132dd/27/a@primer=7fa3915bdafdf03041871920a205bef951d72bf64dd4c4460fb992e3ecc3a862&fvd=n3&v=3) format("opentype");
+	font-weight: 300;
+	font-style: normal;
+}
+</style>
+<link href="../../../https@use.typekit.net/yse7wxb.css" rel="stylesheet">
+</head>
+<body class="html not-front not-logged-in no-sidebars page-pattern page-pattern- page-pattern-12612030 i18n-en no-banner wide-layout sff-17 slff-16 hff-16 shff-16 pff-1 bold-headings">
+      <!-- #page-wrapper -->
+<div id="page-wrapper">
+
+    <!-- #toTop -->
+        <div id="toTop"></div>
+        <!-- EOF:#toTop -->
+
+    <!-- #header-top -->
+    <div class="clearfix" id="header-top">
+        <div class="container_12">
+
+            <!-- #header-top-inside -->
+            <div class="clearfix" id="header-top-inside">
+
+                                <div class="grid_12">
+                
+                                        <!-- #header-top-left -->
+                    <div class="clearfix" id="header-top-left">
+                      <div class="region region-header-top-left">
+    <div class="block block-superfish collapsiblock-processed" id="block-superfish-1">
+
+    
+  <div class="content">
+    <ul class="menu sf-menu sf-main-menu sf-horizontal sf-style-none sf-total-items-7 sf-parent-items-0 sf-single-items-7 superfish-processed sf-js-enabled sf-shadow" id="superfish-1"><li class="first odd sf-item-1 sf-depth-1 sf-no-children" id="menu-2190-1"><a title="" class="sf-depth-1" href="../problems">Problems</a></li><li class="middle even sf-item-2 sf-depth-1 sf-no-children" id="menu-2074-1"><a title="" class="sf-depth-1" href="../strategies">Strategies</a></li><li class="middle odd sf-item-3 sf-depth-1 sf-no-children" id="menu-2075-1"><a title="" class="sf-depth-1" href="../values">Values</a></li><li class="middle even sf-item-4 sf-depth-1 sf-no-children" id="menu-2191-1"><a class="sf-depth-1" href="../legacydbs">Legacy Data</a></li><li class="middle odd sf-item-5 sf-depth-1 sf-no-children" id="menu-1315-1"><a class="sf-depth-1" href="../about-encyclopedia">About</a></li><li class="middle even sf-item-6 sf-depth-1 sf-no-children" id="menu-513-1"><a title="Contact us" class="sf-depth-1" href="../contact">Contact</a></li><li class="last odd sf-item-7 sf-depth-1 sf-no-children" id="menu-2192-1"><a title="" class="sf-depth-1 ext" href="../../../www.uia.org/default.htm" target="_blank">uia.org</a></li></ul>  </div>
+</div>
+  </div>
+                    </div>
+                    <!-- EOF:#header-top-left -->
+                    
+                </div>
+
+                
+            </div>
+            <!-- EOF:#header-top-inside -->
+
+        </div>
+    </div>
+    <!-- EOF:#header-top -->
+
+    <!-- #header -->
+    <div class="clearfix" id="header">
+        <div class="container_12">
+
+            <!-- #header-inside -->
+            <div class="clearfix" id="header-inside">
+
+               <div class="grid_8">
+
+                    <!-- #header-left -->
+                    <div id="header-left">
+                                        <div id="logo">
+                    <a title="Home" href="../../en" rel="home"> <img alt="Home" src="../../sites/default/files/design/newlogo.png"> </a>
+                    </div>
+                    
+                                        <div id="site-name">
+                    <a title="Home" href="../../en">The Encyclopedia<br>of World Problems<br>&amp; Human Potential</a> 
+                    </div>
+                    
+                                     <!--   <div id="site-slogan">
+                    A project of the <a href="http://www.uia.org" title="The Union of International Associations">UIA</a> &amp; Mankind 2000.
+                    </div>-->
+                    
+                    </div>
+                    <!-- EOF:#header-left -->
+
+                </div>
+
+                <div class="grid_4">
+
+                    <!-- #header-right -->
+                    <div id="header-right">
+                                          <div class="region region-header-right">
+    <div class="block block-views collapsiblock-processed" id="block-views-91feaa33b13a4d5d160d11983afc219a">
+
+    
+  <div class="content">
+    <form id="views-exposed-form-patterns-and-metaphors-page-2" action="/en/patterns" method="get" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div class="views-exposed-widget views-widget-filter-combine" id="edit-combine-wrapper">
+                  <label for="edit-combine">
+            Search Patterns &amp; Metaphors          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-combine">
+ <input name="combine" class="form-text" id="edit-combine" type="text" size="30" maxlength="128" value="">
+</div>
+        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input class="form-submit" id="edit-submit-patterns-and-metaphors" type="submit" value="Search">    </div>
+      </div>
+</div>
+</div></form>  </div>
+</div>
+  </div>
+                                        </div>
+                    <!-- EOF:#header-right -->
+
+                </div>
+
+            </div>
+            <!-- EOF:#header-inside -->
+
+        </div>
+    </div>
+    <!-- EOF:#header -->
+
+    <!-- #main-navigation -->
+    <div class="clearfix" id="main-navigation">
+        <div class="container_12">
+
+            <div class="grid_12">
+
+                <!-- #main-navigation-inside -->
+                <div class="clearfix" id="main-navigation-inside">
+                                        <div class="content">
+                                        </div>
+                                    </div>
+                <!-- EOF:#main-navigation-inside -->
+
+            </div>
+
+        </div>
+    </div>
+    <!-- EOF:#main-navigation -->
+
+    <!-- #banner -->
+    
+    <!-- #page-top -->
+    <div class="clearfix" id="page-top">
+
+                <!-- #breadcrumb -->
+        <div class="clearfix" id="breadcrumb">
+            <div class="container_12">
+            <!-- #breadcrumb-inside -->
+            <div class="clearfix" id="breadcrumb-inside">
+            <div class="grid_12">
+                        <h2 class="element-invisible">You are here</h2><div class="breadcrumb"><span class="inline odd first last"><a href="../../en">Home</a></span></div>                        </div>
+            </div>
+            <!-- EOF:#breadcrumb-inside -->
+            </div>
+        </div>
+        <!-- EOF:#breadcrumb -->
+        
+        
+    </div>
+    <!-- EOF:#page-top -->
+
+    <!-- #page -->
+    <div class="clearfix" id="page">
+
+        <div class="container_12">
+
+            <!-- #messages-console -->
+                        <!-- EOF: #messages-console -->
+
+                        <div class="grid_12">
+            
+                <!-- #main -->
+                <div class="clearfix" id="main">
+
+                <!-- #tabs -->
+                                    <div class="tabs">
+                                        </div>
+                                <!-- EOF: #tabs -->
+
+                
+                <!-- #action links -->
+                                <!-- EOF: #action links -->
+
+                                                                                            
+                <!-- #promoted -->
+                                <!-- EOF: #promoted -->
+
+                                  <div class="region region-content">
+    <div class="block block-system collapsiblock-processed" id="block-system-main">
+
+    
+  <div class="content">
+    <div class="view view-patterns-and-metaphors view-id-patterns_and_metaphors view-display-id-page_1 view-dom-id-7a51da9659860b6e1cdb5000f7cafefe">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+      
+  <div class="views-field views-field-FM-16">    <div class="views-label views-label-FM-16 dblabel">Patterns &amp; Metaphors</div>    <h1 class="field-content">Exclusive spaces for emergent perspectives</h1>  </div>  
+  <div class="views-field views-field-FM-26">    <div class="views-label views-label-FM-26 field-label">Physical: </div>    <span class="field-content">Cave-like places for children.<br><div style="height: 5px;"></div></span>  </div>  
+  <div class="views-field views-field-FM-30">    <div class="views-label views-label-FM-30 field-label">Broader: </div>    <span class="field-content"><a title="Domain for developing perspectives" href="12611370">Domain for developing perspectives</a><br><a title="Substantive distinctions separating domains" href="12611970">Substantive distinctions separating domains</a><br><a title="Contexts for care of premature perspectives" href="12610860">Contexts for care of premature perspectives</a><br><a title="Framework for transition between structural levels" href="12611950">Framework for transition between structural levels</a><br><a title="Contexts for exploratory relationship formation challenging emerging perspectives" href="12610730">Contexts for exploratory relationship formation challenging emerging perspectives</a><br></span>  </div>  
+  <div class="views-field views-field-FM-31">    <div class="views-label views-label-FM-31 field-label">Narrower: </div>    <span class="field-content"><a title="Emphasizing transitions across boundaries" href="12612240">Emphasizing transitions across boundaries</a><br><a title="Boundary expansion permitting new level generation" href="12612110">Boundary expansion permitting new level generation</a><br><a title="Appropriate superstructure to contain transitions between levels" href="12612280">Appropriate superstructure to contain transitions between levels</a><br></span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+  </div>
+                                
+
+                </div>
+                <!-- #EOF:main -->
+
+            </div>
+
+            <!-- #sidebar -->
+                        <!-- EOF: #sidebar -->
+
+        </div>
+
+    </div>
+    <!-- EOF:#page -->
+
+
+    
+        <!-- #footer -->
+    <div class="clearfix" id="footer">
+        <div class="container_12">
+
+            <!-- #footer-inside -->
+            <div class="clearfix" id="footer-inside">
+
+                <div class="grid_8">
+                                        <div class="footer-area clearfix">
+                      <div class="region region-footer-first">
+    <div class="block block-block collapsiblock-processed" id="block-block-7">
+
+    <h2>About the Encyclopedia</h2>
+  
+  <div class="content">
+    <p>The <em>Encyclopedia of World Problems and Human Potential</em> is a collaboration between <a class="ext" href="../../../uia.org/default.htm" target="_blank">UIA<span class="ext"><span class="element-invisible"> (link is external)</span></span></a> and Mankind 2000, started in 1972. It is the result of an ambitious effort to collect and present information on the problems with which humanity is confronted, as well as the challenges such problems pose to concept formation, values and development strategies. &nbsp;Problems included are those identified in international periodicals but especially in the documents of some 60,000 international non-profit organizations, profiled in the&nbsp;<a class="ext" href="../../../uia.org/ybio/default.htm" target="_blank">Yearbook of International Organizations<span class="ext"><span class="element-invisible"> (link is external)</span></span></a>.</p><p>The&nbsp;Encyclopedia&nbsp;includes problems which such groups choose to perceive and act upon, whether or not their existence is denied by others claiming greater expertise. Indeed such claims and counter-claims figure in many of the problem descriptions in order to reflect the often paralyzing dynamics of international debate. In the light of the interdependence demonstrated among world problems in every sector, emphasis is placed on the need for approaches which are sufficiently complex to encompass the factions, conflicts and rival worldviews that undermine collective initiative towards a promising future.</p><p><a href="../about/default.htm">Learn More</a></p>  </div>
+</div>
+  </div>
+                    </div>
+                                    </div>
+
+                <div class="grid_4">
+                                        <div class="footer-area clearfix">
+                      <div class="region region-footer-second">
+    <div class="block block-block collapsiblock-processed" id="block-block-5">
+
+    <h2>About UIA</h2>
+  
+  <div class="content">
+    <p>The <a title="Union of International Associations" class="ext" href="../../../www.uia.org/default.htm" target="_blank">Union of International Associations<span class="ext"><span class="element-invisible"> (link is external)</span></span></a> (UIA) is a research institute and documentation centre, based in Brussels. It&nbsp;was&nbsp;<a class="ext" href="../../../uia.org/history" target="_blank">established<span class="ext"><span class="element-invisible"> (link is external)</span></span></a>&nbsp;in 1907, by&nbsp;<a class="ext" href="../../../www.uia.org/henri-la-fontaine-1854-1943" target="_blank">Henri la Fontaine<span class="ext"><span class="element-invisible"> (link is external)</span></span></a>&nbsp;(Nobel Peace Prize laureate of 1913), and&nbsp;<a href="../Paul%20Otlet">Paul Otlet</a>, a founding father of what is now&nbsp;called information science.<br>&nbsp;</p><p>Non-profit, apolitical, independent, and non-governmental in nature, the UIA has been a pioneer in the research, monitoring and provision of information on international&nbsp;organizations, international associations and their global challenges since 1907.</p><p><a title="Union of International Associations" class="ext" href="../../../www.uia.org/default.htm" target="_blank">www.uia.org<span class="ext"><span class="element-invisible"> (link is external)</span></span></a></p>  </div>
+</div>
+  </div>
+                    </div>
+                                    </div>
+
+            </div>
+            <!-- EOF:#footer-inside -->
+
+        </div>
+    </div>
+    <!-- EOF:#footer -->
+    
+        <!-- #subfooter -->
+    <div class="clearfix" id="subfooter">
+        <div class="container_12">
+
+            <!-- #subfooter-inside -->
+            <div class="clearfix" id="subfooter-inside">
+
+                <div class="grid_12">
+                    <!-- #subfooter-left -->
+                                        <!-- EOF: #subfooter-left -->
+                </div>
+
+            </div>
+            <!-- EOF:#subfooter-inside -->
+
+        </div>
+    </div>
+    <!-- EOF:#subfooter -->
+    
+</div>
+<!-- EOF:#page-wrapper -->
+  
+
+
+<div id="cboxOverlay" style="display: none;"></div><div tabindex="-1" id="colorbox" role="dialog" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button id="cboxPrevious" type="button"></button><button id="cboxNext" type="button"></button><button id="cboxSlideshow" type="button"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="width: 9999px; display: none; visibility: hidden; position: absolute; max-width: none;"></div></div></body></html>
