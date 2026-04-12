@@ -1,0 +1,15 @@
+---
+name: gh077
+description: "77 - REPO FOR A PAIR"
+---
+
+# REPO FOR A PAIR
+
+## Related Patterns
+
+- [THE MAINTAINER TEAM (75)]
+- [REPOSITORY MONOREPO (37)]
+- [THE MAINTAINER TEAM (75)]
+- [YOUR OWN FORK (79)]
+- [PAIR PROGRAMMING NAMESPACE (136)]
+- [PRIVATE FORK (140)]

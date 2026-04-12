@@ -1,0 +1,23 @@
+---
+name: narrower
+description: Narrower Patterns for gh142
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh142: SEQUENCE OF REVIEW STAGES
+- gh146: FLEXIBLE WORKSPACE
+- gh149: README WELCOMES YOU
+- gh150: QUEUE MANAGEMENT
+- gh151: FOCUSED DISCUSSIONS
+- gh152: TEAM-PRIVATE REPO
+- gh176: CODE REVIEW STATION
+- gh179: HELPER FUNCTIONS
+- gh180: INSPECTION POINT
+- gh181: THE BUILD PROCESS
+- gh185: STANDUP MEETING
+- gh191: THE SHAPE OF CODE SPACE
+- gh241: BREAKPOINTS
+- gh242: WELCOME MESSAGE

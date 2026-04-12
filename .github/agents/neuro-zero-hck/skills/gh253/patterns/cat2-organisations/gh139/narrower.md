@@ -1,0 +1,20 @@
+---
+name: narrower
+description: Narrower Patterns for gh139
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh139: DEVELOPMENT KITCHEN
+- gh142: SEQUENCE OF REVIEW STAGES
+- gh147: SHARED DEPENDENCIES
+- gh159: MULTIPLE PERSPECTIVES
+- gh179: HELPER FUNCTIONS
+- gh182: DEVELOPMENT ATMOSPHERE
+- gh184: BUILD CONFIGURATION
+- gh191: THE SHAPE OF CODE SPACE
+- gh199: METRICS DASHBOARD
+- gh200: EXPOSED CONFIGURATION
+- gh201: MIDDLEWARE

@@ -1,0 +1,12 @@
+---
+name: broader
+description: Broader Patterns for gh008
+---
+
+# BROADER Instructions
+
+These patterns provide context and are typically applied before this pattern:
+
+- gh008: MOSAIC OF TECH STACKS
+- gh003: ENTERPRISE ECOSYSTEM FINGERS
+- gh004: DEVELOPMENT VALLEYS

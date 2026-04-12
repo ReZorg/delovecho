@@ -1,0 +1,12 @@
+| ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif) | ![](./APL - Home_files/shim.gif)  
+---|---|---|---|---|---|---|---|---  
+[![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/index1_r1_c4.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/index1_r2_c2.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/index1_r3_c7.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/index1_r4_c1.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/index1_r5_c2.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/index1_r5_c3.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/index1_r6_c3.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/index1_r6_c5.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | [![](./APL - Home_files/index1_r6_c6.jpg)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+![](./APL - Home_files/index1_r8_c6.jpg) | [![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)  
+[![](./APL - Home_files/shim.gif)](http://www.iwritewordsgood.com/apl/set.htm) | ![](./APL - Home_files/shim.gif)

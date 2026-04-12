@@ -1,0 +1,21 @@
+---
+name: broader
+description: Broader Patterns for gh107
+---
+
+# BROADER Instructions
+
+These patterns provide context and are typically applied before this pattern:
+
+- gh107: MODULAR DESIGN
+- gh075: THE MAINTAINER TEAM
+- gh076: REPO FOR A SMALL TEAM
+- gh077: REPO FOR A PAIR
+- gh078: PERSONAL REPO
+- gh080: SELF-GOVERNING TEAMS
+- gh081: MICROSERVICES WITHOUT OVERHEAD
+- gh082: SERVICE CONNECTIONS
+- gh083: SENIOR AND JUNIOR DEVELOPERS
+- gh087: INDIVIDUALLY OWNED PACKAGES
+- gh105: USER-FACING FEATURES
+- gh106: POSITIVE INTERFACE SPACE

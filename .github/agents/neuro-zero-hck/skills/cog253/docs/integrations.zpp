@@ -1,0 +1,572 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Z++ FORMAL SPECIFICATION: PATTERN LANGUAGE INTEGRATION CONTRACTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This specification defines external integration contracts for file I/O,
+markdown parsing, JSON schema validation, and OpenCog Atomese generation.
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 1: FILE SYSTEM INTEGRATION
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ FileHandle ──────────────────────────────────────────────────────────────┐
+│ Abstract handle to a file in the filesystem                                │
+└───────────────────────────────────────────────────────────────────────────┘
+  FileHandle
+    path: String
+    exists: 𝔹
+    readable: 𝔹
+    writable: 𝔹
+    size: ℕ
+    last_modified: ℕ
+  where
+    /* Path must be non-empty */
+    path ≠ ""
+    
+    /* If file exists, it has positive size */
+    exists ⇒ size > 0
+    
+    /* Can't read or write non-existent files */
+    ¬exists ⇒ ¬readable ∧ ¬writable
+
+
+┌─ ReadMarkdownFile ────────────────────────────────────────────────────────┐
+│ Read markdown file from filesystem                                         │
+└───────────────────────────────────────────────────────────────────────────┘
+  ReadMarkdownFile
+    ΔFileSystemState
+    filepath?: String
+    content!: String
+    success!: 𝔹
+    error_msg!: String
+  where
+    /* File must exist and be readable */
+    let handle = GetFileHandle(filepath?) in
+    
+    /* Pre-condition: file must exist and be markdown */
+    filepath? ends_with ".md" ∧
+    handle.exists ∧ handle.readable
+    
+    /* Read file content */
+    success! ⇒ (
+      content! = ReadFileContent(filepath?) ∧
+      content! ≠ "" ∧
+      error_msg! = ""
+    )
+    
+    /* Handle errors */
+    ¬success! ⇒ (
+      content! = "" ∧
+      error_msg! ≠ "" ∧
+      error_msg! ∈ {"File not found", "Permission denied", 
+                    "Read error", "Not a markdown file"}
+    )
+    
+    /* Update filesystem state */
+    success! ⇒
+      filesystem_state'.markdown_files = 
+        filesystem_state.markdown_files ⊕
+        {filepath? ↦ (content!, CurrentTimestamp())}
+
+
+┌─ WriteJSONFile ───────────────────────────────────────────────────────────┐
+│ Write JSON content to filesystem                                           │
+└───────────────────────────────────────────────────────────────────────────┘
+  WriteJSONFile
+    ΔFileSystemState
+    filepath?: String
+    content?: String
+    success!: 𝔹
+    error_msg!: String
+  where
+    /* File must have .json extension */
+    filepath? ends_with ".json"
+    
+    /* Content must be valid JSON */
+    ValidJSON(content?)
+    
+    /* Write to file */
+    success! ⇒ (
+      WriteFileContent(filepath?, content?) ∧
+      error_msg! = ""
+    )
+    
+    /* Handle errors */
+    ¬success! ⇒ (
+      error_msg! ≠ "" ∧
+      error_msg! ∈ {"Permission denied", "Disk full", 
+                    "Invalid path", "Write error"}
+    )
+    
+    /* Update filesystem state */
+    success! ⇒
+      filesystem_state'.json_files = 
+        filesystem_state.json_files ⊕
+        {filepath? ↦ (content?, CurrentTimestamp())}
+
+
+┌─ ReadDirectory ───────────────────────────────────────────────────────────┐
+│ List all files in a directory                                              │
+└───────────────────────────────────────────────────────────────────────────┘
+  ReadDirectory
+    ΞFileSystemState
+    dirpath?: String
+    files!: seq String
+    success!: 𝔹
+  where
+    /* Directory must exist */
+    DirectoryExists(dirpath?)
+    
+    /* List all files */
+    success! ⇒ (
+      files! = ⟨f | f ∈ ListFiles(dirpath?)⟩ ∧
+      ∀ f ∈ files! • f ≠ ""
+    )
+    
+    ¬success! ⇒ files! = ⟨⟩
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 2: MARKDOWN PARSING INTEGRATION
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ ParseMarkdownPattern ────────────────────────────────────────────────────┐
+│ Parse a pattern from APL markdown format                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+  ParseMarkdownPattern
+    content?: String
+    pattern!: Pattern
+    success!: 𝔹
+    parse_errors!: seq String
+  where
+    /* Content must not be empty */
+    content? ≠ ""
+    
+    /* Extract pattern components using regex patterns */
+    let number_match = ExtractPatternNumber(content?) in
+    let name_match = ExtractPatternName(content?) in
+    let context_match = ExtractContext(content?) in
+    let problem_match = ExtractProblemSummary(content?) in
+    let details_match = ExtractProblemDetails(content?) in
+    let solution_match = ExtractSolution(content?) in
+    
+    success! ⇒ (
+      pattern!.number = number_match ∧
+      pattern!.name = name_match ∧
+      pattern!.context = context_match ∧
+      pattern!.problem_summary = problem_match ∧
+      pattern!.problem_details = details_match ∧
+      pattern!.solution = solution_match ∧
+      pattern!.asterisks = CountAsterisks(content?) ∧
+      pattern!.preceding_patterns = ExtractPrecedingPatterns(content?) ∧
+      pattern!.following_patterns = ExtractFollowingPatterns(content?) ∧
+      parse_errors! = ⟨⟩
+    )
+    
+    /* Collect parse errors */
+    ¬success! ⇒ (
+      parse_errors! ≠ ⟨⟩ ∧
+      (number_match = ∅ ⇒ 
+        parse_errors! = parse_errors! ⌢ ⟨"Pattern number not found"⟩) ∧
+      (name_match = "" ⇒ 
+        parse_errors! = parse_errors! ⌢ ⟨"Pattern name not found"⟩)
+    )
+
+
+┌─ ParseArchetypalMarkdown ─────────────────────────────────────────────────┐
+│ Parse an archetypal pattern with domain mappings                           │
+└───────────────────────────────────────────────────────────────────────────┘
+  ParseArchetypalMarkdown
+    content?: String
+    pattern!: ArchetypalPattern
+    success!: 𝔹
+    parse_errors!: seq String
+  where
+    /* Content must contain archetypal pattern section */
+    content? contains "## Archetypal Pattern"
+    
+    /* Extract components */
+    let id_match = ExtractPatternID(content?) in
+    let name_match = ExtractPatternName(content?) in
+    let archetypal_text = ExtractArchetypalPattern(content?) in
+    let original_text = ExtractOriginalTemplate(content?) in
+    let placeholders = ExtractPlaceholders(archetypal_text) in
+    let mappings = ExtractDomainMappings(content?) in
+    
+    success! ⇒ (
+      pattern!.pattern_id = id_match ∧
+      pattern!.name = name_match ∧
+      pattern!.archetypal_pattern = archetypal_text ∧
+      pattern!.original_template = original_text ∧
+      pattern!.placeholders = placeholders ∧
+      pattern!.domain_mappings = mappings ∧
+      parse_errors! = ⟨⟩ ∧
+      
+      /* Verify all placeholders have mappings */
+      ∀ ph ∈ placeholders • ph ∈ dom mappings
+    )
+    
+    /* Collect parse errors */
+    ¬success! ⇒ parse_errors! ≠ ⟨⟩
+
+
+┌─ ExtractPlaceholders ─────────────────────────────────────────────────────┐
+│ Extract all {{placeholder}} occurrences from text                          │
+└───────────────────────────────────────────────────────────────────────────┘
+  ExtractPlaceholders
+    text?: String
+    placeholders!: seq PlaceholderName
+  where
+    /* Find all {{...}} patterns */
+    let matches = RegexFindAll("{{([^}]+)}}", text?) in
+    
+    /* Extract placeholder names */
+    placeholders! = ⟨ConvertToPlaceholderName(m) | m ∈ matches⟩
+    
+    /* Remove duplicates while preserving order */
+    ∀ i, j: ℕ | i < j ∧ i, j < #placeholders! ⇒
+      placeholders![i] = placeholders![j] ⇒ 
+        ∃ k: ℕ • k < i ∧ placeholders![k] = placeholders![i]
+
+
+┌─ ExtractDomainMappings ───────────────────────────────────────────────────┐
+│ Extract domain mappings from markdown format                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  ExtractDomainMappings
+    content?: String
+    mappings!: PlaceholderName ⇶ DomainMapping
+  where
+    /* Find Domain Placeholders section */
+    content? contains "## Domain Placeholders"
+    
+    /* Extract each placeholder mapping line */
+    let mapping_lines = ExtractSection(content?, 
+                          "## Domain Placeholders",
+                          "## Original Template") in
+    
+    /* Parse each line: `{{ph}}` → Physical: val | Social: val | ... */
+    ∀ line ∈ mapping_lines •
+      let ph = ExtractPlaceholderFromLine(line) in
+      let physical = ExtractDomainValue(line, "Physical") in
+      let social = ExtractDomainValue(line, "Social") in
+      let conceptual = ExtractDomainValue(line, "Conceptual") in
+      let psychic = ExtractDomainValue(line, "Psychic") in
+      
+      mappings! = mappings! ⊕ {ph ↦ DomainMapping where
+        .placeholder = ph ∧
+        .physical = physical ∧
+        .social = social ∧
+        .conceptual = conceptual ∧
+        .psychic = psychic ∧
+        .description = "Domain mappings for " ⌢ ph}
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 3: JSON SCHEMA VALIDATION INTEGRATION
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ JSONSchema ──────────────────────────────────────────────────────────────┐
+│ Abstract representation of a JSON Schema                                   │
+└───────────────────────────────────────────────────────────────────────────┘
+  JSONSchema
+    schema_uri: String
+    title: String
+    definitions: String ⇶ SchemaDefinition
+    properties: String ⇶ PropertySchema
+    required: ℙ String
+  where
+    /* Schema URI must be valid */
+    schema_uri = "http://json-schema.org/draft-07/schema#"
+    
+    /* Required properties must be defined */
+    required ⊆ dom properties
+
+
+┌─ ValidateAgainstSchema ───────────────────────────────────────────────────┐
+│ Validate JSON content against a schema                                     │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidateAgainstSchema
+    ΞSchemaRegistry
+    json_content?: String
+    schema_name?: String
+    valid!: 𝔹
+    errors!: seq String
+  where
+    /* JSON content must be parseable */
+    ValidJSON(json_content?)
+    
+    /* Schema must exist */
+    schema_name? ∈ {"pattern_schema", "archetypal_schema"}
+    
+    let schema = (schema_name? = "pattern_schema" ⇒ 
+                   schema_registry.pattern_schema,
+                 schema_registry.archetypal_schema) in
+    
+    /* Validate structure */
+    let validation_result = JSONSchemaValidator(json_content?, schema) in
+    
+    valid! ⟺ validation_result.valid
+    
+    /* Collect validation errors */
+    ¬valid! ⇒ (
+      errors! = validation_result.errors ∧
+      ∀ err ∈ errors! • err ≠ ""
+    )
+    
+    valid! ⇒ errors! = ⟨⟩
+
+
+┌─ SerializeToJSON ─────────────────────────────────────────────────────────┐
+│ Serialize data structure to JSON format                                    │
+└───────────────────────────────────────────────────────────────────────────┘
+  SerializeToJSON[T]
+    data?: T
+    schema?: JSONSchema
+    json_output!: String
+    success!: 𝔹
+  where
+    /* Serialize data to JSON string */
+    let json_str = JSONEncoder(data?) in
+    
+    /* Validate against schema */
+    let valid = ValidatesAgainstSchema(json_str, schema?) in
+    
+    success! ⟺ valid ∧ ValidJSON(json_str)
+    
+    success! ⇒ json_output! = json_str
+    
+    ¬success! ⇒ json_output! = ""
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 4: OPENCOG ATOMESE INTEGRATION
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ AtomType ────────────────────────────────────────────────────────────────┐
+│ Types of atoms in OpenCog's Atomese representation                         │
+└───────────────────────────────────────────────────────────────────────────┘
+  AtomType ::= 
+    ConceptNode | PredicateNode | 
+    InheritanceLink | MemberLink | EvaluationLink |
+    ListLink | AndLink | OrLink
+
+
+┌─ Atom ────────────────────────────────────────────────────────────────────┐
+│ Basic atom structure in OpenCog Atomese                                    │
+└───────────────────────────────────────────────────────────────────────────┘
+  Atom
+    atom_type: AtomType
+    name: String
+    children: seq Atom
+    truth_value: (ℝ × ℝ)  /* (strength, confidence) */
+  where
+    /* Name must be non-empty for concept/predicate nodes */
+    atom_type ∈ {ConceptNode, PredicateNode} ⇒ name ≠ ""
+    
+    /* Links must have children */
+    atom_type ∉ {ConceptNode, PredicateNode} ⇒ children ≠ ⟨⟩
+    
+    /* Truth value must be in valid range */
+    let (strength, confidence) = truth_value in
+    strength ≥ 0.0 ∧ strength ≤ 1.0 ∧
+    confidence ≥ 0.0 ∧ confidence ≤ 1.0
+
+
+┌─ GenerateAtomesePattern ──────────────────────────────────────────────────┐
+│ Generate Atomese representation for an APL pattern                         │
+└───────────────────────────────────────────────────────────────────────────┘
+  GenerateAtomesePattern
+    ΞPatternRegistry
+    pattern_number?: PatternNumber
+    atoms!: seq Atom
+    scheme_code!: String
+    success!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_number? ∈ dom pattern_registry.patterns
+    
+    let p = pattern_registry.patterns(pattern_number?) in
+    
+    /* Create concept node for pattern */
+    let pattern_node = Atom where
+      .atom_type = ConceptNode ∧
+      .name = "Pattern-" ⌢ ToString(p.number) ∧
+      .children = ⟨⟩ ∧
+      .truth_value = (1.0, 1.0)
+    
+    /* Create evaluation for pattern name */
+    let name_predicate = Atom where
+      .atom_type = PredicateNode ∧
+      .name = "has-name" ∧
+      .children = ⟨⟩
+    
+    let name_eval = Atom where
+      .atom_type = EvaluationLink ∧
+      .children = ⟨name_predicate, pattern_node, 
+                    ConceptNode(p.name)⟩
+    
+    /* Create inheritance links for category */
+    let category = category_registry.category_index(pattern_number?) in
+    let category_node = ConceptNode("Category-" ⌢ category)
+    
+    let category_link = Atom where
+      .atom_type = InheritanceLink ∧
+      .children = ⟨pattern_node, category_node⟩
+    
+    /* Generate atoms */
+    atoms! = ⟨pattern_node, name_eval, category_link⟩
+    
+    /* Convert to Scheme code */
+    scheme_code! = ConvertToScheme(atoms!)
+    
+    success! ⟺ ValidScheme(scheme_code!)
+
+
+┌─ GenerateAtomeseArchetypal ───────────────────────────────────────────────┐
+│ Generate Atomese for archetypal pattern with domain variants               │
+└───────────────────────────────────────────────────────────────────────────┘
+  GenerateAtomeseArchetypal
+    ΞArchetypalRegistry
+    pattern_id?: String
+    atoms!: seq Atom
+    scheme_code!: String
+    success!: 𝔹
+  where
+    /* Pattern must exist */
+    pattern_id? ∈ dom archetypal_registry.patterns
+    
+    let ap = archetypal_registry.patterns(pattern_id?) in
+    
+    /* Create concept node for archetypal pattern */
+    let archetypal_node = ConceptNode("Archetypal-" ⌢ pattern_id?)
+    
+    /* Create nodes for each domain variant */
+    let physical_node = ConceptNode(pattern_id? ⌢ "-Physical")
+    let social_node = ConceptNode(pattern_id? ⌢ "-Social")
+    let conceptual_node = ConceptNode(pattern_id? ⌢ "-Conceptual")
+    let psychic_node = ConceptNode(pattern_id? ⌢ "-Psychic")
+    
+    /* Create inheritance links */
+    let physical_link = InheritanceLink(physical_node, archetypal_node)
+    let social_link = InheritanceLink(social_node, archetypal_node)
+    let conceptual_link = InheritanceLink(conceptual_node, archetypal_node)
+    let psychic_link = InheritanceLink(psychic_node, archetypal_node)
+    
+    /* Generate atoms */
+    atoms! = ⟨archetypal_node, 
+              physical_node, physical_link,
+              social_node, social_link,
+              conceptual_node, conceptual_link,
+              psychic_node, psychic_link⟩
+    
+    /* Convert to Scheme */
+    scheme_code! = ConvertToScheme(atoms!)
+    
+    success! ⟺ ValidScheme(scheme_code!)
+
+
+┌─ WriteAtomeseFile ────────────────────────────────────────────────────────┐
+│ Write Atomese representation to Scheme file                                │
+└───────────────────────────────────────────────────────────────────────────┘
+  WriteAtomeseFile
+    ΔFileSystemState
+    filepath?: String
+    scheme_code?: String
+    success!: 𝔹
+    error_msg!: String
+  where
+    /* File must have .scm extension */
+    filepath? ends_with ".scm"
+    
+    /* Scheme code must be valid */
+    ValidScheme(scheme_code?)
+    
+    /* Write to file */
+    success! ⇒ (
+      WriteFileContent(filepath?, scheme_code?) ∧
+      error_msg! = ""
+    )
+    
+    ¬success! ⇒ error_msg! ≠ ""
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 5: EXTERNAL HELPER FUNCTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ ValidJSON ───────────────────────────────────────────────────────────────┐
+│ Check if string is valid JSON                                              │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidJSON: String → 𝔹
+  
+  ∀ s: String •
+    ValidJSON(s) ⟺ 
+      s ≠ "" ∧ 
+      JSONParser(s) ≠ ∅ ∧
+      ¬ParseError(JSONParser(s))
+
+
+┌─ ValidScheme ─────────────────────────────────────────────────────────────┐
+│ Check if string is valid Scheme code                                       │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidScheme: String → 𝔹
+  
+  ∀ s: String •
+    ValidScheme(s) ⟺ 
+      s ≠ "" ∧ 
+      BalancedParentheses(s) ∧
+      SchemeParser(s) ≠ ∅ ∧
+      ¬ParseError(SchemeParser(s))
+
+
+┌─ CurrentTimestamp ────────────────────────────────────────────────────────┐
+│ Get current Unix timestamp                                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+  CurrentTimestamp: ℕ
+  
+  CurrentTimestamp ≥ 0
+
+
+┌─ ApplySubstitutions ──────────────────────────────────────────────────────┐
+│ Apply placeholder substitutions to text                                    │
+└───────────────────────────────────────────────────────────────────────────┘
+  ApplySubstitutions: String × (PlaceholderName ⇶ String) → String
+  
+  ∀ text: String, subs: PlaceholderName ⇶ String •
+    let result = text in
+    ∀ ph ∈ dom subs •
+      result = ReplaceAll(result, "{{" ⌢ ph ⌢ "}}", subs(ph))
+    
+    ApplySubstitutions(text, subs) = result
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 6: INTEGRATION INVARIANTS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ FileSystemConsistency ───────────────────────────────────────────────────┐
+│ Invariant: Generated JSON files must be newer than source markdown         │
+└───────────────────────────────────────────────────────────────────────────┘
+  FileSystemConsistency
+    ΞFileSystemState
+  where
+    ∀ json_path ∈ dom filesystem_state.json_files •
+      ∀ md_path ∈ filesystem_state.file_dependencies(json_path) •
+        let (_, json_time) = filesystem_state.json_files(json_path) in
+        let (_, md_time) = filesystem_state.markdown_files(md_path) in
+        json_time ≥ md_time
+
+
+┌─ SchemaValidationConsistency ─────────────────────────────────────────────┐
+│ Invariant: All cached validation results are current                       │
+└───────────────────────────────────────────────────────────────────────────┘
+  SchemaValidationConsistency
+    ΞSchemaRegistry
+    ΞValidationState
+  where
+    /* Patterns with validation results must exist */
+    ∀ pn ∈ validation_state.patterns_validated •
+      ValidPattern(pattern_registry.patterns(pn))
+    
+    /* Archetypes with validation results must exist */
+    ∀ pid ∈ validation_state.archetypes_validated •
+      ValidArchetypalPattern(archetypal_registry.patterns(pid))
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ END OF INTEGRATIONS SPECIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -1,0 +1,422 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Z++ FORMAL SPECIFICATION: PATTERN LANGUAGE DATA MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This specification formalizes the data models for the Pattern Language System,
+including APL patterns, archetypal patterns, and domain transformation structures.
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 1: BASE TYPES AND ENUMERATIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ PatternNumber ───────────────────────────────────────────────────────────┐
+│ Basic Type representing a pattern identifier in the APL system             │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternNumber == 0 .. 253
+
+  Invariant: Pattern numbers are sequential and unique within the system
+
+
+┌─ AsteriskLevel ───────────────────────────────────────────────────────────┐
+│ Evidence quality indicator for pattern validity                            │
+│ 0 = Solution provided but true invariant unknown                           │
+│ 1 = Progress made toward invariant                                         │
+│ 2 = True invariant - problem cannot be solved without this pattern         │
+└───────────────────────────────────────────────────────────────────────────┘
+  AsteriskLevel == 0 .. 2
+
+
+┌─ CategoryName ────────────────────────────────────────────────────────────┐
+│ The three main categories of the Pattern Language                          │
+└───────────────────────────────────────────────────────────────────────────┘
+  CategoryName ::= Towns | Buildings | Construction
+
+
+┌─ Domain ──────────────────────────────────────────────────────────────────┐
+│ The four domains for archetypal pattern transformation                     │
+└───────────────────────────────────────────────────────────────────────────┘
+  Domain ::= Physical | Social | Conceptual | Psychic
+
+
+┌─ PlaceholderName ─────────────────────────────────────────────────────────┐
+│ Names of placeholders used in archetypal patterns                          │
+└───────────────────────────────────────────────────────────────────────────┘
+  PlaceholderName ::= 
+    domains | frameworks | elements | resources |
+    organization_type | influence_type | areas | positions |
+    patterns | modes | other⟦seq String⟧
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 2: APL PATTERN LANGUAGE STRUCTURES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ Pattern ─────────────────────────────────────────────────────────────────┐
+│ Core structure representing a single pattern in Christopher Alexander's    │
+│ Pattern Language. Each pattern describes a recurring design problem and    │
+│ its solution, with relationships to other patterns.                        │
+└───────────────────────────────────────────────────────────────────────────┘
+  Pattern
+    number: PatternNumber
+    name: String
+    asterisks: AsteriskLevel
+    context: String
+    problem_summary: String
+    problem_details: String
+    solution: String
+    diagram: String
+    connections: String
+    preceding_patterns: seq PatternNumber
+    following_patterns: seq PatternNumber
+  where
+    /* Essential fields must be non-empty */
+    name ≠ "" ∧ 
+    problem_summary ≠ "" ∧ 
+    solution ≠ ""
+    
+    /* Pattern number uniqueness handled at collection level */
+    
+    /* Preceding patterns must have smaller numbers */
+    ∀ p: PatternNumber | p ∈ preceding_patterns ⇒ p < number
+    
+    /* Following patterns must have larger numbers */
+    ∀ p: PatternNumber | p ∈ following_patterns ⇒ p > number
+    
+    /* Meta-pattern (number 0) has no preceding patterns */
+    number = 0 ⇒ preceding_patterns = ⟨⟩
+    
+    /* Meta-pattern includes all other patterns as following */
+    number = 0 ⇒ following_patterns = ⟨1..253⟩
+
+
+┌─ PatternSequence ─────────────────────────────────────────────────────────┐
+│ A sequence groups related patterns that together produce emergent          │
+│ phenomena beyond individual pattern effects. 36 sequences organize the     │
+│ 253 patterns into coherent design processes.                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternSequence
+    id: 1 .. 36
+    heading: String
+    category: CategoryName
+    patterns: seq PatternNumber
+    emergent_phenomena: String
+  where
+    /* Sequence ID must be unique */
+    id ≥ 1 ∧ id ≤ 36
+    
+    /* Must contain at least one pattern */
+    patterns ≠ ⟨⟩
+    
+    /* All patterns in sequence must be valid pattern numbers */
+    ∀ p: PatternNumber | p ∈ patterns ⇒ p ≥ 1 ∧ p ≤ 253
+    
+    /* Patterns within sequence should be ordered */
+    ∀ i, j: ℕ | i < j ∧ i, j < #patterns ⇒ patterns[i] ≤ patterns[j]
+    
+    /* Category determines valid pattern number ranges */
+    (category = Towns ⇒ ∀ p ∈ patterns • p ≥ 1 ∧ p ≤ 94) ∧
+    (category = Buildings ⇒ ∀ p ∈ patterns • p ≥ 95 ∧ p ≤ 204) ∧
+    (category = Construction ⇒ ∀ p ∈ patterns • p ≥ 205 ∧ p ≤ 253)
+
+
+┌─ PatternCategory ─────────────────────────────────────────────────────────┐
+│ High-level organization of patterns into three main categories, each       │
+│ representing a different scale and process of design.                      │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternCategory
+    name: CategoryName
+    description: String
+    process: String
+    pattern_range_start: PatternNumber
+    pattern_range_end: PatternNumber
+    sequences: seq PatternSequence
+  where
+    /* Pattern range must be valid and non-empty */
+    pattern_range_start ≤ pattern_range_end
+    
+    /* Pattern ranges must not overlap between categories */
+    /* and must cover specific ranges */
+    (name = Towns ⇒ 
+      pattern_range_start = 1 ∧ pattern_range_end = 94) ∧
+    (name = Buildings ⇒ 
+      pattern_range_start = 95 ∧ pattern_range_end = 204) ∧
+    (name = Construction ⇒ 
+      pattern_range_start = 205 ∧ pattern_range_end = 253)
+    
+    /* All sequences in this category must match the category name */
+    ∀ s: PatternSequence | s ∈ sequences ⇒ s.category = name
+    
+    /* Sequence IDs for each category must be in specific ranges */
+    (name = Towns ⇒ 
+      ∀ s ∈ sequences • s.id ≥ 1 ∧ s.id ≤ 15) ∧
+    (name = Buildings ⇒ 
+      ∀ s ∈ sequences • s.id ≥ 16 ∧ s.id ≤ 28) ∧
+    (name = Construction ⇒ 
+      ∀ s ∈ sequences • s.id ≥ 29 ∧ s.id ≤ 36)
+
+
+┌─ UsageInstructions ───────────────────────────────────────────────────────┐
+│ Meta-information describing how to use the Pattern Language                │
+└───────────────────────────────────────────────────────────────────────────┘
+  UsageInstructions
+    how_to_use: seq String
+    choosing_language: seq String
+    pattern_hierarchies: AsteriskLevel → String
+  where
+    /* Must provide instructions for all asterisk levels */
+    dom pattern_hierarchies = {0, 1, 2}
+
+
+┌─ PatternLanguage ─────────────────────────────────────────────────────────┐
+│ Top-level structure containing the complete Pattern Language system        │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternLanguage
+    meta_pattern: Pattern
+    categories: seq PatternCategory
+    sequences: seq PatternSequence
+    usage_instructions: UsageInstructions
+  where
+    /* Meta-pattern must be pattern number 0 */
+    meta_pattern.number = 0
+    
+    /* Must have exactly 3 categories */
+    #categories = 3
+    
+    /* Categories must be unique and complete */
+    ∃₁ c ∈ categories • c.name = Towns ∧
+    ∃₁ c ∈ categories • c.name = Buildings ∧
+    ∃₁ c ∈ categories • c.name = Construction
+    
+    /* Must have exactly 36 sequences */
+    #sequences = 36
+    
+    /* All sequence IDs must be unique */
+    ∀ s₁, s₂: PatternSequence | s₁, s₂ ∈ sequences ∧ s₁ ≠ s₂ ⇒ s₁.id ≠ s₂.id
+    
+    /* Sequences must cover IDs 1 through 36 */
+    {s.id | s ∈ sequences} = {1..36}
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 3: ARCHETYPAL PATTERN STRUCTURES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ DomainMapping ───────────────────────────────────────────────────────────┐
+│ Maps a placeholder to its domain-specific interpretations across all       │
+│ four domains (Physical, Social, Conceptual, Psychic)                       │
+└───────────────────────────────────────────────────────────────────────────┘
+  DomainMapping
+    placeholder: PlaceholderName
+    physical: String
+    social: String
+    conceptual: String
+    psychic: String
+    description: String
+  where
+    /* All domain mappings must be non-empty */
+    physical ≠ "" ∧ social ≠ "" ∧ conceptual ≠ "" ∧ psychic ≠ ""
+    
+    /* Description should explain the placeholder's purpose */
+    description ≠ ""
+
+
+┌─ ArchetypalPattern ───────────────────────────────────────────────────────┐
+│ A generalized pattern template using placeholder syntax {{name}} that      │
+│ can be transformed into domain-specific variants. Patterns are organized   │
+│ hierarchically with broader (higher-level) and narrower (lower-level)      │
+│ relationships forming a connected network.                                  │
+└───────────────────────────────────────────────────────────────────────────┘
+  ArchetypalPattern
+    pattern_id: String
+    name: String
+    archetypal_pattern: String
+    original_template: String
+    placeholders: seq PlaceholderName
+    domain_mappings: PlaceholderName ⇶ DomainMapping
+    source_file: String
+    broader_patterns: seq String
+    narrower_patterns: seq String
+  where
+    /* Pattern ID must be a valid UIA pattern number */
+    ∃ digits: seq Char | pattern_id = ⟨digits⟩ ∧ #pattern_id ≥ 8
+    
+    /* Archetypal pattern or template must be present */
+    archetypal_pattern ≠ "" ∨ original_template ≠ ""
+    
+    /* If archetypal pattern exists, it should contain placeholders */
+    archetypal_pattern ≠ "" ⇒ 
+      (placeholders ≠ ⟨⟩ ∧
+       ∀ ph ∈ placeholders • archetypal_pattern contains ("{{" ⌢ ph ⌢ "}}"))
+    
+    /* All placeholders used in pattern must have domain mappings */
+    ∀ ph: PlaceholderName | ph ∈ placeholders ⇒ ph ∈ dom domain_mappings
+    
+    /* Domain mappings must be consistent across all placeholders */
+    ∀ ph ∈ dom domain_mappings • 
+      domain_mappings(ph).placeholder = ph
+    
+    /* Pattern relationships must reference valid pattern IDs */
+    ∀ pid ∈ broader_patterns ∪ narrower_patterns •
+      ∃ digits: seq Char | pid = ⟨digits⟩ ∧ #pid ≥ 8
+    
+    /* Broader patterns should have smaller pattern numbers (earlier in sequence) */
+    ∀ bp ∈ broader_patterns • bp < pattern_id
+    
+    /* Narrower patterns should have larger pattern numbers (later in sequence) */
+    ∀ np ∈ narrower_patterns • np > pattern_id
+
+
+┌─ PlaceholderDefinition ───────────────────────────────────────────────────┐
+│ Complete definition of a placeholder including all domain mappings         │
+└───────────────────────────────────────────────────────────────────────────┘
+  PlaceholderDefinition
+    placeholder: PlaceholderName
+    domains: DomainMapping
+    usage_count: ℕ
+    example_patterns: seq String
+  where
+    /* Placeholder name must match in mapping */
+    domains.placeholder = placeholder
+    
+    /* Usage count should reflect actual usage */
+    usage_count > 0 ⇒ example_patterns ≠ ⟨⟩
+
+
+┌─ ArchetypalPatternCollection ────────────────────────────────────────────┐
+│ Complete collection of all archetypal patterns with metadata and           │
+│ hierarchical relationships. Contains all 253 patterns from the UIA         │
+│ pattern language system.                                                    │
+└───────────────────────────────────────────────────────────────────────────┘
+  ArchetypalPatternCollection
+    title: String
+    description: String
+    total_patterns: ℕ
+    source_directory: String
+    format: String
+    patterns: seq ArchetypalPattern
+    placeholder_definitions: seq PlaceholderDefinition
+  where
+    /* Number of patterns must match count */
+    #patterns = total_patterns
+    
+    /* All 253 patterns from UIA system */
+    total_patterns = 253
+    
+    /* Format must describe placeholder syntax */
+    format contains "{{"
+    
+    /* All pattern IDs must be unique */
+    ∀ p₁, p₂: ArchetypalPattern | 
+      p₁, p₂ ∈ patterns ∧ p₁ ≠ p₂ ⇒ p₁.pattern_id ≠ p₂.pattern_id
+    
+    /* All placeholder definitions should be used in at least one pattern */
+    ∀ pd: PlaceholderDefinition | pd ∈ placeholder_definitions ⇒
+      ∃ p: ArchetypalPattern | p ∈ patterns ∧ pd.placeholder ∈ p.placeholders
+    
+    /* Pattern relationship network must be consistent */
+    ∀ p: ArchetypalPattern | p ∈ patterns ⇒
+      (∀ bp ∈ p.broader_patterns •
+        ∃ broader: ArchetypalPattern | 
+          broader ∈ patterns ∧ broader.pattern_id = bp ∧
+          p.pattern_id ∈ broader.narrower_patterns) ∧
+      (∀ np ∈ p.narrower_patterns •
+        ∃ narrower: ArchetypalPattern |
+          narrower ∈ patterns ∧ narrower.pattern_id = np ∧
+          p.pattern_id ∈ narrower.broader_patterns)
+    
+    /* First pattern (12610010) should have no broader patterns */
+    ∃ first: ArchetypalPattern | 
+      first ∈ patterns ∧ first.pattern_id = "12610010" ⇒
+        first.broader_patterns = ⟨⟩
+    
+    /* Last patterns may have no narrower patterns (leaf nodes) */
+    ∃ leaves: ℙ ArchetypalPattern | 
+      leaves ⊆ patterns ∧
+      (∀ leaf ∈ leaves • leaf.narrower_patterns = ⟨⟩)
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 4: DOMAIN TRANSFORMATION STRUCTURES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ TransformedPattern ──────────────────────────────────────────────────────┐
+│ Result of applying domain-specific mappings to an archetypal pattern       │
+└───────────────────────────────────────────────────────────────────────────┘
+  TransformedPattern
+    source_pattern_id: String
+    target_domain: Domain
+    transformed_text: String
+    substitutions: PlaceholderName ⇶ String
+  where
+    /* Transformed text should not contain unreplaced placeholders */
+    ¬(transformed_text contains "{{")
+    
+    /* All substitutions must be applied */
+    ∀ ph ∈ dom substitutions • 
+      transformed_text contains substitutions(ph)
+
+
+┌─ DomainTransformationRule ────────────────────────────────────────────────┐
+│ Rule defining how to transform from archetypal to domain-specific          │
+└───────────────────────────────────────────────────────────────────────────┘
+  DomainTransformationRule
+    source_placeholder: PlaceholderName
+    target_domain: Domain
+    transformation: String
+  where
+    /* Transformation must be non-empty */
+    transformation ≠ ""
+
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 5: VALIDATION PREDICATES
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ ValidPattern ────────────────────────────────────────────────────────────┐
+│ Predicate determining if a Pattern is well-formed                          │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidPattern: Pattern → 𝔹
+  
+  ∀ p: Pattern •
+    ValidPattern(p) ⟺
+      p.name ≠ "" ∧
+      p.problem_summary ≠ "" ∧
+      p.solution ≠ "" ∧
+      p.number ≥ 0 ∧ p.number ≤ 253 ∧
+      p.asterisks ∈ {0, 1, 2} ∧
+      (∀ preceding ∈ p.preceding_patterns • preceding < p.number) ∧
+      (∀ following ∈ p.following_patterns • following > p.number)
+
+
+┌─ ValidArchetypalPattern ──────────────────────────────────────────────────┐
+│ Predicate determining if an ArchetypalPattern is well-formed with proper   │
+│ hierarchical relationships                                                  │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidArchetypalPattern: ArchetypalPattern → 𝔹
+  
+  ∀ ap: ArchetypalPattern •
+    ValidArchetypalPattern(ap) ⟺
+      ap.pattern_id ≠ "" ∧
+      ap.name ≠ "" ∧
+      (ap.archetypal_pattern ≠ "" ∨ ap.original_template ≠ "") ∧
+      (ap.archetypal_pattern ≠ "" ⇒
+        (ap.placeholders ≠ ⟨⟩ ∧
+         ∀ ph ∈ ap.placeholders • ph ∈ dom ap.domain_mappings ∧
+         ∀ ph ∈ ap.placeholders • 
+           ap.archetypal_pattern contains ("{{" ⌢ ph ⌢ "}}"))) ∧
+      (∀ bp ∈ ap.broader_patterns • bp < ap.pattern_id) ∧
+      (∀ np ∈ ap.narrower_patterns • np > ap.pattern_id)
+
+
+┌─ CompleteDomainMapping ───────────────────────────────────────────────────┐
+│ Predicate verifying all domains are mapped for a placeholder               │
+└───────────────────────────────────────────────────────────────────────────┘
+  CompleteDomainMapping: DomainMapping → 𝔹
+  
+  ∀ dm: DomainMapping •
+    CompleteDomainMapping(dm) ⟺
+      dm.physical ≠ "" ∧
+      dm.social ≠ "" ∧
+      dm.conceptual ≠ "" ∧
+      dm.psychic ≠ ""
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ END OF DATA MODEL SPECIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

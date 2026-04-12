@@ -1,0 +1,20 @@
+---
+name: narrower
+description: Narrower Patterns for gh107
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh107: MODULAR DESIGN
+- gh108: CONNECTED SERVICES
+- gh116: CASCADE OF ABSTRACTIONS
+- gh119: SHARED UTILITIES
+- gh132: SHORT IMPORTS
+- gh159: MULTIPLE PERSPECTIVES
+- gh192: MONITORING DASHBOARDS
+- gh205: STRUCTURE FOLLOWS TEAM SPACES
+- gh221: NATURAL ENTRY POINTS
+- gh223: DETAILED DOCUMENTATION
+- gh239: SMALL FUNCTIONS

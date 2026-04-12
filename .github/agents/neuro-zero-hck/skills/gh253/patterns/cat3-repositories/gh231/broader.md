@@ -1,0 +1,22 @@
+---
+name: broader
+description: Broader Patterns for gh231
+---
+
+# BROADER Instructions
+
+These patterns provide context and are typically applied before this pattern:
+
+- gh231: DEBUG ENDPOINTS
+- gh117: PROTECTIVE WRAPPER
+- gh179: HELPER FUNCTIONS
+- gh180: INSPECTION POINT
+- gh192: MONITORING DASHBOARDS
+- gh208: GRADUAL FORMALIZATION
+- gh212: CORE MODULES
+- gh216: CONTAINER COMPONENTS
+- gh217: BOUNDARY VALIDATORS
+- gh218: INTERFACE CONTRACTS
+- gh219: ABSTRACTION LAYERS
+- gh220: TOP-LEVEL EXPORTS
+- gh225: INTERFACES AS CONTRACTS

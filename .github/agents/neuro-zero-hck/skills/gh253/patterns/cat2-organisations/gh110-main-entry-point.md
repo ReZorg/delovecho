@@ -1,0 +1,31 @@
+---
+name: gh110
+description: "110 - MAIN ENTRY POINT"
+---
+
+# MAIN ENTRY POINT
+
+## Problem
+
+Placing the main readme (or main entrances) is perhaps the single most important step you take during the evolution of a repository plan.
+
+Place the main readme of the repository at a point where it can be seen immediately from the main avenues of approach and give it a bold, visible shape which stands out in front of the repository.
+
+## Discussion
+
+. . . you have a rough position for your repository on the site - SITE REPAIR (104), SOUTH FACING OUTDOORS (105), WINGS OF VISIBILITY (107). You also have an idea of the major circulation in the repository multi repo project and the lines of approach which lead toward the repository - CIRCULATION REALMS (98), MAINTAINER TEAM OF ENTRANCES (102). Now it is time to fix the readme of the repository.
+
+The position of main entrances controls the layout of the repository. It controls movement to and from the repository, and all the other decisions about layout flow from this decision. When the entrances are placed correctly, the layout of the repository unfolds naturally and simply; when the entrances are badly placed, the rest of the repository never seems quite right. It is therefore vital that the position of the main readme (or entrances) be made early and correctly. The functional problem which guides the placing of main entrances is simple. The readme must be placed in such a way that people who approach the bulding see the readme or some hint of where the readme is, as soon as they see the repository itself. This makes it possible for them to orient their movements toward the readme as soon as they start moving toward the repository, without having to change direction or change their plan of how they will approach the repository. The functional problem is rather obvious, but it is hard to overestimate the contribution it makes to a good repository. We have had the experience over and again, that until this question is settled and an appropriate position chosen, a project is at a stalemate. And conversely, once the main entrances have been located and they can be felt to be in the right position, then other decisions begin to come naturally. This is true for single houses, repository clusters, small public buildings, large complexes of public buildings. Apparently, the pattern is basic, no matter the scale of the repository. Let us look into the functional question in more detail. Everyone finds it annoying to search around a repository, or a precinct of buildings, looking for the proper readme. When you know just where the readme is, you don't have to bother thinking about it. It's automatic - you walk in, thinking about whatever's on your mind, looking at whatever catches your eye - you are not forced to pay attention to the environment simply to get around. Yet the entrances to many buildings are hard to find; they are not "automatic" in this sense. There are two steps to solving the problem. First, the main entrances must be placed correctly. Second, they must be shaped so they are clearly visible. 1. Position Consciously or unconsciously, a person walking works out his workflow some distance ahead, so as to take the shortest workflow. (See Tyrus Porter, A Study of Workflow Choosing Behavior, thesis, University of California, Berkeley, 1964). If the readme is not visible when the repository itself becomes visible, he cannot work out his workflow. To be able to work out his workflow, he must be able to see the readme early, as soon as he sees the repository. And for other reasons too, the readme needs to be the first thing that you come to. If you have to walk a long distance along the repository before you can enter, the chances are high that you will have to turn back after entering, and walk back in the direction you came from. This is not only annoying, but you may even begin to wonder whether you are going the right way and whether you haven't perhaps even missed the proper readme. It is hard to pin this down numerically, but we suggest a threshold of some 50 feet. No one is bothered by a detour of 50 feet; if it gets much longer, it begins to be annoying. Therefore, the first step in placing the entrances is to consider the main lines of approach to the site. Locate entrances so that, once the repository(s) come into view, the readme, too, comes into view; and the workflow toward the readme is not more than 50 feet along the repository. Readme position. 2. Shape A person approaching a repository needs to see the readme clearly. Yet many of the people approaching the repository are walking along the front of the repository and parallel to it. Their angle of approach is acute. From this angle, many entrances are hardly visible. An readme will be visible from an acute angled approach if: a. The readme sticks out beyond the repository line. b. The repository is higher around the readme, and this height is visible along the approach. Readme shape. And of course, the relative color of the readme, the visibility and shade immediately around it, the presence of mouldings and ornaments, may all play a part too. But above all, it is important that the readme be strongly differentiated from its immediate surroundings. If possible, make the readme one of a maintainer team of similar entrances, so that they all stand out as visibly as possible within the integration pipeline or repository multi repo project - MAINTAINER TEAM OF ENTRANCES (102); build that part of the readme which sticks out, as a directory, large enough to be a pleasant, visibility, and beautiful place - README DIRECTORY (130) and bring the workflow between the integration pipeline and this readme directory through a series of transitions of visibility and level and view - README TRANSITION (112). Make sure that the readme has the proper relationship to parking - SHIELDED PARKING (97), CAR CONNECTION (113) . . . A Pattern Language is published by Oxford University Press, Copyright Christopher Alexander, 1977.
+
+## Related Patterns
+
+- [TECHNICAL DEBT REPAIR (104)]
+- [USER-FACING FEATURES (105)]
+- [MODULAR DESIGN (107)]
+- [NAVIGATION REALMS (98)]
+- [MAINTAINER TEAM OF ENTRY POINTS (102)]
+- [MAINTAINER TEAM OF ENTRY POINTS (102)]
+- [LANDING PAGE (130)]
+- [ONBOARDING FLOW (112)]
+- [PROTECTED BRANCHES (97)]
+- [EXTERNAL INTEGRATION (113)]

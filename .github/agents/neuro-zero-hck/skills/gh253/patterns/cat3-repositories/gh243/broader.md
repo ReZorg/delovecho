@@ -1,0 +1,24 @@
+---
+name: broader
+description: Broader Patterns for gh243
+---
+
+# BROADER Instructions
+
+These patterns provide context and are typically applied before this pattern:
+
+- gh243: GUARD CLAUSES
+- gh051: GREEN BUILDS
+- gh100: CONTRIBUTOR PATH
+- gh106: POSITIVE INTERFACE SPACE
+- gh111: INTERNAL DOCUMENTATION
+- gh114: HIERARCHY OF NAMESPACES
+- gh121: WORKFLOW SHAPE
+- gh124: FEATURE MODULES
+- gh140: PRIVATE FORK
+- gh163: EXTERNAL INTEGRATION SPACE
+- gh165: OPEN API
+- gh166: WRAPPER LAYER
+- gh172: ORGANIC GROWTH
+- gh241: BREAKPOINTS
+- gh242: WELCOME MESSAGE

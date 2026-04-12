@@ -1,0 +1,14 @@
+---
+name: gh020
+description: "20 - MICROSERVICES"
+---
+
+# MICROSERVICES
+
+## Related Patterns
+
+- [LOCAL CI/CD AREAS (11)]
+- [WEB OF PUBLIC APIS (16)]
+- [PARALLEL PIPELINES (23)]
+- [MESSAGE BROKER (34)]
+- [WEBHOOK ENDPOINT (92)]

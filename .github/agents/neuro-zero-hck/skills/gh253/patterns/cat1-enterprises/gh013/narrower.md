@@ -1,0 +1,25 @@
+---
+name: narrower
+description: Narrower Patterns for gh013
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh013: TEAM BOUNDARY
+- gh014: IDENTIFIABLE TEAM
+- gh017: RING INTEGRATIONS
+- gh023: PARALLEL PIPELINES
+- gh024: SACRED REPOSITORIES
+- gh025: ACCESS TO DATA
+- gh028: API GATEWAY
+- gh030: ACTIVITY NODES
+- gh041: DEVELOPMENT COMMUNITY
+- gh042: CI/CD RIBBON
+- gh059: PRIVATE REPOS
+- gh060: ACCESSIBLE DOCS
+- gh064: DATA STREAMS
+- gh071: STABLE RELEASES
+- gh084: EMERGING CONTRIBUTORS
+- gh097: PROTECTED BRANCHES

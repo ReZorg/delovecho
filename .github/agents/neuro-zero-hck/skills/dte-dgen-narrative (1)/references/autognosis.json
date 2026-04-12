@@ -1,0 +1,59 @@
+{
+  "skill": "dte-dgen-narrative",
+  "version": "1.0.0",
+  "depth": 0,
+  "composition": {
+    "topology": "echo-evolve-composed < clawcog <-> gauge-hypergraph-network > / agi-os [ unreal-echo | echo-angel | rig-logic ] -> dgen",
+    "layers": {
+      "0": {
+        "name": "echo-evolve-composed",
+        "type": "base",
+        "operator": "\u2297"
+      },
+      "1": {
+        "name": "clawcog <-> gauge-hypergraph-network",
+        "type": "bridge",
+        "operator": "<->"
+      },
+      "2": {
+        "name": "agi-os",
+        "type": "substrate",
+        "operator": "/"
+      },
+      "3": {
+        "name": "unreal-echo | echo-angel | rig-logic",
+        "type": "parallel",
+        "operator": "\u2295"
+      },
+      "4": {
+        "name": "dgen",
+        "type": "output",
+        "operator": "\u2192"
+      }
+    },
+    "wrapper": "workflow-creator"
+  },
+  "layer_health": {
+    "0": 1.0,
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0,
+    "4": 1.0
+  },
+  "losses": [],
+  "evolution_trace": [],
+  "strengths": [
+    "5-layer composition covering full cognitive-to-narrative pipeline",
+    "DreamGen integration with role-aware character/narrator switching",
+    "FACS AU + endocrine \u2192 prose translation",
+    "9-step Echobeats \u2192 narrative beat mapping",
+    "Workflow-creator compatible for automated execution"
+  ],
+  "weaknesses": [
+    "Untested with live DreamGen API (requires DGEN_API_KEY)",
+    "Layer 1 (clawcog <-> gauge) is conceptual \u2014 needs live clawcog deployment",
+    "Layer 2 (agi-os) requires successful build of CogNUMach/HurdCog",
+    "No streaming narrative support yet",
+    "Expression narrative limited to 21 AU descriptions"
+  ]
+}

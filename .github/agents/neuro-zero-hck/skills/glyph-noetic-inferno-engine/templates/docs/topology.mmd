@@ -1,0 +1,55 @@
+graph TD
+    subgraph "Cognitive Kernel (Inferno)"
+        direction LR
+        subgraph "Temporal Hierarchy (12 Levels)"
+            direction TB
+            T_G["[T~g] Global Rhythm"] --> T_D["[T~d] Dendritic Integration"] --> T_P["[T~p] Protein Dynamics"] --> T_Q["[T~q] Quantum Resonance"]
+        end
+
+        subgraph "Cognitive Modules"
+            direction TB
+            C_PLN["[C:PLN] Probabilistic Logic"] --> S_ATOM["[S:ATOMSPACE] AtomSpace"]
+            C_MOSES["[C:MOSES] Program Evolution"] --> S_ATOM
+            C_ATTN["[C:ATTN] Attention Allocation"] --> S_ATOM
+        end
+
+        subgraph "Kernel Services"
+            direction TB
+            K_STATUS["[K:STATUS] Engine Status"] --> K_PROMISES["[K:PROMISES] Promises"]
+            N_DECISION["[N:DECISION] Autognosis"] --> K_STATUS
+        end
+        
+        T_G --> C_PLN
+        T_D --> C_MOSES
+        T_P --> C_ATTN
+    end
+
+    subgraph "Plan 9 Cluster (9P Protocol)"
+        direction TB
+        FS["[P:FS] File Server"] <--> CPU1["[P:CPU] CPU Server 1"]
+        FS <--> CPU2["[P:CPU] CPU Server 2"]
+        FS <--> AUTH["[P:AUTH] Auth Server"]
+    end
+
+    subgraph "Interfaces"
+        DEV_GLYPH["/dev/glyph"] <--> K_STATUS
+        NS_GLYPH["/n/glyph"] <--> T_ASSEMBLY["[T:ASSEMBLY] Topology"]
+    end
+
+    CPU1 --> DEV_GLYPH
+    CPU2 --> NS_GLYPH
+    FS --> T_ASSEMBLY
+
+    style FS fill:#9f9,stroke:#333,stroke-width:2px
+    style CPU1 fill:#9cf,stroke:#333,stroke-width:2px
+    style CPU2 fill:#9cf,stroke:#333,stroke-width:2px
+    style AUTH fill:#f99,stroke:#333,stroke-width:2px
+    style C_PLN fill:#cc9,stroke:#333,stroke-width:1px
+    style C_MOSES fill:#cc9,stroke:#333,stroke-width:1px
+    style C_ATTN fill:#cc9,stroke:#333,stroke-width:1px
+    style S_ATOM fill:#9c9,stroke:#333,stroke-width:2px
+    style T_G fill:#c9f,stroke:#333,stroke-width:1px
+    style K_STATUS fill:#f96,stroke:#333,stroke-width:2px
+    style N_DECISION fill:#fc9,stroke:#333,stroke-width:1px
+    style T_ASSEMBLY fill:#9ff,stroke:#333,stroke-width:2px
+

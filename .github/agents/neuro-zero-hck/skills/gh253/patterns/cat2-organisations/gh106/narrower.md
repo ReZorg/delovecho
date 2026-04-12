@@ -1,0 +1,23 @@
+---
+name: narrower
+description: Narrower Patterns for gh106
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh106: POSITIVE INTERFACE SPACE
+- gh107: MODULAR DESIGN
+- gh114: HIERARCHY OF NAMESPACES
+- gh115: ACTIVE DISCUSSIONS
+- gh118: FEATURE FLAGS
+- gh121: WORKFLOW SHAPE
+- gh122: PUBLIC INTERFACES
+- gh160: API BOUNDARY
+- gh163: EXTERNAL INTEGRATION SPACE
+- gh171: DEPENDENCY TREES
+- gh172: ORGANIC GROWTH
+- gh173: SECURITY BOUNDARY
+- gh174: GUIDED TUTORIAL
+- gh183: ISOLATED CONTEXT

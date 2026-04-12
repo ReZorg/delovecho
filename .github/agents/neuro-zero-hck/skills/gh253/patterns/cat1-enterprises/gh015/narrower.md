@@ -1,0 +1,25 @@
+---
+name: narrower
+description: Narrower Patterns for gh015
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh015: TEAM SCOPE BOUNDARY
+- gh023: PARALLEL PIPELINES
+- gh032: MARKETPLACE
+- gh041: DEVELOPMENT COMMUNITY
+- gh053: MAIN GATEWAYS
+- gh059: PRIVATE REPOS
+- gh060: ACCESSIBLE DOCS
+- gh064: DATA STREAMS
+- gh069: PUBLIC WORKSPACE
+- gh070: ARCHIVED REPOSITORIES
+- gh072: LOCAL TESTING
+- gh073: SANDBOX ENVIRONMENT
+- gh088: COMMUNITY CHAT
+- gh089: UTILITY PACKAGES
+- gh097: PROTECTED BRANCHES
+- gh103: SMALL STAGING AREAS

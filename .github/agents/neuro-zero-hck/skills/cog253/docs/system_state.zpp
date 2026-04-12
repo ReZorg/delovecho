@@ -1,0 +1,380 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ Z++ FORMAL SPECIFICATION: PATTERN LANGUAGE SYSTEM STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This specification defines the complete system state for the Pattern Language
+System, including pattern collections, schema registries, and transformation
+contexts.
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 1: PATTERN COLLECTION STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ PatternRegistry ─────────────────────────────────────────────────────────┐
+│ Central registry maintaining all APL patterns indexed by pattern number    │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternRegistry
+    patterns: PatternNumber ⇶ Pattern
+    meta_pattern: Pattern
+    loaded_patterns: ℙ PatternNumber
+  where
+    /* Meta-pattern is always present and has number 0 */
+    meta_pattern.number = 0 ∧
+    0 ∉ dom patterns
+    
+    /* All patterns in registry have matching pattern numbers */
+    ∀ pn: PatternNumber | pn ∈ dom patterns ⇒ 
+      patterns(pn).number = pn
+    
+    /* Loaded patterns must be subset of available patterns */
+    loaded_patterns ⊆ dom patterns
+    
+    /* Pattern numbers must be in valid range */
+    dom patterns ⊆ {1..253}
+    
+    /* All patterns are well-formed */
+    ∀ pn ∈ dom patterns • ValidPattern(patterns(pn))
+
+
+┌─ CategoryRegistry ────────────────────────────────────────────────────────┐
+│ Registry organizing patterns into their respective categories              │
+└───────────────────────────────────────────────────────────────────────────┘
+  CategoryRegistry
+    categories: CategoryName ⇶ PatternCategory
+    category_index: PatternNumber ⇶ CategoryName
+  where
+    /* All three categories must be registered */
+    dom categories = {Towns, Buildings, Construction}
+    
+    /* Category index must cover all patterns */
+    dom category_index = {1..253}
+    
+    /* Category index must be consistent with category definitions */
+    ∀ pn ∈ dom category_index • 
+      let cat = category_index(pn) in
+      let pc = categories(cat) in
+      pn ≥ pc.pattern_range_start ∧ pn ≤ pc.pattern_range_end
+    
+    /* No overlap between categories */
+    ∀ c₁, c₂: CategoryName | c₁ ≠ c₂ ⇒
+      let pc₁ = categories(c₁), pc₂ = categories(c₂) in
+      (pc₁.pattern_range_end < pc₂.pattern_range_start) ∨
+      (pc₂.pattern_range_end < pc₁.pattern_range_start)
+
+
+┌─ SequenceRegistry ────────────────────────────────────────────────────────┐
+│ Registry managing all 36 pattern sequences                                 │
+└───────────────────────────────────────────────────────────────────────────┘
+  SequenceRegistry
+    sequences: 1..36 ⇶ PatternSequence
+    pattern_to_sequences: PatternNumber ⇶ ℙ(1..36)
+  where
+    /* All 36 sequences must be registered */
+    dom sequences = {1..36}
+    
+    /* Sequences must have matching IDs */
+    ∀ sid ∈ dom sequences • sequences(sid).id = sid
+    
+    /* Pattern to sequences mapping must be consistent */
+    ∀ pn ∈ dom pattern_to_sequences • 
+      pattern_to_sequences(pn) = 
+        {sid | sid ∈ dom sequences ∧ pn ∈ sequences(sid).patterns}
+    
+    /* Each pattern appears in at least one sequence */
+    ∀ pn: PatternNumber | pn ∈ {1..253} ⇒ 
+      pn ∈ dom pattern_to_sequences ∧ 
+      pattern_to_sequences(pn) ≠ ∅
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 2: ARCHETYPAL PATTERN STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ ArchetypalRegistry ──────────────────────────────────────────────────────┐
+│ Registry for all archetypal patterns with their domain mappings and        │
+│ hierarchical relationships. Contains all 253 patterns from the UIA system. │
+└───────────────────────────────────────────────────────────────────────────┘
+  ArchetypalRegistry
+    patterns: String ⇶ ArchetypalPattern
+    placeholder_registry: PlaceholderName ⇶ PlaceholderDefinition
+    loaded_archetypes: ℙ String
+    relationship_graph: String ⇶ (ℙ String × ℙ String)
+  where
+    /* All patterns indexed by their pattern_id */
+    ∀ pid ∈ dom patterns • patterns(pid).pattern_id = pid
+    
+    /* All pattern IDs are valid UIA identifiers */
+    ∀ pid ∈ dom patterns • #pid ≥ 8
+    
+    /* Total of 253 archetypal patterns */
+    #(dom patterns) = 253
+    
+    /* All patterns are well-formed */
+    ∀ pid ∈ dom patterns • ValidArchetypalPattern(patterns(pid))
+    
+    /* Placeholder registry contains all placeholders used */
+    dom placeholder_registry = 
+      ⋃{ap.placeholders | ap ∈ ran patterns}
+    
+    /* All placeholder definitions have complete domain mappings */
+    ∀ ph ∈ dom placeholder_registry • 
+      CompleteDomainMapping(placeholder_registry(ph).domains)
+    
+    /* Loaded archetypes must be subset of available patterns */
+    loaded_archetypes ⊆ dom patterns
+    
+    /* Relationship graph must be consistent with pattern relationships */
+    ∀ pid ∈ dom patterns •
+      let p = patterns(pid) in
+      relationship_graph(pid) = 
+        ({bp | bp ∈ p.broader_patterns}, 
+         {np | np ∈ p.narrower_patterns})
+    
+    /* All relationships must be bidirectional */
+    ∀ pid ∈ dom patterns •
+      let p = patterns(pid) in
+      (∀ bp ∈ p.broader_patterns • 
+        bp ∈ dom patterns ⇒ 
+          pid ∈ patterns(bp).narrower_patterns) ∧
+      (∀ np ∈ p.narrower_patterns •
+        np ∈ dom patterns ⇒
+          pid ∈ patterns(np).broader_patterns)
+    
+    /* First pattern (12610010) has no broader patterns */
+    "12610010" ∈ dom patterns ⇒
+      patterns("12610010").broader_patterns = ⟨⟩
+    
+    /* Relationship graph is acyclic (no pattern can be ancestor of itself) */
+    ∀ pid ∈ dom patterns • ¬IsAncestorOf(pid, pid, relationship_graph)
+
+
+┌─ DomainMappingCache ──────────────────────────────────────────────────────┐
+│ Cache for pre-computed domain mappings to optimize transformations         │
+└───────────────────────────────────────────────────────────────────────────┘
+  DomainMappingCache
+    cache: (PlaceholderName × Domain) ⇶ String
+    hit_count: (PlaceholderName × Domain) ⇶ ℕ
+    last_updated: (PlaceholderName × Domain) ⇶ ℕ
+  where
+    /* All cache entries have hit counts */
+    dom cache = dom hit_count
+    
+    /* All cache entries have timestamps */
+    dom cache = dom last_updated
+    
+    /* Hit counts are non-negative */
+    ∀ key ∈ dom hit_count • hit_count(key) ≥ 0
+    
+    /* Cached values must be non-empty */
+    ∀ key ∈ dom cache • cache(key) ≠ ""
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 3: SCHEMA AND VALIDATION STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ SchemaRegistry ──────────────────────────────────────────────────────────┐
+│ Registry managing JSON schema definitions and validation results           │
+└───────────────────────────────────────────────────────────────────────────┘
+  SchemaRegistry
+    pattern_schema: Schema
+    archetypal_schema: Schema
+    schema_versions: String ⇶ String
+    validation_cache: String ⇶ 𝔹
+  where
+    /* Schema versions track compatibility */
+    "pattern_schema" ∈ dom schema_versions ∧
+    "archetypal_schema" ∈ dom schema_versions
+    
+    /* All schema versions use JSON Schema Draft-07 */
+    ∀ sv ∈ ran schema_versions • 
+      sv = "http://json-schema.org/draft-07/schema#"
+    
+    /* Validation cache stores validation results */
+    /* Key format: "schemaType:objectId" */
+
+
+┌─ ValidationState ─────────────────────────────────────────────────────────┐
+│ Current state of schema validation processes                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  ValidationState
+    patterns_validated: ℙ PatternNumber
+    archetypes_validated: ℙ String
+    validation_errors: (String × String) ⇶ seq String
+    last_validation_time: ℕ
+  where
+    /* Validation errors indexed by type and ID */
+    ∀ (vtype, vid) ∈ dom validation_errors • 
+      vtype ∈ {"pattern", "archetypal", "sequence", "category"}
+    
+    /* Validated patterns must exist in registry */
+    /* (requires access to PatternRegistry - see system invariants) */
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 4: FILE SYSTEM STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ FileSystemState ─────────────────────────────────────────────────────────┐
+│ State of markdown source files and generated JSON outputs                  │
+└───────────────────────────────────────────────────────────────────────────┘
+  FileSystemState
+    markdown_files: String ⇶ (String × ℕ)  /* path → (content, timestamp) */
+    json_files: String ⇶ (String × ℕ)       /* path → (content, timestamp) */
+    file_dependencies: String ⇶ ℙ String    /* output → input sources */
+  where
+    /* Markdown files must be in markdown directory */
+    ∀ path ∈ dom markdown_files • 
+      path contains "markdown/" ∧ path ends_with ".md"
+    
+    /* JSON files must have .json extension */
+    ∀ path ∈ dom json_files • 
+      path ends_with ".json"
+    
+    /* File dependencies track which sources generate which outputs */
+    dom file_dependencies ⊆ dom json_files
+    
+    /* Source files in dependencies must exist */
+    ∀ output ∈ dom file_dependencies • 
+      ∀ input ∈ file_dependencies(output) • 
+        input ∈ dom markdown_files
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 5: TRANSFORMATION STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ TransformationContext ───────────────────────────────────────────────────┐
+│ Context for domain transformation operations                               │
+└───────────────────────────────────────────────────────────────────────────┘
+  TransformationContext
+    current_pattern: String  /* Pattern ID being transformed */
+    target_domain: Domain
+    placeholder_substitutions: PlaceholderName ⇶ String
+    transformation_history: seq (String × Domain × ℕ)
+  where
+    /* Current pattern must be valid if set */
+    current_pattern ≠ "" ⇒ #current_pattern ≥ 8
+    
+    /* All substitutions must be non-empty */
+    ∀ ph ∈ dom placeholder_substitutions • 
+      placeholder_substitutions(ph) ≠ ""
+    
+    /* Transformation history: (pattern_id, domain, timestamp) */
+
+═══════════════════════════════════════════════════════════════════════════════
+ SECTION 6: COMPLETE SYSTEM STATE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─ PatternLanguageSystem ───────────────────────────────────────────────────┐
+│ Complete system state integrating all subsystems                           │
+└───────────────────────────────────────────────────────────────────────────┘
+  PatternLanguageSystem
+    pattern_registry: PatternRegistry
+    category_registry: CategoryRegistry
+    sequence_registry: SequenceRegistry
+    archetypal_registry: ArchetypalRegistry
+    domain_cache: DomainMappingCache
+    schema_registry: SchemaRegistry
+    validation_state: ValidationState
+    filesystem_state: FileSystemState
+    transformation_context: TransformationContext
+  where
+    /* CROSS-REGISTRY CONSISTENCY INVARIANTS */
+    
+    /* All patterns in category registry exist in pattern registry */
+    ∀ pn ∈ dom category_registry.category_index • 
+      pn ∈ dom pattern_registry.patterns
+    
+    /* All patterns in sequences exist in pattern registry */
+    ∀ sid ∈ dom sequence_registry.sequences • 
+      ∀ pn ∈ sequence_registry.sequences(sid).patterns • 
+        pn ∈ dom pattern_registry.patterns
+    
+    /* Validated patterns must exist */
+    validation_state.patterns_validated ⊆ 
+      dom pattern_registry.patterns
+    
+    validation_state.archetypes_validated ⊆ 
+      dom archetypal_registry.patterns
+    
+    /* Domain cache placeholders must exist in placeholder registry */
+    ∀ (ph, d) ∈ dom domain_cache.cache • 
+      ph ∈ dom archetypal_registry.placeholder_registry
+    
+    /* Current transformation pattern must exist if active */
+    transformation_context.current_pattern ≠ "" ⇒
+      transformation_context.current_pattern ∈ 
+        dom archetypal_registry.patterns
+    
+    /* SYSTEM COMPLETENESS INVARIANTS */
+    
+    /* Pattern registry must be complete (253 patterns + meta) */
+    #(dom pattern_registry.patterns) = 253
+    
+    /* All categories must be populated */
+    #(dom category_registry.categories) = 3
+    
+    /* All sequences must be registered */
+    #(dom sequence_registry.sequences) = 36
+    
+    /* Archetypal registry must have 102 patterns */
+    #(dom archetypal_registry.patterns) = 102
+    
+    /* SCHEMA VALIDATION INVARIANTS */
+    
+    /* Schemas must be loaded */
+    schema_registry.pattern_schema ≠ ∅ ∧
+    schema_registry.archetypal_schema ≠ ∅
+
+
+┌─ InitialState ────────────────────────────────────────────────────────────┐
+│ Initial state of the system before any patterns are loaded                 │
+└───────────────────────────────────────────────────────────────────────────┘
+  InitialState
+    PatternLanguageSystem
+  where
+    /* No patterns loaded initially */
+    pattern_registry.patterns = ∅
+    pattern_registry.loaded_patterns = ∅
+    
+    /* No archetypal patterns loaded */
+    archetypal_registry.patterns = ∅
+    archetypal_registry.loaded_archetypes = ∅
+    
+    /* No validations performed */
+    validation_state.patterns_validated = ∅
+    validation_state.archetypes_validated = ∅
+    
+    /* No transformation in progress */
+    transformation_context.current_pattern = ""
+    
+    /* Cache is empty */
+    domain_cache.cache = ∅
+
+
+┌─ FullyLoadedState ────────────────────────────────────────────────────────┐
+│ State after all patterns and schemas have been successfully loaded         │
+└───────────────────────────────────────────────────────────────────────────┘
+  FullyLoadedState
+    PatternLanguageSystem
+  where
+    /* All patterns loaded */
+    pattern_registry.loaded_patterns = dom pattern_registry.patterns
+    
+    /* All categories populated */
+    dom category_registry.categories = {Towns, Buildings, Construction}
+    
+    /* All sequences registered */
+    dom sequence_registry.sequences = {1..36}
+    
+    /* All archetypal patterns loaded */
+    archetypal_registry.loaded_archetypes = 
+      dom archetypal_registry.patterns
+    
+    /* All patterns validated */
+    validation_state.patterns_validated = 
+      dom pattern_registry.patterns
+    
+    validation_state.archetypes_validated = 
+      dom archetypal_registry.patterns
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ END OF SYSTEM STATE SPECIFICATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

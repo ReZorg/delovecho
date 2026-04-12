@@ -1,0 +1,12 @@
+---
+name: gh246
+description: "246 - PROGRESSIVE ENHANCEMENT"
+---
+
+# PROGRESSIVE ENHANCEMENT
+
+## Related Patterns
+
+- [GUIDED TUTORIAL (174)]
+- [SANITIZED INPUT (238)]
+- [SANITIZED INPUT (238)]

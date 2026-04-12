@@ -1,0 +1,13 @@
+---
+name: gh201
+description: "201 - MIDDLEWARE"
+---
+
+# MIDDLEWARE
+
+## Related Patterns
+
+- [ROBUST BOUNDARIES (197)]
+- [EXPOSED CONFIGURATION (200)]
+- [HARDENING THE API (211)]
+- [PERSONAL TOUCHES (253)]

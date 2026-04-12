@@ -1,0 +1,266 @@
+#!/usr/bin/env python3
+"""
+Geometric Unity Computation Template
+
+This template provides a starting point for GU computations.
+Replace the placeholder sections with your specific implementation.
+
+Components:
+- Metric definition
+- Connection setup
+- Curvature computation
+- Shiab operator application
+- Swervature calculation
+"""
+
+import numpy as np
+import sys
+sys.path.insert(0, '/home/ubuntu/skills/geometric-unity/scripts')
+
+from observerse import Observerse, MetricTensor, ChimericBundle
+from gauge_transformer import (
+    GaugeTransformer, ShiabOperator, Connection, Curvature,
+    GaugeGroup, InhomogeneousGaugeGroup
+)
+from swervature import (
+    compute_swervature, CurvatureComputer, TorsionComputer,
+    HodgeStar, GUFieldEquations
+)
+
+
+# =============================================================================
+# CONFIGURATION
+# =============================================================================
+
+# Base manifold dimension
+BASE_DIM = 4
+
+# Gauge group (U1, SU2, SU3, SPIN4, SPIN6)
+GAUGE_GROUP = GaugeGroup.SU3
+
+# Metric signature: 'lorentzian' or 'euclidean'
+SIGNATURE = 'lorentzian'
+
+
+# =============================================================================
+# METRIC DEFINITION
+# =============================================================================
+
+def create_metric():
+    """
+    Define the spacetime metric.
+    
+    Options:
+    - MetricTensor.minkowski(dim) for flat Minkowski
+    - MetricTensor.euclidean(dim) for Euclidean
+    - MetricTensor.schwarzschild(r, M) for Schwarzschild
+    - Custom: MetricTensor(np.array([[...], ...]))
+    
+    Returns:
+        MetricTensor object
+    """
+    # TODO: Replace with your metric
+    if SIGNATURE == 'lorentzian':
+        return MetricTensor.minkowski(BASE_DIM)
+    else:
+        return MetricTensor.euclidean(BASE_DIM)
+
+
+# =============================================================================
+# CONNECTION SETUP
+# =============================================================================
+
+def create_connection(metric: MetricTensor):
+    """
+    Define the connection (Christoffel symbols).
+    
+    For Levi-Civita connection:
+        Γ^ρ_μν = ½ g^{ρσ} (∂_μ g_νσ + ∂_ν g_μσ - ∂_σ g_μν)
+    
+    Args:
+        metric: The spacetime metric
+    
+    Returns:
+        numpy array of shape (dim, dim, dim)
+    """
+    dim = metric.dimension
+    
+    # TODO: Replace with your connection computation
+    # For flat space, Christoffel symbols are zero
+    gamma = np.zeros((dim, dim, dim))
+    
+    return gamma
+
+
+def create_gauge_connection(metric: MetricTensor, gauge_group: GaugeGroup):
+    """
+    Define the gauge connection.
+    
+    Args:
+        metric: The spacetime metric
+        gauge_group: The gauge group
+    
+    Returns:
+        Connection object
+    """
+    dim = metric.dimension
+    
+    # Lie algebra dimension
+    lie_dims = {
+        GaugeGroup.U1: 1,
+        GaugeGroup.SU2: 3,
+        GaugeGroup.SU3: 8,
+    }
+    lie_dim = lie_dims.get(gauge_group, 8)
+    
+    # TODO: Replace with your gauge connection
+    A = np.zeros((dim, lie_dim))
+    
+    return Connection(A, gauge_group)
+
+
+# =============================================================================
+# CURVATURE COMPUTATION
+# =============================================================================
+
+def compute_curvature(gamma: np.ndarray, metric: MetricTensor):
+    """
+    Compute the Riemann curvature tensor.
+    
+    R^ρ_σμν = ∂_μ Γ^ρ_νσ - ∂_ν Γ^ρ_μσ + Γ^ρ_μλ Γ^λ_νσ - Γ^ρ_νλ Γ^λ_μσ
+    
+    Args:
+        gamma: Christoffel symbols
+        metric: Spacetime metric
+    
+    Returns:
+        Riemann tensor of shape (dim, dim, dim, dim)
+    """
+    curv_comp = CurvatureComputer(metric.components)
+    return curv_comp.riemann_from_christoffel(gamma)
+
+
+def compute_field_strength(A: Connection, metric: MetricTensor):
+    """
+    Compute the gauge field strength.
+    
+    F_μν = ∂_μ A_ν - ∂_ν A_μ + [A_μ, A_ν]
+    
+    Args:
+        A: Gauge connection
+        metric: Spacetime metric
+    
+    Returns:
+        Field strength tensor
+    """
+    dim = metric.dimension
+    lie_dim = A.lie_dimension
+    
+    # TODO: Replace with your field strength computation
+    F = np.zeros((dim, dim, lie_dim))
+    
+    return Curvature(np.zeros((dim, dim, dim, dim)), A.gauge_group)
+
+
+# =============================================================================
+# GU OPERATORS
+# =============================================================================
+
+def apply_shiab(curvature: np.ndarray, metric: MetricTensor):
+    """
+    Apply the Shiab operator to curvature.
+    
+    Shiab(R)_μν = g^{ρσ} R_{ρμσν}
+    
+    Args:
+        curvature: Riemann tensor
+        metric: Spacetime metric
+    
+    Returns:
+        Contracted tensor (Ricci-like)
+    """
+    shiab = ShiabOperator(metric, GAUGE_GROUP)
+    # For Riemann tensor, use CurvatureComputer
+    curv_comp = CurvatureComputer(metric.components)
+    return curv_comp.ricci_from_riemann(curvature)
+
+
+def compute_swervature_full(riemann: np.ndarray, 
+                            torsion: np.ndarray,
+                            metric: MetricTensor):
+    """
+    Compute the full swervature.
+    
+    Swervature = Shiab(F_∇) + ★(T_aug)
+    
+    Args:
+        riemann: Riemann curvature tensor
+        torsion: Torsion tensor
+        metric: Spacetime metric
+    
+    Returns:
+        Tuple of (shiab_term, hodge_torsion_term)
+    """
+    return compute_swervature(riemann, torsion, metric.components)
+
+
+# =============================================================================
+# MAIN COMPUTATION
+# =============================================================================
+
+def main():
+    """Run the GU computation"""
+    print("=== Geometric Unity Computation ===\n")
+    
+    # Step 1: Create metric
+    metric = create_metric()
+    print(f"Metric created: {metric.signature} signature")
+    
+    # Step 2: Create observerse
+    obs = Observerse(BASE_DIM)
+    print(f"Observerse: U^{obs.total_dim} = met(X^{obs.base_dim})")
+    
+    # Step 3: Create connections
+    gamma = create_connection(metric)
+    A = create_gauge_connection(metric, GAUGE_GROUP)
+    print(f"Connections created: Γ shape {gamma.shape}, A shape {A.components.shape}")
+    
+    # Step 4: Compute curvature
+    riemann = compute_curvature(gamma, metric)
+    print(f"Riemann tensor computed: shape {riemann.shape}")
+    
+    # Step 5: Compute torsion
+    torsion_comp = TorsionComputer(metric.components)
+    torsion = torsion_comp.from_connection(gamma)
+    print(f"Torsion computed: shape {torsion.components.shape}")
+    
+    # Step 6: Apply Shiab operator
+    ricci = apply_shiab(riemann, metric)
+    print(f"Shiab(R) = Ricci tensor: shape {ricci.shape}")
+    
+    # Step 7: Compute swervature
+    shiab_term, hodge_term = compute_swervature_full(
+        riemann, torsion.components, metric
+    )
+    print(f"Swervature computed:")
+    print(f"  Shiab term: {np.linalg.norm(shiab_term):.6f}")
+    print(f"  Hodge term: {np.linalg.norm(hodge_term):.6f}")
+    
+    # Step 8: Field equations
+    gu_eqs = GUFieldEquations(metric.components, gauge_group_dim=8)
+    einstein = gu_eqs.einstein_tensor(riemann)
+    print(f"\nEinstein tensor trace: {np.trace(einstein):.6f}")
+    
+    print("\n=== Computation Complete ===")
+    
+    return {
+        'metric': metric,
+        'riemann': riemann,
+        'ricci': ricci,
+        'swervature': (shiab_term, hodge_term),
+        'einstein': einstein
+    }
+
+
+if __name__ == "__main__":
+    results = main()

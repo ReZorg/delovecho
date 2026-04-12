@@ -1,0 +1,13 @@
+---
+name: gh251
+description: "251 - DIFFERENT TOOLS"
+---
+
+# DIFFERENT TOOLS
+
+## Related Patterns
+
+- [SEQUENCE OF REVIEW STAGES (142)]
+- [STANDUP MEETING (185)]
+- [BUILT-IN UTILITIES (202)]
+- [CODE COMMENTS (252)]

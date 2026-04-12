@@ -1,0 +1,14 @@
+---
+name: gh025
+description: "25 - ACCESS TO DATA"
+---
+
+# ACCESS TO DATA
+
+## Related Patterns
+
+- [SACRED REPOSITORIES (24)]
+- [DEVELOPER PORTAL (31)]
+- [THE OPEN SOURCE ECOSYSTEM (7)]
+- [PARALLEL PIPELINES (23)]
+- [SMALL STAGING AREAS (103)]

@@ -1,0 +1,22 @@
+---
+name: narrower
+description: Narrower Patterns for gh206
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh206: EFFICIENT CODEBASE
+- gh207: GOOD DEPENDENCIES
+- gh209: README LAYOUT
+- gh210: PACKAGE STRUCTURE
+- gh212: CORE MODULES
+- gh213: FINAL MODULE DISTRIBUTION
+- gh216: CONTAINER COMPONENTS
+- gh217: BOUNDARY VALIDATORS
+- gh218: INTERFACE CONTRACTS
+- gh219: ABSTRACTION LAYERS
+- gh220: TOP-LEVEL EXPORTS
+- gh225: INTERFACES AS CONTRACTS
+- gh227: MODULE DEPENDENCIES

@@ -1,0 +1,16 @@
+---
+name: gh092
+description: "92 - WEBHOOK ENDPOINT"
+---
+
+# WEBHOOK ENDPOINT
+
+## Related Patterns
+
+- [MICROSERVICES (20)]
+- [MAIN GATEWAYS (53)]
+- [PUBLIC WORKSPACE (69)]
+- [WORKFLOW SHAPE (121)]
+- [QUEUE MANAGEMENT (150)]
+- [CODE SNIPPETS (93)]
+- [BREAKPOINTS (241)]

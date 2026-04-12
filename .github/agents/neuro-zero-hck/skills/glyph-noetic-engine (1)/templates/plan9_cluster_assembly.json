@@ -1,0 +1,57 @@
+{
+  "name": "plan9-cluster-cognitive-assembly",
+  "components": {
+    "fs": {
+      "ports": {
+        "9p_auth": {"name": "9p_auth", "kind": "BIDI", "dtype": "9p"},
+        "9p_storage": {"name": "9p_storage", "kind": "BIDI", "dtype": "9p"},
+        "cognitive_export": {"name": "cognitive_export", "kind": "SOURCE", "dtype": "9p_namespace"}
+      },
+      "metadata": {"layer": "storage", "subsystem": "file-server"}
+    },
+    "auth": {
+      "ports": {
+        "auth_service": {"name": "auth_service", "kind": "SINK", "dtype": "9p"}
+      },
+      "metadata": {"layer": "storage", "subsystem": "auth-server"}
+    },
+    "cpu1": {
+      "ports": {
+        "9p_mount": {"name": "9p_mount", "kind": "SINK", "dtype": "9p"},
+        "cognitive_import": {"name": "cognitive_import", "kind": "SINK", "dtype": "9p_namespace"}
+      },
+      "metadata": {"layer": "compute", "subsystem": "cpu-server"}
+    },
+    "cpu2": {
+      "ports": {
+        "9p_mount": {"name": "9p_mount", "kind": "SINK", "dtype": "9p"},
+        "cognitive_import": {"name": "cognitive_import", "kind": "SINK", "dtype": "9p_namespace"}
+      },
+      "metadata": {"layer": "compute", "subsystem": "cpu-server"}
+    }
+  },
+  "simplices": [
+    [["fs"], ["auth"], ["cpu1"], ["cpu2"]],
+    [
+      ["fs", "auth"],
+      ["fs", "cpu1"],
+      ["fs", "cpu2"]
+    ]
+  ],
+  "constraints": [
+    {
+      "name": "connected_cluster",
+      "dimension": 0,
+      "op": "==",
+      "value": 1,
+      "description": "The entire cluster must be a single connected component."
+    },
+    {
+      "name": "storage_redundancy",
+      "dimension": 1,
+      "op": ">=",
+      "value": 1,
+      "description": "There must be at least one cycle for storage path redundancy."
+    }
+  ]
+}

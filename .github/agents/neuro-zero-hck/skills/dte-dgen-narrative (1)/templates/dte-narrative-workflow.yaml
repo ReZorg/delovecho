@@ -1,0 +1,73 @@
+workflow:
+  title: "Deep Tree Echo Narrative Generation Pipeline"
+  slug: dte-narrative-pipeline
+  description: >
+    End-to-end pipeline that extracts cognitive state from the Deep Tree Echo
+    architecture, transforms it through OpenCog gateway and gauge-hypergraph
+    analysis, selects an avatar expression channel, and generates DreamGen
+    narrative prose.
+
+chain:
+  - skill: echo-evolve-composed
+    stage: "Cognitive State Extraction"
+    description: "Extract current cognitive state from the 6-repo Echo architecture"
+    inputs:
+      - identity_path: "echo_state.json"
+    outputs:
+      - cognitive_state: "/tmp/cognitive_state.json"
+
+  - skill: clawcog
+    stage: "OpenCog Gateway Processing"
+    description: "Route cognitive state through clawcog for AtomSpace integration"
+    inputs:
+      - cognitive_state: "/tmp/cognitive_state.json"
+    outputs:
+      - atomspace_state: "/tmp/atomspace_state.json"
+
+  - skill: gauge-hypergraph-network
+    stage: "Hypergraph Attention Analysis"
+    description: "Apply gauge-equivariant attention to identify salient patterns"
+    inputs:
+      - atomspace_state: "/tmp/atomspace_state.json"
+    outputs:
+      - attention_map: "/tmp/attention_map.json"
+
+  - skill: agi-os
+    stage: "Cognitive OS Grounding"
+    description: "Ground the analysis in agi-os cognitive services"
+    inputs:
+      - attention_map: "/tmp/attention_map.json"
+    outputs:
+      - grounded_state: "/tmp/grounded_state.json"
+
+  - skill: "[unreal-echo | echo-angel | rig-logic]"
+    stage: "Avatar Expression Selection"
+    description: "Select and apply avatar expression from parallel channels"
+    type: ml-decide
+    decision: "Choose avatar backend based on deployment context"
+    inputs:
+      - grounded_state: "/tmp/grounded_state.json"
+    outputs:
+      - expression_state: "/tmp/expression_state.json"
+
+  - skill: dte-dgen-narrative
+    stage: "Narrative Generation"
+    description: "Transform cognitive + expression state into DreamGen prose"
+    inputs:
+      - cognitive_state: "/tmp/cognitive_state.json"
+      - expression_state: "/tmp/expression_state.json"
+    outputs:
+      - scenario: "/tmp/scenario.json"
+      - narrative: "/tmp/narrative.json"
+
+execution:
+  checkpoint: true
+  checkpoint_dir: ".dte-checkpoints"
+  retry_count: 2
+  log_level: "INFO"
+
+ml:
+  enabled: true
+  step_classification: true
+  decision_making: true
+  validation: true

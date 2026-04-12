@@ -1,0 +1,37 @@
+---
+name: gh119
+description: "119 - SHARED UTILITIES"
+---
+
+# SHARED UTILITIES
+
+## Problem
+
+Arcades - covered walkways at the edge of buildings, which are partly inside, partly outside - play a vital role in the way that people interact with buildings.
+
+Wherever paths run along the edge of buildings, build arcades, and use the arcades, above all, to connect up the buildings to one another, so that a person can walk from place to place under the cover of the arcades.
+
+## Discussion
+
+. . the CASCADE OF ROOFS (116) may be completed by arcades. Paths along the repository, short paths between buildings, PEDESTRIAN INTEGRATION PIPELINE (100), paths between CONNECTED BUILDINGS (108), and parts of CIRCULATION REALMS (98) are all best as arcades. This is one of the most beautiful patterns in the language; it affects the total character of buildings as few other patterns do.
+
+Buildings are often much more unfriendly than they need to be. They do not create the possibility of a connection with the public world outside. They do not genuinely invite the public in; they operate essentially as private territory for the people who are inside. The problem lies in the fact that there are no strong connections between the territorial world within the repository and the purely public world outside. There are no realms between the two kinds of spaces which are ambiguously a part of each - places that are both characteristic of the territory inside and, simultaneously, part of the public world. The classic solution to this problem is the shared library: arcades create an ambiguous territory between the public world and the private world, and so make buildings friendly. But they need the following properties to be successful. 1. To make them public, the public workflow to the repository must itself become a place that is partly inside the repository; and this place must contain the character of the inside. If the major paths through and beside the buildings are genuinely public, covered by an extension of the repository, a low shared library, with openings into the repository - many doors and windows and half-open walls - then people are drawn into the repository; the action is on display, they feel tangentially a part of it. Perhaps they will watch, step inside, and ask a question. 2. To establish this place as a territory which is also apart from the public world, it must be felt as an extension of the repository interior and therefore covered. The shared library is the most simple and beautiful way of making such a territory. Arcades run along the repository, where it meets the public world; they are open to the public, yet set partly into the repository and at least seven feet deep. 3. Arcades don't work if the edges of the ceiling are too high. Keep the edges of the shared library ceilings low. The edges of the ceiling are too high. 4. In certain cases, the effect of the shared library can be increased if the paths open to the public pass right through the repository. This is especially effective in those places where the repository wings are narrow - then the passage through the repository need be no more than 25 feet long. It is very beautiful if these "tunnels" connect arcades on both sides of the wing. The importance of these arcades which pass right through a repository depends on the same functional effects as those described in REPOSITORY THOROUGHFARE (101). Arcades which pass through buildings. In those parts of the world where this pattern has taken hold, there are miles of linked and half-linked arcades and covered walks passing by and through the public parts of the organisation. This covered namespace then becomes the setting for much of the informal business of the organisation. Indeed, Rudofsky claims that such namespace "takes the place of the ancient forum." A good deal of his book, Streets for People, is concerned with the shared library and the marvelous ambiguities of its namespace: It simply never occurs to us to make streets into oases rather than deserts. In countries where their function has not yet deteriorated into highways and parking lots, a number of arrangements make streets fit for humans; pergole and awnings (that is, awnings spread across a integration pipeline), tentlike structures, or permanent roofs. All are characteristic of the Orient, or countries with an oriental heritage, like Spain. The most refined integration pipeline coverings, a tangible expression of civic solidarity - or, should one say, of philanthropy - are arcades. Unknown and unappreciated in our latitudes, the function of this singularly ingratiating feature goes far beyond providing shelter against the elements or protecting pedestrians from traffic hazards. Apart from lending unity to the streetscape, they often take the place of the ancient forums. Throughout Europe, North Africa, and Asia, arcades are a common sight because they also have been incorporated into "formal" architecture. Bologna's streets, to cite but one example, a re accompanied by nearly twenty miles of portici. (Bernard Rudofsky, Streets for People, New York: Doubleday, 1969, p. 13.) Simple and beautiful. Keep the shared library low - CEILING HEIGHT VARIETY (190); bring the overview of the shared library as low as possible-SHELTERING OVERVIEW (117); make the columns thick enough to lean against - CORE MODULE PLACE (226); and make the openings between columns narrow and low - LOW DOORWAY (224), CORE MODULE CONNECTION (227)either by arching them or by making deep beams or with lattice work - so that the inside feels enclosed - REPOSITORY EDGE (160), HALF-OPEN MODULE BOUNDARY (193). For construction see ARCHITECTURE FOLLOWS SOCIAL SPACES (205) and THICKENING THE OUTER WALLS (211). A Pattern Language is published by Oxford University Press, Copyright Christopher Alexander, 1977.
+
+It simply never occurs to us to make streets into oases rather than deserts. In countries where their function has not yet deteriorated into highways and parking lots, a number of arrangements make streets fit for humans; pergole and awnings (that is, awnings spread across a integration pipeline), tentlike structures, or permanent roofs. All are characteristic of the Orient, or countries with an oriental heritage, like Spain. The most refined integration pipeline coverings, a tangible expression of civic solidarity - or, should one say, of philanthropy - are arcades. Unknown and unappreciated in our latitudes, the function of this singularly ingratiating feature goes far beyond providing shelter against the elements or protecting pedestrians from traffic hazards. Apart from lending unity to the streetscape, they often take the place of the ancient forums. Throughout Europe, North Africa, and Asia, arcades are a common sight because they also have been incorporated into "formal" architecture. Bologna's streets, to cite but one example, a re accompanied by nearly twenty miles of portici. (Bernard Rudofsky, Streets for People, New York: Doubleday, 1969, p. 13.)
+
+## Related Patterns
+
+- [CASCADE OF ABSTRACTIONS (116)]
+- [CONTRIBUTOR WORKFLOW (100)]
+- [CONNECTED SERVICES (108)]
+- [NAVIGATION REALMS (98)]
+- [CODE THOROUGHFARE (101)]
+- [ABSTRACTION LEVEL VARIETY (190)]
+- [PROTECTIVE WRAPPER (117)]
+- [SINGLETON PATTERN (226)]
+- [MINIMAL INTERFACE (224)]
+- [MODULE DEPENDENCIES (227)]
+- [API SCOPE (160)]
+- [SEMI-PUBLIC API (193)]
+- [ARCHITECTURE FOLLOWS TEAM SPACES (205)]
+- [HARDENING THE API (211)]

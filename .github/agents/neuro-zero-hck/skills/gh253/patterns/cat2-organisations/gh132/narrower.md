@@ -1,0 +1,23 @@
+---
+name: narrower
+description: Narrower Patterns for gh132
+---
+
+# NARROWER Instructions
+
+These patterns provide detail and are typically applied after this pattern:
+
+- gh132: SHORT IMPORTS
+- gh152: TEAM-PRIVATE REPO
+- gh159: MULTIPLE PERSPECTIVES
+- gh163: EXTERNAL INTEGRATION SPACE
+- gh166: WRAPPER LAYER
+- gh179: HELPER FUNCTIONS
+- gh180: INSPECTION POINT
+- gh183: ISOLATED CONTEXT
+- gh191: THE SHAPE OF CODE SPACE
+- gh194: INTERNAL INTERFACES
+- gh197: ROBUST BOUNDARIES
+- gh198: ADAPTERS BETWEEN MODULES
+- gh222: LOW BARRIER TO ENTRY
+- gh237: TYPED INTERFACES

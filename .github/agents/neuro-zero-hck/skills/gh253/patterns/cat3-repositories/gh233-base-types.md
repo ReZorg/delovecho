@@ -1,0 +1,17 @@
+---
+name: gh233
+description: "233 - BASE TYPES"
+---
+
+# BASE TYPES
+
+## Related Patterns
+
+- [FRAMEWORK LAYER (215)]
+- [ABSTRACTION LAYERS (219)]
+- [ACCESS GRADIENT (127)]
+- [ACCESS GRADIENT (127)]
+- [FLEXIBLE TYPES (248)]
+- [FLEXIBLE TYPES (248)]
+- [DOCUMENTATION (249)]
+- [BRANDING (250)]
