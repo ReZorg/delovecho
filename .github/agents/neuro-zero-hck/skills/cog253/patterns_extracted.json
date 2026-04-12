@@ -1,0 +1,5775 @@
+{
+  "meta": {
+    "title": "UIA Archetypal Patterns - Complete",
+    "description": "All 253 archetypal patterns with relationships",
+    "total_patterns": 253,
+    "source_directory": "markdown/uia"
+  },
+  "patterns": [
+    {
+      "pattern_id": "12610010",
+      "name": "Independent domains",
+      "template": "Balance between domains will not be achieved unless each one is small and autonomous enough to be an independent sphere of influence.",
+      "broader_patterns": [],
+      "narrower_patterns": [
+        "12610020",
+        "12610040"
+      ]
+    },
+    {
+      "pattern_id": "12610020",
+      "name": "Distribution of organization",
+      "template": "If a domain is characterized by small clusters of organization to too great an extent, more comprehensive forms of organization cannot emerge. But if a domain is characterized by large clusters of organization to too great an extent, such organization will not be able to ensure the integrity of the domain.",
+      "broader_patterns": [
+        "12610010"
+      ],
+      "narrower_patterns": [
+        "12610070",
+        "12610060",
+        "12610040",
+        "12610030"
+      ]
+    },
+    {
+      "pattern_id": "12610030",
+      "name": "Interpretation of complementary modes of organization",
+      "template": "A continuous pattern of organization and definition denies the existence and emergence of the underdefined and severely diminishes the value of major established patterns of organization. But the degree of integration of such major patterns is also valuable and potent. A compromise can be achieved by ensuring appropriate interpenetration of defined and underdefined modes of organization as complements.",
+      "broader_patterns": [
+        "12610020"
+      ],
+      "narrower_patterns": [
+        "12610170",
+        "12610100",
+        "12610070",
+        "12610210",
+        "12610050",
+        "12610080",
+        "12610110",
+        "12610160",
+        "12610040"
+      ]
+    },
+    {
+      "pattern_id": "12610040",
+      "name": "Regenerative resource cultivation areas",
+      "template": "Those areas in which resources can best be regenerated are also those most favourable for the construction of frameworks. The availability of such areas is however limited and once denatured by the construction of frameworks, its resource regeneration function cannot easily be recovered. Such areas should therefore be protected.",
+      "broader_patterns": [
+        "12610010",
+        "12610020",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610070"
+      ]
+    },
+    {
+      "pattern_id": "12610050",
+      "name": "Network of inter-relationships",
+      "template": "There is advantage in relating to centrally organized frameworks as well as to those which are minimally organized. In order to reconcile these contradictory requirements, a network of inter-relationships is necessary which both links the limited number of central positions to the many non-central, minimally- organized areas, and provides a barrier to encroachment on such areas.",
+      "broader_patterns": [
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610140",
+        "12610370",
+        "12610070",
+        "12610210"
+      ]
+    },
+    {
+      "pattern_id": "12610060",
+      "name": "Intermediate scale organization",
+      "template": "More comprehensive forms of organization function as powerful attractors. It is difficult to ensure the viability of intermediate forms of organization in relationship to them. Efforts should be maintained to ensure that such intermediate forms of organization function as attractors in their own right and are not merely dependencies of the more powerful attractors.",
+      "broader_patterns": [
+        "12610020"
+      ],
+      "narrower_patterns": [
+        "12610260",
+        "12610070",
+        "12610120"
+      ]
+    },
+    {
+      "pattern_id": "12610070",
+      "name": "Non-linear organization",
+      "template": "Within each domain, in between the linearly organized areas, there are large areas of non-linear organization whose status and function are crucial to the balance of the domain as a whole.",
+      "broader_patterns": [
+        "12610020",
+        "12610050",
+        "12610060",
+        "12610040",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610130",
+        "12610370",
+        "12610250",
+        "12611140",
+        "12610510"
+      ]
+    },
+    {
+      "pattern_id": "12610080",
+      "name": "Variety of forms and processes",
+      "template": "Organizations characterized by homogeneity and lack of differentiation inhibit the emergence and growth of variety. By distinguishing an extensive variegated pattern of appropriately juxtaposed sub-areas, the emergence of different forms of organization may be encouraged and protected within each of them.",
+      "broader_patterns": [
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610100",
+        "12610130",
+        "12610140",
+        "12610370",
+        "12610190",
+        "12610120",
+        "12610090",
+        "12610110",
+        "12610310",
+        "12610290"
+      ]
+    },
+    {
+      "pattern_id": "12610090",
+      "name": "Decentralized formal processes",
+      "template": "The segregation of formal and informal processes and the concentration of each of them within distinct and unrelated areas is artificial and leads to their unhealthy development. Formal processes should be distributed in such a way as to permit interaction with informal processes.",
+      "broader_patterns": [
+        "12610080"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610270",
+        "12610150",
+        "12610130",
+        "12610600",
+        "12610190",
+        "12610410",
+        "12610420",
+        "12611570",
+        "12610800"
+      ]
+    },
+    {
+      "pattern_id": "12610100",
+      "name": "Access to intensity",
+      "template": "Complexification of structures and processes at centralized locations constitute a powerful attractant but such development progressively limits access to the intensity of relationships in that environment. Access can be increased by limiting the degree of complexification and multiplying the number and variety of such points of focus.",
+      "broader_patterns": [
+        "12610080",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610580",
+        "12610330",
+        "12610320",
+        "12610210",
+        "12610110",
+        "12610160",
+        "12610310",
+        "12610280",
+        "12610910",
+        "12610630"
+      ]
+    },
+    {
+      "pattern_id": "12610110",
+      "name": "Local interrelationship domains",
+      "template": "Means of non-local interrelationship, when employed locally, inhibit the articulation of local domains and destroy their integrity. The domain as a whole should be broken down into local interrelationship domains for which the non-local interrelationships help to define a boundary. Appropriate connections should be established between the local and non-local interrelationships.",
+      "broader_patterns": [
+        "12610100",
+        "12610080",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610170",
+        "12610490",
+        "12610190",
+        "12610560",
+        "12610220",
+        "12610160",
+        "12610230",
+        "12610200",
+        "12610510",
+        "12610970",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610120",
+      "name": "Individuality in multiplicity",
+      "template": "Individual elements, as such, can have no distinguishably unique function in forming a pattern composed of 5,000 to 10,000 such elements. Patterns should therefore be decentralized so as to group not more than approximately 7,000 such elements, thus enabling each element to play a distinct part in the pattern.",
+      "broader_patterns": [
+        "12610080",
+        "12610060"
+      ],
+      "narrower_patterns": [
+        "12610300",
+        "12610270",
+        "12610260",
+        "12610150",
+        "12610440",
+        "12610130",
+        "12610140",
+        "12610330",
+        "12610620",
+        "12610220",
+        "12610310",
+        "12610650",
+        "12610280",
+        "12610290"
+      ]
+    },
+    {
+      "pattern_id": "12610130",
+      "name": "Sub-domain boundary",
+      "template": "In order to maintain a variety of forms and processes, boundaries are required to insulate from one another the different (at least partially) sub-domains in which each prevails.",
+      "broader_patterns": [
+        "12610070",
+        "12610120",
+        "12610090",
+        "12610080"
+      ],
+      "narrower_patterns": [
+        "12610170",
+        "12610300",
+        "12610150",
+        "12610480",
+        "12610140",
+        "12610600",
+        "12610190",
+        "12610250",
+        "12610240",
+        "12610710",
+        "12610590",
+        "12610410",
+        "12610230",
+        "12610420",
+        "12610640",
+        "12610280",
+        "12610290",
+        "12610840",
+        "12610970"
+      ]
+    },
+    {
+      "pattern_id": "12610140",
+      "name": "Identifiable context",
+      "template": "To establish that a part belongs to a larger whole, the whole needs to be identified with a particular space distinct from other spaces.",
+      "broader_patterns": [
+        "12610130",
+        "12610120",
+        "12610080",
+        "12610050"
+      ],
+      "narrower_patterns": [
+        "12610300",
+        "12610270",
+        "12610260",
+        "12610150",
+        "12610480",
+        "12610370",
+        "12610490",
+        "12610600",
+        "12610530",
+        "12610220",
+        "12610350",
+        "12610400",
+        "12610410",
+        "12610230",
+        "12610360",
+        "12610890",
+        "12610650",
+        "12610880",
+        "12610610",
+        "12610700"
+      ]
+    },
+    {
+      "pattern_id": "12610150",
+      "name": "Context boundary",
+      "template": "The strength of the boundary is essential to the maintenance of an identifiable context. An appropriate boundary emerges as the number of relationships to the external environment is limited.",
+      "broader_patterns": [
+        "12610130",
+        "12610140",
+        "12610120",
+        "12610090"
+      ],
+      "narrower_patterns": [
+        "12610300",
+        "12610480",
+        "12610600",
+        "12610530",
+        "12610320",
+        "12610590",
+        "12610410",
+        "12610690",
+        "12610230",
+        "12610640",
+        "12610900",
+        "12610700",
+        "12611030",
+        "12610970",
+        "12610720",
+        "12610730"
+      ]
+    },
+    {
+      "pattern_id": "12610160",
+      "name": "Web of general interrelationships",
+      "template": "A general system of interrelationships can only work if all the parts are well-connected. This tends not to be the case because of the privileged role accorded to the major relationships and the difficulty of linking relationships of different kinds. This difficulty can be reduced by treating the interrelationship nodes as primary and the interrelationship links as secondary.",
+      "broader_patterns": [
+        "12610100",
+        "12610110",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610170",
+        "12610200"
+      ]
+    },
+    {
+      "pattern_id": "12610170",
+      "name": "Encirclement",
+      "template": "Fundamental boundary relationships defining an area's relationship to the pattern within which it is embedded are desirable in order to maintain the integrity of that area.",
+      "broader_patterns": [
+        "12610130",
+        "12610110",
+        "12610160",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610250",
+        "12610230",
+        "12610420",
+        "12610970"
+      ]
+    },
+    {
+      "pattern_id": "12610180",
+      "name": "Network of redefinitions",
+      "template": "In a context in which a particular form of order is self-reinforcing at all points, the elements constituting that order do not contribute to the redefinition of it or to the emergence of any new pattern. Such pattern emergences occur when the elements are able progressively to redefine their relationship to each other in the light of their past patterning experience.",
+      "broader_patterns": [],
+      "narrower_patterns": [
+        "12610570",
+        "12610430",
+        "12610400",
+        "12610860",
+        "12611570",
+        "12610840",
+        "12610850",
+        "12610830"
+      ]
+    },
+    {
+      "pattern_id": "12610190",
+      "name": "Web of selective interchange",
+      "template": "Interchange points for similar resources should be distributed evenly throughout the environment for which they are each a process nexus. As such they interact in a self-organizing manner, maintaining a stable nexus web despite changes to it resulting from fluctuating demands upon its parts.",
+      "broader_patterns": [
+        "12610130",
+        "12610090",
+        "12610080",
+        "12610110"
+      ],
+      "narrower_patterns": [
+        "12610320",
+        "12610460",
+        "12610890"
+      ]
+    },
+    {
+      "pattern_id": "12610200",
+      "name": "User-determined specialized communications",
+      "template": "Relationships should be such as to permit contact in an environment between any point and any other point.",
+      "broader_patterns": [
+        "12610110",
+        "12610160"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610920",
+        "12610230"
+      ]
+    },
+    {
+      "pattern_id": "12610210",
+      "name": "Four-level structural limit",
+      "template": "Within any framework the number of structural levels varies, with the highest number of levels tending to occur towards the centre. It is desirable that the majority of structures should not have more than four levels because of the confusion that more complex structures tend to engender.",
+      "broader_patterns": [
+        "12610100",
+        "12610050",
+        "12610030"
+      ],
+      "narrower_patterns": [
+        "12610620",
+        "12610390",
+        "12610950",
+        "12610960",
+        "12610280",
+        "12610290",
+        "12610820"
+      ]
+    },
+    {
+      "pattern_id": "12610220",
+      "name": "Occupiable temporary site limit",
+      "template": "The integrity of a domain depends very much on the limit set on the number of sites available for temporary occupation. These function as attractants for mobile elements, both from within and from outside the domain.",
+      "broader_patterns": [
+        "12610140",
+        "12610120",
+        "12610110"
+      ],
+      "narrower_patterns": [
+        "12611030",
+        "12611020",
+        "12610970"
+      ]
+    },
+    {
+      "pattern_id": "12610230",
+      "name": "Compensating relationships in parallel",
+      "template": "A local domain and its boundaries may be protected from fragmentation by preventing fundamental relationships from traversing it. This however results in the disorderly proliferation of a network of local relationships which itself threatens the integrity of the domain. Such local relationships may however be more effectively integrated by providing for reciprocal relationships, traversing the domain in parallel and linking them to the more fundamental relationships by which the boundary of the domain is defined.",
+      "broader_patterns": [
+        "12610170",
+        "12610150",
+        "12610130",
+        "12610140",
+        "12610110",
+        "12610200"
+      ],
+      "narrower_patterns": [
+        "12610380",
+        "12610490",
+        "12610320",
+        "12610570",
+        "12610250",
+        "12610500",
+        "12610550",
+        "12610540",
+        "12610510",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610240",
+      "name": "Positions enabling transcendence",
+      "template": "In any domain there are points which provide a focus for the relationships between other points. Such a focal point or \"centre of gravity\" serves an integrative function through which the domain may both itself be integrated as well as being related as a whole to frameworks which transcend the boundary of the domain.",
+      "broader_patterns": [
+        "12610130"
+      ],
+      "narrower_patterns": [
+        "12610250",
+        "12610590",
+        "12610660",
+        "12610640",
+        "12612390",
+        "12612360",
+        "12610280",
+        "12611340",
+        "12611760",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12610250",
+      "name": "Relationship to indeterminacy",
+      "template": "The significance of a domain of defined relationships is enhanced if it includes, or is contiguous with, a domain of indeterminacy in which fixed relationships are partially freed to form other patterns. The boundary between the two domains requires special protection because of the tendency of unharmonious relationships to accumulate there in an uncontrolled manner.",
+      "broader_patterns": [
+        "12610170",
+        "12610130",
+        "12610070",
+        "12610240",
+        "12610230"
+      ],
+      "narrower_patterns": [
+        "12610710",
+        "12610310",
+        "12610640",
+        "12611030"
+      ]
+    },
+    {
+      "pattern_id": "12610260",
+      "name": "Functional cycle",
+      "template": "A well-balanced self-organizing domain is characterized by a cycle of interacting phases each of which emphasizes particular functions or processes vital to the integrity of the domain.",
+      "broader_patterns": [
+        "12610140",
+        "12610120",
+        "12610060"
+      ],
+      "narrower_patterns": [
+        "12610270",
+        "12610440",
+        "12610470",
+        "12610570",
+        "12610790",
+        "12610350",
+        "12610400",
+        "12610660",
+        "12610410",
+        "12610750",
+        "12610650",
+        "12610860",
+        "12610700",
+        "12611540",
+        "12610840",
+        "12611560",
+        "12610850",
+        "12611550",
+        "12611530",
+        "12611870",
+        "12610830"
+      ]
+    },
+    {
+      "pattern_id": "12610270",
+      "name": "Complementarity",
+      "template": "In order to successfully embody, encompass or reflect potential variety, a domain should be ordered on the basis of two incommensurable but complementary modes of organization.",
+      "broader_patterns": [
+        "12610260",
+        "12610140",
+        "12610120",
+        "12610090"
+      ],
+      "narrower_patterns": [
+        "12611570",
+        "12611410"
+      ]
+    },
+    {
+      "pattern_id": "12610280",
+      "name": "Coherent pattern of relationship densities",
+      "template": "Within a domain randomness in the density of local relationships fails to reinforce any recognizable pattern on the basis of which the domain as a whole may be identified. A systematic variation in the pattern of relationship densities can provide the necessary coherence.",
+      "broader_patterns": [
+        "12610130",
+        "12610100",
+        "12610210",
+        "12610120",
+        "12610240",
+        "12610320"
+      ],
+      "narrower_patterns": [
+        "12610300",
+        "12610320",
+        "12610710",
+        "12610310",
+        "12610590",
+        "12610290"
+      ]
+    },
+    {
+      "pattern_id": "12610290",
+      "name": "Stable density gradient of local relationships",
+      "template": "The locus of formation of new local relationships is determined by a balance between proximity to the local centre (as an attraction) and distance from the intensity of processes there (acting as a repellent). The varying ways in which this balance is determined leads to the emergence of rings of different relationship density (a density gradient) around the local centre. This density configuration will be unstable unless measures are adopted to compensate for the instability resulting from continuing pressure to form further relationships at preferred locations.",
+      "broader_patterns": [
+        "12610130",
+        "12610210",
+        "12610120",
+        "12610080",
+        "12610280"
+      ],
+      "narrower_patterns": [
+        "12610300",
+        "12610380",
+        "12610370",
+        "12610390",
+        "12610310",
+        "12611230",
+        "12610360",
+        "12610610"
+      ]
+    },
+    {
+      "pattern_id": "12610300",
+      "name": "Activity nodes",
+      "template": "As a framework of relationships is articulated, nodes emerge at the points of convergence of the principal relationships. Such nodes provide loci for processes vital to the self-organizing dynamics of the domain as a whole.",
+      "broader_patterns": [
+        "12610150",
+        "12610130",
+        "12610140",
+        "12610120",
+        "12610280",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610340",
+        "12610440",
+        "12610330",
+        "12610470",
+        "12610430",
+        "12610310",
+        "12611200",
+        "12610410",
+        "12610360",
+        "12610650",
+        "12610880",
+        "12610900",
+        "12610610",
+        "12610910",
+        "12610870",
+        "12610840",
+        "12611000",
+        "12610850",
+        "12610930",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610310",
+      "name": "Cycle of relationship reinforcement",
+      "template": "Within any domain, linking the activity nodes together through a fundamental cycle reinforces specific relationships as well as the integrity of the domain as a whole.",
+      "broader_patterns": [
+        "12610300",
+        "12610100",
+        "12610250",
+        "12610120",
+        "12610080",
+        "12610280",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610580",
+        "12610330",
+        "12610320",
+        "12610570",
+        "12610430",
+        "12611230",
+        "12611210",
+        "12610640",
+        "12611240",
+        "12610900",
+        "12610610",
+        "12610910",
+        "12611000",
+        "12610630",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610320",
+      "name": "Selective interchange axis",
+      "template": "Effective selective interchange within a domain is achieved by harmonizing the dynamically incompatible requirements of high-intensity non-local relationships and low intensity, local relationships. This can be achieved by arranging that selective interchange axes cut across non-local relationships, providing local relationships between them.",
+      "broader_patterns": [
+        "12610150",
+        "12610100",
+        "12610190",
+        "12610310",
+        "12610230",
+        "12610280"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610480",
+        "12610460",
+        "12611210",
+        "12610280",
+        "12610540",
+        "12611030",
+        "12610870",
+        "12611020",
+        "12610970",
+        "12611000",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610330",
+      "name": "Underdefined processes",
+      "template": "In every domain there are processes that are underdefined or are only evident when the well-defined processes are inactive. Underdefined processes should be clustered to ensure their viability as attractors.",
+      "broader_patterns": [
+        "12610300",
+        "12610100",
+        "12610120",
+        "12610310"
+      ],
+      "narrower_patterns": [
+        "12610440",
+        "12610580",
+        "12610880",
+        "12610900",
+        "12610910",
+        "12610630"
+      ]
+    },
+    {
+      "pattern_id": "12610340",
+      "name": "Interchange",
+      "template": "The interconnections between lines of relationships in a domain, namely the nodal points from which alternative relationships originate, play a central role in ensuring the viability and integrity of the overall pattern of relationships.",
+      "broader_patterns": [
+        "12610170",
+        "12610300",
+        "12610090",
+        "12610110",
+        "12610160",
+        "12610200"
+      ],
+      "narrower_patterns": [
+        "12610940",
+        "12610920",
+        "12610390",
+        "12611190",
+        "12610400",
+        "12610410",
+        "12611500"
+      ]
+    },
+    {
+      "pattern_id": "12610350",
+      "name": "Adequate variety of cyclic elements",
+      "template": "The coherence and specificity of the cycle of interacting phases, by which a domain is defined, is largely determined by the variety of those cyclic elements.",
+      "broader_patterns": [
+        "12610260",
+        "12610140"
+      ],
+      "narrower_patterns": [
+        "12610370",
+        "12610400",
+        "12610410",
+        "12610780",
+        "12610750",
+        "12610770",
+        "12610760",
+        "12610680"
+      ]
+    },
+    {
+      "pattern_id": "12610360",
+      "name": "Differentiation by relationship density",
+      "template": "A domain is articulated by differentiating zones of high, medium and low relationship densities amongst the domain elements. Such distinctions should be reinforced by the overall clustering of the elements.",
+      "broader_patterns": [
+        "12610300",
+        "12610140",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610380",
+        "12610370",
+        "12610390",
+        "12611230",
+        "12611200",
+        "12610550",
+        "12611210",
+        "12610510",
+        "12611000"
+      ]
+    },
+    {
+      "pattern_id": "12610370",
+      "name": "Cluster of frameworks",
+      "template": "The fundamental unit of identifiable local organization within a domain is the cluster of frameworks within which elements are grouped. The limit on the number of frameworks per cluster varies from 8 to 12 depending on the balance between implicit, dynamic and explicit structural organization.",
+      "broader_patterns": [
+        "12610140",
+        "12610070",
+        "12610080",
+        "12610050",
+        "12610350",
+        "12610360",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610380",
+        "12610480",
+        "12610490",
+        "12610530",
+        "12610670",
+        "12610390",
+        "12610790",
+        "12610980",
+        "12610710",
+        "12610780",
+        "12610750",
+        "12611570",
+        "12610770",
+        "12611780",
+        "12611030",
+        "12611750",
+        "12611020",
+        "12611110",
+        "12610760",
+        "12610680"
+      ]
+    },
+    {
+      "pattern_id": "12610380",
+      "name": "Standard frameworks",
+      "template": "In certain parts of a domain, clusters of frameworks do not permit a sufficiently high relationship density. Chains of standard frameworks may then be used.",
+      "broader_patterns": [
+        "12610370",
+        "12610230",
+        "12610360",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610480",
+        "12610670",
+        "12610790",
+        "12610780",
+        "12610750",
+        "12610950",
+        "12610770",
+        "12611030",
+        "12611000",
+        "12611110",
+        "12610760",
+        "12611090",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610390",
+      "name": "Integrating a new dimension",
+      "template": "At the central foci of any domain the density of relationships between elements is such as to require construction of a framework in a new dimension . To avoid a purely mechanistic pattern, each element, whilst acquiring unique characteristics within the framework, should encode its earlier spatial dimensions and the rhythms of its earlier dynamics.",
+      "broader_patterns": [
+        "12610340",
+        "12610370",
+        "12610210",
+        "12610360",
+        "12610290"
+      ],
+      "narrower_patterns": [
+        "12610670",
+        "12610790",
+        "12610750",
+        "12611580",
+        "12611770",
+        "12610970",
+        "12611000",
+        "12611180",
+        "12610680"
+      ]
+    },
+    {
+      "pattern_id": "12610400",
+      "name": "Integrating the historical dimension",
+      "template": "When a domain is properly formed it encodes the earlier stages in its own development, appropriately relating them to current and emerging stages.",
+      "broader_patterns": [
+        "12610340",
+        "12610260",
+        "12610140",
+        "12610180",
+        "12610350"
+      ],
+      "narrower_patterns": [
+        "12610570",
+        "12610750",
+        "12610860",
+        "12611560",
+        "12611770",
+        "12611550"
+      ]
+    },
+    {
+      "pattern_id": "12610410",
+      "name": "Informal context for formal processes",
+      "template": "A variety of formal processes should be grouped in clusters to enhance interlinking informal processes that ensure a balanced context for both within each cluster.",
+      "broader_patterns": [
+        "12610340",
+        "12610300",
+        "12610260",
+        "12610150",
+        "12610130",
+        "12610140",
+        "12610090",
+        "12610350"
+      ],
+      "narrower_patterns": [
+        "12610480",
+        "12610490",
+        "12610600",
+        "12610530",
+        "12610670",
+        "12610570",
+        "12610710",
+        "12611470",
+        "12610420",
+        "12610880",
+        "12610800",
+        "12610610",
+        "12611030",
+        "12610910",
+        "12610810",
+        "12611750",
+        "12611020",
+        "12611150",
+        "12611110",
+        "12610820",
+        "12610930",
+        "12610720"
+      ]
+    },
+    {
+      "pattern_id": "12610420",
+      "name": "Chain of fundamental transformation zones",
+      "template": "Zones of fundamental transformations should be situated in chains such as to form boundaries within a domain rather than being isolated within a specialized domain.",
+      "broader_patterns": [
+        "12610170",
+        "12610130",
+        "12610090",
+        "12610410"
+      ],
+      "narrower_patterns": [
+        "12610800",
+        "12611220",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12610430",
+      "name": "Presentation of new dimensions",
+      "template": "The development of a domain is facilitated by integrating into its structure contexts in which a variety of new dimensions are represented, whether or not they finally provide a basis for such development.",
+      "broader_patterns": [
+        "12610300",
+        "12610180",
+        "12610310"
+      ],
+      "narrower_patterns": [
+        "12610450",
+        "12610480",
+        "12610570",
+        "12610590",
+        "12610950",
+        "12611510",
+        "12610810",
+        "12611000",
+        "12611650",
+        "12610830"
+      ]
+    },
+    {
+      "pattern_id": "12610440",
+      "name": "Local focal points",
+      "template": "Local coordination within a domain can only be effectively achieved through the formation of appropriately located local focal points.",
+      "broader_patterns": [
+        "12610300",
+        "12610260",
+        "12610330",
+        "12610120"
+      ],
+      "narrower_patterns": [
+        "12610450",
+        "12611230",
+        "12611510",
+        "12610610",
+        "12611650",
+        "12610810"
+      ]
+    },
+    {
+      "pattern_id": "12610450",
+      "name": "Local action network",
+      "template": "A local focal point only acquires significance in a domain when it is embedded in a local action network whose activities it facilitates.",
+      "broader_patterns": [
+        "12610440",
+        "12610430"
+      ],
+      "narrower_patterns": [
+        "12610470",
+        "12610690",
+        "12610810",
+        "12610870",
+        "12611650",
+        "12611600",
+        "12611220"
+      ]
+    },
+    {
+      "pattern_id": "12610460",
+      "name": "Diversified interchange environment",
+      "template": "For an interchange environment to be most effective it should be highly diversified within a framework providing the minimum coherence for the variety of styles and modes of operation.",
+      "broader_patterns": [
+        "12610320",
+        "12610190"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610890",
+        "12611010",
+        "12610870",
+        "12611000",
+        "12611650",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12610470",
+      "name": "Functionality enhancement",
+      "template": "In any domain a significant proportion of the processes tend to be dysfunctional. A network of nodes catalyzing and enhancing functionality is desirable.",
+      "broader_patterns": [
+        "12610300",
+        "12610260",
+        "12610450"
+      ],
+      "narrower_patterns": [
+        "12610480",
+        "12610710",
+        "12610650",
+        "12611570",
+        "12611500",
+        "12610810",
+        "12611770",
+        "12611650",
+        "12610720",
+        "12610730"
+      ]
+    },
+    {
+      "pattern_id": "12610480",
+      "name": "Adaptive interstices",
+      "template": "Wherever there tends to be a sharp boundary between zones that are active throughout the time cycle and those active for only part of it, the presence of sub-zones of the former type scattered throughout those of the latter ensures the necessary maintenance of rhythms in the partially active zones.",
+      "broader_patterns": [
+        "12610150",
+        "12610380",
+        "12610130",
+        "12610140",
+        "12610370",
+        "12610470",
+        "12610320",
+        "12610430",
+        "12610410"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12610750",
+        "12610970"
+      ]
+    },
+    {
+      "pattern_id": "12610490",
+      "name": "Local relationship loops",
+      "template": "To ensure the adaptive interactions difficult with general or global relationships, local relationships should be arranged in loops, such that the loops do not facilitate relationships between more distant points.",
+      "broader_patterns": [
+        "12610140",
+        "12610370",
+        "12610110",
+        "12610410",
+        "12610230"
+      ],
+      "narrower_patterns": [
+        "12610570",
+        "12610560",
+        "12610500",
+        "12611140",
+        "12611030",
+        "12610510",
+        "12611130",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610500",
+      "name": "Three-way relationship entrainment",
+      "template": "Discontinuity is reduced when two relationships merge by entrainment at three-way nodes rather than under the conflictual conditions of four-way intersections in which an effort is made to maintain the orientation of each.",
+      "broader_patterns": [
+        "12610490",
+        "12610230"
+      ],
+      "narrower_patterns": [
+        "12610510"
+      ]
+    },
+    {
+      "pattern_id": "12610510",
+      "name": "Linear relationships enhanced by non-linear processes",
+      "template": "Local linear relationships may be enhanced by ensuring the presence of non-linear processes such that the linearity tends to become implicit rather than explicit.",
+      "broader_patterns": [
+        "12610070",
+        "12610490",
+        "12610110",
+        "12610500",
+        "12610230",
+        "12610360"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12610670",
+        "12610570",
+        "12612470",
+        "12611700",
+        "12612450",
+        "12611140",
+        "12611640",
+        "12610740",
+        "12611030",
+        "12611020",
+        "12610680",
+        "12611400",
+        "12610520"
+      ]
+    },
+    {
+      "pattern_id": "12610520",
+      "name": "Interfacing vehicles of communication and networks of unmediated relationships",
+      "template": "Vehicles of communication may endanger the local communication process although significant activities occur at the points at which they interface with zones of unmediated relationships. A protected network of unmediated relationships may be developed distinct from that of the mediated network and orthogonal to it.",
+      "broader_patterns": [
+        "12610300",
+        "12610380",
+        "12610490",
+        "12610320",
+        "12610110",
+        "12610310",
+        "12610230",
+        "12610510"
+      ],
+      "narrower_patterns": [
+        "12610570",
+        "12610560",
+        "12611200",
+        "12610550",
+        "12611210",
+        "12610540",
+        "12611000"
+      ]
+    },
+    {
+      "pattern_id": "12610530",
+      "name": "Principal points of entry",
+      "template": "The distinctiveness of any domain is enhanced by the presence of well-identified points of entry through its boundary.",
+      "broader_patterns": [
+        "12610150",
+        "12610140",
+        "12610370",
+        "12610410"
+      ],
+      "narrower_patterns": [
+        "12610920",
+        "12610980",
+        "12610660",
+        "12610690",
+        "12610950",
+        "12611100",
+        "12611030",
+        "12611020",
+        "12611120"
+      ]
+    },
+    {
+      "pattern_id": "12610540",
+      "name": "Intersection of differently paced communications",
+      "template": "Wherever a network of lower intensity relationships is exposed to one of higher intensity, the intersection should be designed such as to protect the integrity of the latter.",
+      "broader_patterns": [
+        "12610320",
+        "12610230",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610920",
+        "12610550",
+        "12610610",
+        "12611740",
+        "12611030",
+        "12610930"
+      ]
+    },
+    {
+      "pattern_id": "12610550",
+      "name": "Protected low intensity relationships",
+      "template": "In order to prevent high intensity relationships from acquiring disproportionate significance, low intensity relationships should be given a prominent position, especially where they have a common boundary with those of high intensity.",
+      "broader_patterns": [
+        "12610230",
+        "12610360",
+        "12610540",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611190",
+        "12611210",
+        "12611250",
+        "12611000",
+        "12610930"
+      ]
+    },
+    {
+      "pattern_id": "12610560",
+      "name": "Special modes of relationship",
+      "template": "Some beneficial modes of relationship cannot be satisfactorily combined with others and call for the establishment of a distinct network with appropriate adaptation at the interfaces with other modes.",
+      "broader_patterns": [
+        "12610490",
+        "12610110",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12610570",
+        "12611190",
+        "12610590",
+        "12611100",
+        "12611730",
+        "12610730"
+      ]
+    },
+    {
+      "pattern_id": "12610570",
+      "name": "Protection of emerging foci",
+      "template": "A specially protected network of relationships should be provided to enable new foci to emerge and develop their potential for interaction with the organized domain in which they will become established.",
+      "broader_patterns": [
+        "12610260",
+        "12610490",
+        "12610180",
+        "12610560",
+        "12610430",
+        "12610310",
+        "12610400",
+        "12610410",
+        "12610230",
+        "12610510",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12610860",
+        "12611640",
+        "12610840",
+        "12610850",
+        "12610680",
+        "12610720",
+        "12610730",
+        "12610700"
+      ]
+    },
+    {
+      "pattern_id": "12610580",
+      "name": "Context for disorder",
+      "template": "A section of any organized domain may be reserved as a context for disorderly processes. These are a necessary complement to order and the stability of ordered structures.",
+      "broader_patterns": [
+        "12610100",
+        "12610330",
+        "12610310"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610690",
+        "12610610",
+        "12611000",
+        "12610930",
+        "12610630"
+      ]
+    },
+    {
+      "pattern_id": "12610590",
+      "name": "Low-intensity communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610130",
+        "12610560",
+        "12610430",
+        "12610240",
+        "12610280"
+      ],
+      "narrower_patterns": [
+        "12610600",
+        "12610640",
+        "12610700",
+        "12611730",
+        "12611400"
+      ]
+    },
+    {
+      "pattern_id": "12610600",
+      "name": "Accessible non-linearity",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610130",
+        "12610140",
+        "12610090",
+        "12610590",
+        "12610410"
+      ],
+      "narrower_patterns": [
+        "12610940",
+        "12610670",
+        "12610660",
+        "12610690",
+        "12611140",
+        "12610700",
+        "12610740",
+        "12611710",
+        "12610850",
+        "12611730",
+        "12610720",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12610610",
+      "name": "Bounded common small-scale interaction domains",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610440",
+        "12610580",
+        "12610140",
+        "12610620",
+        "12610310",
+        "12610410",
+        "12610290",
+        "12610540"
+      ],
+      "narrower_patterns": [
+        "12610940",
+        "12611230",
+        "12610690",
+        "12610880",
+        "12611240",
+        "12611140",
+        "12611640",
+        "12611260",
+        "12611250",
+        "12610930",
+        "12611220",
+        "12610630",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12610620",
+      "name": "Points of wider perspective",
+      "template": "",
+      "broader_patterns": [
+        "12610210",
+        "12610120"
+      ],
+      "narrower_patterns": [
+        "12610660",
+        "12611580",
+        "12611340",
+        "12610610",
+        "12611260",
+        "12611250"
+      ]
+    },
+    {
+      "pattern_id": "12610630",
+      "name": "Cyclic interrelation of complementary perspective in common domains",
+      "template": "",
+      "broader_patterns": [
+        "12610100",
+        "12610580",
+        "12610330",
+        "12610310",
+        "12610610"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610690",
+        "12611240",
+        "12611260",
+        "12610930"
+      ]
+    },
+    {
+      "pattern_id": "12610640",
+      "name": "Access to patterns of active irrationality",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610130",
+        "12610250",
+        "12610240",
+        "12610310",
+        "12610590"
+      ],
+      "narrower_patterns": [
+        "12611190",
+        "12610710",
+        "12610660",
+        "12611260",
+        "12611000"
+      ]
+    },
+    {
+      "pattern_id": "12610650",
+      "name": "Context for emergence of new perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610260",
+        "12610140",
+        "12610470",
+        "12610120"
+      ],
+      "narrower_patterns": [
+        "12610950",
+        "12611390",
+        "12611290",
+        "12611360",
+        "12610910",
+        "12611730",
+        "12611110"
+      ]
+    },
+    {
+      "pattern_id": "12610660",
+      "name": "Context for transformative experience",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610600",
+        "12610530",
+        "12610620",
+        "12610240",
+        "12610640"
+      ],
+      "narrower_patterns": [
+        "12611340",
+        "12610700",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12610670",
+      "name": "Unstructured common domain",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610370",
+        "12610600",
+        "12610390",
+        "12610410",
+        "12610510"
+      ],
+      "narrower_patterns": [
+        "12610980",
+        "12610710",
+        "12610690",
+        "12611700",
+        "12610700",
+        "12611140",
+        "12611260",
+        "12610740",
+        "12611750",
+        "12611770",
+        "12610680",
+        "12611050",
+        "12610720",
+        "12611060",
+        "12610730"
+      ]
+    },
+    {
+      "pattern_id": "12610680",
+      "name": "Spontaneous relationship formation amongst emerging perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610370",
+        "12610670",
+        "12610570",
+        "12610390",
+        "12610350",
+        "12610510"
+      ],
+      "narrower_patterns": [
+        "12610710",
+        "12611370",
+        "12610860",
+        "12610740",
+        "12610730"
+      ]
+    },
+    {
+      "pattern_id": "12610690",
+      "name": "Common external context for inactivity",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610580",
+        "12610450",
+        "12610600",
+        "12610530",
+        "12610670",
+        "12610610",
+        "12610630"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612440",
+        "12610920",
+        "12612410",
+        "12611190",
+        "12610710",
+        "12611200",
+        "12611210",
+        "12611240",
+        "12611290",
+        "12611260",
+        "12611630",
+        "12611250",
+        "12611150",
+        "12611000",
+        "12611600"
+      ]
+    },
+    {
+      "pattern_id": "12610700",
+      "name": "Context for acknowledgement of past perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610150",
+        "12610140",
+        "12610600",
+        "12610670",
+        "12610570",
+        "12610590",
+        "12610660"
+      ],
+      "narrower_patterns": [
+        "12612410",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12610710",
+      "name": "Access to contained irrationality",
+      "template": "",
+      "broader_patterns": [
+        "12610130",
+        "12610370",
+        "12610470",
+        "12610670",
+        "12610250",
+        "12610410",
+        "12610690",
+        "12610640",
+        "12610280",
+        "12610680"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611720",
+        "12611500",
+        "12611260",
+        "12611740",
+        "12611440",
+        "12611050",
+        "12610720"
+      ]
+    },
+    {
+      "pattern_id": "12610720",
+      "name": "Competitive interaction opportunities transposed to a concrete level",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610600",
+        "12610470",
+        "12610670",
+        "12610570",
+        "12610710",
+        "12610410",
+        "12610840"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612410",
+        "12610950",
+        "12611010",
+        "12611650",
+        "12611440"
+      ]
+    },
+    {
+      "pattern_id": "12610730",
+      "name": "Contexts for exploratory relationship formation challenging emerging perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610470",
+        "12610670",
+        "12610570",
+        "12610560",
+        "12610680"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611610",
+        "12611720",
+        "12612030",
+        "12610860"
+      ]
+    },
+    {
+      "pattern_id": "12610740",
+      "name": "Interaction with coherent irrational perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610600",
+        "12610670",
+        "12610510",
+        "12610680"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12610860",
+        "12611780"
+      ]
+    },
+    {
+      "pattern_id": "12610750",
+      "name": "Extended pattern of nuclear interaction",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610380",
+        "12610480",
+        "12610370",
+        "12610390",
+        "12610350",
+        "12610400"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12610780",
+        "12611470",
+        "12610950",
+        "12610860",
+        "12610770",
+        "12611290",
+        "12611410",
+        "12611360",
+        "12611540",
+        "12611560",
+        "12610760",
+        "12611550",
+        "12611530",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610760",
+      "name": "Minimal context interrelating mature and emerging perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610370",
+        "12610350",
+        "12610750"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12611370",
+        "12610780",
+        "12611580",
+        "12611290",
+        "12611410",
+        "12611360",
+        "12611540",
+        "12611450",
+        "12611430",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610770",
+      "name": "Minimal context for complementary perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610370",
+        "12610350",
+        "12610750"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12611580",
+        "12611410",
+        "12611360",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610780",
+      "name": "Minimal context for single perspective",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610370",
+        "12610350",
+        "12610750",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12610790",
+        "12611830",
+        "12611580",
+        "12611880",
+        "12611890",
+        "12611800",
+        "12611390",
+        "12611540",
+        "12611550",
+        "12611440",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610790",
+      "name": "Perspective-adaptable contexts",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610380",
+        "12610480",
+        "12610370",
+        "12610390",
+        "12610780",
+        "12610750",
+        "12610770",
+        "12610740",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12610950",
+        "12610860",
+        "12611570",
+        "12611110"
+      ]
+    },
+    {
+      "pattern_id": "12610800",
+      "name": "Integrated contexts for perspective dynamics",
+      "template": "",
+      "broader_patterns": [
+        "12610090",
+        "12610410",
+        "12610420"
+      ],
+      "narrower_patterns": [
+        "12611460",
+        "12611480",
+        "12611470",
+        "12610950",
+        "12611580",
+        "12610810",
+        "12611450",
+        "12610850",
+        "12611490",
+        "12610820",
+        "12611530",
+        "12611070",
+        "12610830"
+      ]
+    },
+    {
+      "pattern_id": "12610810",
+      "name": "Minimally-structured perspective control operations",
+      "template": "",
+      "broader_patterns": [
+        "12610440",
+        "12610450",
+        "12610470",
+        "12610430",
+        "12610410",
+        "12610800"
+      ],
+      "narrower_patterns": [
+        "12611460",
+        "12611480",
+        "12610950",
+        "12611580",
+        "12611010",
+        "12611500",
+        "12610840",
+        "12611020",
+        "12611490",
+        "12610820",
+        "12611530",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610820",
+      "name": "Minimal distance between related operational control contexts",
+      "template": "",
+      "broader_patterns": [
+        "12610210",
+        "12610410",
+        "12610800",
+        "12610810"
+      ],
+      "narrower_patterns": [
+        "12611460",
+        "12611480",
+        "12610950",
+        "12611580",
+        "12611010",
+        "12611500",
+        "12611020",
+        "12611000",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610830",
+      "name": "Integration of perspective acquisition and perspective maintenance dynamics",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610180",
+        "12610430",
+        "12610800"
+      ],
+      "narrower_patterns": [
+        "12611520",
+        "12611480",
+        "12611830",
+        "12611470",
+        "12611510",
+        "12611290",
+        "12610840",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610840",
+      "name": "Transitional contexts for perspective reorganization",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610260",
+        "12610130",
+        "12610180",
+        "12610570",
+        "12610810",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12611470",
+        "12610950",
+        "12611570",
+        "12610720"
+      ]
+    },
+    {
+      "pattern_id": "12610850",
+      "name": "Perspective imitation contexts for developing perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610260",
+        "12610600",
+        "12610180",
+        "12610570",
+        "12610800"
+      ],
+      "narrower_patterns": [
+        "12610950",
+        "12610860",
+        "12611000",
+        "12611650"
+      ]
+    },
+    {
+      "pattern_id": "12610860",
+      "name": "Contexts for care of premature perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610180",
+        "12610570",
+        "12610790",
+        "12610400",
+        "12610750",
+        "12610740",
+        "12610850",
+        "12610680",
+        "12610730"
+      ],
+      "narrower_patterns": [
+        "12610950",
+        "12612030",
+        "12611010",
+        "12611290"
+      ]
+    },
+    {
+      "pattern_id": "12610870",
+      "name": "Exchange contexts controlled by a single perspective",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610450",
+        "12610320",
+        "12610460"
+      ],
+      "narrower_patterns": [
+        "12612000",
+        "12610950",
+        "12610890",
+        "12610880",
+        "12611970",
+        "12611910",
+        "12611450",
+        "12610970",
+        "12611650",
+        "12610930",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12610880",
+      "name": "Informal local perspective interface zones",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610140",
+        "12610330",
+        "12610410",
+        "12610610",
+        "12610870"
+      ],
+      "narrower_patterns": [
+        "12612510",
+        "12612440",
+        "12612430",
+        "12610940",
+        "12611230",
+        "12610950",
+        "12611240",
+        "12611500",
+        "12611250",
+        "12611650"
+      ]
+    },
+    {
+      "pattern_id": "12610890",
+      "name": "Local sources for perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12610140",
+        "12610190",
+        "12610460",
+        "12610870"
+      ],
+      "narrower_patterns": [
+        "12612000",
+        "12610950",
+        "12611970",
+        "12611910",
+        "12611100",
+        "12611650"
+      ]
+    },
+    {
+      "pattern_id": "12610900",
+      "name": "Unstructured context for perspective exchange",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610150",
+        "12610330",
+        "12610310"
+      ],
+      "narrower_patterns": [
+        "12610950",
+        "12611900",
+        "12610910",
+        "12611790",
+        "12611810"
+      ]
+    },
+    {
+      "pattern_id": "12610910",
+      "name": "Hospitable contexts for perspectives in transition",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610100",
+        "12610330",
+        "12610310",
+        "12610410",
+        "12610650",
+        "12610900"
+      ],
+      "narrower_patterns": [
+        "12610940",
+        "12611470",
+        "12610950",
+        "12611290",
+        "12611860"
+      ]
+    },
+    {
+      "pattern_id": "12610920",
+      "name": "Hospitable transit points",
+      "template": "",
+      "broader_patterns": [
+        "12610340",
+        "12610530",
+        "12610690",
+        "12610200",
+        "12610540"
+      ],
+      "narrower_patterns": [
+        "12612410",
+        "12611210",
+        "12611500",
+        "12610930"
+      ]
+    },
+    {
+      "pattern_id": "12610930",
+      "name": "Transit point location for sources of perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610580",
+        "12610920",
+        "12610550",
+        "12610410",
+        "12610610",
+        "12610540",
+        "12610870",
+        "12610630"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12611240",
+        "12611440"
+      ]
+    },
+    {
+      "pattern_id": "12610940",
+      "name": "Hospitable common domains",
+      "template": "",
+      "broader_patterns": [
+        "12610340",
+        "12610600",
+        "12610880",
+        "12610610",
+        "12610910"
+      ],
+      "narrower_patterns": [
+        "12612410",
+        "12611880",
+        "12611010",
+        "12611500",
+        "12611000",
+        "12611600"
+      ]
+    },
+    {
+      "pattern_id": "12610950",
+      "name": "Complexification of perspective contexts",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610530",
+        "12610210",
+        "12610790",
+        "12610430",
+        "12610750",
+        "12610890",
+        "12610650",
+        "12610880",
+        "12610860",
+        "12610800",
+        "12610900",
+        "12610910",
+        "12610810",
+        "12610870",
+        "12610840",
+        "12610850",
+        "12610820",
+        "12610720"
+      ],
+      "narrower_patterns": [
+        "12611080",
+        "12610980",
+        "12610990",
+        "12611200",
+        "12611160",
+        "12610960",
+        "12611010",
+        "12611100",
+        "12611450",
+        "12610970",
+        "12611000",
+        "12611090",
+        "12611220",
+        "12611050",
+        "12611070",
+        "12611040",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12610960",
+      "name": "Limitation on number of structural levels",
+      "template": "",
+      "broader_patterns": [
+        "12610210",
+        "12610950"
+      ],
+      "narrower_patterns": [
+        "12611270",
+        "12610980",
+        "12610990",
+        "12611160",
+        "12611170",
+        "12612130",
+        "12611710",
+        "12611180",
+        "12611050",
+        "12611040",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12610970",
+      "name": "Concealment of necessary monotonous perspective patterns",
+      "template": "",
+      "broader_patterns": [
+        "12610170",
+        "12610150",
+        "12610130",
+        "12610480",
+        "12610320",
+        "12610390",
+        "12610220",
+        "12610110",
+        "12610950",
+        "12610870"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12610980",
+        "12611580",
+        "12611100",
+        "12611030",
+        "12611350",
+        "12611020",
+        "12611660",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12610980",
+      "name": "Patterning of complex structures",
+      "template": "",
+      "broader_patterns": [
+        "12610370",
+        "12610530",
+        "12610670",
+        "12610950",
+        "12610960",
+        "12610970"
+      ],
+      "narrower_patterns": [
+        "12611190",
+        "12610990",
+        "12611200",
+        "12611320",
+        "12611010",
+        "12611140",
+        "12611100",
+        "12611030",
+        "12611020",
+        "12611150",
+        "12611000",
+        "12611040"
+      ]
+    },
+    {
+      "pattern_id": "12610990",
+      "name": "Focal centre of a complex structure",
+      "template": "",
+      "broader_patterns": [
+        "12610980",
+        "12610950",
+        "12610960"
+      ],
+      "narrower_patterns": [
+        "12611160",
+        "12611290",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611000",
+      "name": "Arrangement of structures ot engender fruitful interfaces",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12610380",
+        "12610580",
+        "12610940",
+        "12610320",
+        "12610390",
+        "12610430",
+        "12610980",
+        "12610460",
+        "12610310",
+        "12610550",
+        "12610690",
+        "12610360",
+        "12610950",
+        "12610640",
+        "12610850",
+        "12610820",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611190",
+        "12611230",
+        "12611210",
+        "12611580",
+        "12611010",
+        "12611240",
+        "12611670",
+        "12611640",
+        "12611020",
+        "12611400",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611010",
+      "name": "Protected low-density communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610940",
+        "12610980",
+        "12610460",
+        "12610950",
+        "12610860",
+        "12610810",
+        "12611000",
+        "12610820",
+        "12610720"
+      ],
+      "narrower_patterns": [
+        "12612370",
+        "12611930",
+        "12611230",
+        "12611940",
+        "12611320",
+        "12611900",
+        "12611580",
+        "12611800",
+        "12611240",
+        "12611640",
+        "12611350",
+        "12611020",
+        "12611650",
+        "12611490"
+      ]
+    },
+    {
+      "pattern_id": "12611020",
+      "name": "Distinct pattern of entry points to complex structures",
+      "template": "",
+      "broader_patterns": [
+        "12610370",
+        "12610530",
+        "12610320",
+        "12610220",
+        "12610980",
+        "12610410",
+        "12611010",
+        "12610810",
+        "12610510",
+        "12610970",
+        "12611000",
+        "12610820"
+      ],
+      "narrower_patterns": [
+        "12611200",
+        "12612240",
+        "12611580",
+        "12611100",
+        "12611250",
+        "12611490",
+        "12611300",
+        "12611120",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12611030",
+      "name": "Limitation on number of occupiable temporary sites",
+      "template": "",
+      "broader_patterns": [
+        "12610150",
+        "12610380",
+        "12610370",
+        "12610490",
+        "12610530",
+        "12610320",
+        "12610250",
+        "12610220",
+        "12610980",
+        "12610410",
+        "12610540",
+        "12610510",
+        "12610970"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12611710",
+        "12611730",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12611040",
+      "name": "Structural development designed to counteract deficiencies in pattern harmony",
+      "template": "",
+      "broader_patterns": [
+        "12610980",
+        "12610950",
+        "12610960"
+      ],
+      "narrower_patterns": [
+        "12612140",
+        "12611720",
+        "12611140",
+        "12611100",
+        "12611690",
+        "12611710",
+        "12611110",
+        "12611090",
+        "12611050",
+        "12611070",
+        "12611060"
+      ]
+    },
+    {
+      "pattern_id": "12611050",
+      "name": "Orientation of structures to enhance receptivity to external insight",
+      "template": "",
+      "broader_patterns": [
+        "12610670",
+        "12610710",
+        "12610950",
+        "12610960",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12611610",
+        "12611140",
+        "12611100",
+        "12611280",
+        "12611110",
+        "12611070",
+        "12611060",
+        "12611620"
+      ]
+    },
+    {
+      "pattern_id": "12611060",
+      "name": "Functional enhancement of domains separating complementary structures",
+      "template": "",
+      "broader_patterns": [
+        "12610600",
+        "12610670",
+        "12610420",
+        "12610610",
+        "12611030",
+        "12611020",
+        "12611050",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611080",
+        "12611200",
+        "12611210",
+        "12611720",
+        "12611910",
+        "12611140",
+        "12611740",
+        "12611630",
+        "12611250",
+        "12611150",
+        "12611730",
+        "12611180",
+        "12611090",
+        "12611600",
+        "12611220",
+        "12611590",
+        "12611070"
+      ]
+    },
+    {
+      "pattern_id": "12611070",
+      "name": "Organization of structures to enhance receptivity to external insight",
+      "template": "",
+      "broader_patterns": [
+        "12610780",
+        "12610750",
+        "12610950",
+        "12610800",
+        "12610770",
+        "12610810",
+        "12610870",
+        "12610820",
+        "12610760",
+        "12611050",
+        "12611060",
+        "12610830",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12611080",
+        "12611270",
+        "12611190",
+        "12611160",
+        "12611170",
+        "12611320",
+        "12611100",
+        "12611180",
+        "12611600",
+        "12611220",
+        "12611590",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611080",
+      "name": "Interconnected structures",
+      "template": "",
+      "broader_patterns": [
+        "12610950",
+        "12611070",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12611190",
+        "12611630",
+        "12611150"
+      ]
+    },
+    {
+      "pattern_id": "12611090",
+      "name": "Organization of structure to enhance autonomy of sub-structures",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610950",
+        "12611060",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12611270",
+        "12611160",
+        "12611290",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611100",
+      "name": "Distinctiveness of main entry point to structure",
+      "template": "",
+      "broader_patterns": [
+        "12610530",
+        "12610560",
+        "12610980",
+        "12610950",
+        "12610890",
+        "12611020",
+        "12610970",
+        "12611050",
+        "12611070",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612420",
+        "12612490",
+        "12611270",
+        "12611200",
+        "12612240",
+        "12611250",
+        "12611110",
+        "12611300",
+        "12611120",
+        "12611330",
+        "12611130"
+      ]
+    },
+    {
+      "pattern_id": "12611110",
+      "name": "Blended integration of formal structure and informal context",
+      "template": "",
+      "broader_patterns": [
+        "12610380",
+        "12610370",
+        "12610790",
+        "12610410",
+        "12610650",
+        "12611100",
+        "12611050",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611700",
+        "12611720",
+        "12611630",
+        "12611770",
+        "12611150",
+        "12611730",
+        "12611180",
+        "12611120",
+        "12611400"
+      ]
+    },
+    {
+      "pattern_id": "12611120",
+      "name": "Transition domain between structure and communication pathway",
+      "template": "",
+      "broader_patterns": [
+        "12610530",
+        "12611100",
+        "12611020",
+        "12611110"
+      ],
+      "narrower_patterns": [
+        "12611270",
+        "12611340",
+        "12611740",
+        "12611350",
+        "12611730",
+        "12611300",
+        "12611530",
+        "12611130"
+      ]
+    },
+    {
+      "pattern_id": "12611130",
+      "name": "Harmoniously structured entry point for external communication media",
+      "template": "",
+      "broader_patterns": [
+        "12610490",
+        "12611100",
+        "12611120"
+      ],
+      "narrower_patterns": [
+        "12611270",
+        "12611190",
+        "12611200",
+        "12612450",
+        "12611290",
+        "12611630",
+        "12611300",
+        "12611620",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611140",
+      "name": "Hierachy of perspectives favouring the broadest",
+      "template": "",
+      "broader_patterns": [
+        "12610070",
+        "12610600",
+        "12610490",
+        "12610670",
+        "12610980",
+        "12610610",
+        "12610510",
+        "12611050",
+        "12611060",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611240",
+        "12611760",
+        "12611150",
+        "12611730",
+        "12611400"
+      ]
+    },
+    {
+      "pattern_id": "12611150",
+      "name": "Functional integration of unstructured internal domains",
+      "template": "",
+      "broader_patterns": [
+        "12611080",
+        "12610980",
+        "12610410",
+        "12610690",
+        "12611140",
+        "12611110",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12611190",
+        "12611610",
+        "12612090",
+        "12611340",
+        "12611670",
+        "12611260",
+        "12611630",
+        "12611730",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611160",
+      "name": "Patterning integrative superstructure",
+      "template": "",
+      "broader_patterns": [
+        "12610990",
+        "12610950",
+        "12610960",
+        "12611090",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12611190",
+        "12611900",
+        "12611170",
+        "12612090",
+        "12611290",
+        "12612110",
+        "12611180",
+        "12611590",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611170",
+      "name": "Containment by integrative superstructure",
+      "template": "",
+      "broader_patterns": [
+        "12611160",
+        "12610960",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612200",
+        "12611190",
+        "12612090",
+        "12612310",
+        "12611450",
+        "12611180",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611180",
+      "name": "Integration of non-linearity into integrative superstructure",
+      "template": "",
+      "broader_patterns": [
+        "12610390",
+        "12611160",
+        "12611170",
+        "12610960",
+        "12611110",
+        "12611070",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12612200",
+        "12612460",
+        "12611610",
+        "12612450",
+        "12612090",
+        "12611580",
+        "12611670",
+        "12611630",
+        "12611770",
+        "12611400",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611190",
+      "name": "Partially contained interfaces",
+      "template": "",
+      "broader_patterns": [
+        "12610340",
+        "12611080",
+        "12610560",
+        "12610980",
+        "12611160",
+        "12610550",
+        "12610690",
+        "12611170",
+        "12610640",
+        "12611150",
+        "12611000",
+        "12611130",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612440",
+        "12611680",
+        "12612420",
+        "12612270",
+        "12611930",
+        "12611200",
+        "12611210",
+        "12612240",
+        "12611900",
+        "12611240",
+        "12611290",
+        "12611670",
+        "12612110",
+        "12612250",
+        "12611600",
+        "12611220",
+        "12611660",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611200",
+      "name": "Focus-oriented communication networks",
+      "template": "",
+      "broader_patterns": [
+        "12610300",
+        "12611190",
+        "12610980",
+        "12610690",
+        "12610360",
+        "12610950",
+        "12611100",
+        "12611020",
+        "12611130",
+        "12611060",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12612410",
+        "12612470",
+        "12611700",
+        "12611210",
+        "12612450",
+        "12611340",
+        "12611240",
+        "12611740",
+        "12611260",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12611210",
+      "name": "Hospitability of communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610920",
+        "12610320",
+        "12611190",
+        "12610310",
+        "12611200",
+        "12610550",
+        "12610690",
+        "12610360",
+        "12611000",
+        "12611060",
+        "12610520"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612410",
+        "12612470",
+        "12611230",
+        "12611240",
+        "12611260",
+        "12611640",
+        "12611250",
+        "12611650",
+        "12611220"
+      ]
+    },
+    {
+      "pattern_id": "12611220",
+      "name": "Direct relationship between structures and communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610450",
+        "12611190",
+        "12611210",
+        "12610950",
+        "12610420",
+        "12610610",
+        "12611060",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612420",
+        "12611240",
+        "12611640",
+        "12611250",
+        "12611650",
+        "12611600",
+        "12611400",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611230",
+      "name": "Enhancing function of common domains",
+      "template": "",
+      "broader_patterns": [
+        "12610440",
+        "12610310",
+        "12611210",
+        "12610360",
+        "12610880",
+        "12611010",
+        "12610610",
+        "12610290",
+        "12611000"
+      ],
+      "narrower_patterns": [
+        "12611240",
+        "12611640",
+        "12611250",
+        "12611650",
+        "12611400",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611240",
+      "name": "Ensuring function of common domain interfaces",
+      "template": "",
+      "broader_patterns": [
+        "12611190",
+        "12610310",
+        "12611230",
+        "12611200",
+        "12610690",
+        "12611210",
+        "12610880",
+        "12611010",
+        "12610610",
+        "12611140",
+        "12611000",
+        "12610930",
+        "12611220",
+        "12610630"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612410",
+        "12611500",
+        "12611260",
+        "12611740",
+        "12611630"
+      ]
+    },
+    {
+      "pattern_id": "12611250",
+      "name": "Integrating points of perspective into common domains",
+      "template": "",
+      "broader_patterns": [
+        "12610620",
+        "12611230",
+        "12610550",
+        "12610690",
+        "12611210",
+        "12610880",
+        "12610610",
+        "12611100",
+        "12611020",
+        "12611330",
+        "12611220",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12611680",
+        "12612410",
+        "12612450",
+        "12611580",
+        "12611260",
+        "12611950",
+        "12611600"
+      ]
+    },
+    {
+      "pattern_id": "12611260",
+      "name": "Off-centering the focal point of a common domain",
+      "template": "",
+      "broader_patterns": [
+        "12610670",
+        "12610620",
+        "12610710",
+        "12611200",
+        "12610690",
+        "12611210",
+        "12610640",
+        "12611240",
+        "12610610",
+        "12611250",
+        "12611150",
+        "12610630"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12611270",
+      "name": "Nested levels of accessibility",
+      "template": "",
+      "broader_patterns": [
+        "12610960",
+        "12611100",
+        "12611120",
+        "12611090",
+        "12611130",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612330",
+        "12611520",
+        "12611460",
+        "12611310",
+        "12611380",
+        "12611420",
+        "12611290",
+        "12611360",
+        "12611410",
+        "12611280",
+        "12611850",
+        "12611300",
+        "12611440"
+      ]
+    },
+    {
+      "pattern_id": "12611280",
+      "name": "Orientation of domains to receive external insight",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611050"
+      ],
+      "narrower_patterns": [
+        "12612360",
+        "12611610",
+        "12611830",
+        "12611380",
+        "12611570",
+        "12611290",
+        "12611630",
+        "12611990",
+        "12611620"
+      ]
+    },
+    {
+      "pattern_id": "12611290",
+      "name": "Common domain at the focal point of a structure",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611190",
+        "12610990",
+        "12611160",
+        "12610690",
+        "12610750",
+        "12610650",
+        "12610860",
+        "12611280",
+        "12610910",
+        "12610760",
+        "12611090",
+        "12611130",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12611460",
+        "12611370",
+        "12611310",
+        "12611470",
+        "12611320",
+        "12611420",
+        "12611390",
+        "12611910",
+        "12611410",
+        "12611630",
+        "12611850",
+        "12611790",
+        "12611440",
+        "12611590",
+        "12611400",
+        "12611810"
+      ]
+    },
+    {
+      "pattern_id": "12611300",
+      "name": "Internal transition spaces enhancing structural entry points",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611100",
+        "12611020",
+        "12611120",
+        "12611130"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12611680",
+        "12612420",
+        "12612370",
+        "12612020",
+        "12611310",
+        "12611940",
+        "12611800",
+        "12611340",
+        "12611420",
+        "12612010",
+        "12611910",
+        "12611350",
+        "12611490",
+        "12611590",
+        "12611400",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611310",
+      "name": "Organization of inter-domain dynamics",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611290",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12611930",
+        "12611940",
+        "12611960",
+        "12612240",
+        "12611320",
+        "12611340",
+        "12611350",
+        "12611330",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611320",
+      "name": "Limiting length of communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610980",
+        "12611310",
+        "12611010",
+        "12611290",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612220",
+        "12612370",
+        "12611370",
+        "12611940",
+        "12611970",
+        "12611340",
+        "12611800",
+        "12611980",
+        "12611910",
+        "12611630",
+        "12611350",
+        "12611790",
+        "12611330",
+        "12611590",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611330",
+      "name": "Integrating transition pathways between levels into a structure",
+      "template": "",
+      "broader_patterns": [
+        "12611310",
+        "12611320",
+        "12611100"
+      ],
+      "narrower_patterns": [
+        "12611340",
+        "12611910",
+        "12611950",
+        "12611350",
+        "12611250",
+        "12612280"
+      ]
+    },
+    {
+      "pattern_id": "12611340",
+      "name": "Limiting exposure to harmonious perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610620",
+        "12610240",
+        "12611310",
+        "12610660",
+        "12611200",
+        "12611320",
+        "12611150",
+        "12611300",
+        "12611120",
+        "12611330"
+      ],
+      "narrower_patterns": [
+        "12612210",
+        "12612220",
+        "12611800",
+        "12611420",
+        "12611350",
+        "12611730"
+      ]
+    },
+    {
+      "pattern_id": "12611350",
+      "name": "Enhancing insight by varying levels of exposure to it",
+      "template": "",
+      "broader_patterns": [
+        "12611310",
+        "12611320",
+        "12611340",
+        "12611010",
+        "12610970",
+        "12611300",
+        "12611120",
+        "12611330"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12612500",
+        "12612370",
+        "12611940",
+        "12611960",
+        "12611800",
+        "12611490"
+      ]
+    },
+    {
+      "pattern_id": "12611360",
+      "name": "Relative isolation of complementary perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12610750",
+        "12610650",
+        "12610770",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12611370",
+        "12611380",
+        "12611890",
+        "12611420",
+        "12611980",
+        "12611860",
+        "12611850",
+        "12611430",
+        "12611440",
+        "12611590",
+        "12611870"
+      ]
+    },
+    {
+      "pattern_id": "12611370",
+      "name": "Domain for developing perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12611320",
+        "12611290",
+        "12611360",
+        "12610760",
+        "12610680"
+      ],
+      "narrower_patterns": [
+        "12611380",
+        "12612030",
+        "12611570",
+        "12611390",
+        "12611630",
+        "12611860",
+        "12611430",
+        "12611440"
+      ]
+    },
+    {
+      "pattern_id": "12611380",
+      "name": "Receptivity to emerging external insight",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611370",
+        "12611360",
+        "12611280"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612210",
+        "12611880",
+        "12611800",
+        "12611860",
+        "12611430",
+        "12611440",
+        "12611870"
+      ]
+    },
+    {
+      "pattern_id": "12611390",
+      "name": "Hospitable domain for perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12611370",
+        "12610780",
+        "12610650",
+        "12611290"
+      ],
+      "narrower_patterns": [
+        "12612000",
+        "12611470",
+        "12611420",
+        "12612010",
+        "12611840",
+        "12611910",
+        "12611820",
+        "12611630",
+        "12611790",
+        "12611990",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611400",
+      "name": "Relative isolation of structural interface with communication pathway",
+      "template": "",
+      "broader_patterns": [
+        "12611230",
+        "12610590",
+        "12611290",
+        "12611140",
+        "12610510",
+        "12611000",
+        "12611300",
+        "12611180",
+        "12611110",
+        "12611220"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12612430",
+        "12612410",
+        "12611610",
+        "12612470",
+        "12611930",
+        "12611420",
+        "12611690",
+        "12611630",
+        "12611560",
+        "12611730",
+        "12611660",
+        "12611550"
+      ]
+    },
+    {
+      "pattern_id": "12611410",
+      "name": "Relatively isolated context for each perspective",
+      "template": "",
+      "broader_patterns": [
+        "12610270",
+        "12611270",
+        "12610750",
+        "12610770",
+        "12611290",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12611830",
+        "12612530",
+        "12611880",
+        "12611890",
+        "12611570",
+        "12611420",
+        "12611910",
+        "12611540",
+        "12611560",
+        "12611790",
+        "12611550",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611420",
+      "name": "Sequence of viewpoint loci within a structure",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12611340",
+        "12611390",
+        "12611290",
+        "12611410",
+        "12611360",
+        "12611300",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12612510",
+        "12611520",
+        "12612410",
+        "12612020",
+        "12611940",
+        "12611960",
+        "12611800",
+        "12611500",
+        "12611630",
+        "12611790",
+        "12611850",
+        "12611810"
+      ]
+    },
+    {
+      "pattern_id": "12611430",
+      "name": "Interrelationship of contexts of developing perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12611370",
+        "12611380",
+        "12611360",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12611880",
+        "12611890",
+        "12611980",
+        "12611910",
+        "12611860",
+        "12611440",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611440",
+      "name": "Integrating coordinated exposure to irrationality into structures",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12610710",
+        "12611370",
+        "12610780",
+        "12611380",
+        "12611290",
+        "12611360",
+        "12611430",
+        "12610930",
+        "12610720"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12611890",
+        "12611910",
+        "12611780",
+        "12611770",
+        "12611730",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611450",
+      "name": "Domains for non-current elements and those in reserve",
+      "template": "",
+      "broader_patterns": [
+        "12610950",
+        "12611170",
+        "12610800",
+        "12610870",
+        "12610760"
+      ],
+      "narrower_patterns": [
+        "12612150",
+        "12611900",
+        "12611690",
+        "12611750",
+        "12611530",
+        "12611620"
+      ]
+    },
+    {
+      "pattern_id": "12611460",
+      "name": "Flexible domain organization",
+      "template": "",
+      "broader_patterns": [
+        "12611270",
+        "12610800",
+        "12611290",
+        "12610810",
+        "12610820"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612520",
+        "12611520",
+        "12611480",
+        "12611830",
+        "12611470",
+        "12611900",
+        "12611510",
+        "12611790",
+        "12611490",
+        "12611530",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611470",
+      "name": "Coordination of perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12610410",
+        "12610750",
+        "12610800",
+        "12611390",
+        "12611290",
+        "12610910",
+        "12610840",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12611480",
+        "12611510",
+        "12611820"
+      ]
+    },
+    {
+      "pattern_id": "12611480",
+      "name": "Perspective interaction constraints",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12611470",
+        "12610800",
+        "12610810",
+        "12610820",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12611520",
+        "12611830",
+        "12611580",
+        "12611510"
+      ]
+    },
+    {
+      "pattern_id": "12611490",
+      "name": "Hospitable reception of external perspectives by structures",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12611010",
+        "12610800",
+        "12610810",
+        "12611350",
+        "12611020",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12611830",
+        "12611800",
+        "12611500",
+        "12611910",
+        "12611790",
+        "12611590",
+        "12611810"
+      ]
+    },
+    {
+      "pattern_id": "12611500",
+      "name": "Provision for temporary perspective inactivity",
+      "template": "",
+      "broader_patterns": [
+        "12610340",
+        "12610940",
+        "12610920",
+        "12610470",
+        "12610710",
+        "12610880",
+        "12611420",
+        "12611240",
+        "12610810",
+        "12611490",
+        "12610820"
+      ],
+      "narrower_patterns": [
+        "12611800",
+        "12611910",
+        "12611640",
+        "12611760",
+        "12611790",
+        "12611650",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611510",
+      "name": "Small-scale perspective interaction contexts",
+      "template": "",
+      "broader_patterns": [
+        "12610440",
+        "12611460",
+        "12610430",
+        "12611480",
+        "12611470",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12612510",
+        "12611910",
+        "12611790",
+        "12611850",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611520",
+      "name": "Partially isolated contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12611270",
+        "12611480",
+        "12611420",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12611920",
+        "12611930",
+        "12611830",
+        "12611910",
+        "12611850",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611530",
+      "name": "Structures adaptable to changing number of embodied perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12611460",
+        "12610750",
+        "12610800",
+        "12610810",
+        "12611450",
+        "12611120"
+      ],
+      "narrower_patterns": [
+        "12611580",
+        "12611570",
+        "12611910",
+        "12611540",
+        "12611550",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611540",
+      "name": "Semi-autonomous contexts for maturing perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610780",
+        "12610750",
+        "12611410",
+        "12610760",
+        "12611530"
+      ],
+      "narrower_patterns": [
+        "12611880",
+        "12611580",
+        "12611570",
+        "12611910",
+        "12611850",
+        "12611550",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611550",
+      "name": "Semi-autonomous contexts for perspectives of decreasing activity",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610400",
+        "12610780",
+        "12610750",
+        "12611410",
+        "12611540",
+        "12611530",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12612420",
+        "12611910",
+        "12611640",
+        "12611560",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611560",
+      "name": "Opportunities for perspectives of decreasing activity",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12610400",
+        "12610750",
+        "12611410",
+        "12611550",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12611580",
+        "12611570",
+        "12611650"
+      ]
+    },
+    {
+      "pattern_id": "12611570",
+      "name": "Local opportunities for perspective activity",
+      "template": "",
+      "broader_patterns": [
+        "12610270",
+        "12610370",
+        "12610180",
+        "12610470",
+        "12610790",
+        "12610090",
+        "12611370",
+        "12611410",
+        "12611540",
+        "12611280",
+        "12610840",
+        "12611560",
+        "12611530"
+      ],
+      "narrower_patterns": [
+        "12611920",
+        "12611610",
+        "12611830",
+        "12611580",
+        "12611910",
+        "12611650",
+        "12611590"
+      ]
+    },
+    {
+      "pattern_id": "12611580",
+      "name": "External access to higher structural levels",
+      "template": "",
+      "broader_patterns": [
+        "12610620",
+        "12610390",
+        "12611480",
+        "12610780",
+        "12611570",
+        "12611010",
+        "12610800",
+        "12610770",
+        "12611540",
+        "12610810",
+        "12611560",
+        "12611250",
+        "12611020",
+        "12610970",
+        "12611000",
+        "12611180",
+        "12610820",
+        "12610760",
+        "12611530"
+      ],
+      "narrower_patterns": [
+        "12611610",
+        "12611950"
+      ]
+    },
+    {
+      "pattern_id": "12611590",
+      "name": "Organization of structures to permit two sources of external insight",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611460",
+        "12611310",
+        "12611160",
+        "12611320",
+        "12611570",
+        "12611510",
+        "12611390",
+        "12611500",
+        "12611290",
+        "12611410",
+        "12611360",
+        "12611430",
+        "12611490",
+        "12611300",
+        "12611090",
+        "12611530",
+        "12611440",
+        "12611070",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612210",
+        "12612230",
+        "12611920",
+        "12612090",
+        "12611890",
+        "12611800",
+        "12611600",
+        "12611620"
+      ]
+    },
+    {
+      "pattern_id": "12611600",
+      "name": "Hospitable interface between structures and external environment",
+      "template": "",
+      "broader_patterns": [
+        "12610450",
+        "12610940",
+        "12611190",
+        "12610690",
+        "12611250",
+        "12611220",
+        "12611590",
+        "12611070",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12611680",
+        "12612420",
+        "12612490",
+        "12612410",
+        "12611610",
+        "12612450",
+        "12611970",
+        "12611670",
+        "12611640",
+        "12611690",
+        "12611630",
+        "12611620",
+        "12611660"
+      ]
+    },
+    {
+      "pattern_id": "12611610",
+      "name": "Structure-enfolded insight domain",
+      "template": "",
+      "broader_patterns": [
+        "12611580",
+        "12611570",
+        "12611280",
+        "12611150",
+        "12611180",
+        "12611600",
+        "12611050",
+        "12611400",
+        "12610730"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612440",
+        "12612420",
+        "12612410",
+        "12611670",
+        "12611740",
+        "12611760",
+        "12611630",
+        "12611620"
+      ]
+    },
+    {
+      "pattern_id": "12611620",
+      "name": "Organization of integrative superstructure to minimize insight blindspots",
+      "template": "",
+      "broader_patterns": [
+        "12611610",
+        "12611280",
+        "12611450",
+        "12611600",
+        "12611590",
+        "12611130",
+        "12611050"
+      ],
+      "narrower_patterns": [
+        "12611980",
+        "12611780",
+        "12611730"
+      ]
+    },
+    {
+      "pattern_id": "12611630",
+      "name": "Hospitable non-linear domain external to structures",
+      "template": "",
+      "broader_patterns": [
+        "12611080",
+        "12611610",
+        "12611370",
+        "12610690",
+        "12611320",
+        "12611420",
+        "12611390",
+        "12611240",
+        "12611290",
+        "12611280",
+        "12611150",
+        "12611180",
+        "12611110",
+        "12611600",
+        "12611130",
+        "12611400",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612440",
+        "12611680",
+        "12612430",
+        "12612410",
+        "12612470",
+        "12611910",
+        "12611670",
+        "12611740",
+        "12611710",
+        "12611650",
+        "12611730",
+        "12611660",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611640",
+      "name": "Overview of communication pathway from structure",
+      "template": "",
+      "broader_patterns": [
+        "12610570",
+        "12611230",
+        "12611210",
+        "12611010",
+        "12611500",
+        "12610610",
+        "12610510",
+        "12611000",
+        "12611600",
+        "12611550",
+        "12611220"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612210",
+        "12612360",
+        "12612460",
+        "12611800"
+      ]
+    },
+    {
+      "pattern_id": "12611650",
+      "name": "Exposure of structural activities to communication pathway",
+      "template": "",
+      "broader_patterns": [
+        "12610440",
+        "12610450",
+        "12610470",
+        "12610430",
+        "12610460",
+        "12611230",
+        "12611210",
+        "12610890",
+        "12610880",
+        "12611570",
+        "12611010",
+        "12611500",
+        "12611630",
+        "12610870",
+        "12611560",
+        "12610850",
+        "12611220",
+        "12610720"
+      ],
+      "narrower_patterns": [
+        "12612430"
+      ]
+    },
+    {
+      "pattern_id": "12611660",
+      "name": "Overview domains at interfaces of the structure with the external environment",
+      "template": "",
+      "broader_patterns": [
+        "12611190",
+        "12611230",
+        "12611320",
+        "12611170",
+        "12611630",
+        "12611150",
+        "12610970",
+        "12611000",
+        "12611300",
+        "12611180",
+        "12611600",
+        "12611220",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612440",
+        "12611680",
+        "12612430",
+        "12612270",
+        "12611930",
+        "12611670"
+      ]
+    },
+    {
+      "pattern_id": "12611670",
+      "name": "Enfolded overview domains of minimum proportions",
+      "template": "",
+      "broader_patterns": [
+        "12611190",
+        "12611610",
+        "12611630",
+        "12611150",
+        "12611000",
+        "12611180",
+        "12611600",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12611680",
+        "12612430",
+        "12612270",
+        "12611930",
+        "12611910"
+      ]
+    },
+    {
+      "pattern_id": "12611680",
+      "name": "Grounded structures",
+      "template": "",
+      "broader_patterns": [
+        "12611190",
+        "12611670",
+        "12611630",
+        "12611250",
+        "12611300",
+        "12611600",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612420",
+        "12612490",
+        "12612150",
+        "12612140",
+        "12612410",
+        "12612470",
+        "12611690"
+      ]
+    },
+    {
+      "pattern_id": "12611690",
+      "name": "Maintaining distinctions between contextual levels",
+      "template": "",
+      "broader_patterns": [
+        "12611680",
+        "12611450",
+        "12611600",
+        "12611400",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612470",
+        "12611700",
+        "12612450",
+        "12611720",
+        "12611770"
+      ]
+    },
+    {
+      "pattern_id": "12611700",
+      "name": "Cultivation of productive non-linearity",
+      "template": "",
+      "broader_patterns": [
+        "12610670",
+        "12611200",
+        "12611690",
+        "12610510",
+        "12611110"
+      ],
+      "narrower_patterns": [
+        "12611720",
+        "12611740",
+        "12611760",
+        "12611780",
+        "12611770",
+        "12611710"
+      ]
+    },
+    {
+      "pattern_id": "12611710",
+      "name": "Appropriate relationship of non-linearity to structures",
+      "template": "",
+      "broader_patterns": [
+        "12610600",
+        "12610240",
+        "12611200",
+        "12610660",
+        "12611700",
+        "12610960",
+        "12610700",
+        "12611260",
+        "12611030",
+        "12611630",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612410",
+        "12611720",
+        "12611740",
+        "12611760"
+      ]
+    },
+    {
+      "pattern_id": "12611720",
+      "name": "Contexts of self-organizing non-linearity",
+      "template": "",
+      "broader_patterns": [
+        "12610710",
+        "12611700",
+        "12611690",
+        "12611710",
+        "12611110",
+        "12611060",
+        "12611040",
+        "12610730"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612450",
+        "12611760",
+        "12611750"
+      ]
+    },
+    {
+      "pattern_id": "12611730",
+      "name": "Protecting non-linear contexts from communication pathways",
+      "template": "",
+      "broader_patterns": [
+        "12610600",
+        "12610560",
+        "12610590",
+        "12610650",
+        "12611340",
+        "12611140",
+        "12611030",
+        "12611630",
+        "12611150",
+        "12611110",
+        "12611120",
+        "12611440",
+        "12611400",
+        "12611060",
+        "12611620"
+      ],
+      "narrower_patterns": [
+        "12612490",
+        "12611930",
+        "12612450",
+        "12611740"
+      ]
+    },
+    {
+      "pattern_id": "12611740",
+      "name": "Communication pathways enfolded by non-linearity",
+      "template": "",
+      "broader_patterns": [
+        "12611610",
+        "12610710",
+        "12611200",
+        "12611700",
+        "12611240",
+        "12610540",
+        "12611630",
+        "12611710",
+        "12611730",
+        "12611120",
+        "12611060"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612380",
+        "12612440",
+        "12612460",
+        "12612410",
+        "12612470",
+        "12611750"
+      ]
+    },
+    {
+      "pattern_id": "12611750",
+      "name": "Insight capturing non-linear extensions of structures",
+      "template": "",
+      "broader_patterns": [
+        "12610370",
+        "12610670",
+        "12610410",
+        "12611720",
+        "12611740",
+        "12611450"
+      ],
+      "narrower_patterns": [
+        "12611800",
+        "12612010",
+        "12611760",
+        "12611780",
+        "12611770"
+      ]
+    },
+    {
+      "pattern_id": "12611760",
+      "name": "Sites for grounding perspectives in non-linearity",
+      "template": "",
+      "broader_patterns": [
+        "12610240",
+        "12611610",
+        "12611700",
+        "12611720",
+        "12611500",
+        "12611140",
+        "12611750",
+        "12611710"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612410"
+      ]
+    },
+    {
+      "pattern_id": "12611770",
+      "name": "Local cultivation of sources of perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12610470",
+        "12610670",
+        "12610390",
+        "12610400",
+        "12611700",
+        "12611690",
+        "12611750",
+        "12611180",
+        "12611110",
+        "12611440"
+      ],
+      "narrower_patterns": [
+        "12611780"
+      ]
+    },
+    {
+      "pattern_id": "12611780",
+      "name": "Re-integration of rejected perspective by-products",
+      "template": "",
+      "broader_patterns": [
+        "12610370",
+        "12611700",
+        "12610740",
+        "12611750",
+        "12611770",
+        "12611440",
+        "12611620"
+      ],
+      "narrower_patterns": [
+        "12611810"
+      ]
+    },
+    {
+      "pattern_id": "12611790",
+      "name": "Organization of structure to provide occupiable sites",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12611320",
+        "12611510",
+        "12611420",
+        "12611390",
+        "12610900",
+        "12611500",
+        "12611290",
+        "12611410",
+        "12611490"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612520",
+        "12612020",
+        "12611930",
+        "12611830",
+        "12611900",
+        "12611970",
+        "12611800",
+        "12612310",
+        "12611910",
+        "12612110",
+        "12611860",
+        "12612280"
+      ]
+    },
+    {
+      "pattern_id": "12611800",
+      "name": "Occupiable sites exposed to external insight",
+      "template": "",
+      "broader_patterns": [
+        "12610780",
+        "12611380",
+        "12611320",
+        "12611340",
+        "12611010",
+        "12611420",
+        "12611500",
+        "12611640",
+        "12611790",
+        "12611750",
+        "12611350",
+        "12611490",
+        "12611300",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12612210",
+        "12612360",
+        "12612220",
+        "12612230",
+        "12612020",
+        "12611970",
+        "12612310",
+        "12612110",
+        "12611850",
+        "12611810",
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12611810",
+      "name": "Maintenance of source of direct insight within structures as a focal point",
+      "template": "",
+      "broader_patterns": [
+        "12611800",
+        "12611420",
+        "12610900",
+        "12611290",
+        "12611780",
+        "12611490"
+      ],
+      "narrower_patterns": [
+        "12611850"
+      ]
+    },
+    {
+      "pattern_id": "12611820",
+      "name": "Appropriate conditions for perspective nourishment",
+      "template": "",
+      "broader_patterns": [
+        "12611470",
+        "12611390"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12612500",
+        "12612020",
+        "12612000",
+        "12612010",
+        "12612510"
+      ]
+    },
+    {
+      "pattern_id": "12611830",
+      "name": "Partially exposed perspective context",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611460",
+        "12611480",
+        "12610780",
+        "12611570",
+        "12611410",
+        "12611280",
+        "12611790",
+        "12611490",
+        "12610830"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12611920",
+        "12612000",
+        "12611930",
+        "12611970",
+        "12611980",
+        "12612010",
+        "12611910",
+        "12611850"
+      ]
+    },
+    {
+      "pattern_id": "12611840",
+      "name": "Appropriate configuration for input processing",
+      "template": "",
+      "broader_patterns": [
+        "12611390"
+      ],
+      "narrower_patterns": [
+        "12612000",
+        "12611970",
+        "12611990"
+      ]
+    },
+    {
+      "pattern_id": "12611850",
+      "name": "Appropriate configuration for perspective interaction",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611270",
+        "12611830",
+        "12611800",
+        "12611510",
+        "12611420",
+        "12611290",
+        "12611360",
+        "12611540",
+        "12611810"
+      ],
+      "narrower_patterns": [
+        "12612510",
+        "12612520",
+        "12611930",
+        "12611910"
+      ]
+    },
+    {
+      "pattern_id": "12611860",
+      "name": "Appropriate configuration for perspective inactivity",
+      "template": "",
+      "broader_patterns": [
+        "12611370",
+        "12611380",
+        "12611360",
+        "12610910",
+        "12611790",
+        "12611430"
+      ],
+      "narrower_patterns": [
+        "12611880",
+        "12611890",
+        "12611870"
+      ]
+    },
+    {
+      "pattern_id": "12611870",
+      "name": "Appropriate configuration for interaction of complementary perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12610260",
+        "12611380",
+        "12611360",
+        "12611860"
+      ],
+      "narrower_patterns": [
+        "12612490",
+        "12611900",
+        "12611880",
+        "12611890",
+        "12611910"
+      ]
+    },
+    {
+      "pattern_id": "12611880",
+      "name": "Occupiable sites for perspective inactivity",
+      "template": "",
+      "broader_patterns": [
+        "12610940",
+        "12610780",
+        "12611380",
+        "12611410",
+        "12611540",
+        "12611860",
+        "12611430",
+        "12611870"
+      ],
+      "narrower_patterns": [
+        "12612210",
+        "12612000",
+        "12611930",
+        "12611900",
+        "12611970",
+        "12611890",
+        "12611910"
+      ]
+    },
+    {
+      "pattern_id": "12611890",
+      "name": "Context for forms of perspective presentation",
+      "template": "",
+      "broader_patterns": [
+        "12610780",
+        "12611880",
+        "12611410",
+        "12611360",
+        "12611860",
+        "12611430",
+        "12611440",
+        "12611590",
+        "12611870"
+      ],
+      "narrower_patterns": [
+        "12612000",
+        "12611970",
+        "12612010",
+        "12611980",
+        "12611910"
+      ]
+    },
+    {
+      "pattern_id": "12611900",
+      "name": "Variation in size of perspective contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611460",
+        "12611190",
+        "12611160",
+        "12611880",
+        "12611010",
+        "12610900",
+        "12611790",
+        "12611450",
+        "12611870"
+      ],
+      "narrower_patterns": [
+        "12612040",
+        "12611920",
+        "12612190",
+        "12611970",
+        "12612100",
+        "12611910",
+        "12612130",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611910",
+      "name": "Appropriate proportions of perspective contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611830",
+        "12611900",
+        "12611320",
+        "12610890",
+        "12611880",
+        "12611890",
+        "12611570",
+        "12611510",
+        "12611390",
+        "12611500",
+        "12611290",
+        "12611670",
+        "12611410",
+        "12611540",
+        "12611630",
+        "12610870",
+        "12611850",
+        "12611790",
+        "12611430",
+        "12611490",
+        "12611300",
+        "12611330",
+        "12611550",
+        "12611530",
+        "12611440",
+        "12611060",
+        "12611870"
+      ],
+      "narrower_patterns": [
+        "12611920",
+        "12612180",
+        "12612190",
+        "12611930",
+        "12611970",
+        "12612100",
+        "12611980",
+        "12612120",
+        "12612050"
+      ]
+    },
+    {
+      "pattern_id": "12611920",
+      "name": "Overview of external contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611830",
+        "12611900",
+        "12611570",
+        "12611910",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612210",
+        "12612360",
+        "12612220",
+        "12612390",
+        "12612230",
+        "12611990"
+      ]
+    },
+    {
+      "pattern_id": "12611930",
+      "name": "Partially enclosed internal domains",
+      "template": "",
+      "broader_patterns": [
+        "12611520",
+        "12611190",
+        "12611830",
+        "12611310",
+        "12611880",
+        "12611010",
+        "12611910",
+        "12611670",
+        "12611850",
+        "12611790",
+        "12611730",
+        "12611400",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612270",
+        "12612490",
+        "12612390",
+        "12611940",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12611940",
+      "name": "Internal connectedness between domains",
+      "template": "",
+      "broader_patterns": [
+        "12611930",
+        "12611310",
+        "12611320",
+        "12611010",
+        "12611420",
+        "12611350",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12612390",
+        "12612370"
+      ]
+    },
+    {
+      "pattern_id": "12611950",
+      "name": "Framework for transition between structural levels",
+      "template": "",
+      "broader_patterns": [
+        "12611580",
+        "12611250",
+        "12611330"
+      ],
+      "narrower_patterns": [
+        "12612030",
+        "12612280",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12611960",
+      "name": "Eccentric access to perspective contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611310",
+        "12611420",
+        "12611350"
+      ],
+      "narrower_patterns": [
+        "12612210",
+        "12612490",
+        "12612370",
+        "12612370",
+        "12612240",
+        "12611980"
+      ]
+    },
+    {
+      "pattern_id": "12611970",
+      "name": "Substantive distinctions separating domains",
+      "template": "",
+      "broader_patterns": [
+        "12611830",
+        "12611900",
+        "12611320",
+        "12610890",
+        "12611880",
+        "12611890",
+        "12611800",
+        "12611840",
+        "12611910",
+        "12610870",
+        "12611790",
+        "12611600"
+      ],
+      "narrower_patterns": [
+        "12612040",
+        "12612230",
+        "12612020",
+        "12612000",
+        "12612030",
+        "12612010",
+        "12611980",
+        "12612110",
+        "12611990",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12611980",
+      "name": "Inter-domain contexts for perspective adjuncts",
+      "template": "",
+      "broader_patterns": [
+        "12611830",
+        "12611960",
+        "12611320",
+        "12611970",
+        "12611890",
+        "12611910",
+        "12611360",
+        "12611430",
+        "12611620"
+      ],
+      "narrower_patterns": [
+        "12612040",
+        "12612280"
+      ]
+    },
+    {
+      "pattern_id": "12611990",
+      "name": "Exposure of input processing context to external insight",
+      "template": "",
+      "broader_patterns": [
+        "12611920",
+        "12611970",
+        "12611390",
+        "12611840",
+        "12611280"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612000",
+        "12612110"
+      ]
+    },
+    {
+      "pattern_id": "12612000",
+      "name": "Facilities for perspective adjuncts",
+      "template": "",
+      "broader_patterns": [
+        "12611830",
+        "12610890",
+        "12611970",
+        "12611880",
+        "12611890",
+        "12611390",
+        "12611840",
+        "12611820",
+        "12610870",
+        "12611990"
+      ],
+      "narrower_patterns": [
+        "12612010",
+        "12612110"
+      ]
+    },
+    {
+      "pattern_id": "12612010",
+      "name": "Accessible facilities for perspective adjuncts",
+      "template": "",
+      "broader_patterns": [
+        "12612000",
+        "12611830",
+        "12611970",
+        "12611890",
+        "12611390",
+        "12611820",
+        "12611750",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12612220",
+        "12612530",
+        "12612110"
+      ]
+    },
+    {
+      "pattern_id": "12612020",
+      "name": "Structure-enfolded occupiable sites",
+      "template": "",
+      "broader_patterns": [
+        "12611970",
+        "12611800",
+        "12611420",
+        "12611820",
+        "12611790",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12612510",
+        "12612300",
+        "12612110"
+      ]
+    },
+    {
+      "pattern_id": "12612030",
+      "name": "Exclusive spaces for emergent perspectives",
+      "template": "",
+      "broader_patterns": [
+        "12611370",
+        "12611970",
+        "12610860",
+        "12611950",
+        "12610730"
+      ],
+      "narrower_patterns": [
+        "12612240",
+        "12612110",
+        "12612280"
+      ]
+    },
+    {
+      "pattern_id": "12612040",
+      "name": "Exclusive contexts",
+      "template": "",
+      "broader_patterns": [
+        "12611900",
+        "12611970",
+        "12611980"
+      ],
+      "narrower_patterns": [
+        "12612190",
+        "12612110"
+      ]
+    },
+    {
+      "pattern_id": "12612050",
+      "name": "Congruence between spaces defined by the framework and spaces defined by the processes within it",
+      "template": "No framework is every felt to be appropriate unless the spaces defined within it by boundaries and inter-level connections are congruent with the spaces defined by the pattern of movement within it. Formal construction constraints should not dictate the final form of the framework.",
+      "broader_patterns": [
+        "12611190",
+        "12610990",
+        "12611160",
+        "12610950",
+        "12611900",
+        "12610960",
+        "12611910",
+        "12611540",
+        "12611630",
+        "12610970",
+        "12611550",
+        "12611130",
+        "12611070"
+      ],
+      "narrower_patterns": [
+        "12612080",
+        "12612070",
+        "12612190",
+        "12612060",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612060",
+      "name": "Efficient enclosure of spaces with minimal structural distinctions",
+      "template": "The most efficient way of distributing distinctions throughout a framework so as to enclose space, providing appropriate structural integrity with the minimum number of elements, is to conceive of the framework as made from one continuous body of mutually constrained elements.",
+      "broader_patterns": [
+        "12612050"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612170",
+        "12612270",
+        "12612150",
+        "12612160",
+        "12612200",
+        "12612180",
+        "12612080",
+        "12612070",
+        "12612070",
+        "12612190",
+        "12612090",
+        "12612100",
+        "12612130",
+        "12612290",
+        "12612280",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612070",
+      "name": "Appropriate construction elements",
+      "template": "Standardized elements used in the construction of any framework tend to prevent the emergence of any organic quality. Appropriate construction elements are required which are small in scale, easy to work with using accessible techniques, easy to adapt, capable of ensuring structural integrity, durable or renewable, not needing specialized or expensive assistance, and universally obtainable at low cost. Isolating such elements from the environment should neither unduly deplete the environment nor prevent their reintegration into it when the framework is no longer required.",
+      "broader_patterns": [
+        "12612340",
+        "12612060",
+        "12612050"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612500",
+        "12612080",
+        "12612190",
+        "12612280"
+      ]
+    },
+    {
+      "pattern_id": "12612080",
+      "name": "Progressive framework definition",
+      "template": "In order to accommodate subtle design adaptations as the need for them becomes clear, the framework should be conceived from the start as globally complete although tentative in its definition. In subsequent construction phases, as further elements are woven into the framework, it acquires increasing definition up to the final phase at which its full structural integrity is achieved.",
+      "broader_patterns": [
+        "12612070",
+        "12612060",
+        "12612050"
+      ],
+      "narrower_patterns": [
+        "12612170",
+        "12612160",
+        "12612200",
+        "12612180",
+        "12612180",
+        "12612190",
+        "12612310",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612090",
+      "name": "Organization of integrative superstructure",
+      "template": "Each distinct portion of the integrative superstructure should correspond to an identifiable set of spaces within the framework. The layout will span the largest spaces and it is to them that those spanning lesser spaces should be connected in a self-reinforcing cascade down to those spanning the smallest spaces.",
+      "broader_patterns": [
+        "12611160",
+        "12611170",
+        "12611150",
+        "12611180",
+        "12612060",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612100",
+        "12612110",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612100",
+      "name": "Harmonizing space distribution between levels",
+      "template": "In order to maintain the integrity of the framework, the boundaries of spaces at a higher level should not be too distant from boundaries to which those forces can be distributed at the lower level beneath it.",
+      "broader_patterns": [
+        "12611900",
+        "12612090",
+        "12611910",
+        "12612060"
+      ],
+      "narrower_patterns": [
+        "12612170",
+        "12612330",
+        "12612190",
+        "12612130",
+        "12612110",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612110",
+      "name": "Boundary expansion permitting new level generation",
+      "template": "Slight expansion of external boundaries adds useful extra sub-space to the framework. They may be integrated into the framework in such a way as to counteract distortion resulting from the addition of a new level within the framework.",
+      "broader_patterns": [
+        "12612040",
+        "12611190",
+        "12612020",
+        "12612000",
+        "12611160",
+        "12612090",
+        "12612030",
+        "12611970",
+        "12611800",
+        "12612100",
+        "12612010",
+        "12611790",
+        "12611990"
+      ],
+      "narrower_patterns": [
+        "12612200",
+        "12612190",
+        "12612120"
+      ]
+    },
+    {
+      "pattern_id": "12612120",
+      "name": "Primary inter-level connections at transitions in boundary orientation",
+      "template": "In order to be able to freely adapt the design of a framework during its construction in the light of insights and opportunities emerging during that process, detailed designs elaborated prior to that process should be avoided. The required flexibility can be ensured by first identifying the positions which generate the spaces and their boundaries at the initial level. Those located at transitions in boundary orientation are the site of the primary inter-level connections. These may generate spaces at several other levels of the framework.",
+      "broader_patterns": [
+        "12612080",
+        "12611930",
+        "12610460",
+        "12612090",
+        "12611970",
+        "12612100",
+        "12611910",
+        "12612110",
+        "12611950",
+        "12612060",
+        "12612050"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612170",
+        "12612150",
+        "12612160",
+        "12612200",
+        "12612140",
+        "12612190",
+        "12612310",
+        "12612130"
+      ]
+    },
+    {
+      "pattern_id": "12612130",
+      "name": "Distribution of secondary inter-level connections",
+      "template": "Secondary inter-level connections may be required to reinforce the boundary between the primary inter-level connections positioned at transitions in boundary orientation. Such secondary connections should be distributed according to the proportions of the multi-level framework as a whole and of the bounded spaces within any given level.",
+      "broader_patterns": [
+        "12611900",
+        "12610960",
+        "12612100",
+        "12612060",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612160",
+        "12612140",
+        "12612180",
+        "12612190"
+      ]
+    },
+    {
+      "pattern_id": "12612140",
+      "name": "Integrative infrastructure",
+      "template": "The best form of infrastructure is continuous with the overlying framework whose pattern of inter-level connections is then embedded in the context in a manner entirely integral with it.",
+      "broader_patterns": [
+        "12611680",
+        "12612130",
+        "12612120",
+        "12611040"
+      ],
+      "narrower_patterns": [
+        "12612160",
+        "12612150",
+        "12612190"
+      ]
+    },
+    {
+      "pattern_id": "12612150",
+      "name": "Initial level formation",
+      "template": "The easiest and most natural way to form the initial level of a framework is by enclosing an area of the domain on which it is located and reinforcing it with materials characteristic of that domain that ensure continuity and structural integrity in relation to the inter-level connections.",
+      "broader_patterns": [
+        "12611680",
+        "12612140",
+        "12611450",
+        "12612060",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612330",
+        "12612190"
+      ]
+    },
+    {
+      "pattern_id": "12612160",
+      "name": "Inter-level connections",
+      "template": "Inter-level connections are of prime significance in any framework and should enhance this impression by the manner in which they are constructed and disposed. They should be easy to connect to other elements of the framework in order to establish structural integrity.",
+      "broader_patterns": [
+        "12612140",
+        "12612080",
+        "12612130",
+        "12612060",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612170",
+        "12612270",
+        "12612210",
+        "12612400",
+        "12612180",
+        "12612190",
+        "12612310"
+      ]
+    },
+    {
+      "pattern_id": "12612170",
+      "name": "Perimeter continuity",
+      "template": "Each new level in a framework, developed by extension of a pattern of inter-level connections, is defined and given form by connecting these together to form a continuous perimeter ring. This helps to resist distortion resulting from the new level partly by redistributing forces from that level to maintain the overall structural integrity.",
+      "broader_patterns": [
+        "12612160",
+        "12612080",
+        "12612100",
+        "12612060",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612270",
+        "12612210",
+        "12612400",
+        "12612190",
+        "12612310"
+      ]
+    },
+    {
+      "pattern_id": "12612180",
+      "name": "Distortion resistant boundaries",
+      "template": "Boundaries enclosing spaces may contribute to the overall structural integrity of the framework by the manner in which they act to resist its distortion. Such fully integrated boundaries should be contrasted with those which enclose and define spaces but do not contribute to the overall structural integrity.",
+      "broader_patterns": [
+        "12612160",
+        "12612080",
+        "12611910",
+        "12612130",
+        "12612060"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612490",
+        "12612370",
+        "12612300",
+        "12612350",
+        "12612320",
+        "12612310",
+        "12612340",
+        "12612250"
+      ]
+    },
+    {
+      "pattern_id": "12612190",
+      "name": "Level generation of minimum tension",
+      "template": "Generation of a usable new level on a framework calls for a design which will ensure that minimum distortion and tension is engendered by the addition.",
+      "broader_patterns": [
+        "12612040",
+        "12612170",
+        "12612160",
+        "12612150",
+        "12612140",
+        "12612080",
+        "12612070",
+        "12611900",
+        "12612100",
+        "12611910",
+        "12612130",
+        "12612110",
+        "12612060",
+        "12612120",
+        "12612050"
+      ],
+      "narrower_patterns": [
+        "12612330",
+        "12612400",
+        "12612300",
+        "12612350",
+        "12612310",
+        "12612290",
+        "12612280",
+        "12612200"
+      ]
+    },
+    {
+      "pattern_id": "12612200",
+      "name": "Integration superstructure",
+      "template": "The integrative superstructure required to complete the enclosure of any space should be constructed such as to avoid increasing tensions within the framework as a whole. Its design should emerge as the simplest reconciliation of the patterning of forces inherent in the underlying structure. The space enclosed by the superstructure itself should be integrated into the pattern of spaces as a whole rather than simply constituting a superordinate \"dead\" space.",
+      "broader_patterns": [
+        "12612080",
+        "12612190",
+        "12611170",
+        "12612110",
+        "12611180",
+        "12612060",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612320",
+        "12612310",
+        "12612340"
+      ]
+    },
+    {
+      "pattern_id": "12612210",
+      "name": "Aperture compatibility",
+      "template": "A rigid plan combined with a formal aesthetic results in apertures neither of the appropriate sizes nor compatibly located. Decision on size and placement should be finally determined only when the basic framework has been constructed.",
+      "broader_patterns": [
+        "12612170",
+        "12612160",
+        "12611920",
+        "12611960",
+        "12611380",
+        "12611880",
+        "12611800",
+        "12611340",
+        "12611640",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612360",
+        "12612220",
+        "12612390",
+        "12612230",
+        "12612240",
+        "12612250"
+      ]
+    },
+    {
+      "pattern_id": "12612220",
+      "name": "Ground-level visibility",
+      "template": "A primary function of frameworks is to provide a link between a bounded space and the external environment, especially the immediate context in which it is grounded.",
+      "broader_patterns": [
+        "12612210",
+        "12611920",
+        "12611320",
+        "12611800",
+        "12611340",
+        "12612010"
+      ],
+      "narrower_patterns": [
+        "12612360",
+        "12612360",
+        "12612450"
+      ]
+    },
+    {
+      "pattern_id": "12612230",
+      "name": "Zones of intermediate insight",
+      "template": "Well-defined apertures into a bounded space result in strong contrasts in illumination to which it is difficult to adjust. Intermediate levels of contrast are required.",
+      "broader_patterns": [
+        "12612210",
+        "12611920",
+        "12611970",
+        "12611800",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612380",
+        "12612460",
+        "12612400",
+        "12612400"
+      ]
+    },
+    {
+      "pattern_id": "12612240",
+      "name": "Emphasizing transitions across boundaries",
+      "template": "Transitions across boundaries may be given special significance by requiring a special position or process through which transition is achieved.",
+      "broader_patterns": [
+        "12612210",
+        "12611190",
+        "12611310",
+        "12611960",
+        "12612030",
+        "12611100",
+        "12611020"
+      ],
+      "narrower_patterns": [
+        "12612490",
+        "12612370",
+        "12612250"
+      ]
+    },
+    {
+      "pattern_id": "12612250",
+      "name": "Thickened boundary interfaces",
+      "template": "Boundaries may be given special significance and functionality by making them thick enough to establish a significant zone of their own rather than being merely a thin divider between domains.",
+      "broader_patterns": [
+        "12612240",
+        "12611190",
+        "12612210",
+        "12612180"
+      ],
+      "narrower_patterns": [
+        "12612260",
+        "12612430",
+        "12612370"
+      ]
+    },
+    {
+      "pattern_id": "12612260",
+      "name": "Inter-level zone",
+      "template": "Isolated inter-level connections in a framework may have useful additional, non-structural functions, but only if they are formed so as to establish a significant zone of influence around them.",
+      "broader_patterns": [
+        "12612170",
+        "12612160",
+        "12611460",
+        "12611190",
+        "12611930",
+        "12610690",
+        "12611740",
+        "12612250",
+        "12611670",
+        "12611630",
+        "12611790",
+        "12612060",
+        "12612120",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612510",
+        "12612430",
+        "12612270",
+        "12612490",
+        "12612450"
+      ]
+    },
+    {
+      "pattern_id": "12612270",
+      "name": "Inter-level integrity",
+      "template": "The integrity of a framework depends on that of the connections between its elements. These are most critical at transitions in orientation, and especially at those where inter- level elements connect with those of a higher level. It is at these positions that some form of reinforcement is required.",
+      "broader_patterns": [
+        "12612260",
+        "12612170",
+        "12612160",
+        "12611190",
+        "12611190",
+        "12611930",
+        "12611670",
+        "12612060",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612280",
+      "name": "Appropriate superstructure to contain transitions between levels",
+      "template": "",
+      "broader_patterns": [
+        "12612070",
+        "12612190",
+        "12612030",
+        "12611980",
+        "12611950",
+        "12611790",
+        "12611330",
+        "12612060"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612330"
+      ]
+    },
+    {
+      "pattern_id": "12612290",
+      "name": "Provision for pathways for automatic communications",
+      "template": "",
+      "broader_patterns": [
+        "12612190",
+        "12612060"
+      ],
+      "narrower_patterns": [
+        "12612520",
+        "12612300"
+      ]
+    },
+    {
+      "pattern_id": "12612300",
+      "name": "Unmediated supportive emotion",
+      "template": "",
+      "broader_patterns": [
+        "12612180",
+        "12612190",
+        "12612020",
+        "12612290"
+      ],
+      "narrower_patterns": []
+    },
+    {
+      "pattern_id": "12612310",
+      "name": "Overview sites from integrative superstructure",
+      "template": "",
+      "broader_patterns": [
+        "12612170",
+        "12612160",
+        "12612200",
+        "12612180",
+        "12612080",
+        "12612080",
+        "12612190",
+        "12611170",
+        "12611800",
+        "12611790",
+        "12612120"
+      ],
+      "narrower_patterns": [
+        "12612360",
+        "12612390"
+      ]
+    },
+    {
+      "pattern_id": "12612320",
+      "name": "Symbolic connection to encompassing domains",
+      "template": "The combination of elements in any design calls for some symbolic forms of reduction in completing the highest level, partly in order to identify the design and give it form.",
+      "broader_patterns": [
+        "12612200",
+        "12612180"
+      ],
+      "narrower_patterns": [
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612330",
+      "name": "Zoning internal domains",
+      "template": "Some functions associated with internal domains tend to be associated with characteristics of the external environment whereas others are not. Zones may be established within the internal domain to reflect this distinction and to adapt the zones' characteristics accordingly.",
+      "broader_patterns": [
+        "12612150",
+        "12611270",
+        "12612190",
+        "12612100",
+        "12612280"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612500",
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612340",
+      "name": "Maintainable, multi-element external boundaries",
+      "template": "The purpose of external boundaries is to protect the space from the uncontrollable variability of the external environment. To do so it must be constructed such that the component elements can both be renewed when necessary and locked together to render the boundary impervious.",
+      "broader_patterns": [
+        "12612200",
+        "12612180"
+      ],
+      "narrower_patterns": [
+        "12612490",
+        "12612400",
+        "12612070"
+      ]
+    },
+    {
+      "pattern_id": "12612350",
+      "name": "Unalienating internal boundaries",
+      "template": "Flawless unmalleable internal boundaries provide no basis for further interaction with them. They are difficult to modify in the light of emerging requirements. Malleable and essentially unfinished boundaries encourage continuing interaction throughout their duration.",
+      "broader_patterns": [
+        "12612180",
+        "12612190"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612490",
+        "12612400"
+      ]
+    },
+    {
+      "pattern_id": "12612360",
+      "name": "Displaceable frameworks",
+      "template": "Frameworks which can be completely set aside to permit direct interaction with the external world are preferable to fixed or partially movable frameworks.",
+      "broader_patterns": [
+        "12612210",
+        "12612220",
+        "12611920",
+        "12610240",
+        "12611800",
+        "12612310",
+        "12611640",
+        "12611280"
+      ],
+      "narrower_patterns": [
+        "12612390"
+      ]
+    },
+    {
+      "pattern_id": "12612370",
+      "name": "Connectedness in isolation",
+      "template": "When subdividing a relatively small space, boundaries can be usefully under-emphasized by limiting the number of modes by which contact is maintained across the boundaries. This ensures connectedness throughout the whole space whilst maintaining an adequate degree of isolation for each part of it.",
+      "broader_patterns": [
+        "12612180",
+        "12611940",
+        "12611960",
+        "12612240",
+        "12611320",
+        "12611010",
+        "12612250",
+        "12611350",
+        "12611300"
+      ],
+      "narrower_patterns": [
+        "12612390"
+      ]
+    },
+    {
+      "pattern_id": "12612380",
+      "name": "Filtered insights",
+      "template": "Unmediated sources of illumination result in strong contrasts, over-emphasizing boundaries and making it difficult to detect detail.",
+      "broader_patterns": [
+        "12612210",
+        "12612230",
+        "12611610",
+        "12611380",
+        "12611740",
+        "12611640",
+        "12611760",
+        "12611440",
+        "12611590"
+      ],
+      "narrower_patterns": [
+        "12612440",
+        "12612500",
+        "12612390",
+        "12612460"
+      ]
+    },
+    {
+      "pattern_id": "12612390",
+      "name": "Multi-faceted frameworks",
+      "template": "The smaller the facets offered by a framework, the more intense the connection with that which is framed. The greater the number of facets, the greater the variety of connection to what is framed. The absence of a plurality of facets, however large the framework, engenders alienation from that which is framed.",
+      "broader_patterns": [
+        "12612380",
+        "12612210",
+        "12612360",
+        "12612370",
+        "12611920",
+        "12610240",
+        "12611930",
+        "12611940",
+        "12612310"
+      ],
+      "narrower_patterns": [
+        "12612400"
+      ]
+    },
+    {
+      "pattern_id": "12612400",
+      "name": "Tolerance at level interfaces",
+      "template": "Provision of suitably scaled intermediate positions permits a realistic degree of tolerance at interfaces between frameworks of different levels. Such tolerance is necessary if there is to be freedom in any design and implementation process.",
+      "broader_patterns": [
+        "12612170",
+        "12612160",
+        "12612390",
+        "12612230",
+        "12612350",
+        "12612350",
+        "12612190",
+        "12612340"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612410",
+      "name": "Attractive temporary positions",
+      "template": "For a temporary position to be attractive, due consideration must be given to the viewpoint it offers, its exposure to agreeable influences, and its proximity to focii of more permanent concern.",
+      "broader_patterns": [
+        "12611680",
+        "12610940",
+        "12610920",
+        "12611610",
+        "12611200",
+        "12610690",
+        "12611210",
+        "12611420",
+        "12611240",
+        "12610700",
+        "12611740",
+        "12611760",
+        "12611630",
+        "12611250",
+        "12611710",
+        "12611600",
+        "12610720",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612420"
+      ]
+    },
+    {
+      "pattern_id": "12612420",
+      "name": "Intermediate position",
+      "template": "Establishing an intermediate position between exposure to a wider range of influences and enclosure within a more controlled environment is strategically advantageous. Such a position is attractive because it facilitates choice of the degree of exposure acceptable at any one time.",
+      "broader_patterns": [
+        "12611680",
+        "12612410",
+        "12611190",
+        "12611610",
+        "12611100",
+        "12611300",
+        "12611600",
+        "12611550",
+        "12611220"
+      ],
+      "narrower_patterns": [
+        "12612430",
+        "12612450"
+      ]
+    },
+    {
+      "pattern_id": "12612430",
+      "name": "Ambiguous boundaries",
+      "template": "There are situations in which the boundaries between spaces are too absolute, but the absence of any boundary would do an injustice to the subtlety of the division between them. Ambiguous boundaries may than be established which both distinguish and bind together.",
+      "broader_patterns": [
+        "12612260",
+        "12612420",
+        "12612410",
+        "12610710",
+        "12610550",
+        "12611210",
+        "12611720",
+        "12612250",
+        "12610880",
+        "12611240",
+        "12611140",
+        "12611670",
+        "12611260",
+        "12611690",
+        "12611630",
+        "12610510",
+        "12611710",
+        "12611000",
+        "12611650",
+        "12611110",
+        "12610720",
+        "12611400",
+        "12611060",
+        "12611660",
+        "12610730"
+      ],
+      "narrower_patterns": [
+        "12612480",
+        "12612490",
+        "12612450"
+      ]
+    },
+    {
+      "pattern_id": "12612440",
+      "name": "Flexible interfaces",
+      "template": "Flexible interfaces can provide a more appropriate boundary between the fixity of well-defined spaces and the variability of the contexts within which they are embedded.",
+      "broader_patterns": [
+        "12612380",
+        "12610580",
+        "12610320",
+        "12611190",
+        "12611610",
+        "12610460",
+        "12610690",
+        "12610880",
+        "12611800",
+        "12611740",
+        "12610540",
+        "12611030",
+        "12611630",
+        "12610970",
+        "12611180",
+        "12610930",
+        "12610630",
+        "12611400",
+        "12611660"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612450",
+      "name": "Protecting variability to enhance fixity",
+      "template": "Zones of variability require protection to render them accessible so that they enhance zones of fixity effectively.",
+      "broader_patterns": [
+        "12612260",
+        "12612430",
+        "12612420",
+        "12612220",
+        "12611200",
+        "12611720",
+        "12611690",
+        "12611250",
+        "12610510",
+        "12611730",
+        "12611180",
+        "12611600",
+        "12611130"
+      ],
+      "narrower_patterns": []
+    },
+    {
+      "pattern_id": "12612460",
+      "name": "Integration within context",
+      "template": "A collective framework is successfully integrated within its natural environment when variable processes in that context interact with it as freely as they would if it were natural to that context.",
+      "broader_patterns": [
+        "12612380",
+        "12612230",
+        "12611740",
+        "12611640",
+        "12611180"
+      ],
+      "narrower_patterns": []
+    },
+    {
+      "pattern_id": "12612470",
+      "name": "Embedding fixity within variability",
+      "template": "When it is necessary to ensure a degree of fixity within a domain of variability, it is an advantage to embed a multiplicity of separated smaller domains of fixity in the space such as to safeguard the contextual variability. This is to be contrasted with the use of a single continuous surface which destroys the characteristics of the variable domain.",
+      "broader_patterns": [
+        "12611680",
+        "12611200",
+        "12611210",
+        "12611740",
+        "12611690",
+        "12611630",
+        "12610510",
+        "12611400"
+      ],
+      "narrower_patterns": [
+        "12612480"
+      ]
+    },
+    {
+      "pattern_id": "12612480",
+      "name": "Time binding",
+      "template": "In order to provide a sense of connectedness with a space and its context, it is essential that its boundaries should in some way be sensitive to the passage of time and to the processes that have occurred within that space.",
+      "broader_patterns": [
+        "12611680",
+        "12612430",
+        "12612330",
+        "12612150",
+        "12612180",
+        "12612070",
+        "12612470",
+        "12611250",
+        "12612280"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612490"
+      ]
+    },
+    {
+      "pattern_id": "12612490",
+      "name": "Symbols of integration",
+      "template": "Symbols of integration may be used to emphasize the boundaries of a space. At significant transitions between parts of the space, when the connectivity between patterns is weak, they are a means of binding them together to emphasize the larger whole. They function mainly by creating surfaces in which each part is simultaneously figure and boundary and in which the design acts a boundary and figure at several different levels simultaneously.",
+      "broader_patterns": [
+        "12612480",
+        "12612260",
+        "12612440",
+        "12611680",
+        "12612430",
+        "12612270",
+        "12612330",
+        "12612400",
+        "12612180",
+        "12612350",
+        "12612350",
+        "12611930",
+        "12611960",
+        "12612240",
+        "12612320",
+        "12611800",
+        "12612340",
+        "12611100",
+        "12611730",
+        "12611600",
+        "12611870"
+      ],
+      "narrower_patterns": [
+        "12612500",
+        "12612530"
+      ]
+    },
+    {
+      "pattern_id": "12612500",
+      "name": "Encouraging emphases",
+      "template": "The degree to which a space is experienced as congenial depends to a great extent on the manner in which the pervading emphases combine together to define an encouraging environment. This tends to be harder to achieve when some of the emphases are of necessity discouraging.",
+      "broader_patterns": [
+        "12612480",
+        "12612380",
+        "12612440",
+        "12612490",
+        "12612330",
+        "12612400",
+        "12612350",
+        "12612070",
+        "12611820",
+        "12611350",
+        "12611990"
+      ],
+      "narrower_patterns": [
+        "12612520"
+      ]
+    },
+    {
+      "pattern_id": "12612510",
+      "name": "Different settings",
+      "template": "A space can only be effectively used in all its richness if it can be appreciated from a variety of settings according to the felt need of the moment. Efforts to standardize such settings imposes a subtle straightjacket on the manner in which the space is experienced.",
+      "broader_patterns": [
+        "12612260",
+        "12612020",
+        "12610880",
+        "12611510",
+        "12611420",
+        "12611820",
+        "12611850"
+      ],
+      "narrower_patterns": [
+        "12612520"
+      ]
+    },
+    {
+      "pattern_id": "12612520",
+      "name": "Domains of insight",
+      "template": "Space is partly defined by the particular perspectives of those present. Uniform exposure of a space to awareness serves no useful purpose whatsoever. It destroys the social significance of space and leads to a sense of disorientation and unboundedness.",
+      "broader_patterns": [
+        "12612510",
+        "12612500",
+        "12611460",
+        "12611830",
+        "12611510",
+        "12611290",
+        "12611820",
+        "12612290",
+        "12611850",
+        "12611790",
+        "12611350",
+        "12611300"
+      ],
+      "narrower_patterns": []
+    },
+    {
+      "pattern_id": "12612530",
+      "name": "Meaningful symbols of self-transformation",
+      "template": "A space can best be given further definition by associating with it a set of meaningful, self-chosen symbols that have a catalytic power in the continuous process of self-transformation (possibly as an outward counterpart to the unconscious). This function will be inadequately fulfilled by using symbols recommended by external specialists.",
+      "broader_patterns": [
+        "12612490",
+        "12612010",
+        "12611410"
+      ],
+      "narrower_patterns": []
+    }
+  ]
+}

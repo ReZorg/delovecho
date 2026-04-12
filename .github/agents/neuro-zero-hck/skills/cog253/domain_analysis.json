@@ -1,0 +1,5419 @@
+{
+  "analysis": {
+    "summary": {
+      "total_patterns": 253,
+      "domains": [
+        "Template",
+        "Physical",
+        "Social",
+        "Conceptual",
+        "Psychic"
+      ]
+    },
+    "generic_terms": {
+      "best": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 7,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "connections": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 12,
+          "Physical": 5,
+          "Social": 2
+        },
+        "domain_count": 3
+      },
+      "central": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "reinforce": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 5,
+          "Conceptual": 3,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "protected": {
+        "total_frequency": 25,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 8,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "developed": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "level": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 13,
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "appropriately": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "inhibits": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 4
+      },
+      "coherence": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "processes": {
+        "total_frequency": 57,
+        "domain_frequencies": {
+          "Template": 18,
+          "Physical": 4,
+          "Social": 7,
+          "Conceptual": 14,
+          "Psychic": 14
+        },
+        "domain_count": 5
+      },
+      "range": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "around": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 14,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "structures": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 7,
+          "Social": 1,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "creative": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 8,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "general": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 10,
+          "Psychic": 6
+        },
+        "domain_count": 4
+      },
+      "framework": {
+        "total_frequency": 70,
+        "domain_frequencies": {
+          "Template": 35,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 27,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "may": {
+        "total_frequency": 74,
+        "domain_frequencies": {
+          "Template": 19,
+          "Physical": 18,
+          "Social": 10,
+          "Conceptual": 14,
+          "Psychic": 13
+        },
+        "domain_count": 5
+      },
+      "effective": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 4,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "different": {
+        "total_frequency": 53,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 12,
+          "Social": 12,
+          "Conceptual": 14,
+          "Psychic": 9
+        },
+        "domain_count": 5
+      },
+      "people": {
+        "total_frequency": 38,
+        "domain_frequencies": {
+          "Physical": 21,
+          "Social": 15,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "certain": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "structure": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 6,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "social": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 13
+        },
+        "domain_count": 3
+      },
+      "reduced": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "domains": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 6,
+          "Social": 2,
+          "Conceptual": 9,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "established": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "environments": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Physical": 6,
+          "Social": 7,
+          "Conceptual": 3
+        },
+        "domain_count": 3
+      },
+      "main": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 7,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "activity": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 9,
+          "Social": 10,
+          "Conceptual": 3
+        },
+        "domain_count": 4
+      },
+      "together": {
+        "total_frequency": 25,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 9,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "groups": {
+        "total_frequency": 44,
+        "domain_frequencies": {
+          "Physical": 5,
+          "Social": 37,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "area": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 11,
+          "Social": 2
+        },
+        "domain_count": 3
+      },
+      "also": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "system": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 7,
+          "Social": 1,
+          "Conceptual": 5
+        },
+        "domain_count": 4
+      },
+      "person": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 3,
+          "Psychic": 6
+        },
+        "domain_count": 3
+      },
+      "work": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 12,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "formal": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 5,
+          "Social": 8,
+          "Conceptual": 5
+        },
+        "domain_count": 3
+      },
+      "communication": {
+        "total_frequency": 32,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 29,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "clusters": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "effectively": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "desirable": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "active": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "within": {
+        "total_frequency": 105,
+        "domain_frequencies": {
+          "Template": 29,
+          "Physical": 16,
+          "Social": 20,
+          "Conceptual": 19,
+          "Psychic": 21
+        },
+        "domain_count": 5
+      },
+      "persons": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Psychic": 8
+        },
+        "domain_count": 3
+      },
+      "evenly": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "sense": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 6,
+          "Conceptual": 3,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "whole": {
+        "total_frequency": 40,
+        "domain_frequencies": {
+          "Template": 13,
+          "Physical": 4,
+          "Social": 7,
+          "Conceptual": 8,
+          "Psychic": 8
+        },
+        "domain_count": 5
+      },
+      "whilst": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 5,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "group": {
+        "total_frequency": 38,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 35
+        },
+        "domain_count": 3
+      },
+      "welldefined": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 1,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "relationships": {
+        "total_frequency": 92,
+        "domain_frequencies": {
+          "Template": 40,
+          "Social": 14,
+          "Conceptual": 28,
+          "Psychic": 10
+        },
+        "domain_count": 4
+      },
+      "made": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "development": {
+        "total_frequency": 57,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 5,
+          "Social": 10,
+          "Conceptual": 19,
+          "Psychic": 18
+        },
+        "domain_count": 5
+      },
+      "alternative": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 9,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "integrity": {
+        "total_frequency": 41,
+        "domain_frequencies": {
+          "Template": 19,
+          "Physical": 5,
+          "Social": 5,
+          "Conceptual": 6,
+          "Psychic": 6
+        },
+        "domain_count": 5
+      },
+      "complex": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 20,
+          "Conceptual": 3
+        },
+        "domain_count": 4
+      },
+      "characteristics": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "form": {
+        "total_frequency": 36,
+        "domain_frequencies": {
+          "Template": 11,
+          "Physical": 10,
+          "Social": 7,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "mutually": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "provides": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "organized": {
+        "total_frequency": 26,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 2,
+          "Social": 5,
+          "Conceptual": 8,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "way": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 8,
+          "Social": 5,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "focus": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "network": {
+        "total_frequency": 39,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 6,
+          "Social": 10,
+          "Conceptual": 7,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "significance": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "number": {
+        "total_frequency": 33,
+        "domain_frequencies": {
+          "Template": 10,
+          "Physical": 4,
+          "Social": 6,
+          "Conceptual": 4,
+          "Psychic": 9
+        },
+        "domain_count": 5
+      },
+      "focal": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 4
+      },
+      "appropriate": {
+        "total_frequency": 33,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 10,
+          "Social": 4,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "related": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 4
+      },
+      "structural": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 10,
+          "Physical": 6,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "therefore": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "give": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 5,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "ensure": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "balance": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 7,
+          "Social": 7,
+          "Conceptual": 6,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "however": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "live": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Physical": 8,
+          "Social": 2,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "spaces": {
+        "total_frequency": 36,
+        "domain_frequencies": {
+          "Template": 16,
+          "Physical": 19,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "given": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "tend": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "distinct": {
+        "total_frequency": 29,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 6,
+          "Social": 4,
+          "Conceptual": 6,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "specialized": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 5,
+          "Conceptual": 15,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "need": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 7,
+          "Social": 4,
+          "Conceptual": 5,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "insights": {
+        "total_frequency": 32,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 5,
+          "Psychic": 22
+        },
+        "domain_count": 5
+      },
+      "process": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 4,
+          "Social": 1,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "continuity": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "tends": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "cycle": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 8,
+          "Conceptual": 5,
+          "Psychic": 4
+        },
+        "domain_count": 4
+      },
+      "space": {
+        "total_frequency": 53,
+        "domain_frequencies": {
+          "Template": 22,
+          "Physical": 19,
+          "Social": 3,
+          "Conceptual": 6,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "systems": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 5,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "relationship": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 1,
+          "Social": 5,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "higher": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 8,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "others": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "cluster": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 5,
+          "Social": 4,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "viability": {
+        "total_frequency": 22,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 4,
+          "Social": 5,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "avoid": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "web": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "easily": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "life": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Physical": 13,
+          "Social": 14,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "needs": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "ordered": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Conceptual": 2,
+          "Psychic": 6
+        },
+        "domain_count": 3
+      },
+      "provide": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 6,
+          "Social": 5,
+          "Conceptual": 3,
+          "Psychic": 8
+        },
+        "domain_count": 5
+      },
+      "modes": {
+        "total_frequency": 82,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 4,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 64
+        },
+        "domain_count": 5
+      },
+      "high": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 7,
+          "Social": 4,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "growth": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "every": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 6,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "unless": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 6,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "set": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 5,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "embedded": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "light": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 9,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "vital": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "density": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 4,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "interaction": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "two": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "one": {
+        "total_frequency": 33,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 11,
+          "Social": 6,
+          "Conceptual": 6,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "centre": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 9,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "organization": {
+        "total_frequency": 60,
+        "domain_frequencies": {
+          "Template": 15,
+          "Physical": 1,
+          "Social": 30,
+          "Conceptual": 11,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "especially": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 7,
+          "Social": 5,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "achieved": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "permit": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "conditions": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Conceptual": 2,
+          "Psychic": 7
+        },
+        "domain_count": 3
+      },
+      "located": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Social": 2
+        },
+        "domain_count": 3
+      },
+      "balanced": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "limit": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "levels": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 7,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 4
+      },
+      "make": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Physical": 9,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "partially": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 6,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "activities": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 4,
+          "Social": 7,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "provided": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "key": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "fundamental": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "linking": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "points": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 11,
+          "Physical": 7,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "functional": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Social": 18,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "local": {
+        "total_frequency": 58,
+        "domain_frequencies": {
+          "Template": 20,
+          "Physical": 24,
+          "Social": 10,
+          "Conceptual": 3,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "particular": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 5,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "patterns": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "awareness": {
+        "total_frequency": 107,
+        "domain_frequencies": {
+          "Template": 1,
+          "Conceptual": 1,
+          "Psychic": 105
+        },
+        "domain_count": 3
+      },
+      "exposure": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "common": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 10,
+          "Social": 6,
+          "Conceptual": 6,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "inhibit": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "boundary": {
+        "total_frequency": 36,
+        "domain_frequencies": {
+          "Template": 18,
+          "Physical": 7,
+          "Social": 6,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "distributed": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 6,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "many": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 7,
+          "Social": 5,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "personal": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 11
+        },
+        "domain_count": 4
+      },
+      "connection": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "throughout": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 7,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "depends": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "low": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Social": 4
+        },
+        "domain_count": 3
+      },
+      "required": {
+        "total_frequency": 27,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 7,
+          "Social": 3,
+          "Conceptual": 5,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "character": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Social": 5,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "providing": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Social": 5,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "external": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "mode": {
+        "total_frequency": 59,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 56
+        },
+        "domain_count": 4
+      },
+      "towards": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "areas": {
+        "total_frequency": 41,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 14,
+          "Social": 7,
+          "Conceptual": 10,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "possible": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 6,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "larger": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "difficult": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "ideas": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 8
+        },
+        "domain_count": 3
+      },
+      "parts": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Social": 2,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "frameworks": {
+        "total_frequency": 44,
+        "domain_frequencies": {
+          "Template": 12,
+          "Social": 2,
+          "Conceptual": 23,
+          "Psychic": 7
+        },
+        "domain_count": 4
+      },
+      "new": {
+        "total_frequency": 34,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 5,
+          "Social": 6,
+          "Conceptual": 7,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "part": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "define": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "based": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 6,
+          "Psychic": 5
+        },
+        "domain_count": 4
+      },
+      "nodes": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 3,
+          "Social": 3
+        },
+        "domain_count": 3
+      },
+      "natural": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 15,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "whether": {
+        "total_frequency": 22,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 7,
+          "Social": 6,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "manner": {
+        "total_frequency": 22,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 4,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "characterized": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "maintain": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "encouraged": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "emergence": {
+        "total_frequency": 29,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 9,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "emerge": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "limited": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "resulting": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "must": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 8,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "defined": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 5,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "difficulty": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "used": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "degree": {
+        "total_frequency": 36,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 6,
+          "Social": 6,
+          "Conceptual": 9,
+          "Psychic": 8
+        },
+        "domain_count": 5
+      },
+      "context": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "contrast": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "identifiable": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 5,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "role": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "contribute": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "major": {
+        "total_frequency": 26,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 6,
+          "Social": 6,
+          "Conceptual": 7,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "informal": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 10,
+          "Conceptual": 5
+        },
+        "domain_count": 3
+      },
+      "cannot": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 6,
+          "Social": 5,
+          "Conceptual": 5,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "environment": {
+        "total_frequency": 59,
+        "domain_frequencies": {
+          "Template": 13,
+          "Physical": 21,
+          "Social": 14,
+          "Conceptual": 8,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "function": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 10,
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "pattern": {
+        "total_frequency": 39,
+        "domain_frequencies": {
+          "Template": 15,
+          "Physical": 5,
+          "Social": 3,
+          "Conceptual": 10,
+          "Psychic": 6
+        },
+        "domain_count": 5
+      },
+      "forms": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 1,
+          "Social": 7,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "interlinked": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 3
+      },
+      "thought": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Conceptual": 19,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "variety": {
+        "total_frequency": 34,
+        "domain_frequencies": {
+          "Template": 10,
+          "Physical": 8,
+          "Social": 5,
+          "Conceptual": 6,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "time": {
+        "total_frequency": 18,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Social": 7,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "boundaries": {
+        "total_frequency": 30,
+        "domain_frequencies": {
+          "Template": 21,
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "full": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "special": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 5,
+          "Conceptual": 5,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "use": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 5,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "access": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 5,
+          "Social": 3
+        },
+        "domain_count": 3
+      },
+      "offer": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 5,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "well": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "necessary": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "integrated": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 6,
+          "Social": 1,
+          "Conceptual": 7,
+          "Psychic": 6
+        },
+        "domain_count": 4
+      },
+      "proliferation": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "integration": {
+        "total_frequency": 19,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 6,
+          "Psychic": 9
+        },
+        "domain_count": 4
+      },
+      "becomes": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "ensuring": {
+        "total_frequency": 15,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "associated": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 7,
+          "Conceptual": 7,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "domain": {
+        "total_frequency": 104,
+        "domain_frequencies": {
+          "Template": 49,
+          "Social": 9,
+          "Conceptual": 46
+        },
+        "domain_count": 3
+      },
+      "compromise": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "contact": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 6,
+          "Social": 6,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "play": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 5,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "intensity": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 3,
+          "Social": 8,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "unique": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "thus": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 4,
+          "Conceptual": 6,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "individual": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "rather": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 7,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "small": {
+        "total_frequency": 26,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 17,
+          "Social": 3,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "smaller": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 5,
+          "Social": 4,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "foci": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "large": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 7,
+          "Social": 2
+        },
+        "domain_count": 3
+      },
+      "order": {
+        "total_frequency": 40,
+        "domain_frequencies": {
+          "Template": 14,
+          "Physical": 8,
+          "Social": 4,
+          "Conceptual": 8,
+          "Psychic": 6
+        },
+        "domain_count": 5
+      }
+    },
+    "domain_specific_terms": {
+      "Template": {
+        "elements": {
+          "frequency": 22,
+          "other_domains_freq": 6
+        },
+        "zones": {
+          "frequency": 9,
+          "other_domains_freq": 3
+        },
+        "interlevel": {
+          "frequency": 9,
+          "other_domains_freq": 0
+        },
+        "design": {
+          "frequency": 8,
+          "other_domains_freq": 1
+        },
+        "position": {
+          "frequency": 5,
+          "other_domains_freq": 2
+        },
+        "transitions": {
+          "frequency": 5,
+          "other_domains_freq": 2
+        },
+        "variability": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        }
+      },
+      "Physical": {
+        "building": {
+          "frequency": 52,
+          "other_domains_freq": 0
+        },
+        "buildings": {
+          "frequency": 25,
+          "other_domains_freq": 0
+        },
+        "urban": {
+          "frequency": 23,
+          "other_domains_freq": 0
+        },
+        "roads": {
+          "frequency": 23,
+          "other_domains_freq": 0
+        },
+        "walls": {
+          "frequency": 22,
+          "other_domains_freq": 0
+        },
+        "materials": {
+          "frequency": 20,
+          "other_domains_freq": 1
+        },
+        "rooms": {
+          "frequency": 18,
+          "other_domains_freq": 0
+        },
+        "public": {
+          "frequency": 17,
+          "other_domains_freq": 5
+        },
+        "places": {
+          "frequency": 14,
+          "other_domains_freq": 0
+        },
+        "columns": {
+          "frequency": 14,
+          "other_domains_freq": 0
+        },
+        "services": {
+          "frequency": 13,
+          "other_domains_freq": 3
+        },
+        "room": {
+          "frequency": 12,
+          "other_domains_freq": 0
+        },
+        "windows": {
+          "frequency": 12,
+          "other_domains_freq": 1
+        },
+        "neighbourhood": {
+          "frequency": 11,
+          "other_domains_freq": 0
+        },
+        "communities": {
+          "frequency": 10,
+          "other_domains_freq": 2
+        },
+        "facilities": {
+          "frequency": 10,
+          "other_domains_freq": 3
+        },
+        "pedestrian": {
+          "frequency": 10,
+          "other_domains_freq": 0
+        },
+        "street": {
+          "frequency": 10,
+          "other_domains_freq": 0
+        },
+        "roof": {
+          "frequency": 10,
+          "other_domains_freq": 0
+        },
+        "window": {
+          "frequency": 10,
+          "other_domains_freq": 0
+        },
+        "floor": {
+          "frequency": 10,
+          "other_domains_freq": 0
+        },
+        "land": {
+          "frequency": 9,
+          "other_domains_freq": 0
+        },
+        "open": {
+          "frequency": 9,
+          "other_domains_freq": 1
+        },
+        "houses": {
+          "frequency": 9,
+          "other_domains_freq": 0
+        },
+        "house": {
+          "frequency": 9,
+          "other_domains_freq": 0
+        },
+        "ground": {
+          "frequency": 9,
+          "other_domains_freq": 2
+        },
+        "region": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "towns": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "city": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "along": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "built": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "edge": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "garden": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "roofs": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "private": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "neighbourhoods": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "paths": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "traffic": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "meet": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "place": {
+          "frequency": 7,
+          "other_domains_freq": 2
+        },
+        "communal": {
+          "frequency": 7,
+          "other_domains_freq": 1
+        },
+        "home": {
+          "frequency": 7,
+          "other_domains_freq": 1
+        },
+        "wall": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "close": {
+          "frequency": 6,
+          "other_domains_freq": 2
+        }
+      },
+      "Social": {
+        "organizational": {
+          "frequency": 27,
+          "other_domains_freq": 0
+        },
+        "organizations": {
+          "frequency": 16,
+          "other_domains_freq": 1
+        },
+        "communications": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "media": {
+          "frequency": 7,
+          "other_domains_freq": 1
+        },
+        "participants": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "informality": {
+          "frequency": 6,
+          "other_domains_freq": 1
+        },
+        "complexes": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "society": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "roles": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        }
+      },
+      "Conceptual": {
+        "conceptual": {
+          "frequency": 109,
+          "other_domains_freq": 1
+        },
+        "concepts": {
+          "frequency": 30,
+          "other_domains_freq": 0
+        },
+        "methods": {
+          "frequency": 13,
+          "other_domains_freq": 0
+        },
+        "knowledge": {
+          "frequency": 12,
+          "other_domains_freq": 0
+        },
+        "school": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "schools": {
+          "frequency": 6,
+          "other_domains_freq": 1
+        },
+        "intellectual": {
+          "frequency": 6,
+          "other_domains_freq": 0
+        },
+        "viewpoints": {
+          "frequency": 6,
+          "other_domains_freq": 0
+        },
+        "approaches": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        }
+      },
+      "Psychic": {
+        "perceptions": {
+          "frequency": 29,
+          "other_domains_freq": 0
+        },
+        "perceptual": {
+          "frequency": 15,
+          "other_domains_freq": 1
+        },
+        "psychic": {
+          "frequency": 11,
+          "other_domains_freq": 0
+        },
+        "insight": {
+          "frequency": 10,
+          "other_domains_freq": 3
+        },
+        "impressions": {
+          "frequency": 6,
+          "other_domains_freq": 0
+        },
+        "unstructured": {
+          "frequency": 5,
+          "other_domains_freq": 1
+        }
+      }
+    },
+    "generic_phrases": {
+      "limited and": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "those which": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Psychic": 3
+        },
+        "domain_count": 3
+      },
+      "which are": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Conceptual": 1,
+          "Psychic": 6
+        },
+        "domain_count": 4
+      },
+      "and informal": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 2,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "the basis": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the balance": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "than four": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "however limited": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "can provide": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the limit": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "cannot easily": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "more than": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "that the": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "where they": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4
+        },
+        "domain_count": 2
+      },
+      "per cluster": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "context for": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "form boundaries": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "throughout the": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 4,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the pattern": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "should not": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "they are": {
+        "total_frequency": 27,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 7,
+          "Social": 7,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "that each": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the highest": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "this may": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "very much": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the needs": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "encouraged and": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the relationships": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "within any": {
+        "total_frequency": 22,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 5,
+          "Conceptual": 3,
+          "Psychic": 8
+        },
+        "domain_count": 5
+      },
+      "fundamental unit": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "should therefore": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "relationship between": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 2
+      },
+      "the same": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the case": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "contact with": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Social": 3,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "integrated into": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the domain": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 10,
+          "Conceptual": 6
+        },
+        "domain_count": 2
+      },
+      "the form": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "limit set": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "down into": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "will not": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "distinct from": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "their own": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 6,
+          "Social": 3,
+          "Conceptual": 3
+        },
+        "domain_count": 4
+      },
+      "sufficiently high": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "desirable that": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "ensuring the": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "the maintenance": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "depends very": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the development": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "balance between": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "varies from": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the social": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2
+        },
+        "domain_count": 3
+      },
+      "inhibits the": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "are those": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 3
+        },
+        "domain_count": 2
+      },
+      "and its": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "the manner": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "are integrated": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "measures are": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "but the": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "from the": {
+        "total_frequency": 28,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 8,
+          "Social": 4,
+          "Conceptual": 6,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "and those": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "for which": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 1,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "the most": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4
+        },
+        "domain_count": 2
+      },
+      "the local": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "and are": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "most effective": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "should preferably": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "resulting from": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "difficult for": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 3
+      },
+      "processes should": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "than being": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "continuing pressure": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "its own": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "under the": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the community": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 3
+        },
+        "domain_count": 2
+      },
+      "the strength": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "interaction with": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "the overall": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 1
+        },
+        "domain_count": 2
+      },
+      "reinforce the": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "within each": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "different modes": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 4
+        },
+        "domain_count": 4
+      },
+      "within the": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 5,
+          "Social": 5,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the proliferation": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Social": 2,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 3
+      },
+      "the life": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "such that": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 3,
+          "Social": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "processes that": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "each other": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the environment": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "the sense": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 4
+        },
+        "domain_count": 3
+      },
+      "make them": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "coherence and": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "relationships between": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 4,
+          "Conceptual": 6,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "they can": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "any one": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "protected from": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the framework": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 1
+        },
+        "domain_count": 2
+      },
+      "the degree": {
+        "total_frequency": 11,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 3
+        },
+        "domain_count": 4
+      },
+      "the network": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "more fundamental": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "with its": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "broken down": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "can best": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "domain and": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Conceptual": 4
+        },
+        "domain_count": 2
+      },
+      "rather than": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 5,
+          "Social": 4,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "through which": {
+        "total_frequency": 17,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "ensure their": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "and more": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "the more": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 3,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "around the": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 5,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "distributed evenly": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "the presence": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 4,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "the cluster": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "this tends": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the necessary": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "the majority": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "local relationships": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 6,
+          "Conceptual": 1
+        },
+        "domain_count": 2
+      },
+      "any specialized": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 3
+        },
+        "domain_count": 3
+      },
+      "each with": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the opportunity": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Social": 3,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "difficulty can": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "within which": {
+        "total_frequency": 12,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 4,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "its constituent": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "that are": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the light": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "frameworks should": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 2
+      },
+      "associated with": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 6,
+          "Conceptual": 5,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "the main": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "which they": {
+        "total_frequency": 13,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "between the": {
+        "total_frequency": 28,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 12,
+          "Social": 2,
+          "Conceptual": 3,
+          "Psychic": 6
+        },
+        "domain_count": 5
+      },
+      "formal and": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 2,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "central role": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the growth": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "relationships and": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "and the": {
+        "total_frequency": 51,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 13,
+          "Social": 7,
+          "Conceptual": 11,
+          "Psychic": 13
+        },
+        "domain_count": 5
+      },
+      "compromise between": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the fundamental": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "any other": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "too great": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "viability and": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "and once": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "cluster varies": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "which this": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "there are": {
+        "total_frequency": 25,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 6,
+          "Social": 7,
+          "Conceptual": 4,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "each one": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "this can": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 4,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the number": {
+        "total_frequency": 21,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 3,
+          "Social": 4,
+          "Conceptual": 3,
+          "Psychic": 4
+        },
+        "domain_count": 5
+      },
+      "they should": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 5,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "their viability": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "the difficulty": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "into the": {
+        "total_frequency": 16,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 6,
+          "Psychic": 3
+        },
+        "domain_count": 5
+      },
+      "domain there": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 1,
+          "Conceptual": 3
+        },
+        "domain_count": 3
+      },
+      "the emergence": {
+        "total_frequency": 24,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 8,
+          "Psychic": 6
+        },
+        "domain_count": 5
+      },
+      "people can": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 2
+        },
+        "domain_count": 2
+      },
+      "the cycle": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "for the": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 6,
+          "Social": 1,
+          "Conceptual": 6,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "can only": {
+        "total_frequency": 20,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 6,
+          "Social": 6,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "the web": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2
+        },
+        "domain_count": 3
+      },
+      "the relationship": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "prevent the": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "boundary between": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "from different": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Social": 1,
+          "Conceptual": 4,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "the spaces": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2
+        },
+        "domain_count": 2
+      },
+      "the viability": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "independent sphere": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the integrity": {
+        "total_frequency": 23,
+        "domain_frequencies": {
+          "Template": 9,
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 4,
+          "Psychic": 5
+        },
+        "domain_count": 5
+      },
+      "the variety": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Template": 3,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "such inconsistencies": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "the centre": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Social": 2,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "appropriately relating": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the space": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 2,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "those who": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Social": 3
+        },
+        "domain_count": 2
+      },
+      "structural integrity": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 4,
+          "Physical": 1
+        },
+        "domain_count": 2
+      },
+      "where the": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 4,
+          "Conceptual": 1
+        },
+        "domain_count": 2
+      },
+      "provide the": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "only acquires": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 3
+      },
+      "recognizable pattern": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "primary and": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "are not": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "contrasted with": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 2,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "such they": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "case because": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "evenly throughout": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Social": 2,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      },
+      "between different": {
+        "total_frequency": 10,
+        "domain_frequencies": {
+          "Physical": 2,
+          "Social": 3,
+          "Conceptual": 3,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "maintain the": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 4,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 3
+      },
+      "unique characteristics": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "wherever there": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the possibility": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Physical": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 3
+      },
+      "boundaries between": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "when the": {
+        "total_frequency": 9,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "relating them": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "potential for": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the need": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 2,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 4
+      },
+      "the resulting": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "both the": {
+        "total_frequency": 6,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "with the": {
+        "total_frequency": 42,
+        "domain_frequencies": {
+          "Template": 7,
+          "Physical": 13,
+          "Social": 8,
+          "Conceptual": 5,
+          "Psychic": 9
+        },
+        "domain_count": 5
+      },
+      "there tends": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the boundary": {
+        "total_frequency": 14,
+        "domain_frequencies": {
+          "Template": 6,
+          "Physical": 3,
+          "Social": 3,
+          "Conceptual": 2
+        },
+        "domain_count": 4
+      },
+      "and autonomous": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "inhibit the": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 1,
+          "Social": 3,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "which the": {
+        "total_frequency": 27,
+        "domain_frequencies": {
+          "Template": 8,
+          "Physical": 2,
+          "Social": 5,
+          "Conceptual": 5,
+          "Psychic": 7
+        },
+        "domain_count": 5
+      },
+      "and integrity": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "especially those": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 4
+      },
+      "the latter": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 2,
+          "Conceptual": 2,
+          "Psychic": 2
+        },
+        "domain_count": 5
+      },
+      "tends not": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "are required": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 2,
+          "Physical": 3,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "the external": {
+        "total_frequency": 7,
+        "domain_frequencies": {
+          "Template": 5,
+          "Physical": 1,
+          "Social": 1
+        },
+        "domain_count": 3
+      },
+      "this difficulty": {
+        "total_frequency": 5,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 1,
+          "Social": 1,
+          "Conceptual": 1,
+          "Psychic": 1
+        },
+        "domain_count": 5
+      },
+      "towards the": {
+        "total_frequency": 8,
+        "domain_frequencies": {
+          "Template": 1,
+          "Physical": 5,
+          "Social": 1,
+          "Conceptual": 1
+        },
+        "domain_count": 4
+      }
+    },
+    "domain_specific_phrases": {
+      "Template": {
+        "elements are": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "relationships should": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "any domain": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "new level": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "ensure the": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "the construction": {
+          "frequency": 3,
+          "other_domains_freq": 1
+        },
+        "any framework": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        }
+      },
+      "Physical": {
+        "the building": {
+          "frequency": 12,
+          "other_domains_freq": 0
+        },
+        "along the": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "urban environment": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "the urban": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "local communities": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "urban community": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "local community": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "places for": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "house for": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "the walls": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "the columns": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "because they": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "local transport": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "major roads": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "the ring": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "public transportation": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "ring roads": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        }
+      },
+      "Social": {
+        "organizational complex": {
+          "frequency": 14,
+          "other_domains_freq": 0
+        },
+        "groups and": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "the functional": {
+          "frequency": 6,
+          "other_domains_freq": 0
+        },
+        "functional domain": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "communication pathways": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "the group": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "intensity communication": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "any organizational": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "life styles": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "local communication": {
+          "frequency": 3,
+          "other_domains_freq": 1
+        },
+        "way that": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "the organization": {
+          "frequency": 3,
+          "other_domains_freq": 1
+        },
+        "low key": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "between groups": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "groups should": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "the informal": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        }
+      },
+      "Conceptual": {
+        "conceptual domain": {
+          "frequency": 24,
+          "other_domains_freq": 0
+        },
+        "the conceptual": {
+          "frequency": 13,
+          "other_domains_freq": 0
+        },
+        "conceptual framework": {
+          "frequency": 11,
+          "other_domains_freq": 0
+        },
+        "conceptual frameworks": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "any conceptual": {
+          "frequency": 8,
+          "other_domains_freq": 0
+        },
+        "specialized conceptual": {
+          "frequency": 7,
+          "other_domains_freq": 0
+        },
+        "conceptual relationships": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "conceptual space": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "conceptual processes": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "general conceptual": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "further development": {
+          "frequency": 3,
+          "other_domains_freq": 1
+        },
+        "between conceptual": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        }
+      },
+      "Psychic": {
+        "any mode": {
+          "frequency": 9,
+          "other_domains_freq": 0
+        },
+        "that mode": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "awareness and": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "personal development": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "unstructured modes": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "the mode": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "specialized mode": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "perceptual frameworks": {
+          "frequency": 5,
+          "other_domains_freq": 0
+        },
+        "the individual": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "awareness should": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "ordered modes": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "awareness there": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "perceptual processes": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "awareness may": {
+          "frequency": 4,
+          "other_domains_freq": 0
+        },
+        "major modes": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "integrated and": {
+          "frequency": 3,
+          "other_domains_freq": 1
+        },
+        "the modes": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "alternative modes": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "psychic boundary": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "awareness between": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        },
+        "perceptions are": {
+          "frequency": 3,
+          "other_domains_freq": 0
+        }
+      }
+    },
+    "vocabulary_stats": {
+      "Template": {
+        "total_words": 2073,
+        "unique_words": 880,
+        "avg_word_frequency": 2.355681818181818
+      },
+      "Physical": {
+        "total_words": 3663,
+        "unique_words": 1650,
+        "avg_word_frequency": 2.22
+      },
+      "Social": {
+        "total_words": 1966,
+        "unique_words": 912,
+        "avg_word_frequency": 2.155701754385965
+      },
+      "Conceptual": {
+        "total_words": 1885,
+        "unique_words": 848,
+        "avg_word_frequency": 2.222877358490566
+      },
+      "Psychic": {
+        "total_words": 1713,
+        "unique_words": 765,
+        "avg_word_frequency": 2.23921568627451
+      }
+    }
+  },
+  "processed_files": [
+    "12610010.md",
+    "12610020.md",
+    "12610030.md",
+    "12610040.md",
+    "12610050.md",
+    "12610060.md",
+    "12610070.md",
+    "12610080.md",
+    "12610090.md",
+    "12610100.md",
+    "12610110.md",
+    "12610120.md",
+    "12610130.md",
+    "12610140.md",
+    "12610150.md",
+    "12610160.md",
+    "12610170.md",
+    "12610180.md",
+    "12610190.md",
+    "12610200.md",
+    "12610210.md",
+    "12610220.md",
+    "12610230.md",
+    "12610240.md",
+    "12610250.md",
+    "12610260.md",
+    "12610270.md",
+    "12610280.md",
+    "12610290.md",
+    "12610300.md",
+    "12610310.md",
+    "12610320.md",
+    "12610330.md",
+    "12610340.md",
+    "12610350.md",
+    "12610360.md",
+    "12610370.md",
+    "12610380.md",
+    "12610390.md",
+    "12610400.md",
+    "12610410.md",
+    "12610420.md",
+    "12610430.md",
+    "12610440.md",
+    "12610450.md",
+    "12610460.md",
+    "12610470.md",
+    "12610480.md",
+    "12610490.md",
+    "12610500.md",
+    "12610510.md",
+    "12610520.md",
+    "12610530.md",
+    "12610540.md",
+    "12610550.md",
+    "12610560.md",
+    "12610570.md",
+    "12610580.md",
+    "12610590.md",
+    "12610600.md",
+    "12610610.md",
+    "12610620.md",
+    "12610630.md",
+    "12610640.md",
+    "12610650.md",
+    "12610660.md",
+    "12610670.md",
+    "12610680.md",
+    "12610690.md",
+    "12610700.md",
+    "12610710.md",
+    "12610720.md",
+    "12610730.md",
+    "12610740.md",
+    "12610750.md",
+    "12610760.md",
+    "12610770.md",
+    "12610780.md",
+    "12610790.md",
+    "12610800.md",
+    "12610810.md",
+    "12610820.md",
+    "12610830.md",
+    "12610840.md",
+    "12610850.md",
+    "12610860.md",
+    "12610870.md",
+    "12610880.md",
+    "12610890.md",
+    "12610900.md",
+    "12610910.md",
+    "12610920.md",
+    "12610930.md",
+    "12610940.md",
+    "12610950.md",
+    "12610960.md",
+    "12610970.md",
+    "12610980.md",
+    "12610990.md",
+    "12611000.md",
+    "12611010.md",
+    "12611020.md",
+    "12611030.md",
+    "12611040.md",
+    "12611050.md",
+    "12611060.md",
+    "12611070.md",
+    "12611080.md",
+    "12611090.md",
+    "12611100.md",
+    "12611110.md",
+    "12611120.md",
+    "12611130.md",
+    "12611140.md",
+    "12611150.md",
+    "12611160.md",
+    "12611170.md",
+    "12611180.md",
+    "12611190.md",
+    "12611200.md",
+    "12611210.md",
+    "12611220.md",
+    "12611230.md",
+    "12611240.md",
+    "12611250.md",
+    "12611260.md",
+    "12611270.md",
+    "12611280.md",
+    "12611290.md",
+    "12611300.md",
+    "12611310.md",
+    "12611320.md",
+    "12611330.md",
+    "12611340.md",
+    "12611350.md",
+    "12611360.md",
+    "12611370.md",
+    "12611380.md",
+    "12611390.md",
+    "12611400.md",
+    "12611410.md",
+    "12611420.md",
+    "12611430.md",
+    "12611440.md",
+    "12611450.md",
+    "12611460.md",
+    "12611470.md",
+    "12611480.md",
+    "12611490.md",
+    "12611500.md",
+    "12611510.md",
+    "12611520.md",
+    "12611530.md",
+    "12611540.md",
+    "12611550.md",
+    "12611560.md",
+    "12611570.md",
+    "12611580.md",
+    "12611590.md",
+    "12611600.md",
+    "12611610.md",
+    "12611620.md",
+    "12611630.md",
+    "12611640.md",
+    "12611650.md",
+    "12611660.md",
+    "12611670.md",
+    "12611680.md",
+    "12611690.md",
+    "12611700.md",
+    "12611710.md",
+    "12611720.md",
+    "12611730.md",
+    "12611740.md",
+    "12611750.md",
+    "12611760.md",
+    "12611770.md",
+    "12611780.md",
+    "12611790.md",
+    "12611800.md",
+    "12611810.md",
+    "12611820.md",
+    "12611830.md",
+    "12611840.md",
+    "12611850.md",
+    "12611860.md",
+    "12611870.md",
+    "12611880.md",
+    "12611890.md",
+    "12611900.md",
+    "12611910.md",
+    "12611920.md",
+    "12611930.md",
+    "12611940.md",
+    "12611950.md",
+    "12611960.md",
+    "12611970.md",
+    "12611980.md",
+    "12611990.md",
+    "12612000.md",
+    "12612010.md",
+    "12612020.md",
+    "12612030.md",
+    "12612040.md",
+    "12612050.md",
+    "12612060.md",
+    "12612070.md",
+    "12612080.md",
+    "12612090.md",
+    "12612100.md",
+    "12612110.md",
+    "12612120.md",
+    "12612130.md",
+    "12612140.md",
+    "12612150.md",
+    "12612160.md",
+    "12612170.md",
+    "12612180.md",
+    "12612190.md",
+    "12612200.md",
+    "12612210.md",
+    "12612220.md",
+    "12612230.md",
+    "12612240.md",
+    "12612250.md",
+    "12612260.md",
+    "12612270.md",
+    "12612280.md",
+    "12612290.md",
+    "12612300.md",
+    "12612310.md",
+    "12612320.md",
+    "12612330.md",
+    "12612340.md",
+    "12612350.md",
+    "12612360.md",
+    "12612370.md",
+    "12612380.md",
+    "12612390.md",
+    "12612400.md",
+    "12612410.md",
+    "12612420.md",
+    "12612430.md",
+    "12612440.md",
+    "12612450.md",
+    "12612460.md",
+    "12612470.md",
+    "12612480.md",
+    "12612490.md",
+    "12612500.md",
+    "12612510.md",
+    "12612520.md",
+    "12612530.md"
+  ],
+  "metadata": {
+    "script_version": "1.0",
+    "description": "Analysis of UIA patterns to identify generic vs domain-specific vocabulary"
+  }
+}

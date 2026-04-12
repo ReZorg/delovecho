@@ -1,0 +1,227 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Pattern Language Schema",
+  "description": "Schema for Christopher Alexander's Pattern Language structure, based on APL - Home Main.md definition",
+  "type": "object",
+  "definitions": {
+    "Pattern": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 253,
+          "description": "Pattern number in sequence (0 for meta-pattern)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Pattern name"
+        },
+        "asterisks": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Number of asterisks indicating confirming evidence: 0=uncertain, 1=progress made, 2=true invariant"
+        },
+        "context": {
+          "type": "string",
+          "description": "Introductory paragraph linking to preceding patterns"
+        },
+        "problem_summary": {
+          "type": "string",
+          "description": "Summary of the problem in bold"
+        },
+        "problem_details": {
+          "type": "string", 
+          "description": "Problem's details, background and manifestations"
+        },
+        "solution": {
+          "type": "string",
+          "description": "The solution in bold"
+        },
+        "diagram": {
+          "type": "string",
+          "description": "Description or reference to diagram of the solution"
+        },
+        "connections": {
+          "type": "string",
+          "description": "Paragraph linking to smaller patterns needed to complete this pattern"
+        },
+        "preceding_patterns": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Pattern numbers that precede this one in the hierarchy"
+        },
+        "following_patterns": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Pattern numbers that follow this one in the hierarchy"
+        }
+      },
+      "required": ["number", "name", "problem_summary", "solution"],
+      "additionalProperties": false
+    },
+    "PatternCategory": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "enum": ["Towns", "Buildings", "Construction"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Category description and purpose"
+        },
+        "process": {
+          "type": "string", 
+          "description": "Planning/design process for this category"
+        },
+        "pattern_range": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "integer"
+            },
+            "end": {
+              "type": "integer"
+            }
+          },
+          "required": ["start", "end"]
+        },
+        "sequences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PatternSequence"
+          }
+        }
+      },
+      "required": ["name", "description", "pattern_range"],
+      "additionalProperties": false
+    },
+    "PatternSequence": {
+      "type": "object", 
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 36,
+          "description": "Sequence identifier (1-36)"
+        },
+        "heading": {
+          "type": "string",
+          "description": "Sequence heading from aplbullets.md"
+        },
+        "description": {
+          "type": "string",
+          "description": "Sequence description from aplsummary.md"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["Towns", "Buildings", "Construction"]
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Pattern numbers included in this sequence"
+        },
+        "emergent_phenomena": {
+          "type": "string",
+          "description": "Description of the emergent phenomena produced by this sequence of patterns"
+        }
+      },
+      "required": ["id", "heading", "category", "patterns"],
+      "additionalProperties": false
+    },
+    "PatternLanguage": {
+      "type": "object",
+      "properties": {
+        "meta_pattern": {
+          "$ref": "#/definitions/Pattern",
+          "description": "The Pattern Language expressed as a meta-pattern using its own schema"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PatternCategory"
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "sequences": {
+          "type": "array", 
+          "items": {
+            "$ref": "#/definitions/PatternSequence"
+          },
+          "minItems": 36,
+          "maxItems": 36
+        },
+        "patterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Pattern"
+          },
+          "minItems": 253,
+          "maxItems": 253
+        },
+        "usage_instructions": {
+          "type": "object",
+          "properties": {
+            "how_to_use": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Step-by-step instructions for using patterns"
+            },
+            "choosing_language": {
+              "type": "array", 
+              "items": {
+                "type": "string"
+              },
+              "description": "Instructions for choosing a pattern language"
+            },
+            "pattern_hierarchies": {
+              "type": "object",
+              "properties": {
+                "two_asterisks": {
+                  "type": "string",
+                  "description": "Meaning of patterns with two asterisks"
+                },
+                "one_asterisk": {
+                  "type": "string", 
+                  "description": "Meaning of patterns with one asterisk"
+                },
+                "no_asterisks": {
+                  "type": "string",
+                  "description": "Meaning of patterns without asterisks"
+                }
+              }
+            }
+          }
+        }
+      },
+      "required": ["meta_pattern", "categories", "sequences"],
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/definitions/Pattern"
+    },
+    {
+      "$ref": "#/definitions/PatternCategory" 
+    },
+    {
+      "$ref": "#/definitions/PatternSequence"
+    },
+    {
+      "$ref": "#/definitions/PatternLanguage"
+    }
+  ]
+}
