@@ -3,7 +3,8 @@
  * Tests the motivational and emotional system
  */
 
-import { OpenPsi, PsiRule, Demand, Emotion } from '../reasoning/OpenPsi.js';
+import { jest } from '@jest/globals';
+import { OpenPsi, Goal, Drive, Emotion } from '../reasoning/OpenPsi.js';
 import { AtomSpace } from '../atomspace/AtomSpace.js';
 
 describe('OpenPsi', () => {
@@ -13,8 +14,8 @@ describe('OpenPsi', () => {
   beforeEach(() => {
     atomSpace = new AtomSpace();
     openPsi = new OpenPsi(atomSpace);
-    // Suppress console.log during tests
-    jest.spyOn(console, 'log').mockImplementation();
+    jest.spyOn(console, 'log').mockImplementation(() => undefined);
+    jest.spyOn(console, 'debug').mockImplementation(() => undefined);
   });
 
   afterEach(() => {
@@ -26,307 +27,151 @@ describe('OpenPsi', () => {
       expect(openPsi).toBeDefined();
     });
 
-    it('should initialize default demands', () => {
-      const demands = openPsi.getDemands();
-      expect(demands.length).toBeGreaterThan(0);
+    it('should initialize default drives', () => {
+      const state = openPsi.getState();
+      expect(state.drives.length).toBeGreaterThan(0);
     });
   });
 
-  describe('demand management', () => {
-    it('should add a new demand', () => {
-      const demand: Demand = {
-        id: 'curiosity',
-        name: 'Curiosity',
-        goalValue: 0.7,
-        currentValue: 0.5,
-        urgency: 0.3,
-      };
-
-      openPsi.addDemand(demand);
-      const demands = openPsi.getDemands();
-
-      expect(demands.some((d) => d.id === 'curiosity')).toBe(true);
+  describe('drive management', () => {
+    it('should add a new drive', () => {
+      openPsi.addDrive('curiosity', 0.5, 0, 1, 0.01);
+      const state = openPsi.getState();
+      expect(state.drives.some((d: Drive) => d.name === 'curiosity')).toBe(true);
     });
 
-    it('should update demand values', () => {
-      const demand: Demand = {
-        id: 'energy',
-        name: 'Energy',
-        goalValue: 1.0,
-        currentValue: 0.5,
-        urgency: 0.5,
-      };
-
-      openPsi.addDemand(demand);
-      openPsi.updateDemand('energy', { currentValue: 0.8 });
-
-      const updated = openPsi.getDemand('energy');
-      expect(updated?.currentValue).toBe(0.8);
+    it('should satisfy a drive', () => {
+      openPsi.addDrive('testDrive', 0.3, 0, 1, 0.01);
+      openPsi.satisfyDrive('testDrive', 0.4);
+      const state = openPsi.getState();
+      const drive = state.drives.find((d: Drive) => d.name === 'testDrive');
+      expect(drive?.value).toBeCloseTo(0.7, 5);
     });
 
-    it('should calculate demand urgency based on gap', () => {
-      const demand: Demand = {
-        id: 'test',
-        name: 'Test',
-        goalValue: 1.0,
-        currentValue: 0.2,
-        urgency: 0,
-      };
-
-      openPsi.addDemand(demand);
-      const urgency = openPsi.calculateUrgency('test');
-
-      // Large gap should result in high urgency
-      expect(urgency).toBeGreaterThan(0.5);
+    it('should cap drive value at max', () => {
+      openPsi.addDrive('capped', 0.9, 0, 1, 0.01);
+      openPsi.satisfyDrive('capped', 0.5);
+      const state = openPsi.getState();
+      const drive = state.drives.find((d: Drive) => d.name === 'capped');
+      expect(drive?.value).toBe(1.0);
     });
 
-    it('should prioritize demands by urgency', () => {
-      openPsi.addDemand({
-        id: 'low',
-        name: 'Low Priority',
-        goalValue: 1.0,
-        currentValue: 0.9,
-        urgency: 0.1,
-      });
+    it('should return false when satisfying non-existent drive', () => {
+      const result = openPsi.satisfyDrive('nonexistent', 0.5);
+      expect(result).toBe(false);
+    });
 
-      openPsi.addDemand({
-        id: 'high',
-        name: 'High Priority',
-        goalValue: 1.0,
-        currentValue: 0.1,
-        urgency: 0.9,
-      });
-
-      const prioritized = openPsi.getPrioritizedDemands();
-
-      expect(prioritized[0].id).toBe('high');
+    it('should decay drives on update', () => {
+      openPsi.addDrive('decayDrive', 1.0, 0, 1, 0.1);
+      openPsi.updateDrives();
+      const state = openPsi.getState();
+      const drive = state.drives.find((d: Drive) => d.name === 'decayDrive');
+      expect(drive?.value).toBeLessThan(1.0);
     });
   });
 
-  describe('psi rules', () => {
-    it('should add psi rules', () => {
-      const rule: PsiRule = {
-        id: 'rule_1',
-        context: () => true,
-        action: () => ({ executed: true }),
-        goal: 'energy',
-        weight: 0.8,
-      };
-
-      openPsi.addRule(rule);
-      const rules = openPsi.getRules();
-
-      expect(rules.some((r) => r.id === 'rule_1')).toBe(true);
+  describe('goal management', () => {
+    it('should create a goal', () => {
+      const goal = openPsi.createGoal('explore', 0.8);
+      expect(goal).toBeDefined();
+      expect(goal.name).toBe('explore');
+      expect(goal.priority).toBe(0.8);
     });
 
-    it('should evaluate rule context', () => {
-      let contextCalled = false;
-
-      const rule: PsiRule = {
-        id: 'context_rule',
-        context: () => {
-          contextCalled = true;
-          return true;
-        },
-        action: () => ({ success: true }),
-        goal: 'test',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-      openPsi.selectAction();
-
-      expect(contextCalled).toBe(true);
+    it('should update goal satisfaction', () => {
+      const goal = openPsi.createGoal('testGoal', 0.5);
+      openPsi.updateGoalSatisfaction(goal.id, 0.9);
+      const state = openPsi.getState();
+      const updated = state.goals.find((g: Goal) => g.id === goal.id);
+      expect(updated?.satisfaction).toBeCloseTo(0.9, 5);
     });
 
-    it('should execute rule action when context is satisfied', () => {
-      let actionExecuted = false;
-
-      const rule: PsiRule = {
-        id: 'action_rule',
-        context: () => true,
-        action: () => {
-          actionExecuted = true;
-          return { success: true };
-        },
-        goal: 'test',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-      openPsi.step();
-
-      expect(actionExecuted).toBe(true);
+    it('should select highest priority goal', () => {
+      openPsi.createGoal('lowPriority', 0.2);
+      openPsi.createGoal('highPriority', 0.9);
+      const selected = openPsi.selectGoal();
+      expect(selected?.name).toBe('highPriority');
     });
 
-    it('should not execute action when context is not satisfied', () => {
-      let actionExecuted = false;
-
-      const rule: PsiRule = {
-        id: 'blocked_rule',
-        context: () => false,
-        action: () => {
-          actionExecuted = true;
-          return { success: true };
-        },
-        goal: 'test',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-      openPsi.step();
-
-      expect(actionExecuted).toBe(false);
+    it('should return false when updating non-existent goal', () => {
+      const result = openPsi.updateGoalSatisfaction('nonexistent', 0.5);
+      expect(result).toBe(false);
     });
   });
 
   describe('emotion modeling', () => {
-    it('should track emotional state', () => {
-      const emotion: Emotion = {
-        valence: 0.5,
-        arousal: 0.3,
-        dominance: 0.6,
-      };
-
-      openPsi.setEmotionalState(emotion);
-      const state = openPsi.getEmotionalState();
-
-      expect(state.valence).toBe(0.5);
-      expect(state.arousal).toBe(0.3);
-      expect(state.dominance).toBe(0.6);
+    it('should add emotions', () => {
+      openPsi.addEmotion('joy', 0.8, 0.7, 10);
+      const state = openPsi.getState();
+      expect(state.emotions.some((e: Emotion) => e.name === 'joy')).toBe(true);
     });
 
-    it('should update emotional state based on events', () => {
-      openPsi.setEmotionalState({ valence: 0.5, arousal: 0.5, dominance: 0.5 });
-
-      // Positive event should increase valence
-      openPsi.processEvent({ type: 'reward', magnitude: 0.3 });
-      let state = openPsi.getEmotionalState();
-
-      expect(state.valence).toBeGreaterThan(0.5);
-
-      // Negative event should decrease valence
-      openPsi.processEvent({ type: 'punishment', magnitude: 0.5 });
-      state = openPsi.getEmotionalState();
-
-      expect(state.valence).toBeLessThan(0.8);
+    it('should return dominant emotion by arousal', () => {
+      openPsi.addEmotion('calm', 0.5, 0.2, 10);
+      openPsi.addEmotion('excited', 0.9, 0.9, 10);
+      const dominant = openPsi.getDominantEmotion();
+      expect(dominant?.name).toBe('excited');
     });
 
-    it('should influence action selection based on emotion', () => {
-      // High arousal should affect rule weight
-      openPsi.setEmotionalState({ valence: 0.5, arousal: 0.9, dominance: 0.5 });
+    it('should return null dominant emotion when no emotions present', () => {
+      const dominant = openPsi.getDominantEmotion();
+      expect(dominant).toBeNull();
+    });
 
-      const rule: PsiRule = {
-        id: 'arousal_sensitive',
-        context: () => true,
-        action: () => ({ success: true }),
-        goal: 'test',
-        weight: 0.5,
-        emotionalModulation: true,
-      };
+    it('should expire emotions with zero duration after update', () => {
+      openPsi.addEmotion('fleeting', 0.5, 0.5, 1);
+      openPsi.updateEmotions();
+      const state = openPsi.getState();
+      expect(state.emotions.some((e: Emotion) => e.name === 'fleeting')).toBe(false);
+    });
 
-      openPsi.addRule(rule);
-      const effectiveWeight = openPsi.getEffectiveWeight(rule);
+    it('should clamp emotion valence to [-1, 1]', () => {
+      openPsi.addEmotion('overflowed', 2.0, 0.5, 10);
+      const state = openPsi.getState();
+      const emotion = state.emotions.find((e: Emotion) => e.name === 'overflowed');
+      expect(emotion?.valence).toBe(1.0);
+    });
 
-      // High arousal should modulate weight
-      expect(effectiveWeight).not.toBe(0.5);
+    it('should clamp emotion arousal to [0, 1]', () => {
+      openPsi.addEmotion('clampedArousal', 0.5, -0.5, 10);
+      const state = openPsi.getState();
+      const emotion = state.emotions.find((e: Emotion) => e.name === 'clampedArousal');
+      expect(emotion?.arousal).toBe(0.0);
     });
   });
 
-  describe('action selection', () => {
-    it('should select highest weighted applicable rule', () => {
-      const lowRule: PsiRule = {
-        id: 'low_weight',
-        context: () => true,
-        action: () => ({ id: 'low' }),
-        goal: 'test',
-        weight: 0.3,
-      };
-
-      const highRule: PsiRule = {
-        id: 'high_weight',
-        context: () => true,
-        action: () => ({ id: 'high' }),
-        goal: 'test',
-        weight: 0.9,
-      };
-
-      openPsi.addRule(lowRule);
-      openPsi.addRule(highRule);
-
-      const selected = openPsi.selectAction();
-
-      expect(selected?.id).toBe('high_weight');
+  describe('action execution', () => {
+    it('should execute an action cycle without throwing', () => {
+      expect(() => openPsi.executeAction()).not.toThrow();
     });
 
-    it('should return null when no rules are applicable', () => {
-      const rule: PsiRule = {
-        id: 'blocked',
-        context: () => false,
-        action: () => ({ success: true }),
-        goal: 'test',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-      const selected = openPsi.selectAction();
-
-      expect(selected).toBeNull();
+    it('should update drives during executeAction', () => {
+      const stateBefore = openPsi.getState();
+      const energyBefore = stateBefore.drives.find((d: Drive) => d.name === 'energy')?.value ?? 1;
+      openPsi.executeAction();
+      const stateAfter = openPsi.getState();
+      const energyAfter = stateAfter.drives.find((d: Drive) => d.name === 'energy')?.value ?? 1;
+      expect(energyAfter).toBeLessThanOrEqual(energyBefore);
     });
   });
 
-  describe('cognitive cycle', () => {
-    it('should run continuous cognitive cycle', async () => {
-      let stepCount = 0;
-
-      const rule: PsiRule = {
-        id: 'counter',
-        context: () => stepCount < 5,
-        action: () => {
-          stepCount++;
-          return { count: stepCount };
-        },
-        goal: 'test',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-
-      // Run for a few cycles
-      for (let i = 0; i < 5; i++) {
-        openPsi.step();
-      }
-
-      expect(stepCount).toBe(5);
+  describe('getState', () => {
+    it('should return complete state object', () => {
+      const state = openPsi.getState();
+      expect(state).toHaveProperty('goals');
+      expect(state).toHaveProperty('drives');
+      expect(state).toHaveProperty('emotions');
+      expect(state).toHaveProperty('dominantEmotion');
     });
 
-    it('should update demands after action execution', () => {
-      const demand: Demand = {
-        id: 'hunger',
-        name: 'Hunger',
-        goalValue: 1.0,
-        currentValue: 0.3,
-        urgency: 0.7,
-      };
-
-      openPsi.addDemand(demand);
-
-      const rule: PsiRule = {
-        id: 'eat',
-        context: () => true,
-        action: () => {
-          openPsi.updateDemand('hunger', { currentValue: 0.8 });
-          return { ate: true };
-        },
-        goal: 'hunger',
-        weight: 1.0,
-      };
-
-      openPsi.addRule(rule);
-      openPsi.step();
-
-      const updated = openPsi.getDemand('hunger');
-      expect(updated?.currentValue).toBe(0.8);
+    it('should reflect current goals drives and emotions in state', () => {
+      openPsi.createGoal('stateGoal', 0.6);
+      openPsi.addDrive('stateDrive', 0.5, 0, 1, 0.01);
+      openPsi.addEmotion('stateEmotion', 0.4, 0.3, 5);
+      const state = openPsi.getState();
+      expect(state.goals.some((g: Goal) => g.name === 'stateGoal')).toBe(true);
+      expect(state.drives.some((d: Drive) => d.name === 'stateDrive')).toBe(true);
+      expect(state.emotions.some((e: Emotion) => e.name === 'stateEmotion')).toBe(true);
     });
   });
 });

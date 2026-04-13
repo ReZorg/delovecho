@@ -3,11 +3,12 @@
  * Tests the unified cognitive interface
  */
 
+import { jest } from '@jest/globals';
 import { CognitiveOrchestrator, createCognitiveOrchestrator } from '../integration/index.js';
 import type { DeepTreeEchoBotConfig, UnifiedMessage, CognitiveEvent } from '../types/index.js';
 
 // Mock fetch for LLM API calls
-global.fetch = jest.fn();
+global.fetch = jest.fn() as typeof fetch;
 
 const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
 
@@ -150,9 +151,10 @@ describe('CognitiveOrchestrator', () => {
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({
-          choices: [{ message: { content: 'Hello from LLM!' } }],
-        }),
+        json: () =>
+          Promise.resolve({
+            choices: [{ message: { content: 'Hello from LLM!' } }],
+          }),
       } as Response);
 
       const orch = new CognitiveOrchestrator(configWithKey);
@@ -205,12 +207,13 @@ describe('CognitiveOrchestrator', () => {
 
       mockFetch.mockResolvedValueOnce({
         ok: true,
-        json: async () => ({
-          choices: [{ message: { content: 'Configured response' } }],
-        }),
+        json: () =>
+          Promise.resolve({
+            choices: [{ message: { content: 'Configured response' } }],
+          }),
       } as Response);
 
-      const response = await orchestrator.processMessage({
+      await orchestrator.processMessage({
         id: 'msg-config',
         content: 'Test',
         role: 'user',

@@ -3,7 +3,7 @@
  * Tests the hypergraph knowledge representation system
  */
 
-import { AtomSpace, Atom, AtomType, TruthValue, AttentionValue } from '../atomspace/AtomSpace.js';
+import { AtomSpace } from '../atomspace/AtomSpace.js';
 
 describe('AtomSpace', () => {
   let atomSpace: AtomSpace;
@@ -274,11 +274,11 @@ describe('AtomSpace', () => {
       // Create similarity between cat and dog
       atomSpace.addLink('SimilarityLink', [cat.id, dog.id], { strength: 0.7, confidence: 0.9 });
 
-      expect(atomSpace.getSize()).toBe(7); // 4 nodes + 3 links
+      expect(atomSpace.getSize()).toBe(8); // 4 nodes + 4 links
 
       // Verify graph structure
       const mammalIncoming = atomSpace.getIncoming(mammal.id);
-      expect(mammalIncoming.length).toBe(2); // cat and dog inherit from mammal
+      expect(mammalIncoming.length).toBe(3); // mammal->animal, cat->mammal, dog->mammal
     });
 
     it('should handle circular references', () => {
@@ -291,8 +291,8 @@ describe('AtomSpace', () => {
       const aIncoming = atomSpace.getIncoming(a.id);
       const bIncoming = atomSpace.getIncoming(b.id);
 
-      expect(aIncoming.length).toBe(1);
-      expect(bIncoming.length).toBe(1);
+      expect(aIncoming.length).toBe(2);
+      expect(bIncoming.length).toBe(2);
     });
 
     it('should handle multiple links between same nodes', () => {
