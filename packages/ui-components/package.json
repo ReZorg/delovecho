@@ -17,6 +17,10 @@
     "./AICompanionHub": {
       "import": "./dist/AICompanionHub/index.js",
       "types": "./dist/AICompanionHub/index.d.ts"
+    },
+    "./Live2DAvatar": {
+      "import": "./dist/Live2DAvatar/index.js",
+      "types": "./dist/Live2DAvatar/index.d.ts"
     }
   },
   "scripts": {
