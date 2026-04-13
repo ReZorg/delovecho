@@ -1,0 +1,57 @@
+# Legal Promise Template
+# This file defines the legal constraints (λ) that evidence must satisfy.
+# Copy this file to your repository root as '.promise' and customize.
+
+# Case Information
+case_number: "2025-137857"
+case_name: "Revenue Stream Hijacking"
+
+# Burden of Proof
+# Options: civil (50%), criminal (95%)
+burden_of_proof: criminal
+
+# Required Evidence Types
+# The analyzer will look for files matching these categories
+required_evidence:
+  - financial_records
+  - communication_logs
+  - corporate_records
+  - revenue_records
+  - tax_records
+
+# Statutory Violations to Prove
+# Format: Act.Section (e.g., CompaniesAct.s76)
+statutory_violations:
+  - CompaniesAct.s76    # Director's standard of conduct
+  - CompaniesAct.s77    # Liability of directors
+  - CompaniesAct.s162   # Delinquent directors
+  - POPIA.s107          # Criminal offenses
+  - TaxAdmin.s234       # Tax evasion
+  - TaxAdmin.s235       # Fraudulent returns
+
+# Key Entities to Track
+# The analyzer will look for evidence involving these entities
+entities:
+  - name: "Peter Andrew Faucitt"
+    role: "Primary Perpetrator"
+    id: "PERSON_001"
+  - name: "Rynette Farrar"
+    role: "Co-Conspirator"
+    id: "PERSON_002"
+  - name: "Daniel Jacobus Bantjies"
+    role: "Complicit Trustee"
+    id: "PERSON_003"
+
+# Timeline Constraints
+# Evidence must fall within this date range
+timeline:
+  start_date: "2017-01-01"
+  end_date: "2026-12-31"
+  critical_date: "2026-05-01"  # Ketoni payout date
+  
+# Quantum Thresholds
+# Minimum financial amounts for criminal prosecution
+quantum:
+  minimum_theft: 100000      # R100,000
+  minimum_fraud: 500000      # R500,000
+  total_claim: 10269727.90   # R10.27M documented losses

@@ -1,0 +1,105 @@
+# =============================================================================
+# Plan 9 CPU Server Grid — Docker Compose
+# Deploys N Plan 9 instances (via QEMU) as a 9P2000-connected grid.
+# =============================================================================
+#
+# Usage:
+#   docker compose -f docker-compose.grid.yml up -d
+#   docker compose -f docker-compose.grid.yml --scale plan9-cpu=5 up -d
+#   docker compose -f docker-compose.grid.yml down
+#
+
+services:
+  # --------------------------------------------------------------------------
+  # Registry Node (CPU 0) — Auth/name server and grid coordinator
+  # --------------------------------------------------------------------------
+  plan9-registry:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: plan9-registry
+    hostname: plan9-registry
+    environment:
+      - PLAN9=/usr/local/plan9
+      - PLAN9_NODE_ID=0
+      - PLAN9_NODE_ROLE=registry
+      - PLAN9_9P_PORT=564
+    ports:
+      - "564:564"
+      - "8080:8080"
+    volumes:
+      - plan9-registry-data:/var/plan9/grid/cpu-0
+      - ./:/workspace
+    networks:
+      plan9-net:
+        aliases:
+          - registry.plan9.local
+    command: >
+      bash -c "echo 'Plan 9 auth/registry node starting...' && tail -f /dev/null"
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo | socat - TCP:localhost:564,connect-timeout=2 || true"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # --------------------------------------------------------------------------
+  # CPU Server Nodes — Distributed processing
+  # --------------------------------------------------------------------------
+  plan9-cpu:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      - PLAN9=/usr/local/plan9
+      - PLAN9_NODE_ROLE=cpu
+      - PLAN9_REGISTRY=tcp!plan9-registry!564
+    volumes:
+      - ./:/workspace
+    networks:
+      - plan9-net
+    depends_on:
+      plan9-registry:
+        condition: service_healthy
+    command: >
+      bash -c "echo 'Plan 9 CPU server starting...' && tail -f /dev/null"
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: "2"
+          memory: 2G
+
+  # --------------------------------------------------------------------------
+  # Grid Monitor — Web dashboard for grid status
+  # --------------------------------------------------------------------------
+  plan9-monitor:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    container_name: plan9-monitor
+    hostname: plan9-monitor
+    environment:
+      - PLAN9=/usr/local/plan9
+      - PLAN9_NODE_ROLE=monitor
+      - FLASK_APP=/workspace/scripts/grid_monitor.py
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./:/workspace
+    networks:
+      - plan9-net
+    depends_on:
+      plan9-registry:
+        condition: service_healthy
+    command: >
+      python3 /workspace/scripts/grid_monitor.py
+
+volumes:
+  plan9-registry-data:
+
+networks:
+  plan9-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16

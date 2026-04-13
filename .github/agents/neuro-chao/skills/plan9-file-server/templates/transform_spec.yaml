@@ -1,0 +1,92 @@
+# Plan 9 File Server — Transform Specification
+#
+# Composition:
+#   skill-creator(
+#     plan9-devcontainer(
+#       plan9-cognitive-devkernel[
+#         {{file-server}}
+#       ]
+#     )
+#   )
+#
+# The file-server guide is injected into the plan9-cognitive-devkernel
+# as a parameterized enrichment, then wrapped by plan9-devcontainer
+# for infrastructure, and packaged by skill-creator.
+
+source_skills:
+  - name: plan9-cognitive-devkernel
+    domain: cognitive-kernel
+    description: "Plan 9 cognitive development kernel with 9P2000 namespaces"
+  - name: plan9-devcontainer
+    domain: devcontainer
+    description: "QEMU-based Plan 9 development environment"
+
+source_enrichment:
+  name: file-server-guide
+  domain: plan9-cluster
+  description: "How to set up a Plan 9 file server with multiple CPU servers"
+  source: "HowtosetupaPlan9fileserverwithmultiplec.md"
+
+target_skill:
+  name: plan9-file-server
+  domain: plan9-cluster-storage
+  description: "Plan 9 file server with auth, CPU servers, and cognitive namespace"
+
+# Enrichment injection: file-server guide → cognitive-devkernel
+injection_mappings:
+  # Guide Part 1 (File Server Setup) → Infrastructure layer
+  "file-server-install":     "plan9-devcontainer Dockerfile + QEMU config"
+  "network-config":          "ndb-local.conf template"
+  "auth-services":           "cpurc auth section + faktotum config"
+  "user-creation":           "post-create script user provisioning"
+  "cpu-auth-config":         "cpurc-fs.rc template"
+  "kernel-compilation":      "plan9-build CLI integration"
+
+  # Guide Part 2 (CPU Server Setup) → Grid layer
+  "cpu-server-install":      "docker-compose.fileserver.yml cpu service"
+  "cpu-network-config":      "per-node ndb entries + cpurc templates"
+  "cpu-boot-config":         "plan9.ini templates per node"
+
+  # Guide Part 3 (Testing) → Validation layer
+  "verify-connectivity":     "validate_cluster.py network checks"
+  "distributed-computation": "cognitive namespace distribution"
+  "remote-namespaces":       "union-atomspace.rc script"
+
+  # Guide Part 4 (OpenCog) → Cognitive layer
+  "atomspace-9p-server":     "atomspace_9p.c + cogfs.c templates"
+  "distributed-pln":         "cognitive-export.rc + pipeline binding"
+
+# New promises (extend plan9-cognitive-devkernel's 8 promises)
+file_server_promises:
+  - name: file-server
+    constraint: "File server node configured (cpurc, plan9.ini, ndb)"
+  - name: auth-server
+    constraint: "Auth services enabled (keyfs, faktotum, tcp567)"
+  - name: ndb-config
+    constraint: "Network database has all nodes defined"
+  - name: cpu-mount
+    constraint: "CPU servers reference file server for mount"
+  - name: cognitive-export
+    constraint: "Cognitive namespace exported via 9P2000"
+  - name: docker-compose
+    constraint: "docker-compose.fileserver.yml defines plan9-fileserver"
+  - name: fs-storage
+    constraint: "File system type configured (hjfs or cwfs)"
+  - name: cluster-network
+    constraint: "Cluster network subnet and gateway defined"
+
+# Cognitive namespace extensions
+cognitive_namespace_extensions:
+  file_server_exports:
+    port: 5640
+    root: "/cognitive/"
+    description: "File server exports full cognitive namespace"
+  cpu_server_exports:
+    port: 5641
+    root: "/cognitive/"
+    description: "CPU servers export local cognitive results"
+  binding_patterns:
+    - centralized     # All atoms on file server
+    - partitioned     # Domain sharding across CPU servers
+    - replicated_read # Read cache on CPU, write to file server
+    - pipeline        # Sequential processing chain
