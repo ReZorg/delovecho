@@ -6,7 +6,7 @@
 import '@testing-library/jest-dom';
 
 // Mock fetch globally for tests
-global.fetch = jest.fn(() =>
+global.fetch = (() =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve({ choices: [{ message: { content: 'Test response' } }] }),
@@ -14,21 +14,21 @@ global.fetch = jest.fn(() =>
     status: 200,
     statusText: 'OK',
   } as Response)
-);
+) as typeof fetch;
 
 // Mock window.matchMedia for component tests
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: jest.fn().mockImplementation((query) => ({
+  value: (query: string) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: jest.fn(),
-    removeListener: jest.fn(),
-    addEventListener: jest.fn(),
-    removeEventListener: jest.fn(),
-    dispatchEvent: jest.fn(),
-  })),
+    addListener: () => {},
+    removeListener: () => {},
+    addEventListener: () => {},
+    removeEventListener: () => {},
+    dispatchEvent: () => false,
+  }),
 });
 
 // Mock ResizeObserver
@@ -65,5 +65,8 @@ console.warn = (...args: unknown[]) => {
 
 // Clean up after each test
 afterEach(() => {
-  jest.clearAllMocks();
+  const jestGlobal = (globalThis as any).jest;
+  if (jestGlobal?.clearAllMocks) {
+    jestGlobal.clearAllMocks();
+  }
 });

@@ -22,6 +22,7 @@ module.exports = {
   collectCoverageFrom: [
     'DeepTreeEchoBot/**/*.{ts,tsx}',
     'AICompanionHub/**/*.{ts,tsx}',
+    'Live2DAvatar/**/*.{ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
     '!**/__tests__/**',
@@ -37,6 +38,7 @@ module.exports = {
     },
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  injectGlobals: true,
   verbose: true,
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],

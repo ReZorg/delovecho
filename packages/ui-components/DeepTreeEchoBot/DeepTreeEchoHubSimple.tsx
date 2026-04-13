@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Live2DAvatar } from '../Live2DAvatar/Live2DAvatar.js'
+import { MiaraManifest } from '../Live2DAvatar/MiaraManifest.js'
+import type { EndocrineState } from '../Live2DAvatar/types.js'
 
 // Simple icon component replacement
 const IconPlaceholder = ({
@@ -18,6 +21,35 @@ const IconPlaceholder = ({
 
 const DeepTreeEchoHubSimple: React.FC = () => {
   const [activeTab, setActiveTab] = useState('dashboard')
+  const [cognitiveMode, setCognitiveMode] = useState('idle')
+  const [endocrineState, setEndocrineState] = useState<EndocrineState>(
+    MiaraManifest.endocrineBaselines,
+  )
+
+  useEffect(() => {
+    const sequence = ['idle', 'thinking', 'responding', 'listening']
+    let index = 0
+
+    const interval = window.setInterval(() => {
+      index = (index + 1) % sequence.length
+      setCognitiveMode(sequence[index])
+
+      setEndocrineState((prev) => ({
+        ...prev,
+        dopamine: Math.min(1, Math.max(0, prev.dopamine + (Math.random() - 0.5) * 0.08)),
+        serotonin: Math.min(1, Math.max(0, prev.serotonin + (Math.random() - 0.5) * 0.05)),
+        norepinephrine: Math.min(
+          1,
+          Math.max(0, prev.norepinephrine + (Math.random() - 0.5) * 0.1),
+        ),
+        cortisol: Math.min(1, Math.max(0, prev.cortisol + (Math.random() - 0.5) * 0.06)),
+      }))
+    }, 2500)
+
+    return () => {
+      window.clearInterval(interval)
+    }
+  }, [])
 
   const TabButton = ({
     id,
@@ -79,6 +111,66 @@ const DeepTreeEchoHubSimple: React.FC = () => {
         </div>
         Deep Tree Echo Hub
       </h1>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(280px, 360px) 1fr',
+          gap: '24px',
+          marginBottom: '24px',
+        }}
+      >
+        <div
+          style={{
+            background: 'rgba(31, 41, 55, 0.55)',
+            border: '1px solid rgba(99, 102, 241, 0.35)',
+            borderRadius: '12px',
+            padding: '12px',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '8px',
+            }}
+          >
+            <span style={{ color: '#d1d5db', fontSize: '13px', fontWeight: 600 }}>
+              Miara Avatar
+            </span>
+            <span style={{ color: '#a5b4fc', fontSize: '12px' }}>{cognitiveMode}</span>
+          </div>
+          <Live2DAvatar
+            modelUrl='/models/miara/miara_pro_t03.model3.json'
+            manifest={MiaraManifest}
+            endocrineState={endocrineState}
+            cognitiveMode={cognitiveMode}
+            width={320}
+            height={420}
+            scale={MiaraManifest.scale}
+            autoInteract
+          />
+        </div>
+
+        <div
+          style={{
+            background: 'rgba(99, 102, 241, 0.08)',
+            border: '1px solid rgba(99, 102, 241, 0.25)',
+            borderRadius: '12px',
+            padding: '20px',
+          }}
+        >
+          <h2 style={{ marginTop: 0, marginBottom: '10px', color: 'white' }}>
+            Live Cognitive Presence
+          </h2>
+          <p style={{ margin: 0, color: '#cbd5e1', lineHeight: 1.5 }}>
+            Miara is now wired into the dashboard with endocrine-driven facial blending and
+            cognitive-mode motion switching. Connect this state to orchestrator IPC events for
+            real-time emotion and dialogue synchronization.
+          </p>
+        </div>
+      </div>
 
       <div
         style={{
