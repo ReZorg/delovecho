@@ -447,4 +447,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   runAll().catch(console.error);
 }
 
-export { runAll, BenchmarkResult };
+export { runAll };
+export type { BenchmarkResult };

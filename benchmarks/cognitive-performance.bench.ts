@@ -269,4 +269,5 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   benchmark.runAll().catch(console.error);
 }
 
-export { PerformanceBenchmark, BenchmarkResult };
+export { PerformanceBenchmark };
+export type { BenchmarkResult };
