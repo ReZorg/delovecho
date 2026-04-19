@@ -572,7 +572,13 @@ jobs:
           draft: true
           generate_release_notes: true
           files: |
-            artifacts/**/*
+            artifacts/desktop-*/**/*.exe
+            artifacts/desktop-*/**/*.dmg
+            artifacts/desktop-*/**/*.AppImage
+            artifacts/desktop-*/**/*.deb
+            artifacts/desktop-*/**/*.rpm
+            artifacts/desktop-*/**/*.tar.gz
+            artifacts/desktop-*/**/*.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
