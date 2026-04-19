@@ -24,14 +24,14 @@ import {
   GRAND_CYCLE_LENGTH,
   SYS6_CYCLE_LENGTH,
   DOVE9_CYCLE_LENGTH,
-} from '../dove9/src/index.js';
+} from '../dove9/dist/index.js';
 import type {
   MailMessage,
   DovecotEmail,
   LLMServiceInterface,
   MemoryStoreInterface,
   PersonaCoreInterface,
-} from '../dove9/src/index.js';
+} from '../dove9/dist/index.js';
 
 // ---------------------------------------------------------------------------
 // Shared result type
