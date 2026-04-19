@@ -1,6 +1,6 @@
 {
   "name": "deep-tree-echo-orchestrator",
-  "version": "1.0.0",
+  "version": "6.0.1",
   "description": "System-level orchestrator daemon for Deep Tree Echo AI",
   "type": "module",
   "main": "./dist/index.js",

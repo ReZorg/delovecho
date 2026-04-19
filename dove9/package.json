@@ -1,6 +1,6 @@
 {
   "name": "dove9",
-  "version": "1.0.0",
+  "version": "6.0.1",
   "description": "Dove9 - 'Everything is a Chatbot' Cognitive Operating System",
   "type": "module",
   "main": "dist/index.js",

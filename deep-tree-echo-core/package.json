@@ -1,6 +1,6 @@
 {
   "name": "deep-tree-echo-core",
-  "version": "1.0.0",
+  "version": "6.0.1",
   "description": "Core cognitive and memory modules for Deep Tree Echo AI system",
   "type": "module",
   "main": "./dist/index.js",
