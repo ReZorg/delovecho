@@ -1,0 +1,92 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dove9: CMake Configure (dev)",
+      "type": "shell",
+      "command": "cmake --preset dev -S dovecho-core/src/dove9",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "dove9: CMake Configure (default)",
+      "type": "shell",
+      "command": "cmake --preset default -S dovecho-core/src/dove9",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "dove9: CMake Build (dev)",
+      "type": "shell",
+      "command": "cmake --build dovecho-core/src/dove9/build-dev -j4",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "dependsOn": "dove9: CMake Configure (dev)",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "dove9: CMake Build (default)",
+      "type": "shell",
+      "command": "cmake --build dovecho-core/src/dove9/build -j4",
+      "group": "build",
+      "dependsOn": "dove9: CMake Configure (default)",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$gcc"
+    },
+    {
+      "label": "dove9: CTest (dev)",
+      "type": "shell",
+      "command": "ctest --test-dir dovecho-core/src/dove9/build-dev --output-on-failure",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": "dove9: CMake Build (dev)",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "dove9: CTest (default)",
+      "type": "shell",
+      "command": "ctest --test-dir dovecho-core/src/dove9/build --output-on-failure",
+      "group": "test",
+      "dependsOn": "dove9: CMake Build (default)",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "dove9: Update compile_commands.json",
+      "type": "shell",
+      "command": "cmake --preset default -S dovecho-core/src/dove9 && ln -sf src/dove9/build/compile_commands.json dovecho-core/compile_commands.json",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
