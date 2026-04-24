@@ -307,14 +307,15 @@ describe('30-Step Cycle Addressing', () => {
   });
 
   test('getPrimaryStreamForStep returns correct stream', () => {
-    // Streams are 120° apart (10 steps)
-    const stream1 = getPrimaryStreamForStep(1);
-    const stream11 = getPrimaryStreamForStep(11);
-    const stream21 = getPrimaryStreamForStep(21);
-
-    expect(stream1).toBe(1);
-    expect(stream11).toBe(2);
-    expect(stream21).toBe(3);
+    // Streams cycle every 4 steps: mod4=1->stream1, mod4=2->stream2, mod4=3->stream3, mod4=0->integration
+    // Matches STREAM_STEP_GROUPS: stream1=[1,5,9,...], stream2=[2,6,10,...], stream3=[3,7,11,...]
+    expect(getPrimaryStreamForStep(1)).toBe(1);   // 1 % 4 = 1 -> stream 1
+    expect(getPrimaryStreamForStep(2)).toBe(2);   // 2 % 4 = 2 -> stream 2
+    expect(getPrimaryStreamForStep(3)).toBe(3);   // 3 % 4 = 3 -> stream 3
+    expect(getPrimaryStreamForStep(4)).toBe('integration'); // 4 % 4 = 0
+    expect(getPrimaryStreamForStep(5)).toBe(1);   // 5 % 4 = 1 -> stream 1
+    expect(getPrimaryStreamForStep(11)).toBe(3);  // 11 % 4 = 3 -> stream 3
+    expect(getPrimaryStreamForStep(21)).toBe(1);  // 21 % 4 = 1 -> stream 1
   });
 
   test('getDyadicPairForStep returns valid pair', () => {

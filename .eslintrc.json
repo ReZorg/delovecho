@@ -34,6 +34,7 @@
     "*.js",
     "*.mjs",
     "*.cjs",
+    "benchmarks",
     "delta-echo-desk",
     "deltecho2",
     "dovecot-core"

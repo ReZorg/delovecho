@@ -5,8 +5,9 @@ module.exports = {
   extensionsToTreatAsEsm: ['.ts'],
   moduleNameMapper: {
     '^(\\.{1,2}/.*)\\.js$': '$1',
-    '^deep-tree-echo-core$': '<rootDir>/../deep-tree-echo-core/dist/index.js',
-    '^dove9$': '<rootDir>/../dove9/dist/index.js',
+    '^deep-tree-echo-core/(.*)$': '<rootDir>/../deep-tree-echo-core/src/$1',
+    '^deep-tree-echo-core$': '<rootDir>/../deep-tree-echo-core/src/index.ts',
+    '^dove9$': '<rootDir>/../dove9/src/index.ts',
   },
   transform: {
     '^.+\\.tsx?$': [
