@@ -244,8 +244,8 @@ export async function loadExistingProfiles(page: Page): Promise<User[]> {
   try {
     await page.waitForSelector('button.styles_module_account', { timeout: 10_000 })
     await page.waitForSelector('button.styles_module_account[aria-busy=false]', { timeout: 10_000 })
-  } catch {
-    // No accounts exist yet — return empty
+  } catch (error) {
+    console.log('No account buttons found within timeout — assuming no profiles exist', error)
     return []
   }
   const accountList = page.locator('button.styles_module_account')
