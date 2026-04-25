@@ -13,6 +13,7 @@ import {
   GlobalWorkspaceBroadcaster,
   type GlobalWorkspaceSnapshot,
   type Dove9CognitiveState,
+  type SnapshotSubscriber,
 } from '../telemetry/GlobalWorkspaceBroadcaster.js';
 import type { SynchronizationEvent } from '../sys6-bridge/Sys6OrchestratorBridge.js';
 
@@ -85,7 +86,7 @@ describe('GlobalWorkspaceBroadcaster', () => {
     });
 
     it('calls registered subscribers with the snapshot', async () => {
-      const subscriber = jest.fn();
+      const subscriber = jest.fn<SnapshotSubscriber>();
       broadcaster.addSubscriber(subscriber);
 
       const syncEvent = makeSyncEvent();
@@ -97,8 +98,8 @@ describe('GlobalWorkspaceBroadcaster', () => {
     });
 
     it('calls all subscribers', async () => {
-      const sub1 = jest.fn();
-      const sub2 = jest.fn();
+      const sub1 = jest.fn<SnapshotSubscriber>();
+      const sub2 = jest.fn<SnapshotSubscriber>();
       broadcaster.addSubscriber(sub1);
       broadcaster.addSubscriber(sub2);
 
@@ -138,10 +139,10 @@ describe('GlobalWorkspaceBroadcaster', () => {
     });
 
     it('isolates a failing subscriber so others still run', async () => {
-      const failingSub = jest.fn().mockImplementation(() => {
+      const failingSub = jest.fn<SnapshotSubscriber>().mockImplementation(() => {
         throw new Error('subscriber failure');
       });
-      const goodSub = jest.fn();
+      const goodSub = jest.fn<SnapshotSubscriber>();
 
       broadcaster.addSubscriber(failingSub);
       broadcaster.addSubscriber(goodSub);
@@ -170,7 +171,7 @@ describe('GlobalWorkspaceBroadcaster', () => {
 
   describe('removeSubscriber', () => {
     it('prevents removed subscriber from being called', async () => {
-      const sub = jest.fn();
+      const sub = jest.fn<SnapshotSubscriber>();
       broadcaster.addSubscriber(sub);
       broadcaster.removeSubscriber(sub);
 
@@ -181,8 +182,8 @@ describe('GlobalWorkspaceBroadcaster', () => {
 
   describe('clearSubscribers', () => {
     it('removes all subscribers', async () => {
-      const sub1 = jest.fn();
-      const sub2 = jest.fn();
+      const sub1 = jest.fn<SnapshotSubscriber>();
+      const sub2 = jest.fn<SnapshotSubscriber>();
       broadcaster.addSubscriber(sub1);
       broadcaster.addSubscriber(sub2);
       broadcaster.clearSubscribers();

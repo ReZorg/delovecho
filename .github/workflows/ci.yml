@@ -49,6 +49,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build core packages for tests
+        run: |
+          pnpm --filter @deltecho/shared build
+          pnpm --filter deep-tree-echo-core build
+          pnpm --filter dove9 build
+          pnpm --filter @deltecho/cognitive build
+          pnpm --filter @deltecho/reasoning build
+          pnpm --filter deep-tree-echo-orchestrator build
+
       - name: Lint code
         run: pnpm run lint
         continue-on-error: true
