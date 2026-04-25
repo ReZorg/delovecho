@@ -34,7 +34,7 @@
     "dev:desktop": "pnpm --filter deltecho2 dev",
     "dev:electron": "pnpm --filter deltecho2 dev:electron",
     "start:orchestrator": "pnpm --filter deep-tree-echo-orchestrator start",
-    "docs": "typedoc --out docs/api --entryPointStrategy packages deep-tree-echo-core dove9 packages/cognitive packages/shared packages/reasoning || echo 'typedoc not installed; skipping docs generation'",
+    "docs": "typedoc --out docs/api --entryPointStrategy packages deep-tree-echo-core dove9 packages/cognitive packages/shared packages/reasoning",
     "prepare": "husky"
   },
   "pnpm": {
