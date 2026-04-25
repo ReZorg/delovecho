@@ -21,7 +21,9 @@ export default defineConfig({
   workers: 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['list'], ['html']],
-  // timeout: 30 * 60 * 1000,
+  /* Global test timeout — must accommodate page.goto (up to ~30s cold start)
+     plus waitFor* helpers (up to 20s) used in beforeEach hooks. */
+  timeout: 120_000,
   expect: {
     // Our tests involve network interaction, so we want a higher timeout
     // for assertions, such as receiving an invitation to a group.
