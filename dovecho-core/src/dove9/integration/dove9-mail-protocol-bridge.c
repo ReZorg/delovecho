@@ -252,10 +252,12 @@ void dove9_mail_to_process(const struct dove9_mail_protocol_bridge *bridge,
 	snprintf(out->id, sizeof(out->id), "%s", mail->message_id);
 	snprintf(out->message_id, sizeof(out->message_id), "%s", mail->message_id);
 	snprintf(out->from, sizeof(out->from), "%s", mail->from);
-	for (unsigned int i = 0; i < mail->to_count && i < DOVE9_MAX_RECIPIENTS; i++) {
+	unsigned int clamped_to = mail->to_count < DOVE9_MAX_RECIPIENTS
+		? mail->to_count : DOVE9_MAX_RECIPIENTS;
+	for (unsigned int i = 0; i < clamped_to; i++) {
 		snprintf(out->to[i], sizeof(out->to[i]), "%s", mail->to[i]);
 	}
-	out->to_count = mail->to_count;
+	out->to_count = clamped_to;
 	snprintf(out->subject, sizeof(out->subject), "%s", mail->subject);
 	snprintf(out->content, sizeof(out->content), "%s", mail->body);
 
@@ -288,12 +290,11 @@ void dove9_process_to_mail(const struct dove9_mail_protocol_bridge *bridge,
 		 "<%s@dove9.local>", process->id);
 
 	/* Thread linkage */
-	if (process->parent_id[0] != '\0')
+	if (process->parent_id[0] != '\0') {
 		snprintf(out->thread_id, sizeof(out->thread_id),
 			 "%s", process->parent_id);
-	snprintf(out->in_reply_to, sizeof(out->in_reply_to),
-		 "%s", process->parent_id);
-	if (process->parent_id[0] != '\0') {
+		snprintf(out->in_reply_to, sizeof(out->in_reply_to),
+			 "%s", process->parent_id);
 		snprintf(out->references[0], DOVE9_MAX_ID_LEN,
 			 "%s", process->parent_id);
 		out->reference_count = 1;

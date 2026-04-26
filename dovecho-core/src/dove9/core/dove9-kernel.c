@@ -552,11 +552,16 @@ dove9_kernel_fork_process(struct dove9_kernel *k,
 	snprintf(fork_msg_id, sizeof(fork_msg_id),
 		 "%s_fork_%lu", parent->message_id, (unsigned long)time(NULL));
 
-	const char *subj = subject != NULL ? subject : parent->subject;
+	const char *subj = subject;
 	char subj_buf[DOVE9_MAX_SUBJECT_LEN];
 	if (subject == NULL) {
-		snprintf(subj_buf, sizeof(subj_buf), "Re: %s", parent->subject);
-		subj = subj_buf;
+		if (strncmp(parent->subject, "Re: ", 4) == 0)
+			subj = parent->subject;
+		else {
+			snprintf(subj_buf, sizeof(subj_buf),
+				 "Re: %s", parent->subject);
+			subj = subj_buf;
+		}
 	}
 
 	const char *to_ptrs[DOVE9_MAX_RECIPIENTS];
@@ -621,7 +626,7 @@ dove9_kernel_create_process_from_mail(
 	struct dove9_kernel *k,
 	const struct dove9_mail_message *mail)
 {
-	if (!k->mail_protocol_enabled || k->mail_bridge == NULL)
+	if (k == NULL || !k->mail_protocol_enabled || k->mail_bridge == NULL)
 		return NULL;
 
 	/* Convert mail to process via bridge */
@@ -836,16 +841,18 @@ void dove9_kernel_tick(struct dove9_kernel *k)
 		k->active[k->active_count++] = (unsigned int)idx;
 	}
 
-	/* Execute each active process */
-	unsigned int n_active = k->active_count;
-	for (unsigned int i = 0; i < n_active; i++) {
+	/* Execute each active process.
+	 * execute_process() calls remove_active() which swaps the last
+	 * element into position i, so we must NOT increment i after a
+	 * removal — the swapped-in element now occupies this slot. */
+	for (unsigned int i = 0; i < k->active_count; ) {
 		unsigned int pidx = k->active[i];
 		if (k->processes[pidx].state == DOVE9_PROCESS_ACTIVE) {
 			execute_process(k, pidx);
-			/* Note: execute_process removes from active */
-			/* So re-check bounds */
-			if (i >= k->active_count)
-				break;
+			/* remove_active swapped last element into slot i,
+			 * so do not increment — re-examine same index */
+		} else {
+			i++;
 		}
 	}
 
