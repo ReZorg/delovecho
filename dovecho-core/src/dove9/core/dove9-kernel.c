@@ -635,14 +635,16 @@ dove9_kernel_create_process_from_mail(
 
 	/* Register in kernel process table */
 	const char *to_ptrs[DOVE9_MAX_RECIPIENTS];
-	for (unsigned int i = 0; i < mail->to_count; i++)
+	unsigned int clamped_to = mail->to_count < DOVE9_MAX_RECIPIENTS
+		? mail->to_count : DOVE9_MAX_RECIPIENTS;
+	for (unsigned int i = 0; i < clamped_to; i++)
 		to_ptrs[i] = mail->to[i];
 
 	struct dove9_message_process *kproc =
 		dove9_kernel_create_process(k,
 					    mail->message_id,
 					    mail->from,
-					    to_ptrs, mail->to_count,
+					    to_ptrs, clamped_to,
 					    mail->subject, mail->body,
 					    bridge_proc.priority);
 	if (kproc == NULL) return NULL;
