@@ -113,8 +113,12 @@ static void bridge_kernel_handler(const struct dove9_kernel_event *event,
 		snprintf(resp.to, sizeof(resp.to), "%s", proc->from);
 		snprintf(resp.from, sizeof(resp.from), "%s",
 			 b->config.bot_email_address);
-		snprintf(resp.subject, sizeof(resp.subject), "Re: %s",
-			 proc->subject);
+		if (strncmp(proc->subject, "Re: ", 4) == 0)
+			snprintf(resp.subject, sizeof(resp.subject),
+				 "%s", proc->subject);
+		else
+			snprintf(resp.subject, sizeof(resp.subject),
+				 "Re: %s", proc->subject);
 		snprintf(resp.in_reply_to, sizeof(resp.in_reply_to), "%s",
 			 proc->message_id);
 		snprintf(resp.body, sizeof(resp.body),
@@ -341,7 +345,8 @@ dove9_orchestrator_bridge_process_email(
 	snprintf(mail.from, sizeof(mail.from), "%s", email->from);
 	for (unsigned int i = 0; i < email->to_count && i < DOVE9_MAX_RECIPIENTS; i++)
 		snprintf(mail.to[i], sizeof(mail.to[i]), "%s", email->to[i]);
-	mail.to_count = email->to_count;
+	mail.to_count = email->to_count < DOVE9_MAX_RECIPIENTS
+		? email->to_count : DOVE9_MAX_RECIPIENTS;
 	snprintf(mail.subject, sizeof(mail.subject), "%s", email->subject);
 	snprintf(mail.body, sizeof(mail.body), "%s", email->body);
 	mail.timestamp = email->received_at;
