@@ -29,7 +29,7 @@ if test "${VERSION:-}" != ""; then
   :
 elif test -f version; then
   VERSION="`cat version`"
-elif test -e .git; then
+elif git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   VERSION="0.0.0"
 else
   echo "Cannot determine version number">&2

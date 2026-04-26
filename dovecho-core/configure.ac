@@ -1,10 +1,10 @@
 AC_PREREQ([2.69])
 
 m4_define([dovecot_VERSION],
-    m4_esyscmd_s([build-aux/git-version-gen]))))
+    m4_esyscmd_s([build-aux/git-version-gen]))
 
 m4_define([dovecot_ABI_VERSION],
-    m4_esyscmd_s([build-aux/git-abi-version-gen]))))
+    m4_esyscmd_s([build-aux/git-abi-version-gen]))
 
 # Be sure to update ABI version also if anything changes that might require
 # recompiling plugins. Most importantly that means if any structs are changed.
