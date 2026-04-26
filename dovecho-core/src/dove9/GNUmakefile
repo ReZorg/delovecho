@@ -71,7 +71,7 @@ ALL_TESTS := $(TESTS_COMMON_ONLY) $(TESTS_WITH_MOCKS)
 # Suffix .exe on Windows
 EXE := .exe
 
-.PHONY: all check clean
+.PHONY: all check check-local coverage clean-coverage clean
 
 all: libdove9.a $(addsuffix $(EXE),$(ALL_TESTS))
 
@@ -118,6 +118,27 @@ check: all
 	echo ""; \
 	echo "=== Results: $$passed/$$total passed, $$failed failed ==="; \
 	if [ $$failed -gt 0 ]; then exit 1; fi
+
+# ---- check-local: alias for check (matches Makefile.am target) ----
+
+check-local: check
+
+# ---- Coverage target (matches Makefile.am / CI expectation) ----
+
+COVERAGE_DIR ?= ../../coverage/dove9
+
+coverage: check
+	@if command -v lcov >/dev/null 2>&1; then \
+		lcov --capture --directory . --output-file dove9-coverage.info; \
+		genhtml dove9-coverage.info --output-directory $(COVERAGE_DIR); \
+		echo "Coverage report: $(COVERAGE_DIR)/index.html"; \
+	else \
+		echo "Warning: lcov not found, skipping coverage report"; \
+	fi
+
+clean-coverage:
+	-rm -f *.gcda *.gcno dove9-coverage.info
+	-rm -rf $(COVERAGE_DIR)
 
 clean:
 	rm -f $(LIB_OBJS) $(TEST_COMMON_OBJS) $(TEST_MOCK_OBJS) libdove9.a
