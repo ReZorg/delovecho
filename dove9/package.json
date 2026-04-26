@@ -27,7 +27,8 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rm -rf dist tsconfig.tsbuildinfo",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "lint": "eslint src --ext .ts",
     "typecheck": "tsc --noEmit"

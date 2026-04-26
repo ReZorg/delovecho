@@ -67,28 +67,28 @@ jobs:
         continue-on-error: true
 
       - name: Run tests - deep-tree-echo-core
-        run: pnpm --filter deep-tree-echo-core test -- --coverage
+        run: pnpm --filter deep-tree-echo-core test:coverage
 
       - name: Run tests - @deltecho/shared
-        run: pnpm --filter @deltecho/shared test -- --coverage
+        run: pnpm --filter @deltecho/shared test:coverage
 
       - name: Run tests - dove9
-        run: pnpm --filter dove9 test -- --coverage
+        run: pnpm --filter dove9 test:coverage
 
       - name: Run tests - @deltecho/cognitive
-        run: pnpm --filter @deltecho/cognitive test -- --coverage
+        run: pnpm --filter @deltecho/cognitive test:coverage
         continue-on-error: true
 
       - name: Run tests - @deltecho/reasoning
-        run: pnpm --filter @deltecho/reasoning test -- --coverage
+        run: pnpm --filter @deltecho/reasoning test:coverage
         continue-on-error: true
 
       - name: Run tests - deep-tree-echo-orchestrator
-        run: pnpm --filter deep-tree-echo-orchestrator test -- --coverage
+        run: pnpm --filter deep-tree-echo-orchestrator test:coverage
         continue-on-error: true
 
       - name: Run tests - @deltecho/sys6-triality
-        run: pnpm --filter @deltecho/sys6-triality test -- --coverage
+        run: pnpm --filter @deltecho/sys6-triality test:coverage
         continue-on-error: true
 
       - name: Build all packages
@@ -399,7 +399,7 @@ jobs:
           pnpm --filter dove9 build
 
       - name: Run Dovecot-Dove9 integration unit tests (dove9 package)
-        run: pnpm --filter dove9 test -- --coverage --testPathPattern="integration"
+        run: pnpm --filter dove9 test:coverage --testPathPattern="integration"
         env:
           NODE_OPTIONS: '--experimental-vm-modules'
 
