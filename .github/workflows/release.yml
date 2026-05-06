@@ -55,7 +55,7 @@ jobs:
           echo "tag=${TAG}" >> $GITHUB_OUTPUT
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
 
@@ -119,32 +119,44 @@ jobs:
           - os: ubuntu-latest
             platform: linux
             arch: x64
-            electron_arch: x64
+            eb_platform: --linux
+            eb_targets: AppImage deb
+            allow_failure: false
           # Linux ARM64
           - os: ubuntu-latest
             platform: linux
             arch: arm64
-            electron_arch: arm64
-          # macOS x64 (Intel)
+            eb_platform: --linux
+            eb_targets: AppImage deb
+            allow_failure: false
+          # macOS x64 (Intel) — signing certs required; treated as best-effort
           - os: macos-13
             platform: darwin
             arch: x64
-            electron_arch: x64
-          # macOS ARM64 (Apple Silicon)
+            eb_platform: --mac
+            eb_targets: dmg
+            allow_failure: true
+          # macOS ARM64 (Apple Silicon) — signing certs required; treated as best-effort
           - os: macos-latest
             platform: darwin
             arch: arm64
-            electron_arch: arm64
+            eb_platform: --mac
+            eb_targets: dmg
+            allow_failure: true
           # Windows x64
           - os: windows-latest
             platform: win32
             arch: x64
-            electron_arch: x64
+            eb_platform: --win
+            eb_targets: nsis portable
+            allow_failure: false
           # Windows ia32
           - os: windows-latest
             platform: win32
             arch: ia32
-            electron_arch: ia32
+            eb_platform: --win
+            eb_targets: nsis portable
+            allow_failure: false
 
     steps:
       - name: Checkout repository
@@ -153,7 +165,7 @@ jobs:
           ref: ${{ needs.prepare-release.outputs.tag }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
 
@@ -174,22 +186,52 @@ jobs:
           pnpm --filter @deltecho/cognitive build
           pnpm --filter deep-tree-echo-orchestrator build
 
-      - name: Build desktop app (deltecho2)
-        run: pnpm run build:electron -- --${{ matrix.electron_arch }} || echo "Desktop build skipped"
+      # Build the Electron frontend (JS/HTML assets) for both apps.
+      # This does NOT invoke electron-builder; it only populates html-dist/.
+      - name: Build Electron frontend (deltecho2)
+        run: pnpm run build:electron
         working-directory: deltecho2
         env:
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
 
-      - name: Build desktop app (delta-echo-desk)
-        run: pnpm run build:electron -- --${{ matrix.electron_arch }} || echo "Desktop build skipped"
+      - name: Build Electron frontend (delta-echo-desk)
+        run: pnpm run build:electron
         working-directory: delta-echo-desk
         env:
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
 
+      # Generate electron-builder.json5 config (must run before electron-builder).
+      - name: Generate electron-builder config (deltecho2)
+        run: node ./build/gen-electron-builder-config.js
+        working-directory: deltecho2/packages/target-electron
+
+      - name: Generate electron-builder config (delta-echo-desk)
+        run: node ./build/gen-electron-builder-config.js
+        working-directory: delta-echo-desk/packages/target-electron
+
+      # Package the apps into distributable installers using electron-builder.
+      # CSC_IDENTITY_AUTO_DISCOVERY=false disables macOS code-signing lookups.
+      - name: Package desktop app (deltecho2)
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        working-directory: deltecho2/packages/target-electron
+        continue-on-error: ${{ matrix.allow_failure }}
+        env:
+          ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Package desktop app (delta-echo-desk)
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        working-directory: delta-echo-desk/packages/target-electron
+        continue-on-error: ${{ matrix.allow_failure }}
+        env:
+          ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
       - name: List build artifacts
+        if: always()
         run: |
-          echo "=== deltecho2 dist ===" && ls -la deltecho2/dist/ 2>/dev/null || echo "No deltecho2 dist"
-          echo "=== delta-echo-desk dist ===" && ls -la delta-echo-desk/dist/ 2>/dev/null || echo "No delta-echo-desk dist"
+          echo "=== deltecho2 dist ===" && ls -la deltecho2/packages/target-electron/dist/ 2>/dev/null || echo "No deltecho2 dist"
+          echo "=== delta-echo-desk dist ===" && ls -la delta-echo-desk/packages/target-electron/dist/ 2>/dev/null || echo "No delta-echo-desk dist"
         shell: bash
 
       - name: Upload artifacts
@@ -197,20 +239,20 @@ jobs:
         with:
           name: release-${{ matrix.platform }}-${{ matrix.arch }}
           path: |
-            deltecho2/dist/*.exe
-            deltecho2/dist/*.dmg
-            deltecho2/dist/*.AppImage
-            deltecho2/dist/*.deb
-            deltecho2/dist/*.rpm
-            deltecho2/dist/*.tar.gz
-            deltecho2/dist/*.zip
-            delta-echo-desk/dist/*.exe
-            delta-echo-desk/dist/*.dmg
-            delta-echo-desk/dist/*.AppImage
-            delta-echo-desk/dist/*.deb
-            delta-echo-desk/dist/*.rpm
-            delta-echo-desk/dist/*.tar.gz
-            delta-echo-desk/dist/*.zip
+            deltecho2/packages/target-electron/dist/*.exe
+            deltecho2/packages/target-electron/dist/*.dmg
+            deltecho2/packages/target-electron/dist/*.AppImage
+            deltecho2/packages/target-electron/dist/*.deb
+            deltecho2/packages/target-electron/dist/*.rpm
+            deltecho2/packages/target-electron/dist/*.tar.gz
+            deltecho2/packages/target-electron/dist/*.zip
+            delta-echo-desk/packages/target-electron/dist/*.exe
+            delta-echo-desk/packages/target-electron/dist/*.dmg
+            delta-echo-desk/packages/target-electron/dist/*.AppImage
+            delta-echo-desk/packages/target-electron/dist/*.deb
+            delta-echo-desk/packages/target-electron/dist/*.rpm
+            delta-echo-desk/packages/target-electron/dist/*.tar.gz
+            delta-echo-desk/packages/target-electron/dist/*.zip
           retention-days: 30
           if-no-files-found: warn
 
@@ -232,7 +274,7 @@ jobs:
           ref: ${{ needs.prepare-release.outputs.tag }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
 
@@ -393,7 +435,7 @@ jobs:
           ref: ${{ needs.prepare-release.outputs.tag }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
 

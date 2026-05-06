@@ -286,23 +286,41 @@ jobs:
           - os: ubuntu-latest
             platform: linux
             arch: x64
+            eb_platform: --linux
+            eb_targets: AppImage deb
+            allow_failure: false
           - os: ubuntu-latest
             platform: linux
             arch: arm64
-          # macOS builds
+            eb_platform: --linux
+            eb_targets: AppImage deb
+            allow_failure: false
+          # macOS builds — require signing certs; treated as best-effort
           - os: macos-latest
             platform: darwin
             arch: x64
+            eb_platform: --mac
+            eb_targets: dmg
+            allow_failure: true
           - os: macos-latest
             platform: darwin
             arch: arm64
+            eb_platform: --mac
+            eb_targets: dmg
+            allow_failure: true
           # Windows builds
           - os: windows-latest
             platform: win32
             arch: x64
+            eb_platform: --win
+            eb_targets: nsis portable
+            allow_failure: false
           - os: windows-latest
             platform: win32
             arch: ia32
+            eb_platform: --win
+            eb_targets: nsis portable
+            allow_failure: false
 
     steps:
       - name: Checkout repository
@@ -325,27 +343,54 @@ jobs:
       - name: Build core packages
         run: pnpm run build
 
-      - name: Build Electron app (deltecho2)
+      # Build the Electron frontend (JS/HTML assets) for both apps.
+      # This does NOT invoke electron-builder; it only populates html-dist/.
+      - name: Build Electron frontend (deltecho2)
         run: pnpm run build:electron
-        continue-on-error: true
         working-directory: deltecho2
         env:
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
 
-      - name: Build Electron app (delta-echo-desk)
+      - name: Build Electron frontend (delta-echo-desk)
         run: pnpm run build:electron
-        continue-on-error: true
         working-directory: delta-echo-desk
         env:
           ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+
+      # Generate electron-builder.json5 config (must run before electron-builder).
+      - name: Generate electron-builder config (deltecho2)
+        run: node ./build/gen-electron-builder-config.js
+        working-directory: deltecho2/packages/target-electron
+
+      - name: Generate electron-builder config (delta-echo-desk)
+        run: node ./build/gen-electron-builder-config.js
+        working-directory: delta-echo-desk/packages/target-electron
+
+      # Package the apps into distributable installers using electron-builder.
+      # CSC_IDENTITY_AUTO_DISCOVERY=false disables macOS code-signing lookups.
+      - name: Package desktop app (deltecho2)
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        working-directory: deltecho2/packages/target-electron
+        continue-on-error: ${{ matrix.allow_failure }}
+        env:
+          ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Package desktop app (delta-echo-desk)
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        working-directory: delta-echo-desk/packages/target-electron
+        continue-on-error: ${{ matrix.allow_failure }}
+        env:
+          ELECTRON_BUILDER_ALLOW_UNRESOLVED_DEPENDENCIES: true
+          CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Upload desktop artifacts
         uses: actions/upload-artifact@v4
         with:
           name: desktop-${{ matrix.platform }}-${{ matrix.arch }}
           path: |
-            deltecho2/dist
-            delta-echo-desk/dist
+            deltecho2/packages/target-electron/dist
+            delta-echo-desk/packages/target-electron/dist
           retention-days: 7
 
   # ============================================
