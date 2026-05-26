@@ -209,6 +209,15 @@ jobs:
         run: node ./build/gen-electron-builder-config.js
         working-directory: delta-echo-desk/packages/target-electron
 
+      # Flatten pnpm symlinked node_modules for electron-builder compatibility.
+      - name: Patch node_modules for electron-builder (deltecho2)
+        run: node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+        working-directory: deltecho2
+
+      - name: Patch node_modules for electron-builder (delta-echo-desk)
+        run: node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+        working-directory: delta-echo-desk
+
       # Package the apps into distributable installers using electron-builder.
       # CSC_IDENTITY_AUTO_DISCOVERY=false disables macOS code-signing lookups.
       - name: Package desktop app (deltecho2)
