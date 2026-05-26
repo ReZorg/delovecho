@@ -213,12 +213,14 @@ jobs:
       # its own __dirname (e.g. deltecho2/node_modules/.pnpm). In the monorepo
       # the store lives at the workspace root, so we symlink it into place.
       - name: Link pnpm store for electron-builder (deltecho2)
-        run: mkdir -p node_modules && ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
+        run: ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
         working-directory: deltecho2
+        shell: bash
 
       - name: Link pnpm store for electron-builder (delta-echo-desk)
-        run: mkdir -p node_modules && ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
+        run: ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
         working-directory: delta-echo-desk
+        shell: bash
 
       # Flatten pnpm symlinked node_modules for electron-builder compatibility.
       - name: Patch node_modules for electron-builder (deltecho2)
