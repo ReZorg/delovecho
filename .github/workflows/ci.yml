@@ -366,16 +366,17 @@ jobs:
         run: node ./build/gen-electron-builder-config.js
         working-directory: delta-echo-desk/packages/target-electron
 
-      # The writeFlatDependencies script requires a local pnpm store at
-      # <app>/node_modules/.pnpm. The root monorepo install places the store
-      # at the repo root, so we run a local install in each app directory
-      # using their own lockfiles to create the expected store structure.
-      - name: Install local dependencies (deltecho2)
-        run: pnpm install --frozen-lockfile
+      # writeFlatDependencies.js resolves the pnpm store and lockfile relative
+      # to its own __dirname (deltecho2/node_modules/.pnpm, deltecho2/pnpm-lock.yaml).
+      # The root monorepo install uses a different lockfile and store location,
+      # so we run a local install in each app to create the expected structure.
+      # (Cannot use --frozen-lockfile here as the app lockfiles may lag behind.)
+      - name: Install local dependencies for packaging (deltecho2)
+        run: pnpm install --no-frozen-lockfile
         working-directory: deltecho2
 
-      - name: Install local dependencies (delta-echo-desk)
-        run: pnpm install --frozen-lockfile
+      - name: Install local dependencies for packaging (delta-echo-desk)
+        run: pnpm install --no-frozen-lockfile
         working-directory: delta-echo-desk
 
       # Flatten pnpm symlinked node_modules for electron-builder compatibility.
