@@ -87,7 +87,7 @@ if (!destination) {
   const importer = Lockfile.importers[importerKey]
 
   if (!importer) {
-    console.log('workspace package not found in lockfile:', workspacePackage)
+    console.log('workspace package not found in lockfile:', importerKey)
     process.exit(1)
   }
   //   console.log(importer);
