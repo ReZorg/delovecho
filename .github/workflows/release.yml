@@ -214,7 +214,7 @@ jobs:
       # the correct (non-stale) package versions.
       - name: Patch node_modules for electron-builder (deltecho2)
         run: >-
-          node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+          node ./bin/writeFlatDependencies.js packages/target-electron packages/target-electron/node_modules
           --lockfile "$GITHUB_WORKSPACE/pnpm-lock.yaml"
           --store "$GITHUB_WORKSPACE/node_modules/.pnpm"
           --importer deltecho2/packages/target-electron
