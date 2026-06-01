@@ -209,26 +209,23 @@ jobs:
         run: node ./build/gen-electron-builder-config.js
         working-directory: delta-echo-desk/packages/target-electron
 
-      # writeFlatDependencies.js resolves the pnpm virtual store relative to
-      # its own __dirname (e.g. deltecho2/node_modules/.pnpm). In the monorepo
-      # the store lives at the workspace root, so we symlink it into place.
-      - name: Link pnpm store for electron-builder (deltecho2)
-        run: ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
-        working-directory: deltecho2
-        shell: bash
-
-      - name: Link pnpm store for electron-builder (delta-echo-desk)
-        run: ln -sfn "$GITHUB_WORKSPACE/node_modules/.pnpm" node_modules/.pnpm
-        working-directory: delta-echo-desk
-        shell: bash
-
-      # Flatten pnpm symlinked node_modules for electron-builder compatibility.
+      # Flatten pnpm dependencies for electron-builder.  The root monorepo
+      # lockfile and .pnpm store are passed explicitly so the script resolves
+      # the correct (non-stale) package versions.
       - name: Patch node_modules for electron-builder (deltecho2)
-        run: node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+        run: >-
+          node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+          --lockfile "$GITHUB_WORKSPACE/pnpm-lock.yaml"
+          --store "$GITHUB_WORKSPACE/node_modules/.pnpm"
+          --importer deltecho2/packages/target-electron
         working-directory: deltecho2
 
       - name: Patch node_modules for electron-builder (delta-echo-desk)
-        run: node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+        run: >-
+          node ./bin/writeFlatDependencies.js packages/target-electron node_modules
+          --lockfile "$GITHUB_WORKSPACE/pnpm-lock.yaml"
+          --store "$GITHUB_WORKSPACE/node_modules/.pnpm"
+          --importer delta-echo-desk/packages/target-electron
         working-directory: delta-echo-desk
 
       # Package the apps into distributable installers using electron-builder.
