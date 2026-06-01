@@ -76,10 +76,11 @@ export class PersonaCore {
   };
 
   private storage: MemoryStorage;
+  private loadPromise: Promise<void>;
 
   constructor(storage?: MemoryStorage) {
     this.storage = storage || new InMemoryStorage();
-    void this.loadPersonaState();
+    this.loadPromise = this.loadPersonaState();
   }
 
   /**
@@ -349,6 +350,9 @@ export class PersonaCore {
    * with the entity's defined baseline values.
    */
   public async loadEntity(entity: CognitiveEntityConfig): Promise<void> {
+    // Ensure initial load completes before overwriting state
+    await this.loadPromise;
+
     // Set core identity
     this.personality = entity.personality;
     this.selfPerception = entity.selfPerception;
