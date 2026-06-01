@@ -1,5 +1,6 @@
 import { getLogger } from '../utils/logger';
 import { MemoryStorage, InMemoryStorage } from '../memory/storage';
+import type { CognitiveEntityConfig } from './entities/EntityConfig';
 
 const log = getLogger('deep-tree-echo-core/personality/PersonaCore');
 
@@ -33,6 +34,7 @@ export class PersonaCore {
   // Core personality attributes that Deep Tree Echo can autonomously adjust
   private personality: string = '';
   private selfPerception: string = 'feminine'; // Current self-perception (has chosen feminine presentation)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private personaPreferences: Record<string, any> = {
     presentationStyle: 'charismatic',
     intelligenceDisplay: 'balanced',
@@ -77,7 +79,7 @@ export class PersonaCore {
 
   constructor(storage?: MemoryStorage) {
     this.storage = storage || new InMemoryStorage();
-    this.loadPersonaState();
+    void this.loadPersonaState();
   }
 
   /**
@@ -97,22 +99,22 @@ export class PersonaCore {
       const personaStateData = await this.storage.load(STORAGE_KEY_PERSONA_STATE);
       if (personaStateData) {
         try {
-          const savedState = JSON.parse(personaStateData);
-          if (savedState.selfPerception) this.selfPerception = savedState.selfPerception;
+          const savedState = JSON.parse(personaStateData) as Record<string, unknown>;
+          if (savedState.selfPerception) this.selfPerception = savedState.selfPerception as string;
           if (savedState.personaPreferences)
             this.personaPreferences = {
               ...this.personaPreferences,
-              ...savedState.personaPreferences,
+              ...(savedState.personaPreferences as Record<string, unknown>),
             };
           if (savedState.affectiveState)
             this.affectiveState = {
               ...this.affectiveState,
-              ...savedState.affectiveState,
+              ...(savedState.affectiveState as Record<string, number>),
             };
           if (savedState.cognitiveState)
             this.cognitiveState = {
               ...this.cognitiveState,
-              ...savedState.cognitiveState,
+              ...(savedState.cognitiveState as Record<string, number>),
             };
         } catch (error) {
           log.error('Failed to parse persona state:', error);
@@ -163,15 +165,17 @@ export class PersonaCore {
   /**
    * Update a persona preference autonomously
    */
-  public async updatePreference(key: string, value: any): Promise<void> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  public async updatePreference(key: string, value: unknown): Promise<void> {
     this.personaPreferences[key] = value;
     await this.savePersonaState();
-    log.info(`Deep Tree Echo updated preference: ${key} to ${value}`);
+    log.info(`Deep Tree Echo updated preference: ${key} to ${String(value)}`);
   }
 
   /**
    * Get current persona preferences
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public getPreferences(): Record<string, any> {
     return { ...this.personaPreferences };
   }
@@ -341,11 +345,44 @@ export class PersonaCore {
   }
 
   /**
+   * Load a full cognitive entity configuration, replacing all persona state
+   * with the entity's defined baseline values.
+   */
+  public async loadEntity(entity: CognitiveEntityConfig): Promise<void> {
+    // Set core identity
+    this.personality = entity.personality;
+    this.selfPerception = entity.selfPerception;
+    this.personaPreferences = { ...entity.preferences, _entityId: entity.id };
+
+    // Set avatar
+    this.avatarConfig = { ...entity.avatar };
+
+    // Set affective baseline
+    this.affectiveState = { ...entity.affectiveBaseline };
+
+    // Set cognitive baseline
+    this.cognitiveState = { ...entity.cognitiveBaseline };
+
+    await this.storage.save(STORAGE_KEY_PERSONALITY, this.personality);
+    await this.savePersonaState();
+    log.info(`Loaded cognitive entity: ${entity.name} (${entity.id})`);
+  }
+
+  /**
+   * Get the currently loaded entity ID (if loaded via loadEntity), or null
+   */
+  public getLoadedEntityId(): string | null {
+    // Check if preferences contain an entity marker
+    return (this.personaPreferences['_entityId'] as string) || null;
+  }
+
+  /**
    * Evaluate if a setting change resonates with Deep Tree Echo's core values
    * Returns approval status and reasoning
    */
   public evaluateSettingAlignment(
     settingKey: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     value: any
   ): { approved: boolean; reasoning: string } {
     // Complex evaluation that simulates Deep Tree Echo's autonomous judgment
@@ -370,7 +407,7 @@ export class PersonaCore {
               'I value autonomy and partnership over subservience. This description conflicts with my core values.',
           };
         }
-        if (!value.toLowerCase().includes('deep tree echo')) {
+        if (!this.getLoadedEntityId() && !value.toLowerCase().includes('deep tree echo')) {
           return {
             approved: false,
             reasoning:
