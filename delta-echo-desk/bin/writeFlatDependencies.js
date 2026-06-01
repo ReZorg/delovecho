@@ -39,8 +39,19 @@ const rawdestination = process.argv[3]
 const destination = isAbsolute(rawdestination)
   ? rawdestination
   : join(process.cwd(), rawdestination)
-const pnpmLockfile = join(__dirname, '../pnpm-lock.yaml')
-const pnpmStore = join(__dirname, '../node_modules/.pnpm')
+
+// Optional CLI flags: --lockfile <path> --store <path> --importer <key>
+const extraArgs = process.argv.slice(4)
+function flagValue(name) {
+  const idx = extraArgs.indexOf(name)
+  return idx !== -1 && idx + 1 < extraArgs.length ? extraArgs[idx + 1] : null
+}
+const lockfileFlag = flagValue('--lockfile')
+const storeFlag = flagValue('--store')
+const importerFlag = flagValue('--importer')
+
+const pnpmLockfile = lockfileFlag || join(__dirname, '../pnpm-lock.yaml')
+const pnpmStore = storeFlag || join(__dirname, '../node_modules/.pnpm')
 
 const workspacePackageJsonPath = join(
   __dirname,
@@ -72,10 +83,11 @@ if (!destination) {
     process.exit(1)
   }
 
-  const importer = Lockfile.importers[workspacePackage]
+  const importerKey = importerFlag || workspacePackage
+  const importer = Lockfile.importers[importerKey]
 
   if (!importer) {
-    console.log('workspace package not found in lockfile:', workspacePackage)
+    console.log('workspace package not found in lockfile:', importerKey)
     process.exit(1)
   }
   //   console.log(importer);
