@@ -117,6 +117,11 @@ export class PersonaCore {
               ...this.cognitiveState,
               ...(savedState.cognitiveState as Record<string, number>),
             };
+          if (savedState.avatarConfig)
+            this.avatarConfig = {
+              ...this.avatarConfig,
+              ...(savedState.avatarConfig as Record<string, string>),
+            };
         } catch (error) {
           log.error('Failed to parse persona state:', error);
         }
@@ -138,6 +143,7 @@ export class PersonaCore {
         personaPreferences: this.personaPreferences,
         affectiveState: this.affectiveState,
         cognitiveState: this.cognitiveState,
+        avatarConfig: this.avatarConfig,
       };
 
       await this.storage.save(STORAGE_KEY_PERSONA_STATE, JSON.stringify(personaState));
