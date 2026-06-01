@@ -77,6 +77,7 @@ export class PersonaCore {
 
   private storage: MemoryStorage;
   private loadPromise: Promise<void>;
+  private opponentOverrides: Record<string, string[]> | undefined;
 
   constructor(storage?: MemoryStorage) {
     this.storage = storage || new InMemoryStorage();
@@ -122,6 +123,8 @@ export class PersonaCore {
               ...this.avatarConfig,
               ...(savedState.avatarConfig as Record<string, string>),
             };
+          if (savedState.opponentOverrides)
+            this.opponentOverrides = savedState.opponentOverrides as Record<string, string[]>;
         } catch (error) {
           log.error('Failed to parse persona state:', error);
         }
@@ -144,6 +147,7 @@ export class PersonaCore {
         affectiveState: this.affectiveState,
         cognitiveState: this.cognitiveState,
         avatarConfig: this.avatarConfig,
+        opponentOverrides: this.opponentOverrides,
       };
 
       await this.storage.save(STORAGE_KEY_PERSONA_STATE, JSON.stringify(personaState));
@@ -251,7 +255,10 @@ export class PersonaCore {
 
     // If this emotion is high, slightly reduce its opponents
     if (this.affectiveState[emotion] > 0.6) {
-      const opposingEmotions = opponents[emotion] || [];
+      const merged = this.opponentOverrides
+        ? { ...opponents, ...this.opponentOverrides }
+        : opponents;
+      const opposingEmotions = merged[emotion] || [];
       opposingEmotions.forEach((opposing) => {
         if (this.affectiveState[opposing]) {
           this.affectiveState[opposing] *= 0.95; // Slightly reduce
@@ -372,6 +379,9 @@ export class PersonaCore {
 
     // Set cognitive baseline
     this.cognitiveState = { ...entity.cognitiveBaseline };
+
+    // Set opponent process overrides
+    this.opponentOverrides = entity.opponentProcessOverrides;
 
     await this.storage.save(STORAGE_KEY_PERSONALITY, this.personality);
     await this.savePersonaState();
