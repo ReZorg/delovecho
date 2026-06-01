@@ -375,6 +375,7 @@ jobs:
           --lockfile "$GITHUB_WORKSPACE/pnpm-lock.yaml"
           --store "$GITHUB_WORKSPACE/node_modules/.pnpm"
           --importer deltecho2/packages/target-electron
+        shell: bash
         working-directory: deltecho2
 
       - name: Patch node_modules for electron-builder (delta-echo-desk)
