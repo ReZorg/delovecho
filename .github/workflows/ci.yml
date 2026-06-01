@@ -384,6 +384,7 @@ jobs:
           --lockfile "$GITHUB_WORKSPACE/pnpm-lock.yaml"
           --store "$GITHUB_WORKSPACE/node_modules/.pnpm"
           --importer delta-echo-desk/packages/target-electron
+        shell: bash
         working-directory: delta-echo-desk
 
       # Package the apps into distributable installers using electron-builder.
