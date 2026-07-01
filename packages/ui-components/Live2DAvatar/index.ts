@@ -6,6 +6,12 @@ export { Live2DAvatar } from './Live2DAvatar.js';
 export { EndocrineExpressionBridge } from './EndocrineExpressionBridge.js';
 export { MiaraManifest } from './MiaraManifest.js';
 export { AionManifest } from './AionManifest.js';
+export { AngelicaManifest } from './AngelicaManifest.js';
+export {
+  AngelicaStrategicDriver,
+  ANGELICA_PERSONALITY,
+  ANGELICA_QUANTUM_TRAITS,
+} from './AngelicaStrategicDriver.js';
 export { LorenzChaoticDriver } from './LorenzChaoticDriver.js';
 export {
   NeuroChaoCognitiveDriver,
@@ -39,3 +45,10 @@ export type {
   IntrospectiveState,
   CognitiveState,
 } from './NeuroChaoCognitiveDriver.js';
+
+export type {
+  TogaFluidityState,
+  StrategicCosts,
+  SimpConversionPhase,
+  AngelicaCognitiveState,
+} from './AngelicaStrategicDriver.js';
