@@ -81,3 +81,24 @@ export type {
   AppearanceEvent,
   AvatarRigTarget,
 } from './SuperHotAssessment.js';
+
+export {
+  MetaHumanDNACognitiveBridge,
+  FACS_TO_METAHUMAN,
+  FACS_TO_CUBISM,
+  DEFAULT_LORENZ,
+  ANGELICA_AESTHETICS,
+  ANGELICA_COMPOSITES,
+} from './MetaHumanDNACognitiveBridge.js';
+
+export type {
+  FACSActionUnit,
+  CognitiveExpressionMode,
+  CognitiveInputState,
+  SuperHotAesthetics,
+  LorenzParams,
+  CompositeExpression,
+  ExpressionState,
+  NarrativeExpressionSummary,
+  BridgeConfig,
+} from './MetaHumanDNACognitiveBridge.js';
