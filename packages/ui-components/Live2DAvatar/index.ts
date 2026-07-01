@@ -52,3 +52,32 @@ export type {
   SimpConversionPhase,
   AngelicaCognitiveState,
 } from './AngelicaStrategicDriver.js';
+
+export {
+  AngelicaDiary,
+  ANGELICA_MEMORY_SEEDS,
+} from './AngelicaDiary.js';
+
+export type {
+  DiaryEntry,
+  DiaryLesson,
+  DiaryConfig,
+  ExperienceCategory,
+  ExperienceContext,
+  LessonDomain,
+} from './AngelicaDiary.js';
+
+export {
+  SuperHotAssessment,
+  DIMENSION_WEIGHTS,
+  ANGELICA_RIG_TARGET,
+} from './SuperHotAssessment.js';
+
+export type {
+  SuperHotDimensions,
+  DimensionScore,
+  ConvergenceReport,
+  SocialOutcome,
+  AppearanceEvent,
+  AvatarRigTarget,
+} from './SuperHotAssessment.js';
