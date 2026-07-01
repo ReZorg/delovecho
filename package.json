@@ -33,6 +33,10 @@
     "test:glyph": "pnpm --filter @deltecho/gesture-glyph test",
     "dev:desktop": "pnpm --filter deltecho2 dev",
     "dev:electron": "pnpm --filter deltecho2 dev:electron",
+    "dev:nakama": "pnpm --filter dtecho-nakama-airi dev",
+    "build:nakama": "pnpm --filter dtecho-nakama-airi build",
+    "test:nakama": "pnpm --filter dtecho-nakama-airi test",
+    "check:nakama": "pnpm --filter dtecho-nakama-airi check",
     "start:orchestrator": "pnpm --filter deep-tree-echo-orchestrator start",
     "docs": "typedoc --out docs/api --entryPointStrategy packages deep-tree-echo-core dove9 packages/cognitive packages/shared packages/reasoning",
     "prepare": "husky"
@@ -45,7 +49,8 @@
       "braces": ">=3.0.3",
       "tar": ">=6.2.1",
       "semver": ">=7.5.4",
-      "tough-cookie": ">=4.1.3"
+      "tough-cookie": ">=4.1.3",
+      "tailwindcss>nanoid": "3.3.7"
     },
     "supportedArchitectures": {
       "os": [
