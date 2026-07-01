@@ -14,6 +14,7 @@ packages:
   - delta-echo-desk/packages/*
   - deltecho2
   - deltecho2/packages/*
+  - dtecho-nakama-airi
 
 catalog:
   '@deltachat/jsonrpc-client': 1.159.4
