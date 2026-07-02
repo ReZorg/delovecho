@@ -399,7 +399,7 @@ jobs:
       # Package the apps into distributable installers using electron-builder.
       # CSC_IDENTITY_AUTO_DISCOVERY=false disables macOS code-signing lookups.
       - name: Package desktop app (deltecho2)
-        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }} --publish never
         working-directory: deltecho2/packages/target-electron
         continue-on-error: ${{ matrix.allow_failure }}
         env:
@@ -407,7 +407,7 @@ jobs:
           CSC_IDENTITY_AUTO_DISCOVERY: false
 
       - name: Package desktop app (delta-echo-desk)
-        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }}
+        run: pnpm exec electron-builder --config ./electron-builder.json5 ${{ matrix.eb_platform }} ${{ matrix.eb_targets }} --${{ matrix.arch }} --publish never
         working-directory: delta-echo-desk/packages/target-electron
         continue-on-error: ${{ matrix.allow_failure }}
         env:
